@@ -8,7 +8,7 @@ public class PlayerLook : Ability
     [SerializeField]
     private float lookSensitivity = 0.3f;
     [SerializeField]
-    private Camera controlledCamera;
+    protected Camera controlledCamera;
 
     public override void AbilityUpdate()
     {
