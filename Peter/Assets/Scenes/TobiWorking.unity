@@ -289,29 +289,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 598691188, guid: e830eda00acf8ff48b9260813c2f5be8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3445942acb1a1374a9cacf2b6777c11e, type: 2}
-    - target: {fileID: 1991005393, guid: e830eda00acf8ff48b9260813c2f5be8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3445942acb1a1374a9cacf2b6777c11e, type: 2}
-    - target: {fileID: 1385105764986512861, guid: e830eda00acf8ff48b9260813c2f5be8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3445942acb1a1374a9cacf2b6777c11e, type: 2}
     - target: {fileID: 2732625394655535289, guid: e830eda00acf8ff48b9260813c2f5be8,
         type: 3}
       propertyPath: m_Name
       value: CommonGeometry
       objectReference: {fileID: 0}
-    - target: {fileID: 7751826576996136694, guid: e830eda00acf8ff48b9260813c2f5be8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3445942acb1a1374a9cacf2b6777c11e, type: 2}
     - target: {fileID: 8892992753392349164, guid: e830eda00acf8ff48b9260813c2f5be8,
         type: 3}
       propertyPath: m_LocalPosition.x
