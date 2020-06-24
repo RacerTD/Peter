@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerSwitchDimension : Ability
 {
+    [Header("Custom Ability Features")]
+    [SerializeField]
+    protected Vector3 DimensionOffset = Vector3.zero;
     private bool dimensionSwitched = false;
     private bool dimOne = true;
 
@@ -14,11 +17,11 @@ public class PlayerSwitchDimension : Ability
         {
             if (dimOne)
             {
-                transform.position += Vector3.up * 100f;
+                transform.position += DimensionOffset;
             }
             else
             {
-                transform.position += Vector3.up * -100f;
+                transform.position -= DimensionOffset;
             }
 
             dimensionSwitched = true;

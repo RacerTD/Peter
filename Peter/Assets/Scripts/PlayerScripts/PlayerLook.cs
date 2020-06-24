@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerLook : Ability
 {
+    [Header("Custom Ability Features")]
     [SerializeField]
     private float lookSensitivity = 0.3f;
     [SerializeField]

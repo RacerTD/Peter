@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Ability : MonoBehaviour
 {
+    [Header("Basic Ability Features")]
     public float AbilityDuration = 0f;
     private float abilityDurationTime = 0f;
     public bool AbilityActive = false;

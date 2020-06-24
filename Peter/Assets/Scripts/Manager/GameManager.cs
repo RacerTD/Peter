@@ -9,7 +9,7 @@ public class GameManager : ManagerModule<GameManager>
     private GameState currentGameState;
     public GameState CurrentGameState
     {
-        get { return currentGameState; }
+        get => currentGameState;
         set
         {
             currentGameState = value;
@@ -22,14 +22,25 @@ public class GameManager : ManagerModule<GameManager>
         switch (value)
         {
             case GameState.Playing:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 break;
             case GameState.Paused:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
             case GameState.CutScene:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    public void Start()
+    {
+        CurrentGameState = GameState.Playing;
     }
 
     public void Update()

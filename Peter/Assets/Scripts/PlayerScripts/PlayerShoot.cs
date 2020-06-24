@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : Ability
 {
+    [Header("Custom Ability Features")]
     public Weapon Gun;
     private float timeSinceLastShot = 0f;
 
@@ -12,25 +13,21 @@ public class PlayerShoot : Ability
     {
         if (currentInputAction.started || currentInputAction.performed)
         {
-            if (timeSinceLastShot >= Gun.TimeBetweenShots)
+            if (timeSinceLastShot > Gun.TimeBetweenShots)
             {
                 Shoot();
-                timeSinceLastShot -= Gun.TimeBetweenShots;
+                timeSinceLastShot = 0;
             }
-
-            timeSinceLastShot += Time.deltaTime;
         }
 
-        if (currentInputAction.canceled)
-        {
-            timeSinceLastShot = 0f;
-        }
+        timeSinceLastShot += Time.deltaTime;
 
         base.AbilityUpdate();
     }
 
     public void Shoot()
     {
-        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Quaternion.identity).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, Gun.ShootPoint.forward);
+        Debug.Log($"{currentInputAction.started}  {currentInputAction.performed}");
+        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, Gun.ShootPoint.forward);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : Ability
 {
+    [Header("Custom Ability Features")]
     [SerializeField] protected float moveSpeed = 2f;
 
     public override void AbilityUpdate()

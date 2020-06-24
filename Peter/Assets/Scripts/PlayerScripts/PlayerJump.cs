@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerJump : Ability
 {
+    [Header("Custom Ability Features")]
     [SerializeField]
     private float jumpForce = 10f;
 
