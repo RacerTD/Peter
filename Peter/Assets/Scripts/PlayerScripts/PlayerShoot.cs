@@ -27,7 +27,6 @@ public class PlayerShoot : Ability
 
     public void Shoot()
     {
-        Debug.Log($"{currentInputAction.started}  {currentInputAction.performed}");
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, Gun.ShootPoint.forward);
     }
 }

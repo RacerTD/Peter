@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2e30dbcdf1df74cbf265aa63dc1205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletBullet: {fileID: 6538933527854378432, guid: f86612ab7e7a08b4ea7ada747fe4aac0,
+  BulletBullet: {fileID: 1455644674026829814, guid: b21d510681f21274b90e90ba390afe23,
     type: 3}
-  BulletSpeed: 1
+  BulletSpeed: 10
   BulletDamage: 1
   TimeBetweenShots: 1
   ShootPoint: {fileID: 4314862810926117597}
