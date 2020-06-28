@@ -126,7 +126,7 @@ MonoBehaviour:
   BulletBullet: {fileID: 2134174132753508775, guid: fee6c58923354254d9f355479e3d6947,
     type: 3}
   BulletSpeed: 100
-  BulletDamage: 1
-  TimeBetweenShots: 0.1
+  BulletDamage: 3
+  TimeBetweenShots: 0.2
   ShootPoint: {fileID: 4314862810926117597}
   WeaponType: 1
