@@ -10,4 +10,11 @@ public class Weapon : MonoBehaviour
     public float BulletDamage = 1f;
     public float TimeBetweenShots = 1f;
     public Transform ShootPoint;
+    public GunType WeaponType = GunType.Primary;
+}
+
+public enum GunType
+{
+    Primary,
+    Secondary
 }

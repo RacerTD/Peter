@@ -22,6 +22,8 @@ public class PlayerLook : Ability
             transform.eulerAngles += new Vector3(0f, currentInputAction.ReadValue<Vector2>().x * lookSensitivity, 0f);
         }
 
+        Debug.DrawRay(controlledCamera.transform.position, controlledCamera.transform.forward, Color.red);
+
         base.AbilityUpdate();
     }
 }

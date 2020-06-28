@@ -7,20 +7,21 @@ public class PlayerShoot : Ability
 {
     [Header("Custom Ability Features")]
     public Weapon Gun;
-    private float timeSinceLastShot = 0f;
+    public Transform GunPoint;
+    public float TimeSinceLastShot = 0f;
 
     public override void AbilityUpdate()
     {
         if (currentInputAction.started || currentInputAction.performed)
         {
-            if (timeSinceLastShot > Gun.TimeBetweenShots)
+            if (TimeSinceLastShot > Gun.TimeBetweenShots)
             {
                 Shoot();
-                timeSinceLastShot = 0;
+                TimeSinceLastShot = 0;
             }
         }
 
-        timeSinceLastShot += Time.deltaTime;
+        TimeSinceLastShot += Time.deltaTime;
 
         base.AbilityUpdate();
     }
