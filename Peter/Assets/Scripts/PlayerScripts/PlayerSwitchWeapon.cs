@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerShoot))]
 public class PlayerSwitchWeapon : Ability
 {
+    [Header("Custom Ability Features")]
     private PlayerShoot playerShoot;
     public Weapon[] PlayerWeapons = new Weapon[2];
     public bool UseWeaponOne = true;
@@ -15,7 +17,7 @@ public class PlayerSwitchWeapon : Ability
         playerShoot.Gun = Instantiate(PlayerWeapons[UseWeaponOne ? 1 : 0], playerShoot.GunPoint.position, playerShoot.GunPoint.rotation, playerShoot.GunPoint);
     }
 
-    public override void AbilityStart(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    public override void AbilityStart(InputAction.CallbackContext context)
     {
         if (currentInputAction.started)
         {

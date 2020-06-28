@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class StandardBullet : Bullet
+public class WallBouncingBullet : Bullet
 {
     [SerializeField]
     protected VisualEffect onDeathEffect;
 
     public override void OnWallHit(RaycastHit hit)
     {
+        moveDirection = Vector3.Reflect(moveDirection, hit.normal);
+        transform.position = hit.point;
         base.OnWallHit(hit);
-        OnDeath(hit.point);
     }
 
     public override void OnEnemyHit(Damagable thing)
@@ -22,7 +23,7 @@ public class StandardBullet : Bullet
 
     protected override void OnDeath(Vector3 pos)
     {
-        Instantiate(onDeathEffect, pos, Quaternion.identity);
+        Instantiate(onDeathEffect, transform.position, Quaternion.identity);
         base.OnDeath(pos);
     }
 }

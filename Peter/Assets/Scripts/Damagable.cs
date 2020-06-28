@@ -12,15 +12,32 @@ public class Damagable : MonoBehaviour
         {
             health = value;
             UpdateHealth();
+            CheckIfDead();
         }
     }
 
-    private void UpdateHealth()
+    [SerializeField]
+    protected float maxHealth = 10f;
+
+    public void Start()
+    {
+        Health = maxHealth;
+    }
+
+    private void CheckIfDead()
+    {
+        if (Health <= 0)
+        {
+            OnDeath();
+        }
+    }
+
+    protected virtual void UpdateHealth()
     {
 
     }
 
-    public void DoDamage(float damage)
+    public virtual void DoDamage(float damage)
     {
         Health -= damage;
     }
@@ -28,5 +45,10 @@ public class Damagable : MonoBehaviour
     public void Heal()
     {
 
+    }
+
+    protected virtual void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }
