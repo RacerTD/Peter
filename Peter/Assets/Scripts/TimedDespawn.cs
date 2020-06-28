@@ -7,6 +7,11 @@ public class TimedDespawn : MonoBehaviour
     [SerializeField]
     protected float timeTillDespawn = 10f;
 
+    public void SetUpTimedDespawn(float time)
+    {
+        timeTillDespawn = time;
+    }
+
     public void Update()
     {
         timeTillDespawn -= Time.deltaTime;

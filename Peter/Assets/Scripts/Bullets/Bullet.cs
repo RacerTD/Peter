@@ -116,6 +116,9 @@ public class Bullet : MonoBehaviour
         RemainingHits--;
     }
 
+    /// <summary>
+    /// Checks if the bullet is dead
+    /// </summary>
     private void CheckIfDead()
     {
         if (canHitMultiple && RemainingHits < 0)
