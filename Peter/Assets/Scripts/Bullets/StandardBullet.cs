@@ -11,7 +11,6 @@ public class StandardBullet : Bullet
     public override void OnWallHit(RaycastHit hit)
     {
         base.OnWallHit(hit);
-        OnDeath(hit.point);
     }
 
     public override void OnEnemyHit(Damagable thing)

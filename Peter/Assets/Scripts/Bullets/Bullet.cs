@@ -72,15 +72,19 @@ public class Bullet : MonoBehaviour
             {
                 OnEnemyHit(hit.collider.GetComponent<Damagable>());
             }
-
-            if (hit.collider.GetComponentInParent<Damagable>() != null)
+            else if (hit.collider.GetComponentInParent<Damagable>() != null)
             {
                 OnEnemyHit(hit.collider.GetComponentInParent<Damagable>());
             }
-
-            if (hit.collider)
+            else if (hit.collider)
             {
                 OnWallHit(hit);
+            }
+
+            if (!canHitMultiple)
+            {
+                OnDeath(hit.point);
+                break;
             }
         }
 
