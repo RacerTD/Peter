@@ -462,6 +462,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b47a6699fa3bf343929f06a35805237, type: 3}
+--- !u!1 &992647237
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992647239}
+  - component: {fileID: 992647238}
+  m_Layer: 0
+  m_Name: StaticLightingSky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &992647238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992647237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 0}
+  m_StaticLightingSkyUniqueID: 0
+  m_SkySettings: {fileID: 0}
+  m_SkySettingsFromProfile: {fileID: 0}
+--- !u!4 &992647239
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992647237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &328443657580675695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,6 +659,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo
       objectReference: {fileID: 0}
+    - target: {fileID: 7240358429040549402, guid: d1383b232edbe404fb8e3c075eadc869,
+        type: 3}
+      propertyPath: Amount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240358429040549402, guid: d1383b232edbe404fb8e3c075eadc869,
+        type: 3}
+      propertyPath: rotationVector.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240358429040549402, guid: d1383b232edbe404fb8e3c075eadc869,
+        type: 3}
+      propertyPath: rotationVector.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7240358429040549406, guid: d1383b232edbe404fb8e3c075eadc869,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 7240358429040549406, guid: d1383b232edbe404fb8e3c075eadc869,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 7240358429040549406, guid: d1383b232edbe404fb8e3c075eadc869,
         type: 3}
