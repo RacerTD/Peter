@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerShoot))]
 public class PlayerSwitchDimension : Ability
 {
     [Header("Custom Ability Features")]
@@ -10,6 +11,12 @@ public class PlayerSwitchDimension : Ability
     protected Vector3 DimensionOffset = Vector3.zero;
     private bool dimensionSwitched = false;
     public bool DimA = true;
+    private PlayerShoot playerShoot;
+
+    public void Start()
+    {
+        playerShoot = GetComponent<PlayerShoot>();
+    }
 
     public override void AbilityUpdate()
     {
@@ -26,6 +33,7 @@ public class PlayerSwitchDimension : Ability
 
             dimensionSwitched = true;
             DimA = !DimA;
+            playerShoot.UpdateAmmoDisplay();
         }
 
         base.AbilityUpdate();

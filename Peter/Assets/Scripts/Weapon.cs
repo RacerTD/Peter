@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,8 +15,36 @@ public class Weapon : MonoBehaviour
     public float TimeBetweenShots = 1f;
     public Transform ShootPoint;
     public GunType WeaponType = GunType.Primary;
+
+    public TextMeshProUGUI CurrentAmmoText;
+    public TextMeshProUGUI LeftOverAmmoText;
+
     public int MaxGunAmmo = 20;
-    public int CurrentGunAmmo = 0;
+
+    #region AmmoA
+    private int currentGunAmmoA = 0;
+    public int CurrentGunAmmoA
+    {
+        get => currentGunAmmoA;
+        set
+        {
+            currentGunAmmoA = value;
+        }
+    }
+
+    #endregion
+
+    #region AmmoB
+    private int currentGunAmmoB = 0;
+    public int CurrentGunAmmoB
+    {
+        get => currentGunAmmoB;
+        set
+        {
+            currentGunAmmoB = value;
+        }
+    }
+    #endregion
 }
 
 public enum GunType

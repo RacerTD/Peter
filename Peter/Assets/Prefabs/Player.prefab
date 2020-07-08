@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 8798636231972256807}
   - component: {fileID: 1416799092}
   - component: {fileID: 1674577478}
+  - component: {fileID: 1559257440}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -763,6 +764,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6569123c-93e6-4d86-8974-1d156e11b1e1
     m_ActionName: Player/SwtichWeapon[/Keyboard/1,/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1559257440}
+        m_MethodName: AbilityStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6dc87212-d873-4463-a281-0292fbaf2542
+    m_ActionName: Player/Reload[/Keyboard/r,/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -832,6 +848,7 @@ MonoBehaviour:
   CoolDownDuration: 10
   CoolDownActive: 0
   DimensionOffset: {x: 100, y: 0, z: 0}
+  DimA: 1
 --- !u!114 &8798636231972256807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,8 +885,6 @@ MonoBehaviour:
   Gun: {fileID: 0}
   GunPoint: {fileID: 7371765959588580310}
   TimeSinceLastShot: 0
-  DimAAmmo: 10
-  DimBAmmo: 10
 --- !u!114 &1674577478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,3 +905,19 @@ MonoBehaviour:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
   UseWeaponOne: 1
+--- !u!114 &1559257440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798636231972256816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42291223e98fbe148987773cd225620e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityDuration: 0
+  AbilityActive: 0
+  CoolDownDuration: 2
+  CoolDownActive: 0

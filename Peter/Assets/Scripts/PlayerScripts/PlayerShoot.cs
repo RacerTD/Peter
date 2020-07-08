@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 [RequireComponent(typeof(PlayerSwitchDimension))]
 public class PlayerShoot : Ability
@@ -12,29 +13,56 @@ public class PlayerShoot : Ability
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
 
-    private int dimAAmmo = 10;
+    #region DimAAmmo
+    private int dimAAmmo = 20;
     public int DimAAmmo
     {
         get => dimAAmmo;
         set
         {
             dimAAmmo = value;
+            UpdateAmmoDisplay(dimAAmmo, Gun.CurrentGunAmmoA);
         }
     }
+    #endregion
 
-    private int dimBAmmo = 10;
+    #region DimBAmmo
+    private int dimBAmmo = 20;
     public int DimBAmmo
     {
         get => dimBAmmo;
         set
         {
             dimBAmmo = value;
+            UpdateAmmoDisplay(dimBAmmo, Gun.CurrentGunAmmoB);
         }
+    }
+    #endregion
+
+    public void UpdateAmmoDisplay()
+    {
+        if (playerSwitchDimension.DimA)
+        {
+            Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
+            Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
+        }
+        else if (!playerSwitchDimension.DimA)
+        {
+            Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
+            Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
+        }
+    }
+
+    public void UpdateAmmoDisplay(int current, int left)
+    {
+        Gun.CurrentAmmoText.text = current.ToString();
+        Gun.LeftOverAmmoText.text = left.ToString();
     }
 
     public void Start()
     {
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
+        UpdateAmmoDisplay();
     }
 
     public override void AbilityUpdate()
@@ -43,14 +71,6 @@ public class PlayerShoot : Ability
         {
             if (TimeSinceLastShot > Gun.TimeBetweenShots)
             {
-                if (playerSwitchDimension.DimA && DimAAmmo > 0)
-                {
-
-                }
-                else
-                {
-
-                }
                 Shoot();
                 TimeSinceLastShot = 0;
             }
@@ -65,6 +85,21 @@ public class PlayerShoot : Ability
     {
         RaycastHit hit;
 
+        if (playerSwitchDimension.DimA && Gun.CurrentGunAmmoA > 0)
+        {
+            Gun.CurrentGunAmmoA--;
+            UpdateAmmoDisplay(Gun.CurrentGunAmmoA, DimAAmmo);
+        }
+        else if (!playerSwitchDimension.DimA && Gun.CurrentGunAmmoB > 0)
+        {
+            Gun.CurrentGunAmmoB--;
+            UpdateAmmoDisplay(Gun.CurrentGunAmmoB, DimBAmmo);
+        }
+        else
+        {
+            return;
+        }
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f))
         {
             Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, (hit.point - Gun.ShootPoint.position).normalized, Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
@@ -72,15 +107,6 @@ public class PlayerShoot : Ability
         else
         {
             Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, Gun.ShootPoint.forward, Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
-        }
-
-        if (playerSwitchDimension.DimA)
-        {
-            DimAAmmo--;
-        }
-        else
-        {
-            DimBAmmo--;
         }
     }
 }

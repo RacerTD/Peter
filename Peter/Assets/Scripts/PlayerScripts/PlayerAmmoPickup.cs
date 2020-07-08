@@ -26,6 +26,7 @@ public class PlayerAmmoPickup : MonoBehaviour
                     break;
             }
             Destroy(other.gameObject);
+            playerShoot.UpdateAmmoDisplay();
         }
     }
 }

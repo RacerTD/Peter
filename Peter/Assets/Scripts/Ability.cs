@@ -9,9 +9,11 @@ public class Ability : MonoBehaviour
     [Header("Basic Ability Features")]
     public float AbilityDuration = 0f;
     private float abilityDurationTime = 0f;
+    [HideInInspector]
     public bool AbilityActive = false;
     public float CoolDownDuration = 0f;
     private float coolDownDurationTime = 0f;
+    [HideInInspector]
     public bool CoolDownActive = false;
 
     protected InputAction.CallbackContext currentInputAction;
