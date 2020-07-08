@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ceiling Lamp Light
+  m_Name: Weapon Glow Orange
   m_Shader: {fileID: -6465566751694194690, guid: ecdfae5da9edc1f4b942f2484ff40471,
     type: 3}
   m_ShaderKeywords: 
@@ -59,7 +59,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_230A0393: {r: 5.239216, g: 4.8, b: 8, a: 0}
+    - Color_230A0393: {r: 5.3403144, g: 0.32262376, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3133383750447420336
