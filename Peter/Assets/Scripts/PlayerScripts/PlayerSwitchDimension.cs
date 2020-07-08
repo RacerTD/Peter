@@ -9,13 +9,13 @@ public class PlayerSwitchDimension : Ability
     [SerializeField]
     protected Vector3 DimensionOffset = Vector3.zero;
     private bool dimensionSwitched = false;
-    private bool dimOne = true;
+    public bool DimA = true;
 
     public override void AbilityUpdate()
     {
         if (!dimensionSwitched)
         {
-            if (dimOne)
+            if (DimA)
             {
                 transform.position += DimensionOffset;
             }
@@ -25,7 +25,7 @@ public class PlayerSwitchDimension : Ability
             }
 
             dimensionSwitched = true;
-            dimOne = !dimOne;
+            DimA = !DimA;
         }
 
         base.AbilityUpdate();

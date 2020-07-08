@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     protected bool canHitMultiple = false;
     [SerializeField]
     protected int remainingHits = 5;
-    public int RemainingHits
+    protected int RemainingHits
     {
         get { return remainingHits; }
         set
@@ -23,33 +23,7 @@ public class Bullet : MonoBehaviour
             CheckIfDead();
         }
     }
-    [SerializeField]
     protected float lifeTime = 20f;
-
-    public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection)
-    {
-        this.speed = speed;
-        this.damage = damage;
-        this.moveDirection = moveDirection;
-    }
-
-    public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float lifeTime, int remainingHits)
-    {
-        this.speed = speed;
-        this.damage = damage;
-        this.moveDirection = moveDirection;
-        this.lifeTime = lifeTime;
-        this.RemainingHits = remainingHits;
-    }
-
-    public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float gravityFactor)
-    {
-        this.speed = speed;
-        this.damage = damage;
-        this.moveDirection = moveDirection;
-        this.GravityFactor = gravityFactor;
-        this.HasGravity = true;
-    }
 
     public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float gravityFactor, float lifeTime, int remainingHits)
     {
@@ -59,7 +33,6 @@ public class Bullet : MonoBehaviour
         this.GravityFactor = gravityFactor;
         this.lifeTime = lifeTime;
         this.RemainingHits = remainingHits;
-        this.HasGravity = true;
     }
 
     private void FixedUpdate()
@@ -88,14 +61,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (HasGravity)
-        {
-            transform.position += moveDirection.normalized * speed * Time.fixedDeltaTime;
-        }
-        else
-        {
-            transform.position += moveDirection.normalized * speed * Time.fixedDeltaTime;
-        }
+        transform.position += moveDirection.normalized * speed * Time.fixedDeltaTime;
 
         lifeTime -= Time.fixedDeltaTime;
         if (lifeTime <= 0)
