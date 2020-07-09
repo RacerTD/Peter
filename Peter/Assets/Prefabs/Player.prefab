@@ -7633,7 +7633,9 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  MoveSpeed: 4
+  MoveSpeed: 2
+  SprintSpeed: 4
+  SneakSpeed: 1
 --- !u!114 &8798636231972256809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7758,5 +7760,3 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  SprintSpeed: 6
-  toggleSprint: 0
