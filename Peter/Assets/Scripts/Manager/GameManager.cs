@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameManager : ManagerModule<GameManager>
 {
     public Player CurrentPlayer;
+
+    #region GameState
+
     private GameState currentGameState;
     public GameState CurrentGameState
     {
@@ -37,6 +40,8 @@ public class GameManager : ManagerModule<GameManager>
                 throw new ArgumentOutOfRangeException();
         }
     }
+
+    #endregion
 
     public void Start()
     {

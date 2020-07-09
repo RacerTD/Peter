@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 1416799092}
   - component: {fileID: 1674577478}
   - component: {fileID: 1559257440}
+  - component: {fileID: 1260981889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -779,6 +780,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6dc87212-d873-4463-a281-0292fbaf2542
     m_ActionName: Player/Reload[/Keyboard/r,/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1260981889}
+        m_MethodName: AbilityStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aa1a3640-9531-46d8-bfa1-d5c81fdfcd5d
+    m_ActionName: Player/Sprint[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -812,7 +828,7 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  moveSpeed: 4
+  MoveSpeed: 2
 --- !u!114 &8798636231972256809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,12 +915,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityDuration: 0
   AbilityActive: 0
-  CoolDownDuration: 1
+  CoolDownDuration: 0.1
   CoolDownActive: 0
   PlayerWeapons:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
-  UseWeaponOne: 1
+  UseWeaponOne: 0
 --- !u!114 &1559257440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,3 +937,21 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 2
   CoolDownActive: 0
+--- !u!114 &1260981889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8798636231972256816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b70ad4217b0d44d84b9fd41e29f865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityDuration: 0
+  AbilityActive: 0
+  CoolDownDuration: 0
+  CoolDownActive: 0
+  SprintSpeed: 4
+  toggleSprint: 0

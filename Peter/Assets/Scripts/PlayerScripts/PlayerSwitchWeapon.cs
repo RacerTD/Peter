@@ -11,6 +11,8 @@ public class PlayerSwitchWeapon : Ability
     public Weapon[] PlayerWeapons = new Weapon[2];
     public bool UseWeaponOne = true;
 
+    private WeaponData[] weaponData = new WeaponData[2];
+
     public void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
@@ -21,11 +23,16 @@ public class PlayerSwitchWeapon : Ability
     {
         if (currentInputAction.started)
         {
+            weaponData[UseWeaponOne ? 0 : 1].currentAAmmo = playerShoot.Gun.CurrentGunAmmoA;
+            weaponData[UseWeaponOne ? 0 : 1].currentBAmmo = playerShoot.Gun.CurrentGunAmmoB;
             Destroy(playerShoot.Gun.gameObject);
             GameObject temp = Instantiate(PlayerWeapons[UseWeaponOne ? 1 : 0], playerShoot.GunPoint.position, playerShoot.GunPoint.rotation, playerShoot.GunPoint).gameObject;
             playerShoot.Gun = temp.GetComponent<Weapon>();
+            playerShoot.Gun.CurrentGunAmmoA = weaponData[UseWeaponOne ? 1 : 0].currentAAmmo;
+            playerShoot.Gun.CurrentGunAmmoB = weaponData[UseWeaponOne ? 1 : 0].currentBAmmo;
             playerShoot.TimeSinceLastShot = 0;
             UseWeaponOne = !UseWeaponOne;
+            playerShoot.UpdateAmmoDisplay();
         }
         base.AbilityStart(context);
     }
@@ -33,5 +40,11 @@ public class PlayerSwitchWeapon : Ability
     public override void AbilityUpdate()
     {
         base.AbilityUpdate();
+    }
+
+    private struct WeaponData
+    {
+        public int currentAAmmo;
+        public int currentBAmmo;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpecialAbility : Ability
 {
+    [Header("Custom Ability Features")]
     public SpecialAbility CurrentSpecialAbility;
 
     public override void AbilityStart(InputAction.CallbackContext context)

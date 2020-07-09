@@ -41,6 +41,12 @@ public class PlayerShoot : Ability
 
     public void UpdateAmmoDisplay()
     {
+        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
+        {
+            Debug.LogWarning("Weapon UI not implemented");
+            return;
+        }
+
         if (playerSwitchDimension.DimA)
         {
             Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
@@ -55,6 +61,12 @@ public class PlayerShoot : Ability
 
     public void UpdateAmmoDisplay(int current, int left)
     {
+        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
+        {
+            Debug.LogWarning($"Weapon UI not implemented: {Gun.name}");
+            return;
+        }
+
         Gun.CurrentAmmoText.text = current.ToString();
         Gun.LeftOverAmmoText.text = left.ToString();
     }

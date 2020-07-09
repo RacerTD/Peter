@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerSpecialAbility))]
 public class PlayerPickup : Ability
 {
+    [Header("Custom Ability Features")]
     private PlayerSwitchWeapon switchWeapon;
     private PlayerSpecialAbility specialAbility;
 

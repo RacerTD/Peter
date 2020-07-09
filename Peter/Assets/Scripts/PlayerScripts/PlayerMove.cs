@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerMove : Ability
 {
     [Header("Custom Ability Features")]
-    [SerializeField] protected float moveSpeed = 2f;
+    public float MoveSpeed = 2f;
 
     public override void AbilityUpdate()
     {
         if (currentInputAction.started || currentInputAction.performed)
         {
-            transform.Translate(Vector3.RotateTowards(transform.position, new Vector3(currentInputAction.ReadValue<Vector2>().x * Time.deltaTime * moveSpeed, 0, currentInputAction.ReadValue<Vector2>().y * Time.deltaTime * moveSpeed), float.MaxValue, float.MaxValue));
+            transform.Translate(Vector3.RotateTowards(transform.position, new Vector3(currentInputAction.ReadValue<Vector2>().x * Time.deltaTime * MoveSpeed, 0, currentInputAction.ReadValue<Vector2>().y * Time.deltaTime * MoveSpeed), float.MaxValue, float.MaxValue));
         }
 
         base.AbilityUpdate();
