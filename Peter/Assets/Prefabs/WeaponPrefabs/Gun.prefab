@@ -134,8 +134,9 @@ MonoBehaviour:
   TimeBetweenShots: 0.1
   ShootPoint: {fileID: 4314862810926117597}
   WeaponType: 0
+  CurrentAmmoText: {fileID: 0}
+  LeftOverAmmoText: {fileID: 0}
   MaxGunAmmo: 20
-  CurrentGunAmmo: 0
 --- !u!1001 &838735993344308846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,17 +147,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.81
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
@@ -191,7 +192,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -90.00001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
@@ -201,17 +202,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 493257aef8f82c34da08d6ebfa3968bd,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 493257aef8f82c34da08d6ebfa3968bd,
         type: 3}
