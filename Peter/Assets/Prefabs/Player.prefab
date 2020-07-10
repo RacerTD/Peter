@@ -7311,7 +7311,6 @@ GameObject:
   - component: {fileID: 1416799092}
   - component: {fileID: 1674577478}
   - component: {fileID: 1559257440}
-  - component: {fileID: 1260981889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7587,8 +7586,8 @@ MonoBehaviour:
     m_ActionName: Player/Reload[/Keyboard/r,/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1260981889}
-        m_MethodName: AbilityStart
+      - m_Target: {fileID: 8798636231972256813}
+        m_MethodName: ToggleSprint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7600,6 +7599,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: aa1a3640-9531-46d8-bfa1-d5c81fdfcd5d
     m_ActionName: Player/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8798636231972256813}
+        m_MethodName: ToggleSneak
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ccff8c62-9ed3-4279-aacf-76eacc4c70a2
+    m_ActionName: Player/Sneak[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -7633,9 +7647,11 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  MoveSpeed: 2
-  SprintSpeed: 4
-  SneakSpeed: 1
+  MoveSpeed: 4
+  SprintSpeed: 6
+  sprintIsToggle: 0
+  SneakSpeed: 1.5
+  sneakIsToggle: 0
 --- !u!114 &8798636231972256809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7652,7 +7668,7 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  lookSensitivity: 0.1
+  lookSensitivity: 0.05
   controlledCamera: {fileID: 8798636231768784205}
 --- !u!114 &8798636231972256806
 MonoBehaviour:
@@ -7708,6 +7724,8 @@ MonoBehaviour:
   Gun: {fileID: 0}
   GunPoint: {fileID: 7371765959588580310}
   TimeSinceLastShot: 0
+  dimAAmmo: 20
+  dimBAmmo: 20
 --- !u!114 &1674577478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7743,20 +7761,4 @@ MonoBehaviour:
   AbilityDuration: 0
   AbilityActive: 0
   CoolDownDuration: 2
-  CoolDownActive: 0
---- !u!114 &1260981889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798636231972256816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b70ad4217b0d44d84b9fd41e29f865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityDuration: 0
-  AbilityActive: 0
-  CoolDownDuration: 0
   CoolDownActive: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : ManagerModule<GameManager>
 {
@@ -46,6 +47,7 @@ public class GameManager : ManagerModule<GameManager>
     public void Start()
     {
         CurrentGameState = GameState.Playing;
+        InputSystem.pollingFrequency = 240f;
     }
 
     public void Update()

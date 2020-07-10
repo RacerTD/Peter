@@ -14,6 +14,7 @@ public class PlayerShoot : Ability
     private PlayerSwitchDimension playerSwitchDimension;
 
     #region DimAAmmo
+    [SerializeField]
     private int dimAAmmo = 20;
     public int DimAAmmo
     {
@@ -27,6 +28,7 @@ public class PlayerShoot : Ability
     #endregion
 
     #region DimBAmmo
+    [SerializeField]
     private int dimBAmmo = 20;
     public int DimBAmmo
     {

@@ -926,10 +926,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8798636231768784202, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+    - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
+      propertyPath: lookSensitivity
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
