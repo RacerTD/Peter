@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SwtichWeapon",
+                    "name": "SwitchWeapon",
                     "type": "Button",
                     "id": "6569123c-93e6-4d86-8974-1d156e11b1e1",
                     "expectedControlType": "Button",
@@ -364,7 +364,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "SwtichWeapon",
+                    "action": "SwitchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -375,7 +375,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "SwtichWeapon",
+                    "action": "SwitchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -386,7 +386,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "SwtichWeapon",
+                    "action": "SwitchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

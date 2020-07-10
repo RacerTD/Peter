@@ -9,7 +9,7 @@ public class PlayerSwitchWeapon : Ability
     [Header("Custom Ability Features")]
     private PlayerShoot playerShoot;
     public Weapon[] PlayerWeapons = new Weapon[2];
-    public bool UseWeaponOne = true;
+    public bool UseWeaponOne = false;
 
     private WeaponData[] weaponData = new WeaponData[2];
 
@@ -34,12 +34,8 @@ public class PlayerSwitchWeapon : Ability
             UseWeaponOne = !UseWeaponOne;
             playerShoot.UpdateAmmoDisplay();
         }
-        base.AbilityStart(context);
-    }
 
-    public override void AbilityUpdate()
-    {
-        base.AbilityUpdate();
+        base.AbilityStart(context);
     }
 
     private struct WeaponData
