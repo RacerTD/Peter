@@ -52,6 +52,8 @@ public class GameManager : ManagerModule<GameManager>
 
     public void Update()
     {
+        InputSystem.Update();
+
         switch (CurrentGameState)
         {
             case GameState.Playing:
