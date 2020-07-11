@@ -114,13 +114,13 @@ public class PlayerShoot : Ability
             return;
         }
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f))
-        {
-            Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, (hit.point - Gun.ShootPoint.position).normalized, Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
-        }
-        else
-        {
-            Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, Gun.ShootPoint.forward, Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
-        }
+        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
+
+    }
+
+    private Vector3 GenerateShootDirectiorn()
+    {
+        float spread = Gun.WeaponShootOffset;
+        return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100);
     }
 }

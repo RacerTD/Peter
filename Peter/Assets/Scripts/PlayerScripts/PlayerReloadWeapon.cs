@@ -30,30 +30,31 @@ public class PlayerReloadWeapon : Ability
     {
         if (playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoA < playerShoot.Gun.MaxGunAmmo && playerShoot.DimAAmmo > 0)
         {
-            if (playerShoot.DimAAmmo >= playerShoot.Gun.MaxGunAmmo)
+            for (int i = playerShoot.Gun.CurrentGunAmmoA; i <= playerShoot.Gun.MaxGunAmmo; i++)
             {
-                playerShoot.DimAAmmo -= playerShoot.Gun.MaxGunAmmo - playerShoot.Gun.CurrentGunAmmoA;
-                playerShoot.Gun.CurrentGunAmmoA = playerShoot.Gun.MaxGunAmmo;
-            }
-            else if (playerShoot.DimAAmmo > 0)
-            {
-                playerShoot.Gun.CurrentGunAmmoA = playerShoot.DimAAmmo;
-                playerShoot.DimAAmmo = 0;
+                if (playerShoot.DimAAmmo <= 0)
+                {
+                    playerShoot.UpdateAmmoDisplay();
+                    return;
+                }
+
+                playerShoot.DimAAmmo--;
+                playerShoot.Gun.CurrentGunAmmoA++;
             }
         }
         else if (!playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoB < playerShoot.Gun.MaxGunAmmo && playerShoot.DimBAmmo > 0)
         {
-            if (playerShoot.DimBAmmo >= playerShoot.Gun.MaxGunAmmo)
+            for (int i = playerShoot.Gun.CurrentGunAmmoB; i <= playerShoot.Gun.MaxGunAmmo; i++)
             {
-                playerShoot.DimBAmmo -= playerShoot.Gun.MaxGunAmmo - playerShoot.Gun.CurrentGunAmmoB;
-                playerShoot.Gun.CurrentGunAmmoB = playerShoot.Gun.MaxGunAmmo;
-            }
-            else if (playerShoot.DimBAmmo > 0)
-            {
-                playerShoot.Gun.CurrentGunAmmoB = playerShoot.DimBAmmo;
-                playerShoot.DimBAmmo = 0;
+                if (playerShoot.DimBAmmo <= 0)
+                {
+                    playerShoot.UpdateAmmoDisplay();
+                    return;
+                }
+
+                playerShoot.DimBAmmo--;
+                playerShoot.Gun.CurrentGunAmmoB++;
             }
         }
-        playerShoot.UpdateAmmoDisplay();
     }
 }
