@@ -52,15 +52,18 @@ public class PlayerShoot : Ability
             return;
         }
 
-        if (playerSwitchDimension.DimA)
+        if (playerSwitchDimension != null)
         {
-            Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
-            Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
-        }
-        else if (!playerSwitchDimension.DimA)
-        {
-            Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
-            Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
+            if (playerSwitchDimension.DimA)
+            {
+                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
+                Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
+            }
+            else if (!playerSwitchDimension.DimA)
+            {
+                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
+                Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
+            }
         }
     }
 
