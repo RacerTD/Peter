@@ -54,6 +54,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "3cef87b0-67e3-4299-b1f7-815a08437e19",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
                     "id": "6dc87212-d873-4463-a281-0292fbaf2542",
@@ -461,6 +469,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f229f2f-9c60-4e5c-8f1f-26012941f7d5",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

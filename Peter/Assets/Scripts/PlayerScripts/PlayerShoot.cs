@@ -9,7 +9,10 @@ public class PlayerShoot : Ability
 {
     [Header("Custom Ability Features")]
     public Weapon Gun;
+    [Tooltip("Default gun position")]
     public Transform GunPoint;
+    [Tooltip("Point where the gun goes to while aiming")]
+    public Transform AimPoint;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
 
@@ -79,6 +82,22 @@ public class PlayerShoot : Ability
         UpdateAmmoDisplay();
     }
 
+    public void ToggleAim(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Gun.transform.SetParent(AimPoint);
+            Gun.transform.localPosition = Vector3.zero;
+            Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
+        else if (context.canceled)
+        {
+            Gun.transform.SetParent(GunPoint);
+            Gun.transform.localPosition = Vector3.zero;
+            Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
+    }
+
     public override void AbilityUpdate()
     {
         if (currentInputAction.started || currentInputAction.performed)
@@ -97,8 +116,6 @@ public class PlayerShoot : Ability
 
     public void Shoot()
     {
-        RaycastHit hit;
-
         if (playerSwitchDimension.DimA && Gun.CurrentGunAmmoA > 0)
         {
             Gun.CurrentGunAmmoA--;
