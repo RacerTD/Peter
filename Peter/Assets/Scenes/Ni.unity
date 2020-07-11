@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 09b44b5f0c521c745ab5bb369bfc96e4,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -771,7 +772,7 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 100
+  m_Intensity: 50
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -873,7 +874,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8537736, g: 0.85798407, b: 1, a: 1}
-  m_Intensity: 127.32395
+  m_Intensity: 63.661976
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7019,7 +7020,7 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 100
+  m_Intensity: 50
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -7121,7 +7122,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8537736, g: 0.85798407, b: 1, a: 1}
-  m_Intensity: 127.32395
+  m_Intensity: 63.661976
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8486,7 +8487,7 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 100
+  m_Intensity: 50
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -8588,7 +8589,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8537736, g: 0.85798407, b: 1, a: 1}
-  m_Intensity: 127.32395
+  m_Intensity: 63.661976
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -17179,7 +17180,7 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 100
+  m_Intensity: 50
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -17281,7 +17282,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8537736, g: 0.85798407, b: 1, a: 1}
-  m_Intensity: 127.32395
+  m_Intensity: 63.661976
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
