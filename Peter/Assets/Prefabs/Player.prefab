@@ -7332,13 +7332,12 @@ GameObject:
   - component: {fileID: 8798636231972256815}
   - component: {fileID: 8798636231972256814}
   - component: {fileID: 8798636231972256817}
-  - component: {fileID: 8798636231972256810}
+  - component: {fileID: 5157752875417545440}
   - component: {fileID: 8798636231972256811}
   - component: {fileID: 758151847932305904}
   - component: {fileID: 8798636231972256813}
   - component: {fileID: 8798636231972256809}
   - component: {fileID: 8798636231972256806}
-  - component: {fileID: 8798636231972256807}
   - component: {fileID: 1416799092}
   - component: {fileID: 1674577478}
   - component: {fileID: 1559257440}
@@ -7428,7 +7427,7 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.78, z: 0}
---- !u!54 &8798636231972256810
+--- !u!54 &5157752875417545440
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7443,7 +7442,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8798636231972256811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7572,8 +7571,8 @@ MonoBehaviour:
     m_ActionName: Player/SwitchDimension[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8798636231972256807}
-        m_MethodName: AbilityStart
+      - m_Target: {fileID: 8798636231972256813}
+        m_MethodName: DoJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7693,11 +7692,14 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
+  accelerationSpeed: 0.06
   MoveSpeed: 4
-  SprintSpeed: 6
+  SprintSpeed: 8
   sprintIsToggle: 0
   SneakSpeed: 1.5
   sneakIsToggle: 0
+  jumpForce: {x: 0, y: 400, z: 0}
+  WalkingType: 2
 --- !u!114 &8798636231972256809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7734,23 +7736,6 @@ MonoBehaviour:
   CoolDownActive: 0
   DimensionOffset: {x: 100, y: 0, z: 0}
   DimA: 1
---- !u!114 &8798636231972256807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798636231972256816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eca1e6a0c49bc24f9f9e9fc08d2ccc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityDuration: 0
-  AbilityActive: 0
-  CoolDownDuration: 1
-  CoolDownActive: 0
-  jumpForce: 300
 --- !u!114 &1416799092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7793,6 +7778,11 @@ MonoBehaviour:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
   UseWeaponOne: 0
+  weaponData:
+  - currentAAmmo: 0
+    currentBAmmo: 0
+  - currentAAmmo: 0
+    currentBAmmo: 0
 --- !u!114 &1559257440
 MonoBehaviour:
   m_ObjectHideFlags: 0
