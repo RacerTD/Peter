@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     public float BulletDamage = 1f;
     public float TimeBetweenShots = 1f;
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")]
-    public float WeaponShootOffset = 0f;
+    public float WeaponSpray = 0f;
     public Transform ShootPoint;
     public GunType WeaponType = GunType.Primary;
 

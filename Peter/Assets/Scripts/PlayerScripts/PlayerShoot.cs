@@ -139,7 +139,7 @@ public class PlayerShoot : Ability
 
     private Vector3 GenerateShootDirectiorn()
     {
-        float spread = Gun.WeaponShootOffset;
+        float spread = Gun.WeaponSpray;
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100);
     }
 }
