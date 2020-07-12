@@ -135,7 +135,6 @@ public class PlayerShoot : Ability
         }
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
-
     }
 
     private Vector3 GenerateShootDirectiorn()

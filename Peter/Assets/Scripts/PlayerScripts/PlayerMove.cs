@@ -18,7 +18,6 @@ public class PlayerMove : Ability
     public float SneakSpeed = 1f;
     [SerializeField]
     private bool sneakIsToggle = false;
-
     private float currentSpeed = 0f;
 
     #region WalkingType
