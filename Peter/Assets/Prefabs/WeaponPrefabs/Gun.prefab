@@ -133,6 +133,7 @@ MonoBehaviour:
   BulletHitAmount: 1
   BulletDamage: 1
   TimeBetweenShots: 0.1
+  WeaponShootOffset: 2
   ShootPoint: {fileID: 4314862810926117597}
   WeaponType: 0
   CurrentAmmoText: {fileID: 306250518432209680}

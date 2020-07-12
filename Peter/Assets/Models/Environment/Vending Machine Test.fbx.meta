@@ -3,7 +3,17 @@ guid: 0f1c3b167c633c44faaeda9058553ec4
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Decal
+    second: {fileID: 2100000, guid: 9dbb30ecc4fd0bd4fac881ac622c3a88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holo
+    second: {fileID: 2100000, guid: 8ea03aa7d12e355438e540da59cad9c9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
