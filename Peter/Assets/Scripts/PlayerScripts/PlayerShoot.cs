@@ -101,13 +101,13 @@ public class PlayerShoot : Ability
         }
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
-        playerLook.AddOffset(Gun.RecoilAmount, Gun.RecoilTime);
+        playerLook.AddOffset(new Vector3(Random.Range(Gun.RecoilLowerMargin.x, Gun.RecoilUpperMargin.x), Random.Range(Gun.RecoilLowerMargin.y, Gun.RecoilUpperMargin.y), Random.Range(Gun.RecoilLowerMargin.z, Gun.RecoilUpperMargin.z)), Gun.RecoilTime);
     }
 
     private Vector3 GenerateShootDirectiorn()
     {
-        float spread = Gun.WeaponSpray;
-        return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100);
+        float spray = Gun.WeaponSpray;
+        return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
     }
 
     public void UpdateAmmoDisplay()

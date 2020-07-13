@@ -46,7 +46,8 @@ public class Weapon : MonoBehaviour
     #endregion
 
     [Header("Recoil")]
-    public Vector3 RecoilAmount = Vector3.zero;
+    public Vector3 RecoilUpperMargin = Vector3.zero;
+    public Vector3 RecoilLowerMargin = Vector3.zero;
     public float RecoilTime = 0f;
 }
 
