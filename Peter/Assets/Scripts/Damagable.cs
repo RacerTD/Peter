@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Damagable : MonoBehaviour
 {
@@ -17,14 +20,14 @@ public class Damagable : MonoBehaviour
     }
 
     [SerializeField]
-    protected float maxHealth = 10f;
+    public float maxHealth = 10f;
 
     public void Start()
     {
         Health = maxHealth;
     }
 
-    private void CheckIfDead()
+    protected virtual void CheckIfDead()
     {
         if (Health <= 0)
         {
@@ -40,6 +43,7 @@ public class Damagable : MonoBehaviour
     public virtual void DoDamage(float damage)
     {
         Health -= damage;
+
     }
 
     public void Heal()
@@ -51,4 +55,6 @@ public class Damagable : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
+

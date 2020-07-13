@@ -39,13 +39,15 @@ public class Bullet : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.GetComponent<Damagable>() != null)
+            if (hit.collider.GetComponent<Damagable>() != null || hit.collider.GetComponent<EnemyDamagable>() != null)
             {
                 OnEnemyHit(hit.collider.GetComponent<Damagable>());
+                OnEnemyHit(hit.collider.GetComponent<EnemyDamagable>());
             }
-            else if (hit.collider.GetComponentInParent<Damagable>() != null)
+            else if (hit.collider.GetComponentInParent<Damagable>() != null || hit.collider.GetComponentInParent<EnemyDamagable>() != null)
             {
                 OnEnemyHit(hit.collider.GetComponentInParent<Damagable>());
+                OnEnemyHit(hit.collider.GetComponentInParent<EnemyDamagable>());
             }
             else if (hit.collider)
             {
