@@ -10,14 +10,14 @@ public class PlayerSwitchWeapon : Ability
     private PlayerShoot playerShoot;
     public Weapon[] PlayerWeapons = new Weapon[2];
     public bool UseWeaponOne = false;
-
-    [SerializeField]
     private WeaponData[] weaponData = new WeaponData[2];
 
     public void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         GenerateWeapon();
+        playerShoot.Gun.CurrentGunAmmoA = playerShoot.Gun.MaxGunAmmo;
+        playerShoot.Gun.CurrentGunAmmoB = playerShoot.Gun.MaxGunAmmo;
     }
 
     public override void AbilityStart(InputAction.CallbackContext context)

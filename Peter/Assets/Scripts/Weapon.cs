@@ -12,7 +12,6 @@ public class Weapon : MonoBehaviour
     public int BulletHitAmount = 1;
     public float BulletDamage = 1f;
     public float TimeBetweenShots = 1f;
-    [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
     public Transform ShootPoint;
     public GunType WeaponType = GunType.Primary;
     public ShotType ShotType = ShotType.Auto;
@@ -21,7 +20,7 @@ public class Weapon : MonoBehaviour
     public int MaxGunAmmo = 20;
 
     #region AmmoA
-    public int currentGunAmmoA = 0;
+    private int currentGunAmmoA = 0;
     public int CurrentGunAmmoA
     {
         get => currentGunAmmoA;
@@ -34,7 +33,7 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region AmmoB
-    public int currentGunAmmoB = 0;
+    private int currentGunAmmoB = 0;
     public int CurrentGunAmmoB
     {
         get => currentGunAmmoB;
@@ -45,10 +44,17 @@ public class Weapon : MonoBehaviour
     }
     #endregion
 
-    [Header("Recoil")]
+    [Header("Scope Properties")]
+    public Vector3 RecoilScopeUpperMargin = Vector3.zero;
+    public Vector3 RecoilScopeLowerMargin = Vector3.zero;
+    public float RecoilScopeTime = 0f;
+    [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponScopeSpray = 0f;
+
+    [Header("Not Scope Properties")]
     public Vector3 RecoilUpperMargin = Vector3.zero;
     public Vector3 RecoilLowerMargin = Vector3.zero;
     public float RecoilTime = 0f;
+    [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
 }
 
 public enum GunType

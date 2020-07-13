@@ -14,6 +14,7 @@ public class PlayerShoot : Ability
     public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")]
     public Transform AimPoint;
+    private bool isAiming = false;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
     private PlayerLook playerLook;
@@ -58,12 +59,14 @@ public class PlayerShoot : Ability
             Gun.transform.SetParent(AimPoint);
             Gun.transform.localPosition = Vector3.zero;
             Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            isAiming = true;
         }
         else if (context.canceled)
         {
             Gun.transform.SetParent(GunPoint);
             Gun.transform.localPosition = Vector3.zero;
             Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            isAiming = false;
         }
     }
 
@@ -101,12 +104,24 @@ public class PlayerShoot : Ability
         }
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
-        playerLook.AddOffset(new Vector3(-Random.Range(Gun.RecoilLowerMargin.x, Gun.RecoilUpperMargin.x), Random.Range(Gun.RecoilLowerMargin.y, Gun.RecoilUpperMargin.y), Random.Range(Gun.RecoilLowerMargin.z, Gun.RecoilUpperMargin.z)), Gun.RecoilTime);
+
+        if (isAiming)
+        {
+            playerLook.AddOffset(new Vector3(-Random.Range(Gun.RecoilScopeLowerMargin.x, Gun.RecoilScopeUpperMargin.x), Random.Range(Gun.RecoilScopeLowerMargin.y, Gun.RecoilScopeUpperMargin.y), Random.Range(Gun.RecoilScopeLowerMargin.z, Gun.RecoilScopeUpperMargin.z)), Gun.RecoilScopeTime);
+        }
+        else
+        {
+            playerLook.AddOffset(new Vector3(-Random.Range(Gun.RecoilLowerMargin.x, Gun.RecoilUpperMargin.x), Random.Range(Gun.RecoilLowerMargin.y, Gun.RecoilUpperMargin.y), Random.Range(Gun.RecoilLowerMargin.z, Gun.RecoilUpperMargin.z)), Gun.RecoilTime);
+        }
     }
 
     private Vector3 GenerateShootDirectiorn()
     {
-        float spray = Gun.WeaponSpray;
+        float spray = 0f;
+        if (isAiming)
+            spray = Gun.WeaponScopeSpray;
+        else
+            spray = Gun.WeaponSpray;
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
     }
 
