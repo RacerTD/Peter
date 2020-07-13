@@ -101,7 +101,7 @@ public class PlayerShoot : Ability
         }
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
-        playerLook.AddOffset(new Vector3(Random.Range(Gun.RecoilLowerMargin.x, Gun.RecoilUpperMargin.x), Random.Range(Gun.RecoilLowerMargin.y, Gun.RecoilUpperMargin.y), Random.Range(Gun.RecoilLowerMargin.z, Gun.RecoilUpperMargin.z)), Gun.RecoilTime);
+        playerLook.AddOffset(new Vector3(-Random.Range(Gun.RecoilLowerMargin.x, Gun.RecoilUpperMargin.x), Random.Range(Gun.RecoilLowerMargin.y, Gun.RecoilUpperMargin.y), Random.Range(Gun.RecoilLowerMargin.z, Gun.RecoilUpperMargin.z)), Gun.RecoilTime);
     }
 
     private Vector3 GenerateShootDirectiorn()
