@@ -7692,7 +7692,8 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
-  accelerationSpeed: 0.06
+  controller: {fileID: 0}
+  accelerationSpeed: 10
   MoveSpeed: 4
   SprintSpeed: 8
   sprintIsToggle: 0
@@ -7716,8 +7717,10 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
+  controller: {fileID: 0}
   lookSensitivity: 0.05
   controlledCamera: {fileID: 8798636231768784205}
+  recoverySpeed: 2
 --- !u!114 &8798636231972256806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7734,6 +7737,7 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 10
   CoolDownActive: 0
+  controller: {fileID: 0}
   DimensionOffset: {x: 100, y: 0, z: 0}
   DimA: 1
 --- !u!114 &1416799092
@@ -7752,6 +7756,7 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0
   CoolDownActive: 0
+  controller: {fileID: 0}
   Gun: {fileID: 0}
   GunPoint: {fileID: 7371765959588580310}
   AimPoint: {fileID: 2023361867019292489}
@@ -7774,6 +7779,7 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 0.1
   CoolDownActive: 0
+  controller: {fileID: 0}
   PlayerWeapons:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
@@ -7799,3 +7805,4 @@ MonoBehaviour:
   AbilityActive: 0
   CoolDownDuration: 2
   CoolDownActive: 0
+  controller: {fileID: 0}
