@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 [RequireComponent(typeof(PlayerSwitchDimension))]
+[RequireComponent(typeof(PlayerLook))]
 public class PlayerShoot : Ability
 {
     [Header("Custom Ability Features")]
@@ -15,10 +16,10 @@ public class PlayerShoot : Ability
     public Transform AimPoint;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
+    private PlayerLook playerLook;
 
     #region DimAAmmo
-    [SerializeField]
-    private int dimAAmmo = 20;
+    [SerializeField] private int dimAAmmo = 20;
     public int DimAAmmo
     {
         get => dimAAmmo;
@@ -31,8 +32,7 @@ public class PlayerShoot : Ability
     #endregion
 
     #region DimBAmmo
-    [SerializeField]
-    private int dimBAmmo = 20;
+    [SerializeField] private int dimBAmmo = 20;
     public int DimBAmmo
     {
         get => dimBAmmo;
@@ -44,44 +44,10 @@ public class PlayerShoot : Ability
     }
     #endregion
 
-    public void UpdateAmmoDisplay()
-    {
-        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
-        {
-            Debug.LogWarning("Weapon UI not implemented");
-            return;
-        }
-
-        if (playerSwitchDimension != null)
-        {
-            if (playerSwitchDimension.DimA)
-            {
-                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
-                Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
-            }
-            else if (!playerSwitchDimension.DimA)
-            {
-                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
-                Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
-            }
-        }
-    }
-
-    public void UpdateAmmoDisplay(int current, int left)
-    {
-        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
-        {
-            Debug.LogWarning($"Weapon UI not implemented: {Gun.name}");
-            return;
-        }
-
-        Gun.CurrentAmmoText.text = current.ToString();
-        Gun.LeftOverAmmoText.text = left.ToString();
-    }
-
     public void Start()
     {
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
+        playerLook = GetComponent<PlayerLook>();
         UpdateAmmoDisplay();
     }
 
@@ -134,12 +100,48 @@ public class PlayerShoot : Ability
             return;
         }
 
-        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.GravityFactor, Gun.BulletLifeTime, Gun.BulletHitAmount);
+        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation).SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
+        playerLook.AddOffset(Gun.RecoilAmount, Gun.RecoilTime);
     }
 
     private Vector3 GenerateShootDirectiorn()
     {
         float spread = Gun.WeaponSpray;
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100, Random.Range(spread, -spread) / 100);
+    }
+
+    public void UpdateAmmoDisplay()
+    {
+        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
+        {
+            Debug.LogWarning("Weapon UI not implemented");
+            return;
+        }
+
+        if (playerSwitchDimension != null)
+        {
+            if (playerSwitchDimension.DimA)
+            {
+                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
+                Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
+            }
+            else if (!playerSwitchDimension.DimA)
+            {
+                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
+                Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
+            }
+        }
+    }
+
+    public void UpdateAmmoDisplay(int current, int left)
+    {
+        if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
+        {
+            Debug.LogWarning($"Weapon UI not implemented: {Gun.name}");
+            return;
+        }
+
+        Gun.CurrentAmmoText.text = current.ToString();
+        Gun.LeftOverAmmoText.text = left.ToString();
     }
 }

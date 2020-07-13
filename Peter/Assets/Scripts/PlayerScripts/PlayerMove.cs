@@ -9,7 +9,7 @@ public class PlayerMove : Ability
     [Header("Custom Ability Features")]
     private Vector3 moveVector = Vector3.zero;
     private Vector3 shouldVector = Vector3.zero;
-    [SerializeField] [Range(0, 1)] protected float accelerationSpeed = 0.1f;
+    [SerializeField] [Range(0, 4)] protected float accelerationSpeed = 0.1f;
     public float MoveSpeed = 2f;
 
     [Header("Sprint")]
@@ -100,7 +100,7 @@ public class PlayerMove : Ability
 
     private void ApplyVelocity()
     {
-        moveVector += (shouldVector - moveVector) * accelerationSpeed;
+        moveVector += (shouldVector - moveVector) * accelerationSpeed * Time.deltaTime;
         transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.deltaTime, float.MaxValue, float.MaxValue));
     }
 

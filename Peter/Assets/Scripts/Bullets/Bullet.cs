@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     protected bool HasGravity = false;
-    protected float GravityFactor = -9.81f;
     protected float speed = 0;
     protected float damage = 0;
     protected Vector3 moveDirection = Vector3.zero;
@@ -25,12 +24,11 @@ public class Bullet : MonoBehaviour
     }
     protected float lifeTime = 20f;
 
-    public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float gravityFactor, float lifeTime, int remainingHits)
+    public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float lifeTime, int remainingHits)
     {
         this.speed = speed;
         this.damage = damage;
         this.moveDirection = moveDirection;
-        this.GravityFactor = gravityFactor;
         this.lifeTime = lifeTime;
         this.RemainingHits = remainingHits;
     }

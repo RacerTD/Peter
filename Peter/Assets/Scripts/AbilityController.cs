@@ -12,6 +12,7 @@ public class AbilityController : MonoBehaviour
         foreach (Ability component in GetComponents<Ability>())
         {
             abilities.Add(component);
+            component.controller = this;
         }
     }
 
