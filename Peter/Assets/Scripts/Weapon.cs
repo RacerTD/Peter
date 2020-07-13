@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     public int MaxGunAmmo = 20;
 
     #region AmmoA
-    private int currentGunAmmoA = 0;
+    public int currentGunAmmoA = 0;
     public int CurrentGunAmmoA
     {
         get => currentGunAmmoA;
@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region AmmoB
-    private int currentGunAmmoB = 0;
+    public int currentGunAmmoB = 0;
     public int CurrentGunAmmoB
     {
         get => currentGunAmmoB;
