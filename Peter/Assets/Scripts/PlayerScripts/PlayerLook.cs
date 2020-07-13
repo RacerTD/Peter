@@ -43,7 +43,7 @@ public class PlayerLook : Ability
     {
         if (directionOffset.magnitude >= rec.Max * 0.8f)
         {
-            rec.Amount *= rec.Max - directionOffset.magnitude;
+            rec.Amount = new Vector3(rec.Amount.x * (rec.Max - directionOffset.magnitude), rec.Amount.y, rec.Amount.z);
         }
 
         if (rec.Time > 0)
