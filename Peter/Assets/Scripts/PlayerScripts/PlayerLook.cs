@@ -36,19 +36,7 @@ public class PlayerLook : Ability
 
     private void CalculateShouldDirection()
     {
-        shouldDirection = new Vector3(-currentInputAction.ReadValue<Vector2>().y * lookSensitivity + shouldDirection.x, 0f, 0f);
-
-        if (shouldDirection.x > 85f && shouldDirection.x < 275f)
-        {
-            if (shouldDirection.x <= 180)
-            {
-                shouldDirection = new Vector3(85f, 0f, 0);
-            }
-            else if (shouldDirection.x > 180)
-            {
-                shouldDirection = new Vector3(275f, 0f, 0);
-            }
-        }
+        shouldDirection = new Vector3(Mathf.Clamp(-currentInputAction.ReadValue<Vector2>().y * lookSensitivity + shouldDirection.x, -85f, 85f), 0f, 0f);
     }
 
     private void CalculateOffset()
