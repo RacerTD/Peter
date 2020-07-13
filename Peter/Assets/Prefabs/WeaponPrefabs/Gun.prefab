@@ -128,17 +128,24 @@ MonoBehaviour:
   BulletBullet: {fileID: 1455644674026829814, guid: b21d510681f21274b90e90ba390afe23,
     type: 3}
   BulletSpeed: 1700
-  GravityFactor: 0
   BulletLifeTime: 10
   BulletHitAmount: 1
   BulletDamage: 1
   TimeBetweenShots: 0.1
-  WeaponShootOffset: 2
   ShootPoint: {fileID: 4314862810926117597}
   WeaponType: 0
+  ShotType: 1
   CurrentAmmoText: {fileID: 306250518432209680}
   LeftOverAmmoText: {fileID: 543021421068636437}
   MaxGunAmmo: 54
+  RecoilScopeUpperMargin: {x: 1.2, y: 0.3, z: 0.3}
+  RecoilScopeLowerMargin: {x: 0, y: -0.3, z: -0.3}
+  RecoilScopeTime: 0.1
+  WeaponScopeSpray: 5
+  RecoilUpperMargin: {x: 2, y: 0.5, z: 0.5}
+  RecoilLowerMargin: {x: 0, y: -0.5, z: -0.5}
+  RecoilTime: 0.15
+  WeaponSpray: 10
 --- !u!1 &6915500554621503733
 GameObject:
   m_ObjectHideFlags: 0
