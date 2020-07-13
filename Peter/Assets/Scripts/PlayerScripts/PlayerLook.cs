@@ -41,10 +41,15 @@ public class PlayerLook : Ability
 
     private void CalculateOffset()
     {
-        if (rec.time > 0)
+        if (directionOffset.magnitude >= rec.Max * 0.8f)
         {
-            directionOffset += Vector3.Lerp(Vector3.zero, rec.amount, rec.time);
-            rec.time -= Time.deltaTime;
+            rec.Amount *= rec.Max - directionOffset.magnitude;
+        }
+
+        if (rec.Time > 0)
+        {
+            directionOffset += Vector3.Lerp(Vector3.zero, rec.Amount, rec.Time);
+            rec.Time -= Time.deltaTime;
         }
         else
         {
@@ -52,15 +57,17 @@ public class PlayerLook : Ability
         }
     }
 
-    public void AddOffset(Vector3 amount, float time)
+    public void AddOffset(Vector3 amount, float time, float max)
     {
-        rec.amount = amount;
-        rec.time = time;
+        rec.Amount = amount;
+        rec.Time = time;
+        rec.Max = max;
     }
 
     private struct Recoil
     {
-        public Vector3 amount;
-        public float time;
+        public Vector3 Amount;
+        public float Time;
+        public float Max;
     }
 }

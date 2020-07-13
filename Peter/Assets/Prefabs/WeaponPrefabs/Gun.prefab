@@ -141,10 +141,12 @@ MonoBehaviour:
   RecoilScopeUpperMargin: {x: 1.2, y: 0.3, z: 0.3}
   RecoilScopeLowerMargin: {x: 0, y: -0.3, z: -0.3}
   RecoilScopeTime: 0.1
+  RecoilScopeMax: 4
   WeaponScopeSpray: 5
   RecoilUpperMargin: {x: 2, y: 0.5, z: 0.5}
   RecoilLowerMargin: {x: 0, y: -0.5, z: -0.5}
   RecoilTime: 0.15
+  RecoilMax: 4
   WeaponSpray: 10
 --- !u!1 &6915500554621503733
 GameObject:
