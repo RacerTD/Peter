@@ -137,17 +137,18 @@ MonoBehaviour:
   ShotType: 1
   CurrentAmmoText: {fileID: 306250518432209680}
   LeftOverAmmoText: {fileID: 543021421068636437}
-  MaxGunAmmo: 54
-  RecoilScopeUpperMargin: {x: 1.2, y: 0.3, z: 0.3}
-  RecoilScopeLowerMargin: {x: 0, y: -0.3, z: -0.3}
-  RecoilScopeTime: 0.1
-  RecoilScopeMax: 6
-  WeaponScopeSpray: 5
-  RecoilUpperMargin: {x: 2, y: 0.5, z: 0.5}
-  RecoilLowerMargin: {x: 0, y: -0.5, z: -0.5}
-  RecoilTime: 0.15
-  RecoilMax: 10
-  WeaponSpray: 10
+  MaxGunAmmo: 24
+  RecoilScopeUpperMargin: {x: 1.1, y: 0.2, z: 0.2}
+  RecoilScopeLowerMargin: {x: 0, y: -0.2, z: -0.2}
+  RecoilScopeTime: 0.075
+  RecoilScopeMax: 50
+  ScopeLookSpeed: 0.5
+  WeaponScopeSpray: 1
+  RecoilUpperMargin: {x: 2, y: 0.35, z: 0.35}
+  RecoilLowerMargin: {x: 0, y: -0.35, z: -0.35}
+  RecoilTime: 0.1
+  RecoilMax: 50
+  WeaponSpray: 4
 --- !u!1 &6915500554621503733
 GameObject:
   m_ObjectHideFlags: 0
