@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerShoot))]
 public class PlayerLook : Ability
 {
     [Header("Custom Ability Features")]
@@ -13,10 +14,12 @@ public class PlayerLook : Ability
     private Vector3 shouldDirection = Vector3.zero;
     private Vector3 directionOffset = Vector3.zero;
     private Recoil rec = new Recoil();
+    private PlayerShoot playerShoot;
 
     protected override void Start()
     {
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
+        playerShoot = GetComponent<PlayerShoot>();
         base.Start();
     }
 
@@ -40,7 +43,7 @@ public class PlayerLook : Ability
     /// </summary>
     private void CalculateShouldDirection()
     {
-        shouldDirection = new Vector3(Mathf.Clamp(-currentInputAction.ReadValue<Vector2>().y * lookSensitivity + shouldDirection.x, -85f, 85f), 0f, 0f);
+        shouldDirection = new Vector3(Mathf.Clamp(-currentInputAction.ReadValue<Vector2>().y * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + shouldDirection.x, -85f, 85f), 0f, 0f);
     }
 
     /// <summary>

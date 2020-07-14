@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyDamagable : Damagable
 {
+    [Header("Custom Damagable")]
     [SerializeField] public UnityEngine.UI.Slider slider;
     public Gradient gradient;
     public Image fill;

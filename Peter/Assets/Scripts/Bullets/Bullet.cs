@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -33,6 +34,8 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         CheckCollision();
+
+        UpdatePosition();
 
         lifeTime -= Time.fixedDeltaTime;
         if (lifeTime <= 0)

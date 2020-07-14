@@ -14,7 +14,7 @@ public class PlayerShoot : Ability
     public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")]
     public Transform AimPoint;
-    private bool isAiming = false;
+    [HideInInspector] public bool isAiming = false;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
     private PlayerLook playerLook;
@@ -200,13 +200,11 @@ public class PlayerShoot : Ability
         {
             if (playerSwitchDimension.DimA)
             {
-                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoA.ToString();
-                Gun.LeftOverAmmoText.text = DimAAmmo.ToString();
+                UpdateAmmoDisplay(Gun.CurrentGunAmmoA, DimAAmmo);
             }
             else if (!playerSwitchDimension.DimA)
             {
-                Gun.CurrentAmmoText.text = Gun.CurrentGunAmmoB.ToString();
-                Gun.LeftOverAmmoText.text = DimBAmmo.ToString();
+                UpdateAmmoDisplay(Gun.CurrentGunAmmoB, DimBAmmo);
             }
         }
     }

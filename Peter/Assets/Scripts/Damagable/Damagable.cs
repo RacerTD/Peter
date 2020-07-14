@@ -7,6 +7,20 @@ using UnityEngine.UIElements;
 
 public class Damagable : MonoBehaviour
 {
+    #region MaxHealth
+    [Header("Standard Damagable")]
+    [SerializeField] private float maxHealth = 10f;
+    public float MaxHealth
+    {
+        get => maxHealth;
+        set
+        {
+            maxHealth = value;
+            UpdateMaxHealth();
+        }
+    }
+    #endregion
+
     #region Health
     private float health = 100f;
     public float Health
@@ -17,19 +31,6 @@ public class Damagable : MonoBehaviour
             health = value;
             UpdateHealth();
             CheckIfDead();
-        }
-    }
-    #endregion
-
-    #region MaxHealth
-    private float maxHealth = 10f;
-    public float MaxHealth
-    {
-        get => maxHealth;
-        set
-        {
-            maxHealth = value;
-            UpdateMaxHealth();
         }
     }
     #endregion

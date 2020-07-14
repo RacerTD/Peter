@@ -49,6 +49,7 @@ public class Weapon : MonoBehaviour
     public Vector3 RecoilScopeLowerMargin = Vector3.zero;
     public float RecoilScopeTime = 0f;
     public float RecoilScopeMax = 0f;
+    public float ScopeLookSpeed = 1.0f;
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponScopeSpray = 0f;
 
     [Header("Not Scope Properties")]
