@@ -22,14 +22,9 @@ public class PlayerSwitchWeapon : Ability
         base.Start();
     }
 
-    public override void AbilityStart(InputAction.CallbackContext context)
+    public override void AbilityStart()
     {
-        if (context.started)
-        {
-            GenerateWeapon();
-        }
-
-        base.AbilityStart(context);
+        GenerateWeapon();
     }
 
     /// <summary>

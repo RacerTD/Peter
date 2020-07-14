@@ -20,7 +20,7 @@ public class StandardBullet : Bullet
 
     protected override void OnDeath(Vector3 pos)
     {
-        Instantiate(onDeathEffect, pos, Quaternion.identity);
+        Instantiate(onDeathEffect, pos, Quaternion.identity, GameManager.Instance.ParticleHolder);
         base.OnDeath(pos);
     }
 }

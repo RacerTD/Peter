@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class GameManager : ManagerModule<GameManager>
 {
+    public Transform BulletHolder;
+    public Transform ParticleHolder;
     public Player CurrentPlayer;
 
     #region GameState

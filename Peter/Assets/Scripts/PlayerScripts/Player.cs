@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Player : AbilityController
 {
-    protected override void Start()
+    private void Awake()
     {
         GameManager.Instance.CurrentPlayer = this;
-        base.Start();
     }
 }

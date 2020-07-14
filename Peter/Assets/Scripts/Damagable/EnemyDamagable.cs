@@ -7,7 +7,7 @@ public class EnemyDamagable : Damagable
     [SerializeField] public UnityEngine.UI.Slider slider;
     public Gradient gradient;
     public Image fill;
-    private Transform cam;
+    protected Transform cam;
 
     protected override void Start()
     {

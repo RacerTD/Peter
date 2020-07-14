@@ -20,6 +20,7 @@ public class PlayerLook : Ability
     {
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
         playerShoot = GetComponent<PlayerShoot>();
+        AbilityActive = true;
         base.Start();
     }
 

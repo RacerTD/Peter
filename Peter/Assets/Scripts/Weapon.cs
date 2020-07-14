@@ -58,6 +58,12 @@ public class Weapon : MonoBehaviour
     public float RecoilTime = 0f;
     public float RecoilMax = 0f;
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
+
+    private void OnDrawGizmos()
+    {
+        if (ShootPoint != null)
+            Debug.DrawRay(ShootPoint.position, ShootPoint.forward, Color.red);
+    }
 }
 
 public enum GunType

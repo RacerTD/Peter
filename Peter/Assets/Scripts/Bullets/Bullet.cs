@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
         UpdatePosition();
 
         lifeTime -= Time.fixedDeltaTime;
+
         if (lifeTime <= 0)
         {
             OnDeath(transform.position);

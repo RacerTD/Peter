@@ -74,11 +74,6 @@ public class PlayerShoot : Ability
         }
     }
 
-    public override void AbilityStart(InputAction.CallbackContext context)
-    {
-        base.AbilityStart(context);
-    }
-
     public override void AbilityUpdate()
     {
         //Debug.Log($"current {currentInputAction.started} {currentInputAction.performed} {currentInputAction.canceled}");
@@ -151,7 +146,7 @@ public class PlayerShoot : Ability
             return;
         }
 
-        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation)
+        Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
             .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
 
         if (isAiming)

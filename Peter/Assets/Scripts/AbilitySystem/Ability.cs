@@ -9,6 +9,7 @@ public class Ability : MonoBehaviour
     [Header("Basic Ability Features")]
     public float AbilityDuration = 0f;
     private float abilityDurationTime = 0f;
+    private bool abilityHasDuration = false;
     [HideInInspector] public bool AbilityActive = false;
     public float CoolDownDuration = 0f;
     private float coolDownDurationTime = 0f;
@@ -18,7 +19,7 @@ public class Ability : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        abilityHasDuration = abilityDurationTime <= 0f;
     }
 
     protected virtual void Update()
@@ -26,20 +27,27 @@ public class Ability : MonoBehaviour
 
     }
 
+    public virtual void GetInput(InputAction.CallbackContext context)
+    {
+        currentInputAction = context;
+
+        if (context.started && !CoolDownActive)
+        {
+            AbilityStart();
+        }
+
+        //Debug.Log($"{context.started} {context.performed} {context.canceled} current {currentInputAction.started} {currentInputAction.performed} {currentInputAction.canceled}");
+    }
+
     #region Ability
 
     /// <summary>
     /// What happens at the start of the ability
     /// </summary>
-    public virtual void AbilityStart(InputAction.CallbackContext context)
+    public virtual void AbilityStart()
     {
-        currentInputAction = context;
-
-        if (!CoolDownActive && !AbilityActive && context.started)
-        {
-            AbilityActive = true;
-            AbilityCoolDownStart();
-        }
+        AbilityActive = true;
+        AbilityCoolDownStart();
     }
 
     /// <summary>
@@ -47,11 +55,14 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityUpdate()
     {
-        abilityDurationTime += Time.deltaTime;
-
-        if (abilityDurationTime >= AbilityDuration)
+        if (abilityHasDuration)
         {
-            AbilityEnd();
+            abilityDurationTime += Time.deltaTime;
+
+            if (abilityDurationTime >= AbilityDuration && AbilityDuration > 0f)
+            {
+                AbilityEnd();
+            }
         }
     }
 
@@ -67,6 +78,11 @@ public class Ability : MonoBehaviour
     #endregion
 
     #region CoolDown
+
+    public virtual void CheckForCoolDown()
+    {
+
+    }
 
     /// <summary>
     /// What happens at the start of the cooldown
@@ -84,9 +100,9 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityCoolDownUpdate()
     {
-        coolDownDurationTime += Time.deltaTime;
+        coolDownDurationTime -= Time.deltaTime;
 
-        if (coolDownDurationTime >= CoolDownDuration)
+        if (coolDownDurationTime <= 0)
         {
             AbilityCoolDownEnd();
         }
@@ -98,7 +114,7 @@ public class Ability : MonoBehaviour
     public virtual void AbilityCoolDownEnd()
     {
         CoolDownActive = false;
-        coolDownDurationTime = 0f;
+        coolDownDurationTime = CoolDownDuration;
     }
 
     #endregion

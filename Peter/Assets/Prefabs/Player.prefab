@@ -7472,7 +7472,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8798636231972256813}
-        m_MethodName: AbilityStart
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7487,7 +7487,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8798636231972256809}
-        m_MethodName: AbilityStart
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7502,7 +7502,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1416799092}
-        m_MethodName: AbilityStart
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7557,7 +7557,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8798636231972256806}
-        m_MethodName: AbilityStart
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7602,7 +7602,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1559257440}
-        m_MethodName: AbilityStart
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7693,6 +7693,8 @@ MonoBehaviour:
   CoolDownDuration: 0
   CoolDownActive: 0
   controller: {fileID: 0}
+  moveVector: {x: 0, y: 0, z: 0}
+  shouldVector: {x: 0, y: 0, z: 0}
   accelerationSpeed: 10
   MoveSpeed: 4
   SprintSpeed: 8
@@ -7760,6 +7762,7 @@ MonoBehaviour:
   Gun: {fileID: 0}
   GunPoint: {fileID: 7371765959588580310}
   AimPoint: {fileID: 2023361867019292489}
+  isAiming: 0
   TimeSinceLastShot: 0
   dimAAmmo: 20
   dimBAmmo: 20
@@ -7784,11 +7787,6 @@ MonoBehaviour:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
   UseWeaponOne: 0
-  weaponData:
-  - currentAAmmo: 0
-    currentBAmmo: 0
-  - currentAAmmo: 0
-    currentBAmmo: 0
 --- !u!114 &1559257440
 MonoBehaviour:
   m_ObjectHideFlags: 0

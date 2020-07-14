@@ -25,6 +25,39 @@ public class PlayerMove : Ability
     public WalkingType WalkingType = WalkingType.Normal;
     private Rigidbody physicsbody;
 
+    #region InputBools
+    private bool started = false;
+    private bool performed = false;
+    private bool canceled = false;
+    private Vector2 inputValue = Vector2.zero;
+    #endregion
+
+    public override void GetInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            started = true;
+            performed = false;
+            canceled = false;
+            inputValue = context.ReadValue<Vector2>();
+        }
+        else if (context.performed)
+        {
+            started = false;
+            performed = true;
+            canceled = false;
+            inputValue = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            started = false;
+            performed = false;
+            canceled = true;
+            inputValue = Vector2.zero;
+        }
+        base.GetInput(context);
+    }
+
     protected override void Start()
     {
         physicsbody = GetComponent<Rigidbody>();
@@ -36,7 +69,7 @@ public class PlayerMove : Ability
     /// </summary>
     public void ToggleSprint(InputAction.CallbackContext context)
     {
-        if (sprintIsToggle)
+        if (sprintIsToggle && context.started)
         {
             if (WalkingType == WalkingType.Sprint)
             {
@@ -94,19 +127,15 @@ public class PlayerMove : Ability
     /// </summary>
     public void DoJump(InputAction.CallbackContext context)
     {
-        GetComponent<Rigidbody>().AddForce(jumpForce);
-    }
-
-    public override void AbilityStart(InputAction.CallbackContext context)
-    {
-        UpdateVelocity(context);
-
-        base.AbilityStart(context);
+        if (context.started)
+        {
+            GetComponent<Rigidbody>().AddForce(jumpForce);
+        }
     }
 
     public override void AbilityUpdate()
     {
-        UpdateVelocity(currentInputAction);
+        UpdateVelocity();
 
         ApplyVelocity();
 
@@ -136,25 +165,49 @@ public class PlayerMove : Ability
     /// <summary>
     /// Updates the current velocity the player has
     /// </summary>
-    private void UpdateVelocity(InputAction.CallbackContext context)
+    private void UpdateVelocity()
     {
-        if (context.started || context.performed)
+        /*
+        if (currentInputAction.started || currentInputAction.performed)
         {
             switch (WalkingType)
             {
                 case WalkingType.Normal:
-                    shouldVector = new Vector3(context.ReadValue<Vector2>().x * MoveSpeed, 0, context.ReadValue<Vector2>().y * MoveSpeed);
+                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * MoveSpeed, 0, currentInputAction.ReadValue<Vector2>().y * MoveSpeed);
                     break;
                 case WalkingType.Sprint:
-                    shouldVector = new Vector3(context.ReadValue<Vector2>().x * MoveSpeed, 0, Mathf.Clamp(context.ReadValue<Vector2>().y * SprintSpeed, -MoveSpeed, SprintSpeed));
+                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * MoveSpeed, 0, Mathf.Clamp(currentInputAction.ReadValue<Vector2>().y * SprintSpeed, -MoveSpeed, SprintSpeed));
                     break;
                 case WalkingType.Sneak:
-                    shouldVector = new Vector3(context.ReadValue<Vector2>().x * SneakSpeed, 0, context.ReadValue<Vector2>().y * SneakSpeed);
+                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * SneakSpeed, 0, currentInputAction.ReadValue<Vector2>().y * SneakSpeed);
                     break;
             }
         }
 
-        if (context.canceled)
+        //if (currentInputAction.canceled)
+        if (canceled)
+        {
+            shouldVector = Vector3.zero;
+        }
+        */
+
+        if (started || performed)
+        {
+            switch (WalkingType)
+            {
+                case WalkingType.Normal:
+                    shouldVector = new Vector3(inputValue.x * MoveSpeed, 0, inputValue.y * MoveSpeed);
+                    break;
+                case WalkingType.Sprint:
+                    shouldVector = new Vector3(inputValue.x * MoveSpeed, 0, Mathf.Clamp(inputValue.y * SprintSpeed, -MoveSpeed, SprintSpeed));
+                    break;
+                case WalkingType.Sneak:
+                    shouldVector = new Vector3(inputValue.x * SneakSpeed, 0, inputValue.y * SneakSpeed);
+                    break;
+            }
+        }
+
+        if (canceled)
         {
             shouldVector = Vector3.zero;
         }

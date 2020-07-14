@@ -18,13 +18,9 @@ public class PlayerReloadWeapon : Ability
         base.Start();
     }
 
-    public override void AbilityStart(InputAction.CallbackContext context)
+    public override void AbilityStart()
     {
-        if (context.started)
-        {
-            Reload();
-        }
-        base.AbilityStart(context);
+        Reload();
     }
 
     /// <summary>
