@@ -25,7 +25,7 @@ public class PlayerLook : Ability
 
     public override void AbilityUpdate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0f, currentInputAction.ReadValue<Vector2>().x * lookSensitivity + transform.rotation.eulerAngles.y, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(0f, currentInputAction.ReadValue<Vector2>().x * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + transform.rotation.eulerAngles.y, 0));
 
         CalculateShouldDirection();
 
