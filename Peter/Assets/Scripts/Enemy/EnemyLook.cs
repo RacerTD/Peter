@@ -17,7 +17,7 @@ public class EnemyLook : Ability
     protected override void Start()
     {
         shouldDirection = transform.rotation;
-        player = GameManager.Instance.CurrentPlayer.GetComponent<PlayerLook>().controlledCamera.transform;
+        player = GameManager.Instance.CurrentPlayer.transform;
         AbilityActive = true;
         base.Start();
     }
@@ -26,7 +26,7 @@ public class EnemyLook : Ability
     {
         if (Vector3.Distance(player.position, transform.position) < detectionDistance)
         {
-            shouldDirection = Quaternion.LookRotation(player.position - rotatingThing.position, Vector3.up);
+            shouldDirection = Quaternion.LookRotation((player.position + Vector3.up * 0.8f) - rotatingThing.position, Vector3.up);
 
             rotatingThing.rotation = Quaternion.RotateTowards(rotatingThing.rotation, shouldDirection, rotationSpeed * Time.deltaTime);
         }

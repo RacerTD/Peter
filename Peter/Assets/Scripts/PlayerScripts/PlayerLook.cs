@@ -8,7 +8,7 @@ public class PlayerLook : Ability
 {
     [Header("Custom Ability Features")]
     [SerializeField] private float lookSensitivity = 0.3f;
-    public Camera controlledCamera;
+    [SerializeField] private Camera controlledCamera;
     [SerializeField] protected float recoverySpeed = 2f;
     private Vector2 lookVecor = Vector2.zero;
     private Vector3 shouldDirection = Vector3.zero;
