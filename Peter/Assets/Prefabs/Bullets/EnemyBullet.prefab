@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1455644674026829813}
   - component: {fileID: 1455644674026829814}
   m_Layer: 0
-  m_Name: StandardBullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 36c23416d9623f84ab8926faaabfa475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,8 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1857aca76daec08488d4704bac849a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canHitMultiple: 0
-  hitAmount: 5
-  lifeTime: 20
   onDeathEffect: {fileID: 1404160115263400500, guid: 41f0869650a07f64e8e66f36245af306,
     type: 3}
