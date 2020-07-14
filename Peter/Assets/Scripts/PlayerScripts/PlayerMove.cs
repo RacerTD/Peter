@@ -108,18 +108,20 @@ public class PlayerMove : Ability
     {
         UpdateVelocity(currentInputAction);
 
+        ApplyVelocity();
+
         base.AbilityUpdate();
     }
 
     private void FixedUpdate()
     {
-        moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.fixedDeltaTime);
-        Vector3 stuff = Vector3.RotateTowards(transform.position, moveVector, float.MaxValue, float.MaxValue);
+        //moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.fixedDeltaTime);
+        //Vector3 stuff = Vector3.RotateTowards(transform.position, moveVector, float.MaxValue, float.MaxValue);
 
         //physicsbody.MovePosition(transform.position += stuff * Time.fixedDeltaTime);
 
-        physicsbody.velocity = new Vector3(stuff.x, physicsbody.velocity.y, stuff.z);
-        Debug.Log($"{stuff} || {physicsbody.velocity}");
+        //physicsbody.velocity = new Vector3(stuff.x, physicsbody.velocity.y, stuff.z);
+        //Debug.Log($"{stuff} || {physicsbody.velocity}");
     }
 
     /// <summary>
