@@ -12,12 +12,14 @@ public class PlayerSwitchWeapon : Ability
     public bool UseWeaponOne = false;
     private WeaponData[] weaponData = new WeaponData[2];
 
-    public void Start()
+    protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         GenerateWeapon();
         playerShoot.Gun.CurrentGunAmmoA = playerShoot.Gun.MaxGunAmmo;
         playerShoot.Gun.CurrentGunAmmoB = playerShoot.Gun.MaxGunAmmo;
+
+        base.Start();
     }
 
     public override void AbilityStart(InputAction.CallbackContext context)
@@ -30,6 +32,9 @@ public class PlayerSwitchWeapon : Ability
         base.AbilityStart(context);
     }
 
+    /// <summary>
+    /// Spawns a weapon and saves the values of the other weapon
+    /// </summary>
     private void GenerateWeapon()
     {
         if (playerShoot.Gun != null)
@@ -48,7 +53,6 @@ public class PlayerSwitchWeapon : Ability
         playerShoot.UpdateAmmoDisplay();
     }
 
-    [System.Serializable]
     private struct WeaponData
     {
         public int currentAAmmo;

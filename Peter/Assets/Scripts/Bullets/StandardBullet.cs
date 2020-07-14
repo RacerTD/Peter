@@ -5,8 +5,7 @@ using UnityEngine.VFX;
 
 public class StandardBullet : Bullet
 {
-    [SerializeField]
-    protected VisualEffect onDeathEffect;
+    [SerializeField] protected VisualEffect onDeathEffect;
 
     public override void OnWallHit(RaycastHit hit)
     {

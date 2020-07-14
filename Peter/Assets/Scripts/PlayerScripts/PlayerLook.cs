@@ -14,9 +14,10 @@ public class PlayerLook : Ability
     private Vector3 directionOffset = Vector3.zero;
     private Recoil rec = new Recoil();
 
-    private void Start()
+    protected override void Start()
     {
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
+        base.Start();
     }
 
     public override void AbilityUpdate()
@@ -34,11 +35,17 @@ public class PlayerLook : Ability
         base.AbilityUpdate();
     }
 
+    /// <summary>
+    /// Calculates the direction the player should be looking
+    /// </summary>
     private void CalculateShouldDirection()
     {
         shouldDirection = new Vector3(Mathf.Clamp(-currentInputAction.ReadValue<Vector2>().y * lookSensitivity + shouldDirection.x, -85f, 85f), 0f, 0f);
     }
 
+    /// <summary>
+    /// Calculates the current recoil offset
+    /// </summary>
     private void CalculateOffset()
     {
         if (directionOffset.magnitude >= rec.Max * 0.8f)
@@ -57,6 +64,9 @@ public class PlayerLook : Ability
         }
     }
 
+    /// <summary>
+    /// Adds an offset to the player camera
+    /// </summary>
     public void AddOffset(Vector3 amount, float time, float max)
     {
         rec.Amount = amount;

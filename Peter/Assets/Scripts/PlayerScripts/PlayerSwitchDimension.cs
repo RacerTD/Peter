@@ -7,15 +7,15 @@ using UnityEngine.InputSystem;
 public class PlayerSwitchDimension : Ability
 {
     [Header("Custom Ability Features")]
-    [SerializeField]
-    protected Vector3 DimensionOffset = Vector3.zero;
+    [SerializeField] protected Vector3 DimensionOffset = Vector3.zero;
     private bool dimensionSwitched = false;
     public bool DimA = true;
     private PlayerShoot playerShoot;
 
-    public void Start()
+    protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
+        base.Start();
     }
 
     public override void AbilityUpdate()

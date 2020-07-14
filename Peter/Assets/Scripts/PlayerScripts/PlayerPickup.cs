@@ -11,9 +11,10 @@ public class PlayerPickup : Ability
 
     public float PickupRange = 3;
 
-    public void Start()
+    protected override void Start()
     {
         switchWeapon = GetComponent<PlayerSwitchWeapon>();
+        base.Start();
     }
 
     public override void AbilityStart(InputAction.CallbackContext context)

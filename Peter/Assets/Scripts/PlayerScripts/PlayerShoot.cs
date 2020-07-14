@@ -45,13 +45,17 @@ public class PlayerShoot : Ability
     }
     #endregion
 
-    public void Start()
+    protected override void Start()
     {
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
         playerLook = GetComponent<PlayerLook>();
         UpdateAmmoDisplay();
+        base.Start();
     }
 
+    /// <summary>
+    /// Handels the aiming
+    /// </summary>
     public void ToggleAim(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -70,7 +74,37 @@ public class PlayerShoot : Ability
         }
     }
 
+    public override void AbilityStart(InputAction.CallbackContext context)
+    {
+        base.AbilityStart(context);
+    }
+
     public override void AbilityUpdate()
+    {
+        //Debug.Log($"current {currentInputAction.started} {currentInputAction.performed} {currentInputAction.canceled}");
+
+        switch (Gun.ShotType)
+        {
+            case ShotType.Single:
+                ShootSingle();
+                break;
+            case ShotType.Auto:
+                ShootAuto();
+                break;
+            default:
+                Debug.LogError("Broken Shot Type");
+                break;
+        }
+
+        TimeSinceLastShot += Time.deltaTime;
+
+        base.AbilityUpdate();
+    }
+
+    /// <summary>
+    /// Shoot if the gun has auto shoot mode
+    /// </summary>
+    private void ShootAuto()
     {
         if (currentInputAction.started || currentInputAction.performed)
         {
@@ -80,13 +114,27 @@ public class PlayerShoot : Ability
                 TimeSinceLastShot = 0;
             }
         }
-
-        TimeSinceLastShot += Time.deltaTime;
-
-        base.AbilityUpdate();
     }
 
-    public void Shoot()
+    /// <summary>
+    /// Shoot if the gun has single shoot mode
+    /// </summary>
+    private void ShootSingle()
+    {
+        if (currentInputAction.started)
+        {
+            if (TimeSinceLastShot > Gun.TimeBetweenShots)
+            {
+                Shoot();
+                TimeSinceLastShot = 0;
+            }
+        }
+    }
+
+    /// <summary>
+    /// finds out if and how to shoot
+    /// </summary>
+    private void Shoot()
     {
         if (playerSwitchDimension.DimA && Gun.CurrentGunAmmoA > 0)
         {
@@ -124,6 +172,9 @@ public class PlayerShoot : Ability
         }
     }
 
+    /// <summary>
+    /// Calculates the shot direction
+    /// </summary>
     private Vector3 GenerateShootDirectiorn()
     {
         float spray = 0f;
@@ -134,6 +185,9 @@ public class PlayerShoot : Ability
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
     }
 
+    /// <summary>
+    /// Updates the ammo display on the gun
+    /// </summary>
     public void UpdateAmmoDisplay()
     {
         if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)
@@ -157,6 +211,9 @@ public class PlayerShoot : Ability
         }
     }
 
+    /// <summary>
+    /// Updates the ammo display on the gun
+    /// </summary>
     public void UpdateAmmoDisplay(int current, int left)
     {
         if (Gun.CurrentAmmoText == null || Gun.LeftOverAmmoText == null)

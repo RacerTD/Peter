@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : AbilityController
 {
-    public override void Start()
+    protected override void Start()
     {
         GameManager.Instance.CurrentPlayer = this;
         base.Start();

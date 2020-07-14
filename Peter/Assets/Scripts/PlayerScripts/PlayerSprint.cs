@@ -8,9 +8,10 @@ public class PlayerSprint : Ability
 {
     private PlayerMove playerMove;
 
-    public void Start()
+    protected override void Start()
     {
         playerMove = GetComponent<PlayerMove>();
+        base.Start();
     }
 
     public override void AbilityStart(InputAction.CallbackContext context)

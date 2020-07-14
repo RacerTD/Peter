@@ -8,10 +8,7 @@ public class Bullet : MonoBehaviour
     protected float speed = 0;
     protected float damage = 0;
     protected Vector3 moveDirection = Vector3.zero;
-
-    [SerializeField]
     protected bool canHitMultiple = false;
-    [SerializeField]
     protected int remainingHits = 5;
     protected int RemainingHits
     {
@@ -34,6 +31,20 @@ public class Bullet : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {
+        CheckCollision();
+
+        lifeTime -= Time.fixedDeltaTime;
+        if (lifeTime <= 0)
+        {
+            OnDeath(transform.position);
+        }
+    }
+
+    /// <summary>
+    /// Checks if the bullet hits anything
+    /// </summary>
+    protected virtual void CheckCollision()
     {
         RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.fixedDeltaTime);
 
@@ -60,14 +71,14 @@ public class Bullet : MonoBehaviour
                 break;
             }
         }
+    }
 
+    /// <summary>
+    /// Updates the position of the bullet
+    /// </summary>
+    protected virtual void UpdatePosition()
+    {
         transform.position += moveDirection.normalized * speed * Time.fixedDeltaTime;
-
-        lifeTime -= Time.fixedDeltaTime;
-        if (lifeTime <= 0)
-        {
-            OnDeath(transform.position);
-        }
     }
 
     /// <summary>

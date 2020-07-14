@@ -11,10 +11,11 @@ public class PlayerReloadWeapon : Ability
     private PlayerShoot playerShoot;
     private PlayerSwitchDimension playerSwitchDimension;
 
-    public void Start()
+    protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
+        base.Start();
     }
 
     public override void AbilityStart(InputAction.CallbackContext context)
@@ -26,6 +27,9 @@ public class PlayerReloadWeapon : Ability
         base.AbilityStart(context);
     }
 
+    /// <summary>
+    /// The actual action of reloading
+    /// </summary>
     private void Reload()
     {
         if (playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoA < playerShoot.Gun.MaxGunAmmo && playerShoot.DimAAmmo > 0)

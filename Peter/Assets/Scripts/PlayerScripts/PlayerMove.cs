@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerMove : Ability
 {
     [Header("Custom Ability Features")]
-    private Vector3 moveVector = Vector3.zero;
-    private Vector3 shouldVector = Vector3.zero;
+    [SerializeField] private Vector3 moveVector = Vector3.zero;
+    [SerializeField] private Vector3 shouldVector = Vector3.zero;
     [SerializeField] protected float accelerationSpeed = 0.1f;
     public float MoveSpeed = 2f;
 
@@ -22,9 +22,18 @@ public class PlayerMove : Ability
 
     [Header("Jump")]
     [SerializeField] private Vector3 jumpForce = Vector3.zero;
-
     public WalkingType WalkingType = WalkingType.Normal;
+    private Rigidbody physicsbody;
 
+    protected override void Start()
+    {
+        physicsbody = GetComponent<Rigidbody>();
+        base.Start();
+    }
+
+    /// <summary>
+    /// Action when the sprint button is pressed
+    /// </summary>
     public void ToggleSprint(InputAction.CallbackContext context)
     {
         if (sprintIsToggle)
@@ -51,6 +60,9 @@ public class PlayerMove : Ability
         }
     }
 
+    /// <summary>
+    /// Action when the sneak button is pressed
+    /// </summary>
     public void ToggleSneak(InputAction.CallbackContext context)
     {
         if (sneakIsToggle)
@@ -77,6 +89,9 @@ public class PlayerMove : Ability
         }
     }
 
+    /// <summary>
+    /// Action when the jump button is pressed
+    /// </summary>
     public void DoJump(InputAction.CallbackContext context)
     {
         GetComponent<Rigidbody>().AddForce(jumpForce);
@@ -93,17 +108,32 @@ public class PlayerMove : Ability
     {
         UpdateVelocity(currentInputAction);
 
-        ApplyVelocity();
-
         base.AbilityUpdate();
     }
 
+    private void FixedUpdate()
+    {
+        moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.fixedDeltaTime);
+        Vector3 stuff = Vector3.RotateTowards(transform.position, moveVector, float.MaxValue, float.MaxValue);
+
+        //physicsbody.MovePosition(transform.position += stuff * Time.fixedDeltaTime);
+
+        physicsbody.velocity = new Vector3(stuff.x, physicsbody.velocity.y, stuff.z);
+        Debug.Log($"{stuff} || {physicsbody.velocity}");
+    }
+
+    /// <summary>
+    /// Not in use
+    /// </summary>
     private void ApplyVelocity()
     {
         moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.deltaTime);
         transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.deltaTime, float.MaxValue, float.MaxValue));
     }
 
+    /// <summary>
+    /// Updates the current velocity the player has
+    /// </summary>
     private void UpdateVelocity(InputAction.CallbackContext context)
     {
         if (context.started || context.performed)

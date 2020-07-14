@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TimedDespawn : MonoBehaviour
 {
-    [SerializeField]
-    protected float timeTillDespawn = 10f;
+    [SerializeField] protected float timeTillDespawn = 10f;
 
+    /// <summary>
+    /// Sets the time till despawn
+    /// </summary>
     public void SetUpTimedDespawn(float time)
     {
         timeTillDespawn = time;

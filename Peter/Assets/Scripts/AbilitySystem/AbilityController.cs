@@ -7,7 +7,7 @@ public class AbilityController : MonoBehaviour
 {
     private List<Ability> abilities = new List<Ability>();
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         foreach (Ability component in GetComponents<Ability>())
         {
@@ -16,7 +16,7 @@ public class AbilityController : MonoBehaviour
         }
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         foreach (Ability ability in abilities.Where(a => a.AbilityActive == true || a.AbilityDuration <= 0f))
         {

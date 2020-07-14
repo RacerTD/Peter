@@ -21,6 +21,9 @@ public class GameManager : ManagerModule<GameManager>
         }
     }
 
+    /// <summary>
+    /// Happens when the gamestate gets changed
+    /// </summary>
     private void UpdateGameState(GameState value)
     {
         switch (value)
@@ -44,15 +47,21 @@ public class GameManager : ManagerModule<GameManager>
 
     #endregion
 
-    public void Start()
+    private void Start()
     {
         CurrentGameState = GameState.Playing;
     }
 
-    public void Update()
+    private void Update()
     {
-        InputSystem.Update();
+        DoGameLoop();
+    }
 
+    /// <summary>
+    /// What happens during all times in the game loop
+    /// </summary>
+    private void DoGameLoop()
+    {
         switch (CurrentGameState)
         {
             case GameState.Playing:

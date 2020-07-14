@@ -13,9 +13,18 @@ public class Ability : MonoBehaviour
     public float CoolDownDuration = 0f;
     private float coolDownDurationTime = 0f;
     [HideInInspector] public bool CoolDownActive = false;
-
-    protected InputAction.CallbackContext currentInputAction;
+    [HideInInspector] public InputAction.CallbackContext currentInputAction = new InputAction.CallbackContext();
     [HideInInspector] public AbilityController controller;
+
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+
+    }
 
     #region Ability
 
