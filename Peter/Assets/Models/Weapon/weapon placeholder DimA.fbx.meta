@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Decal
     second: {fileID: 2100000, guid: 36c23416d9623f84ab8926faaabfa475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holo
+    second: {fileID: 2100000, guid: 312a67df5857c2140ba81be57e4850fe, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
