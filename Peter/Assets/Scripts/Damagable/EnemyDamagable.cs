@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class EnemyDamagable : Damagable
 {
     [Header("Custom Damagable")]
-    [SerializeField] public UnityEngine.UI.Slider slider;
-    public Gradient gradient;
-    public Image fill;
-    protected Transform cam;
+    [SerializeField] protected Slider slider;
+    [SerializeField] protected Gradient gradient;
+    [SerializeField] protected Image fill;
+    private Transform cam;
 
     protected override void Start()
     {
@@ -25,13 +25,8 @@ public class EnemyDamagable : Damagable
 
     protected override void UpdateHealth()
     {
-        slider.value = Health;
+        slider.value = Health / MaxHealth;
         fill.color = gradient.Evaluate(slider.normalizedValue);
         base.UpdateHealth();
-    }
-
-    protected override void UpdateMaxHealth()
-    {
-        slider.maxValue = MaxHealth;
     }
 }
