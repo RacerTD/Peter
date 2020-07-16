@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class UIManager : ManagerModule<UIManager>
 {
     [Header("Health Bar")]
-    [SerializeField] protected Slider healthBar;
+    [SerializeField] protected UnityEngine.UI.Slider healthBar;
 
     /// <summary>
     /// Updates the health bar
