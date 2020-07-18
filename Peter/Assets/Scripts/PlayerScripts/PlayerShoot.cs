@@ -101,7 +101,7 @@ public class PlayerShoot : Ability
     /// </summary>
     private void ShootAuto()
     {
-        if (currentInputAction.started || currentInputAction.performed)
+        if (InputStarted || InputPerformed)
         {
             if (TimeSinceLastShot > Gun.TimeBetweenShots)
             {
@@ -116,7 +116,7 @@ public class PlayerShoot : Ability
     /// </summary>
     private void ShootSingle()
     {
-        if (currentInputAction.started)
+        if (InputStarted)
         {
             if (TimeSinceLastShot > Gun.TimeBetweenShots)
             {

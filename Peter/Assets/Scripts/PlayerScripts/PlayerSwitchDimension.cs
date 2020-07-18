@@ -18,7 +18,7 @@ public class PlayerSwitchDimension : Ability
         base.Start();
     }
 
-    public override void AbilityUpdate()
+    public override void AbilityStart()
     {
         if (!dimensionSwitched)
         {
@@ -36,12 +36,18 @@ public class PlayerSwitchDimension : Ability
             playerShoot.UpdateAmmoDisplay();
         }
 
-        base.AbilityUpdate();
+        base.AbilityStart();
     }
 
     public override void AbilityEnd()
     {
         dimensionSwitched = false;
         base.AbilityEnd();
+    }
+
+    public override void AbilityCoolDownUpdate()
+    {
+        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
+        base.AbilityCoolDownUpdate();
     }
 }

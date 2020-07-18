@@ -10,11 +10,13 @@ public class PlayerLook : Ability
     [SerializeField] private float lookSensitivity = 0.3f;
     [SerializeField] protected Camera controlledCamera;
     [SerializeField] protected float recoverySpeed = 2f;
-    private Vector2 lookVecor = Vector2.zero;
+    private Vector2 lookVector = Vector2.zero;
     private Vector3 shouldDirection = Vector3.zero;
     private Vector3 directionOffset = Vector3.zero;
     private Recoil rec = new Recoil();
     private PlayerShoot playerShoot;
+
+    [HideInInspector] public Vector2 InputValue;
 
     protected override void Start()
     {
@@ -24,11 +26,19 @@ public class PlayerLook : Ability
         base.Start();
     }
 
+    public override void GetInput(InputAction.CallbackContext context)
+    {
+        InputValue = context.ReadValue<Vector2>();
+        base.GetInput(context);
+    }
+
     public override void AbilityUpdate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0f, currentInputAction.ReadValue<Vector2>().x * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + transform.rotation.eulerAngles.y, 0));
-
-        CalculateShouldDirection();
+        if (!InputCanceled)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0f, InputValue.x * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + transform.rotation.eulerAngles.y, 0));
+            CalculateShouldDirection();
+        }
 
         controlledCamera.transform.localRotation = Quaternion.Euler(shouldDirection + directionOffset);
 
@@ -44,7 +54,7 @@ public class PlayerLook : Ability
     /// </summary>
     private void CalculateShouldDirection()
     {
-        shouldDirection = new Vector3(Mathf.Clamp(-currentInputAction.ReadValue<Vector2>().y * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + shouldDirection.x, -85f, 85f), 0f, 0f);
+        shouldDirection = new Vector3(Mathf.Clamp(-InputValue.y * (playerShoot.isAiming ? lookSensitivity * playerShoot.Gun.ScopeLookSpeed : lookSensitivity) + shouldDirection.x, -85f, 85f), 0f, 0f);
     }
 
     /// <summary>
