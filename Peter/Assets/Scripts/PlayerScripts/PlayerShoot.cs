@@ -10,10 +10,8 @@ public class PlayerShoot : Ability
 {
     [Header("Custom Ability Features")]
     public Weapon Gun;
-    [Tooltip("Default gun position")]
-    public Transform GunPoint;
-    [Tooltip("Point where the gun goes to while aiming")]
-    public Transform AimPoint;
+    [Tooltip("Default gun position")] public Transform GunPoint;
+    [Tooltip("Point where the gun goes to while aiming")] public Transform AimPoint;
     [HideInInspector] public bool isAiming = false;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
@@ -160,7 +158,7 @@ public class PlayerShoot : Ability
         if (Gun.BulletFollowingParticles != null)
         {
             LineRenderer temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
-            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 100 });
+            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 25 });
         }
         else
             Debug.LogError($"You Got no BulletFollowingParticles on {Gun.name}");
