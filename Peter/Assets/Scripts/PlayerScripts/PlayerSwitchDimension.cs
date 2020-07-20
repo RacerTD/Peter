@@ -8,7 +8,6 @@ public class PlayerSwitchDimension : Ability
 {
     [Header("Custom Ability Features")]
     [SerializeField] protected Vector3 DimensionOffset = Vector3.zero;
-    private bool dimensionSwitched = false;
     public bool DimA = true;
     private PlayerShoot playerShoot;
 
@@ -20,29 +19,19 @@ public class PlayerSwitchDimension : Ability
 
     public override void AbilityStart()
     {
-        if (!dimensionSwitched)
+        if (DimA)
         {
-            if (DimA)
-            {
-                transform.position += DimensionOffset;
-            }
-            else
-            {
-                transform.position -= DimensionOffset;
-            }
-
-            dimensionSwitched = true;
-            DimA = !DimA;
-            playerShoot.UpdateAmmoDisplay();
+            transform.position += DimensionOffset;
+        }
+        else
+        {
+            transform.position -= DimensionOffset;
         }
 
-        base.AbilityStart();
-    }
+        DimA = !DimA;
+        playerShoot.UpdateAmmoDisplay();
 
-    public override void AbilityEnd()
-    {
-        dimensionSwitched = false;
-        base.AbilityEnd();
+        base.AbilityStart();
     }
 
     public override void AbilityCoolDownUpdate()

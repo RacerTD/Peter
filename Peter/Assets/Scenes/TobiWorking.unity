@@ -581,6 +581,16 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8798636231972256806, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+        type: 3}
+      propertyPath: AbilityDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798636231972256806, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+        type: 3}
+      propertyPath: CoolDownDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
       propertyPath: mouseLookSensitivity
