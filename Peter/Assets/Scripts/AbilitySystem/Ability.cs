@@ -17,9 +17,9 @@ public class Ability : MonoBehaviour
 
     #region Input
 
-    [HideInInspector] public bool InputStarted = false;
-    [HideInInspector] public bool InputPerformed = false;
-    [HideInInspector] public bool InputCanceled = false;
+    [SerializeField] public bool InputStarted = false;
+    [SerializeField] public bool InputPerformed = false;
+    [SerializeField] public bool InputCanceled = false;
 
     #endregion
 

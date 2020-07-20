@@ -24,37 +24,11 @@ public class PlayerMove : Ability
     [SerializeField] private Vector3 jumpForce = Vector3.zero;
     public WalkingType WalkingType = WalkingType.Normal;
     private Rigidbody physicsbody;
-
-    #region InputBools
-    private bool started = false;
-    private bool performed = false;
-    private bool canceled = false;
-    private Vector2 inputValue = Vector2.zero;
-    #endregion
+    [SerializeField] private Vector2 inputValue = Vector2.zero;
 
     public override void GetInput(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            started = true;
-            performed = false;
-            canceled = false;
-            inputValue = context.ReadValue<Vector2>();
-        }
-        else if (context.performed)
-        {
-            started = false;
-            performed = true;
-            canceled = false;
-            inputValue = context.ReadValue<Vector2>();
-        }
-        else if (context.canceled)
-        {
-            started = false;
-            performed = false;
-            canceled = true;
-            inputValue = Vector2.zero;
-        }
+        inputValue = context.canceled ? Vector2.zero : context.ReadValue<Vector2>();
         base.GetInput(context);
     }
 
@@ -137,29 +111,12 @@ public class PlayerMove : Ability
     {
         UpdateVelocity();
 
-        ApplyVelocity();
-
         base.AbilityUpdate();
     }
 
     private void FixedUpdate()
     {
-        //moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.fixedDeltaTime);
-        //Vector3 stuff = Vector3.RotateTowards(transform.position, moveVector, float.MaxValue, float.MaxValue);
-
-        //physicsbody.MovePosition(transform.position += stuff * Time.fixedDeltaTime);
-
-        //physicsbody.velocity = new Vector3(stuff.x, physicsbody.velocity.y, stuff.z);
-        //Debug.Log($"{stuff} || {physicsbody.velocity}");
-    }
-
-    /// <summary>
-    /// Not in use
-    /// </summary>
-    private void ApplyVelocity()
-    {
-        moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.deltaTime);
-        transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.deltaTime, float.MaxValue, float.MaxValue));
+        transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.fixedDeltaTime, float.MaxValue, float.MaxValue));
     }
 
     /// <summary>
@@ -167,31 +124,7 @@ public class PlayerMove : Ability
     /// </summary>
     private void UpdateVelocity()
     {
-        /*
-        if (currentInputAction.started || currentInputAction.performed)
-        {
-            switch (WalkingType)
-            {
-                case WalkingType.Normal:
-                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * MoveSpeed, 0, currentInputAction.ReadValue<Vector2>().y * MoveSpeed);
-                    break;
-                case WalkingType.Sprint:
-                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * MoveSpeed, 0, Mathf.Clamp(currentInputAction.ReadValue<Vector2>().y * SprintSpeed, -MoveSpeed, SprintSpeed));
-                    break;
-                case WalkingType.Sneak:
-                    shouldVector = new Vector3(currentInputAction.ReadValue<Vector2>().x * SneakSpeed, 0, currentInputAction.ReadValue<Vector2>().y * SneakSpeed);
-                    break;
-            }
-        }
-
-        //if (currentInputAction.canceled)
-        if (canceled)
-        {
-            shouldVector = Vector3.zero;
-        }
-        */
-
-        if (started || performed)
+        if (InputStarted || InputPerformed)
         {
             switch (WalkingType)
             {
@@ -207,10 +140,12 @@ public class PlayerMove : Ability
             }
         }
 
-        if (canceled)
+        if (InputCanceled)
         {
             shouldVector = Vector3.zero;
         }
+
+        moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.deltaTime);
     }
 }
 
