@@ -12,7 +12,16 @@ public class Ability : MonoBehaviour
     protected bool abilityHasDuration = false;
     [HideInInspector] public bool AbilityActive = false;
     public float CoolDownDuration = 0f;
-    [HideInInspector] public float CoolDownDurationTime = 0f;
+    private float coolDownDurationTime = 0f;
+    public float CoolDownDurationTime
+    {
+        get => coolDownDurationTime;
+        set
+        {
+            coolDownDurationTime = value;
+            UpdateCoolDownDurationTime();
+        }
+    }
     [HideInInspector] public AbilityController controller;
 
     #region Input
@@ -125,6 +134,14 @@ public class Ability : MonoBehaviour
     /// What happens when the input device changes
     /// </summary>
     public virtual void OnDeviceChanged(PlayerInput input)
+    {
+
+    }
+
+    /// <summary>
+    /// Happens every time the cooldown changes
+    /// </summary>
+    public virtual void UpdateCoolDownDurationTime()
     {
 
     }

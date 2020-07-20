@@ -14,6 +14,7 @@ public class PlayerSwitchDimension : Ability
 
     protected override void Start()
     {
+        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
         playerShoot = GetComponent<PlayerShoot>();
         base.Start();
     }
@@ -37,12 +38,22 @@ public class PlayerSwitchDimension : Ability
 
     public override void AbilityCoolDownUpdate()
     {
-        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
         base.AbilityCoolDownUpdate();
+    }
+
+    public override void AbilityCoolDownEnd()
+    {
+        base.AbilityCoolDownEnd();
     }
 
     public void DecreaseSwitchTimer(float damage)
     {
         CoolDownDurationTime -= damage * damageDecreaseFactor;
+    }
+
+    public override void UpdateCoolDownDurationTime()
+    {
+        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
+        base.UpdateCoolDownDurationTime();
     }
 }
