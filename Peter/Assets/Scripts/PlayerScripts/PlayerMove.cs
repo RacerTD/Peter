@@ -101,9 +101,13 @@ public class PlayerMove : Ability
     /// </summary>
     public void DoJump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f))
         {
-            GetComponent<Rigidbody>().AddForce(jumpForce);
+            if (context.started && Vector3.Distance(transform.position, hit.point) <= 0.05f)
+            {
+                physicsbody.AddForce(jumpForce);
+            }
         }
     }
 
