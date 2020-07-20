@@ -24,7 +24,7 @@ public class PlayerMove : Ability
     [SerializeField] private Vector3 jumpForce = Vector3.zero;
     public WalkingType WalkingType = WalkingType.Normal;
     private Rigidbody physicsbody;
-    [SerializeField] private Vector2 inputValue = Vector2.zero;
+    private Vector2 inputValue = Vector2.zero;
 
     public override void GetInput(InputAction.CallbackContext context)
     {

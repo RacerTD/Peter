@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerLook : Ability
 {
     [Header("Custom Ability Features")]
-    [SerializeField] private float lookSensitivity = 0.3f;
+    [SerializeField] private float mouseLookSensitivity = 0.3f;
+    [SerializeField] private float controllerLookSensitivity = 0.3f;
+    private float lookSensitivity = 0.3f;
     [SerializeField] protected Camera controlledCamera;
     [SerializeField] protected float recoverySpeed = 2f;
     private Vector2 lookVector = Vector2.zero;
@@ -15,11 +17,11 @@ public class PlayerLook : Ability
     private Vector3 directionOffset = Vector3.zero;
     private Recoil rec = new Recoil();
     private PlayerShoot playerShoot;
-
     [HideInInspector] public Vector2 InputValue;
 
     protected override void Start()
     {
+        lookSensitivity = mouseLookSensitivity;
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
         playerShoot = GetComponent<PlayerShoot>();
         AbilityActive = true;
@@ -93,5 +95,22 @@ public class PlayerLook : Ability
         public Vector3 Amount;
         public float Time;
         public float Max;
+    }
+
+    public override void OnDeviceChanged(PlayerInput input)
+    {
+        switch (input.currentControlScheme)
+        {
+            case "Gamepad":
+                lookSensitivity = controllerLookSensitivity;
+                break;
+            case "Keyboard&Mouse":
+                lookSensitivity = mouseLookSensitivity;
+                break;
+        }
+
+        Debug.Log(input.currentControlScheme);
+
+        base.OnDeviceChanged(input);
     }
 }

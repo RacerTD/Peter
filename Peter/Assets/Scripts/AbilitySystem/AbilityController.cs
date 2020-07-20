@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AbilityController : MonoBehaviour
 {
@@ -26,6 +27,17 @@ public class AbilityController : MonoBehaviour
         foreach (Ability ability in abilities.Where(a => a.CoolDownDurationTime > 0))
         {
             ability.AbilityCoolDownUpdate();
+        }
+    }
+
+    /// <summary>
+    /// What happens when the input device changes
+    /// </summary>
+    public void OnDeviceChanged(PlayerInput input)
+    {
+        foreach (Ability ability in abilities)
+        {
+            ability.OnDeviceChanged(input);
         }
     }
 }

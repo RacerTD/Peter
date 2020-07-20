@@ -17,9 +17,9 @@ public class Ability : MonoBehaviour
 
     #region Input
 
-    [SerializeField] public bool InputStarted = false;
-    [SerializeField] public bool InputPerformed = false;
-    [SerializeField] public bool InputCanceled = false;
+    [HideInInspector] public bool InputStarted = false;
+    [HideInInspector] public bool InputPerformed = false;
+    [HideInInspector] public bool InputCanceled = false;
 
     #endregion
 
@@ -120,4 +120,12 @@ public class Ability : MonoBehaviour
     }
 
     #endregion
+
+    /// <summary>
+    /// What happens when the input device changes
+    /// </summary>
+    public virtual void OnDeviceChanged(PlayerInput input)
+    {
+
+    }
 }
