@@ -3,12 +3,7 @@ guid: 82ba3b915ffaf024cabe203230ba6eed
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rail Glass
-    second: {fileID: 2100000, guid: e91c13f8bee2a1c4fb3b0e43a44eb8d4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
