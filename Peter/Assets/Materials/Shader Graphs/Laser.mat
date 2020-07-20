@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1304502D:
-        m_Texture: {fileID: 2800000, guid: 24defcd5a74aa4d428aec9427dccdbda, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_1B068369:
@@ -85,7 +85,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_DFC6CE12: {r: 3.168628, g: 3.168628, b: 3.168628, a: 0}
+    - Color_DFC6CE12: {r: 25.349024, g: 25.349024, b: 25.349024, a: 0}
     - Vector2_3E8B29CB: {r: -1, g: 0, b: 0, a: 0}
     - Vector2_4AE9D227: {r: -2, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
