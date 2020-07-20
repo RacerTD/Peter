@@ -679,20 +679,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.64278764
       objectReference: {fileID: 0}
-    - target: {fileID: 115569225509442150, guid: 0b25d4cadcb1f674dac6fe85a8de2b18,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 447632506715728674, guid: 0b25d4cadcb1f674dac6fe85a8de2b18,
         type: 3}
       propertyPath: m_Name
       value: Door (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 447632506715728675, guid: 0b25d4cadcb1f674dac6fe85a8de2b18,
-        type: 3}
-      propertyPath: openRotation.y
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 972108776763371928, guid: 0b25d4cadcb1f674dac6fe85a8de2b18,
         type: 3}

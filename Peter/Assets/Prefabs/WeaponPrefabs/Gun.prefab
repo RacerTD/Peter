@@ -149,6 +149,8 @@ MonoBehaviour:
   RecoilTime: 0.1
   RecoilMax: 50
   WeaponSpray: 4
+  BulletFollowingParticles: {fileID: 6910969988983452694, guid: e98b88905767e3645a5cb999b23ab7aa,
+    type: 3}
 --- !u!1 &6915500554621503733
 GameObject:
   m_ObjectHideFlags: 0

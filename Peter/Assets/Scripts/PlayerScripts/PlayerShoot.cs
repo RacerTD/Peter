@@ -131,6 +131,12 @@ public class PlayerShoot : Ability
     /// </summary>
     private void Shoot()
     {
+        if (Gun == null)
+        {
+            Debug.LogError("You Got no Gun you got no Soul");
+            return;
+        }
+
         if (playerSwitchDimension.DimA && Gun.CurrentGunAmmoA > 0)
         {
             Gun.CurrentGunAmmoA--;
@@ -146,8 +152,18 @@ public class PlayerShoot : Ability
             return;
         }
 
+        Vector3 shootDir = GenerateShootDirectiorn();
+
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
-            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, GenerateShootDirectiorn(), Gun.BulletLifeTime, Gun.BulletHitAmount);
+            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
+
+        if (Gun.BulletFollowingParticles != null)
+        {
+            LineRenderer temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
+            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 100 });
+        }
+        else
+            Debug.LogError($"You Got no BulletFollowingParticles on {Gun.name}");
 
         if (isAiming)
         {

@@ -59,6 +59,9 @@ public class Weapon : MonoBehaviour
     public float RecoilMax = 0f;
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
 
+    [Header("Not Scope Properties")]
+    public LineRenderer BulletFollowingParticles;
+
     private void OnDrawGizmos()
     {
         if (ShootPoint != null)
