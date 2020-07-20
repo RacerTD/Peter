@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class StandardBullet : Bullet
+public class StandardBullet : PlayerBullet
 {
     [SerializeField] protected VisualEffect onDeathEffect;
 

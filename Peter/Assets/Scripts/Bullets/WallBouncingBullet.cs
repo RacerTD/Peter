@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class WallBouncingBullet : Bullet
+public class WallBouncingBullet : PlayerBullet
 {
     [SerializeField] protected VisualEffect onDeathEffect;
 

@@ -153,7 +153,7 @@ public class PlayerShoot : Ability
         Vector3 shootDir = GenerateShootDirectiorn();
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
-            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
+            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount, playerSwitchDimension);
 
         if (Gun.BulletFollowingParticles != null)
         {

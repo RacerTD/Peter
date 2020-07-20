@@ -8,7 +8,8 @@ public class PlayerSwitchDimension : Ability
 {
     [Header("Custom Ability Features")]
     [SerializeField] protected Vector3 DimensionOffset = Vector3.zero;
-    public bool DimA = true;
+    [HideInInspector] public bool DimA = true;
+    [SerializeField] private float damageDecreaseFactor = 1f;
     private PlayerShoot playerShoot;
 
     protected override void Start()
@@ -38,5 +39,10 @@ public class PlayerSwitchDimension : Ability
     {
         UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
         base.AbilityCoolDownUpdate();
+    }
+
+    public void DecreaseSwitchTimer(float damage)
+    {
+        CoolDownDurationTime -= damage * damageDecreaseFactor;
     }
 }

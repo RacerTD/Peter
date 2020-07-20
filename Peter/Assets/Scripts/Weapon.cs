@@ -6,7 +6,7 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
-    public Bullet BulletBullet;
+    public PlayerBullet BulletBullet;
     public float BulletSpeed = 5f;
     public float BulletLifeTime = 10f;
     public int BulletHitAmount = 1;
@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour
     public float RecoilMax = 0f;
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
 
-    [Header("Not Scope Properties")]
+    [Header("Particles")]
     public LineRenderer BulletFollowingParticles;
 
     private void OnDrawGizmos()
