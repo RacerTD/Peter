@@ -10,10 +10,29 @@ public class PlayerSwitchDimension : Ability
     [SerializeField] protected Vector3 DimensionOffset = Vector3.zero;
     [HideInInspector] public bool DimA = true;
     [SerializeField] private float damageDecreaseFactor = 1f;
+
+    [Header("Effects")]
+    [SerializeField] private List<GameObject> dimAActive = new List<GameObject>();
+    [SerializeField] private List<GameObject> dimBActive = new List<GameObject>();
     private PlayerShoot playerShoot;
 
     protected override void Start()
     {
+        if (DimA)
+        {
+            foreach (GameObject obj in dimAActive)
+                obj.SetActive(false);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(true);
+        }
+        else
+        {
+            foreach (GameObject obj in dimAActive)
+                obj.SetActive(true);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(false);
+        }
+
         UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
         playerShoot = GetComponent<PlayerShoot>();
         base.Start();
@@ -23,10 +42,20 @@ public class PlayerSwitchDimension : Ability
     {
         if (DimA)
         {
+            foreach (GameObject obj in dimAActive)
+                obj.SetActive(false);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(true);
+
             transform.position += DimensionOffset;
         }
         else
         {
+            foreach (GameObject obj in dimAActive)
+                obj.SetActive(true);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(false);
+
             transform.position -= DimensionOffset;
         }
 
