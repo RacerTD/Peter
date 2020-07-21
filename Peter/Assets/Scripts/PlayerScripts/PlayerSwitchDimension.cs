@@ -21,16 +21,16 @@ public class PlayerSwitchDimension : Ability
         if (DimA)
         {
             foreach (GameObject obj in dimAActive)
-                obj.SetActive(false);
-            foreach (GameObject obj in dimBActive)
                 obj.SetActive(true);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(false);
         }
         else
         {
             foreach (GameObject obj in dimAActive)
-                obj.SetActive(true);
-            foreach (GameObject obj in dimBActive)
                 obj.SetActive(false);
+            foreach (GameObject obj in dimBActive)
+                obj.SetActive(true);
         }
 
         UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
