@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionTwo : Action
+public class ActionTwo : ActionNode
 {
     private Transform bla;
 
@@ -15,13 +15,13 @@ public class ActionTwo : Action
     {
         if (bla.position.y <= 0)
         {
-            return NodeState.Success;
+            return NodeState.Running;
         }
 
         return NodeState.Failure;
     }
 
-    public override void NodeStateSuccess()
+    public override void NodeStateRunning()
     {
         bla.position -= Vector3.left * Time.deltaTime;
     }

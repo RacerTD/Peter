@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1455644674026829810}
   - component: {fileID: 1455644674026829811}
   - component: {fileID: 1455644674026829812}
-  - component: {fileID: 1455644674026829814}
+  - component: {fileID: -1169702572949296983}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1455644674026829814
+--- !u!114 &-1169702572949296983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455644674026829815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1857aca76daec08488d4704bac849a69, type: 3}
+  m_Script: {fileID: 11500000, guid: e7665c8692891af46b80e1a0beeb5231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDeathEffect: {fileID: 1404160115263400500, guid: 41f0869650a07f64e8e66f36245af306,
-    type: 3}

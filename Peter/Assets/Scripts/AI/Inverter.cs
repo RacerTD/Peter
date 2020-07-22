@@ -2,38 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inverter : Node
+public abstract class Inverter : Node
 {
-    //Node to evaluate
-    private Node inverterNode;
-
-    public Node InverterNode
-    {
-        get => inverterNode;
-    }
-
-    //Constructor
-    public Inverter(Node node)
-    {
-        inverterNode = node;
-    }
-
-    //Inverts the state the child node returns
     public override NodeState Evaluate()
     {
-        switch (inverterNode.Evaluate())
+        switch (CheckNodeState())
         {
-            case NodeState.Failure:
-                nodeState = NodeState.Success;
-                return nodeState;
             case NodeState.Success:
+                NodeStateSuccess();
+                nodeState = NodeState.Success;
+                break;
+            case NodeState.Failure:
+                NodeStateFailure();
                 nodeState = NodeState.Failure;
-                return nodeState;
+                break;
             case NodeState.Running:
+                NodeStateRunning();
                 nodeState = NodeState.Running;
-                return nodeState;
+                break;
         }
-        nodeState = NodeState.Success;
+
         return nodeState;
+    }
+
+    public abstract NodeState CheckNodeState();
+
+    public virtual void NodeStateSuccess()
+    {
+
+    }
+
+    public virtual void NodeStateFailure()
+    {
+
+    }
+
+    public virtual void NodeStateRunning()
+    {
+
     }
 }

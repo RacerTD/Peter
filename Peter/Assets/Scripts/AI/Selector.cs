@@ -16,8 +16,12 @@ public class Selector : Node
     //Evalueates all child nodes
     public override NodeState Evaluate()
     {
+        //Debug.Log(nodes.Count);
+
         foreach (Node node in nodes)
         {
+            //Debug.Log("bla");
+
             switch (node.Evaluate())
             {
                 case NodeState.Failure:
@@ -32,6 +36,7 @@ public class Selector : Node
                     continue;
             }
         }
+
         nodeState = NodeState.Failure;
         return nodeState;
     }

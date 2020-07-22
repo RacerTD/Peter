@@ -23,14 +23,14 @@ public class Door : MonoBehaviour
         {
             foreach (Transform part in thingsToOpen)
             {
-                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(closedRotation), degreesPerSecond * Time.deltaTime);
+                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(openRotation), degreesPerSecond * Time.deltaTime);
             }
         }
         else
         {
             foreach (Transform part in thingsToOpen)
             {
-                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(openRotation), degreesPerSecond * Time.deltaTime);
+                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(closedRotation), degreesPerSecond * Time.deltaTime);
             }
         }
     }
@@ -61,14 +61,5 @@ public class Door : MonoBehaviour
                 part.rotation = Quaternion.Euler(closedRotation);
 
         OpenCloseDoor();
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (thingsToOpen.Count > 0)
-        {
-            Debug.DrawRay(thingsToOpen[0].position, closedRotation, Color.green);
-            Debug.DrawRay(thingsToOpen[0].position, openRotation, Color.green);
-        }
     }
 }
