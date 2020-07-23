@@ -7,6 +7,8 @@ public class TurretShoot : EnemyAbility
 {
     [Header("Custem Ability Features")]
     public Bullet Projectile;
+    public float BulletSpeed = 10f;
+    public float BulletDamage = 10f;
 
     private TurretView turretView;
 
@@ -17,6 +19,7 @@ public class TurretShoot : EnemyAbility
 
     public override void AbilityEnd()
     {
-        Instantiate(Projectile, turretView.RotatingThing.position, Quaternion.identity, GameManager.Instance.BulletHolder).SetupBullet(10, 10, turretView.RotatingThing.forward, 10f, 1);
+        Instantiate(Projectile, turretView.RotatingThing.position, Quaternion.identity, GameManager.Instance.BulletHolder)
+            .SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, 10f, 1);
     }
 }
