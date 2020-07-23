@@ -8,7 +8,6 @@ public class TurretController : EnemyController
 {
     public override Node SetUpAI()
     {
-
         AIAimingNode aimNode = new AIAimingNode(GetComponent<TurretView>(), GameManager.Instance.CurrentPlayer);
         AIShootingNode shootNode = new AIShootingNode(GetComponent<TurretShoot>(), GetComponent<TurretView>(), GameManager.Instance.CurrentPlayer, 10f);
 
