@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+/// <summary>
+/// Base Node, nothing more to say
+/// </summary>
 public abstract class Node
 {
     //return current state of the node

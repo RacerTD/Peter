@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Executes all nodes until one failes
+/// </summary>
 public class Sequence : Node
 {
     //Nodes that belong to this sequence

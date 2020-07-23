@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Executes the first node that works
+/// </summary>
 public class Selector : Node
 {
     //List of nodes to select from
