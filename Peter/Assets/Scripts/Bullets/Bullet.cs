@@ -21,6 +21,12 @@ public class Bullet : MonoBehaviour
         }
     }
     protected float lifeTime = 20f;
+    private LayerMask layerMask;
+
+    private void Start()
+    {
+        layerMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Water", "UI");
+    }
 
     public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float lifeTime, int remainingHits)
     {
@@ -50,7 +56,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     protected virtual void CheckCollision()
     {
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.fixedDeltaTime);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.fixedDeltaTime, layerMask);
 
         hits = hits.OrderBy(h => (h.point - transform.position).magnitude).ToArray();
 

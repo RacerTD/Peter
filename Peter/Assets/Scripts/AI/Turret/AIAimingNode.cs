@@ -12,6 +12,7 @@ public class AIAimingNode : ActionNode
 
     private float aimAngleToPlayer = 0f;
     private bool hasDirectSight = false;
+    private LayerMask layerMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Water", "UI");
 
     public AIAimingNode(TurretView turretView, Player player)
     {
@@ -34,7 +35,7 @@ public class AIAimingNode : ActionNode
 
     private bool CheckDirectSightLineToPlayer()
     {
-        RaycastHit[] hits = Physics.RaycastAll(turretView.RotatingThing.position, player.transform.position + Vector3.up - turretView.RotatingThing.position, turretView.SightDistance);
+        RaycastHit[] hits = Physics.RaycastAll(turretView.RotatingThing.position, player.transform.position + Vector3.up - turretView.RotatingThing.position, turretView.SightDistance, layerMask);
         //Debug.DrawRay(turretView.RotatingThing.position, (player.transform.position + Vector3.up - turretView.RotatingThing.position).normalized * turretView.SightDistance, Color.green);
 
         return hits.OrderBy(h => (h.point - turretView.RotatingThing.position).magnitude).ToArray().Select(hit => hit.collider.GetComponent<Player>() != null).FirstOrDefault();
