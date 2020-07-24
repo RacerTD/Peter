@@ -16,25 +16,34 @@ public class PlayerMove : Ability
     public float SprintSpeed = 4f;
     [SerializeField] private bool sprintIsToggle = false;
 
-    [Header("Sneak")]
-    public float SneakSpeed = 1f;
+    [Header("Crouch")]
+    public float CrouchSpeed = 1f;
+    public float CrouchTime = 1f;
+    private float timeSinceCrouch = 0f;
+    private float timeSinceNoCrouch = 0f;
+    [SerializeField] private float crouchHeight = 1f;
+    private float normalLocalCameraHeight = 0f;
+    private float crouchLocalCameraHeight = 0.8f;
+    private float normalColHeight = 0f;
     [SerializeField] private bool sneakIsToggle = false;
 
     [Header("Jump")]
     [SerializeField] private Vector3 jumpForce = Vector3.zero;
     public WalkingType WalkingType = WalkingType.Normal;
-    private Rigidbody physicsbody;
-    private Vector2 inputValue = Vector2.zero;
 
-    public override void GetInput(InputAction.CallbackContext context)
-    {
-        inputValue = context.canceled ? Vector2.zero : context.ReadValue<Vector2>();
-        base.GetInput(context);
-    }
+    private Rigidbody physicsbody;
+    private CapsuleCollider capCol;
+    private Camera cam;
+    private Vector2 inputValue = Vector2.zero;
 
     protected override void Start()
     {
         physicsbody = GetComponent<Rigidbody>();
+        capCol = GetComponent<CapsuleCollider>();
+        normalColHeight = capCol.height;
+        cam = GetComponentInChildren<Camera>();
+        normalLocalCameraHeight = cam.transform.localPosition.y;
+        crouchLocalCameraHeight = capCol.center.y + crouchHeight / 2;
         base.Start();
     }
 
@@ -70,24 +79,24 @@ public class PlayerMove : Ability
     /// <summary>
     /// Action when the sneak button is pressed
     /// </summary>
-    public void ToggleSneak(InputAction.CallbackContext context)
+    public void ToggleCrouch(InputAction.CallbackContext context)
     {
         if (sneakIsToggle)
         {
-            if (WalkingType == WalkingType.Sneak)
+            if (WalkingType == WalkingType.Crouch)
             {
                 WalkingType = WalkingType.Normal;
             }
             else
             {
-                WalkingType = WalkingType.Sneak;
+                WalkingType = WalkingType.Crouch;
             }
         }
         else
         {
             if (context.started)
             {
-                WalkingType = WalkingType.Sneak;
+                WalkingType = WalkingType.Crouch;
             }
             else if (context.canceled)
             {
@@ -111,6 +120,12 @@ public class PlayerMove : Ability
         }
     }
 
+    public override void GetInput(InputAction.CallbackContext context)
+    {
+        inputValue = context.canceled ? Vector2.zero : context.ReadValue<Vector2>();
+        base.GetInput(context);
+    }
+
     public override void AbilityUpdate()
     {
         UpdateVelocity();
@@ -120,6 +135,7 @@ public class PlayerMove : Ability
 
     private void FixedUpdate()
     {
+        UpdateCrouch();
         transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.fixedDeltaTime, float.MaxValue, float.MaxValue));
     }
 
@@ -138,8 +154,11 @@ public class PlayerMove : Ability
                 case WalkingType.Sprint:
                     shouldVector = new Vector3(inputValue.x * MoveSpeed, 0, Mathf.Clamp(inputValue.y * SprintSpeed, -MoveSpeed, SprintSpeed));
                     break;
-                case WalkingType.Sneak:
-                    shouldVector = new Vector3(inputValue.x * SneakSpeed, 0, inputValue.y * SneakSpeed);
+                case WalkingType.Crouch:
+                    shouldVector = new Vector3(inputValue.x * CrouchSpeed, 0, inputValue.y * CrouchSpeed);
+                    break;
+                default:
+                    Debug.LogWarning($"You shall not pass!");
                     break;
             }
         }
@@ -151,11 +170,34 @@ public class PlayerMove : Ability
 
         moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.deltaTime);
     }
+
+    private void UpdateCrouch()
+    {
+        switch (WalkingType)
+        {
+            case WalkingType.Normal:
+            case WalkingType.Sprint:
+                capCol.height = Mathf.Lerp(crouchHeight, normalColHeight, timeSinceNoCrouch / CrouchTime);
+                cam.transform.localPosition = new Vector3(0, Mathf.Lerp(crouchLocalCameraHeight, normalLocalCameraHeight, timeSinceNoCrouch / CrouchTime), 0);
+                timeSinceCrouch = 0f;
+                timeSinceNoCrouch += Time.fixedDeltaTime;
+                break;
+            case WalkingType.Crouch:
+                capCol.height = Mathf.Lerp(normalColHeight, crouchHeight, timeSinceCrouch / CrouchTime);
+                cam.transform.localPosition = new Vector3(0, Mathf.Lerp(normalLocalCameraHeight, crouchLocalCameraHeight, timeSinceCrouch / CrouchTime), 0);
+                timeSinceCrouch += Time.fixedDeltaTime;
+                timeSinceNoCrouch = 0f;
+                break;
+            default:
+                Debug.LogWarning($"A by-product of the TV industry");
+                break;
+        }
+    }
 }
 
 public enum WalkingType
 {
     Sprint,
-    Sneak,
+    Crouch,
     Normal
 }
