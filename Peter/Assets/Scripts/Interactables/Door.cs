@@ -7,10 +7,10 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private float timeToOpen = 0f;
     private float degreesPerSecond = 0f;
-    private bool isOpen = false;
+    [SerializeField] private DoorState doorState = DoorState.Closed;
     private Vector3 closedRotation = Vector3.zero;
     [SerializeField] private Vector3 openRotation = Vector3.zero;
-    [SerializeField] private List<Transform> thingsToOpen = new List<Transform>();
+    [SerializeField] private Transform door;
 
     private void Start()
     {
@@ -19,47 +19,94 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (isOpen)
+        if (door != null)
         {
-            foreach (Transform part in thingsToOpen)
+            switch (doorState)
             {
-                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(openRotation), degreesPerSecond * Time.deltaTime);
-            }
-        }
-        else
-        {
-            foreach (Transform part in thingsToOpen)
-            {
-                part.rotation = Quaternion.RotateTowards(part.rotation, Quaternion.Euler(closedRotation), degreesPerSecond * Time.deltaTime);
+                case DoorState.Open:
+                    door.rotation = Quaternion.RotateTowards(door.rotation, Quaternion.Euler(openRotation + transform.rotation.eulerAngles), degreesPerSecond * Time.deltaTime);
+                    break;
+                case DoorState.Closed:
+                    door.rotation = Quaternion.RotateTowards(door.rotation, Quaternion.Euler(closedRotation + transform.rotation.eulerAngles), degreesPerSecond * Time.deltaTime);
+                    break;
+                case DoorState.OpenBackwards:
+                    door.rotation = Quaternion.RotateTowards(door.rotation, Quaternion.Euler(-openRotation + transform.rotation.eulerAngles), degreesPerSecond * Time.deltaTime);
+                    break;
+                case DoorState.Locked:
+                    break;
+                default:
+                    Debug.LogError("I have a bad feeling about this.");
+                    break;
             }
         }
     }
 
+    /// <summary>
+    /// Opens or closes the door
+    /// </summary>
+    [ContextMenu("Open or Close")]
     public void OpenCloseDoor()
     {
-        isOpen = !isOpen;
+        switch (doorState)
+        {
+            case DoorState.Open:
+                doorState = DoorState.Closed;
+                break;
+            case DoorState.Closed:
+                if (CheckIfPlayerFrontBack())
+                    doorState = DoorState.Open;
+                else
+                    doorState = DoorState.OpenBackwards;
+                break;
+            case DoorState.OpenBackwards:
+                doorState = DoorState.Closed;
+                break;
+            case DoorState.Locked:
+                break;
+            default:
+                Debug.LogError("I have a bad feeling about this.");
+                break;
+        }
     }
 
+    /// <summary>
+    /// Opens the door
+    /// </summary>
     public void OpenDoor()
     {
-        isOpen = true;
+        doorState = DoorState.Open;
     }
 
+    /// <summary>
+    /// Opens the door backwards
+    /// </summary>
+    public void OpenDoorBackwards()
+    {
+        doorState = DoorState.OpenBackwards;
+    }
+
+    /// <summary>
+    /// Closes the door
+    /// </summary>
     public void CloseDoor()
     {
-        isOpen = false;
+        doorState = DoorState.Closed;
     }
 
-    [ContextMenu("Open or Close")]
-    public void OpenDoorInEditor()
+    /// <summary>
+    /// Checks if the player is in front or behind the door
+    /// </summary>
+    public bool CheckIfPlayerFrontBack()
     {
-        if (isOpen)
-            foreach (Transform part in thingsToOpen)
-                part.rotation = Quaternion.Euler(openRotation);
-        else
-            foreach (Transform part in thingsToOpen)
-                part.rotation = Quaternion.Euler(closedRotation);
-
-        OpenCloseDoor();
+        return Vector3.Dot(GameManager.Instance.CurrentPlayer.transform.position - transform.position, transform.forward) <= 0f;
     }
+
+    private enum DoorState
+    {
+        Open,
+        Closed,
+        OpenBackwards,
+        Locked
+    }
+
 }
