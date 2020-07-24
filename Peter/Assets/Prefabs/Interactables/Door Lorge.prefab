@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1364657270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3563113243456520216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24740eb4cb9bb5d409f6f1f2af390ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToOpen: 1
+  doorState: 1
+  openRotation: {x: 0, y: 90, z: 0}
+  door: {fileID: 3953705689003014492}
+--- !u!65 &436054089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962567946635887030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.5, z: 0.24931352}
+  m_Center: {x: -0.5000001, y: 1.25, z: 0}
+--- !u!114 &436054090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962567946635887030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e9d55d4f28bdc4892a4360223810bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Interact:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1364657270}
+        m_MethodName: OpenCloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &862062021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437444001732888746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2.5, z: 0.10855379}
+  m_Center: {x: 0.75, y: 1.25, z: 0}
+--- !u!65 &862062023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437444001732888746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2.5, z: 0.10855379}
+  m_Center: {x: -0.75, y: 1.25, z: 0}
+--- !u!1001 &4446127381605416265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.97596
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.499999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8399860726708222955, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 77329057c44c34246a4fa0665723dbc1,
+        type: 3}
+      propertyPath: m_Name
+      value: graybox door 2x2.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77329057c44c34246a4fa0665723dbc1, type: 3}
+--- !u!1 &3563113243456520216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 77329057c44c34246a4fa0665723dbc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4446127381605416265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1962567946635887030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6444756163602498305, guid: 77329057c44c34246a4fa0665723dbc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4446127381605416265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3953705689003014492 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8399860726708222955, guid: 77329057c44c34246a4fa0665723dbc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4446127381605416265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5437444001732888746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8558668667957835235, guid: 77329057c44c34246a4fa0665723dbc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4446127381605416265}
+  m_PrefabAsset: {fileID: 0}
