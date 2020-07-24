@@ -52,6 +52,8 @@ public class Bullet : MonoBehaviour
     {
         RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.fixedDeltaTime);
 
+        hits = hits.OrderBy(h => (h.point - transform.position).magnitude).ToArray();
+
         foreach (RaycastHit hit in hits)
         {
             if (hit.collider.GetComponent<Damagable>() != null)

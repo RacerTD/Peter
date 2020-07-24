@@ -40,7 +40,7 @@ public abstract class EnemyAbility : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("AI did something to early");
+            Debug.LogWarning("I have the high ground!");
         }
     }
 
