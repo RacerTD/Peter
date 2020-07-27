@@ -39,7 +39,7 @@ public class PlayerSwitchWeapon : Ability
             Destroy(playerShoot.Gun.gameObject);
         }
 
-        GameObject temp = Instantiate(PlayerWeapons[UseWeaponOne ? 1 : 0], playerShoot.GunPoint.position, playerShoot.GunPoint.rotation, playerShoot.GunPoint).gameObject;
+        GameObject temp = Instantiate(PlayerWeapons[UseWeaponOne ? 1 : 0], playerShoot.SpawnPoint.position, playerShoot.SpawnPoint.rotation, Camera.main.transform).gameObject;
         playerShoot.Gun = temp.GetComponent<Weapon>();
         playerShoot.Gun.CurrentGunAmmoA = weaponData[UseWeaponOne ? 1 : 0].currentAAmmo;
         playerShoot.Gun.CurrentGunAmmoB = weaponData[UseWeaponOne ? 1 : 0].currentBAmmo;

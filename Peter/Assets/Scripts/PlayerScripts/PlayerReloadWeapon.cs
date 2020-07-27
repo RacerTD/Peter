@@ -18,7 +18,7 @@ public class PlayerReloadWeapon : Ability
         base.Start();
     }
 
-    public override void AbilityStart()
+    public override void AbilityEnd()
     {
         Reload();
     }
@@ -30,6 +30,7 @@ public class PlayerReloadWeapon : Ability
     {
         if (playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoA < playerShoot.Gun.MaxGunAmmo && playerShoot.DimAAmmo > 0)
         {
+            playerShoot.CoolDownDurationTime += AbilityDuration;
             for (int i = playerShoot.Gun.CurrentGunAmmoA; i < playerShoot.Gun.MaxGunAmmo; i++)
             {
                 if (playerShoot.DimAAmmo <= 0)
@@ -44,6 +45,7 @@ public class PlayerReloadWeapon : Ability
         }
         else if (!playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoB < playerShoot.Gun.MaxGunAmmo && playerShoot.DimBAmmo > 0)
         {
+            playerShoot.CoolDownDurationTime += AbilityDuration;
             for (int i = playerShoot.Gun.CurrentGunAmmoB; i < playerShoot.Gun.MaxGunAmmo; i++)
             {
                 if (playerShoot.DimBAmmo <= 0)

@@ -12,6 +12,7 @@ public class PlayerShoot : Ability
     public Weapon Gun;
     [Tooltip("Default gun position")] public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")] public Transform AimPoint;
+    [Tooltip("Position the gun spawn at")] public Transform SpawnPoint;
     [HideInInspector] public bool isAiming = false;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
@@ -51,6 +52,12 @@ public class PlayerShoot : Ability
         base.Start();
     }
 
+    protected override void Update()
+    {
+        UpdateGunPosition();
+        base.Update();
+    }
+
     /// <summary>
     /// Handels the aiming
     /// </summary>
@@ -58,24 +65,16 @@ public class PlayerShoot : Ability
     {
         if (context.started)
         {
-            Gun.transform.SetParent(AimPoint);
-            Gun.transform.localPosition = Vector3.zero;
-            Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
             isAiming = true;
         }
         else if (context.canceled)
         {
-            Gun.transform.SetParent(GunPoint);
-            Gun.transform.localPosition = Vector3.zero;
-            Gun.transform.localRotation = Quaternion.Euler(Vector3.zero);
             isAiming = false;
         }
     }
 
     public override void AbilityUpdate()
     {
-        //Debug.Log($"current {currentInputAction.started} {currentInputAction.performed} {currentInputAction.canceled}");
-
         switch (Gun.ShotType)
         {
             case ShotType.Single:
@@ -92,6 +91,20 @@ public class PlayerShoot : Ability
         TimeSinceLastShot += Time.deltaTime;
 
         base.AbilityUpdate();
+    }
+
+    private void UpdateGunPosition()
+    {
+        if (isAiming)
+        {
+            Gun.transform.localPosition = AimPoint.localPosition;
+            Gun.transform.localRotation = AimPoint.localRotation;
+        }
+        else
+        {
+            Gun.transform.localPosition = GunPoint.localPosition;
+            Gun.transform.localRotation = GunPoint.localRotation;
+        }
     }
 
     /// <summary>
