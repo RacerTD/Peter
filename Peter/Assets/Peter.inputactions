@@ -328,6 +328,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6ce70383-ab40-4ac7-bedf-664b25c8935d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Sneak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e3380b77-9a66-4ffc-a1e4-0f74fd5f0928",
                     "path": "<Keyboard>/q",
                     "interactions": "",
