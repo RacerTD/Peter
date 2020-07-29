@@ -5,23 +5,32 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: 
+      assembly: 
+      name: Gold
+    second: {fileID: 2100000, guid: e2086a4e01629fb449c2fe0e0f216fb0, type: 2}
+  - first:
+      type: 
+      assembly: 
+      name: Wood
+    second: {fileID: 2100000, guid: 18ed6e4d76218d9408e546bce4903cdc, type: 2}
+  - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Dark Wood
+    second: {fileID: -1580535799172915004, guid: 086502aae9c135a4d8fdd9f075f51a8f,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
     second: {fileID: -1580535799172915004, guid: bc8ce26118a47f54db1d0b5f3f889baa,
       type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 7922251121040759823, guid: 3f2575f462c701649b4cbe93a882c2c3,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Wood
-    second: {fileID: -8848810374240701247, guid: 493257aef8f82c34da08d6ebfa3968bd,
-      type: 3}
+    second: {fileID: 2100000, guid: 18ed6e4d76218d9408e546bce4903cdc, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
