@@ -8,14 +8,14 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private float timeItStaysUp = 0f;
     [SerializeField] private GameObject door;
-    [SerializeField] public int height;
+    [SerializeField] public float height = 0f;
     
     [SerializeField] private BlockState blockState = BlockState.Close;
-    private bool openClose;
-    private Vector3 originalPosition;
-    public float timeToGoBack;
-    float t;
-    float timer = 0;
+    private bool openClose = false;
+    private Vector3 originalPosition = Vector3.zero;
+    public float timeToGoBack = 0f;
+    float t = 0f;
+    float timer = 0f;
     bool timerReached = false;
 
     private enum BlockState
