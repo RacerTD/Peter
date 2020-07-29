@@ -92,16 +92,4 @@ public class Block : MonoBehaviour
                 break;
         }
     }
-
-    public void OpenCloseCall(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Open();
-            Close();
-            OpenCloseBlock();
-        }
-
-    }
-
 }
