@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [ExecuteInEditMode]
 public class Block : MonoBehaviour
 {
-    [SerializeField] private float timeToOpen = 0f;
+    [SerializeField] private float timeItStaysUp = 0f;
     [SerializeField] private GameObject door;
     [SerializeField] public int height;
     
@@ -15,6 +15,8 @@ public class Block : MonoBehaviour
     private Vector3 originalPosition;
     public float timeToGoBack;
     float t;
+    float timer = 0;
+    bool timerReached = false;
 
     private enum BlockState
     {
@@ -35,17 +37,28 @@ public class Block : MonoBehaviour
                 if(openClose == false)
                 {
                     t = 0;
-                    door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + height, door.transform.position.z);                
+                    door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + height, door.transform.position.z);
                     openClose = true;
                 }
-                t += Time.deltaTime / timeToGoBack;
-                door.transform.position = Vector3.Lerp(door.transform.position, originalPosition, t);
-                if(door.transform.position.normalized == originalPosition.normalized)
-                    blockState = BlockState.Close;
+                if (!timerReached)
+                    timer += Time.deltaTime;
+
+                if (!timerReached && timer > timeItStaysUp)
+                {
+                    t += Time.deltaTime / timeToGoBack;
+                    door.transform.position = Vector3.Lerp(door.transform.position, originalPosition, t);
+
+                    if (door.transform.position.normalized == originalPosition.normalized)
+                    {
+                        timerReached = true;
+                        blockState = BlockState.Close;
+                    }
+                }
                 break;
             case BlockState.Close:
                 if (openClose == true)
                 {
+                    timer = 0;
                     door.transform.position = originalPosition;
                     openClose = false;
                 }
@@ -72,7 +85,6 @@ public class Block : MonoBehaviour
         if (openClose == true)
         {
             blockState = BlockState.Close;
-            openClose = false;
         }
         else
             return;
@@ -92,4 +104,5 @@ public class Block : MonoBehaviour
                 break;
         }
     }
+
 }
