@@ -40,7 +40,7 @@ public abstract class EnemyAbility : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("I have the high ground!");
+            //Debug.LogWarning("I have the high ground!");
         }
     }
 
