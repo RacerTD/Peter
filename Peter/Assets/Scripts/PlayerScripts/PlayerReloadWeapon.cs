@@ -25,7 +25,7 @@ public class PlayerReloadWeapon : Ability
         playerShoot.TimeBlocked = AbilityDuration;
         playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
         playerShoot.Gun.WeaponAnimator.SetTrigger("Reload");
-        timeBetweenBullets = (AbilityDuration - 0.1f) / (playerShoot.Gun.MaxGunAmmo - (playerSwitchDimension.DimA ? playerShoot.Gun.CurrentGunAmmoA : playerShoot.Gun.CurrentGunAmmoB));
+        timeBetweenBullets = (AbilityDuration - 0.7f) / (playerShoot.Gun.MaxGunAmmo - (playerSwitchDimension.DimA ? playerShoot.Gun.CurrentGunAmmoA : playerShoot.Gun.CurrentGunAmmoB));
         base.AbilityStart();
     }
 
