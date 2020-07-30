@@ -47,6 +47,7 @@ MonoBehaviour:
   fadeRadius: 0
   customPasses:
   - id: 0
+  - id: 1
   injectionPoint: 2
   references:
     version: 1
@@ -54,7 +55,34 @@ MonoBehaviour:
       type: {class: DrawRenderersCustomPass, ns: UnityEngine.Rendering.HighDefinition,
         asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
-        m_Name: Weapon Render Pass
+        m_Name: Black Granny
+        enabled: 0
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 2
+        passFoldout: 1
+        m_Version: 0
+        filterFoldout: 1
+        rendererFoldout: 1
+        renderQueueType: 2
+        passNames: []
+        layerMask:
+          serializedVersion: 2
+          m_Bits: 8192
+        sortingCriteria: 4
+        overrideMaterial: {fileID: 2100000, guid: 7a705fea90e87064686568083efd7311,
+          type: 2}
+        overrideMaterialPassIndex: 0
+        overrideMaterialPassName: GBuffer
+        overrideDepthState: 0
+        depthCompareFunction: 8
+        depthWrite: 1
+        shaderPass: 0
+    00000001:
+      type: {class: DrawRenderersCustomPass, ns: UnityEngine.Rendering.HighDefinition,
+        asm: Unity.RenderPipelines.HighDefinition.Runtime}
+      data:
+        m_Name: Custom Pass
         enabled: 1
         targetColorBuffer: 0
         targetDepthBuffer: 0
@@ -62,18 +90,17 @@ MonoBehaviour:
         passFoldout: 0
         m_Version: 0
         filterFoldout: 1
-        rendererFoldout: 0
+        rendererFoldout: 1
         renderQueueType: 2
-        passNames:
-        - Forward
+        passNames: []
         layerMask:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 8192
         sortingCriteria: 59
         overrideMaterial: {fileID: 0}
         overrideMaterialPassIndex: 0
         overrideMaterialPassName: Forward
-        overrideDepthState: 0
+        overrideDepthState: 1
         depthCompareFunction: 4
         depthWrite: 1
         shaderPass: 0
