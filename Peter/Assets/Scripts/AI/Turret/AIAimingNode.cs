@@ -22,7 +22,7 @@ public class AIAimingNode : ActionNode
 
     public override NodeState CheckNodeState()
     {
-        aimAngleToPlayer = Vector3.Angle((player.transform.position + Vector3.up) - turretView.RotatingThing.position, turretView.RotatingThing.forward);
+        aimAngleToPlayer = Vector3.Angle((player.transform.position + Vector3.up) - turretView.ViewTransform.position, turretView.ViewTransform.forward);
         hasDirectSight = CheckDirectSightLineToPlayer();
 
         if (aimAngleToPlayer <= turretView.SightRange && hasDirectSight)
@@ -35,14 +35,14 @@ public class AIAimingNode : ActionNode
 
     private bool CheckDirectSightLineToPlayer()
     {
-        RaycastHit[] hits = Physics.RaycastAll(turretView.RotatingThing.position, player.transform.position + Vector3.up - turretView.RotatingThing.position, turretView.SightDistance, layerMask);
+        RaycastHit[] hits = Physics.RaycastAll(turretView.ViewTransform.position, player.transform.position + Vector3.up - turretView.ViewTransform.position, turretView.SightDistance, layerMask);
         //Debug.DrawRay(turretView.RotatingThing.position, (player.transform.position + Vector3.up - turretView.RotatingThing.position).normalized * turretView.SightDistance, Color.green);
 
-        return hits.OrderBy(h => (h.point - turretView.RotatingThing.position).magnitude).ToArray().Select(hit => hit.collider.GetComponent<Player>() != null).FirstOrDefault();
+        return hits.OrderBy(h => (h.point - turretView.ViewTransform.position).magnitude).ToArray().Select(hit => hit.collider.GetComponent<Player>() != null).FirstOrDefault();
     }
 
     public override void NodeStateRunning()
     {
-        turretView.UpdateShouldVector(Quaternion.LookRotation(player.transform.position + Vector3.up - turretView.RotatingThing.position, Vector3.up).eulerAngles);
+        turretView.UpdateShouldVector(Quaternion.LookRotation(player.transform.position + Vector3.up - turretView.ViewTransform.position, Vector3.up).eulerAngles);
     }
 }

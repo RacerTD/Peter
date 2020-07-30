@@ -39,8 +39,8 @@ public class TurretShoot : EnemyAbility
 
     public override void AbilityEnd()
     {
-        bulletPool[bulletPoolIndex].SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, BulletLifeTime, 1);
         bulletPool[bulletPoolIndex].transform.position = shootPoint.position;
+        bulletPool[bulletPoolIndex].SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, BulletLifeTime, 1);
         BulletPoolIndex++;
     }
 }

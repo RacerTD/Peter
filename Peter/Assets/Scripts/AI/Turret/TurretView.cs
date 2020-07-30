@@ -6,6 +6,7 @@ public class TurretView : EnemyAbility
 {
     [Header("Custem Ability Features")]
     public Transform RotatingThing;
+    public Transform ViewTransform;
     public Vector3 ShouldVector = Vector3.zero;
     [HideInInspector] public float TimeSinceLastShouldVectorUpdate = 0f;
     public float RotationSpeed = 30f;
@@ -13,7 +14,6 @@ public class TurretView : EnemyAbility
     public float SightDistance = 10f;
     public List<WaitingPoints> WaitingLocations = new List<WaitingPoints>();
     private int waitingLocationsIndex = 0;
-    [HideInInspector]
     public int WaitingLocationsIndex
     {
         get => waitingLocationsIndex;
