@@ -7,6 +7,7 @@ public class TurretShoot : EnemyAbility
 {
     [Header("Custem Ability Features")]
     public Bullet Projectile;
+    [SerializeField] private Transform shootPoint;
     private List<Bullet> bulletPool = new List<Bullet>();
     private int bulletPoolIndex = 0;
     public int BulletPoolIndex
@@ -39,7 +40,7 @@ public class TurretShoot : EnemyAbility
     public override void AbilityEnd()
     {
         bulletPool[bulletPoolIndex].SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, BulletLifeTime, 1);
-        bulletPool[bulletPoolIndex].transform.position = transform.position;
+        bulletPool[bulletPoolIndex].transform.position = shootPoint.position;
         BulletPoolIndex++;
     }
 }
