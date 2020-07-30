@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 6084381598740643039}
   - component: {fileID: 6084381598740643036}
   - component: {fileID: 6084381598740643037}
+  - component: {fileID: 64640126823596934}
   m_Layer: 12
   m_Name: ShootButton
   m_TagString: Untagged
@@ -272,3 +273,20 @@ MonoBehaviour:
   m_OnHit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &64640126823596934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084381598740643034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26293bff4fde98a48b3a217ea986c102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDeploy: 1
+  timeDeployed: 5
+  coverState: 1
+  activePosition: {x: 0, y: -0.5, z: 0}
+  cover: {fileID: 2051758320195600368}
