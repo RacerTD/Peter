@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
         this.RemainingHits = remainingHits;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         CheckCollision();
 
