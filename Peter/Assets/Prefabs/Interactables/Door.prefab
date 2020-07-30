@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972108776763371928}
   - component: {fileID: 447632506715728675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 3602955803631764588}
   - component: {fileID: 4041614363974156250}
   - component: {fileID: 4041614363974156249}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2814832793783525488}
   - component: {fileID: 4371273835438221201}
   - component: {fileID: 8784159098443956289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door2x2frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

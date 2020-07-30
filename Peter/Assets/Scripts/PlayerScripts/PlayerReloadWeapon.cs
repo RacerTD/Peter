@@ -62,10 +62,9 @@ public class PlayerReloadWeapon : Ability
     //Added to temporarily fix reload
     public void ReloadCall(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             Reload();
         }
-        
     }
 }

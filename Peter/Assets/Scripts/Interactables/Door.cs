@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] private DoorState doorState = DoorState.Closed;
     private Vector3 closedRotation = Vector3.zero;
     [SerializeField] private Vector3 openRotation = Vector3.zero;
-    [SerializeField] private Transform door;
+    [SerializeField] protected Transform door;
 
     private void Start()
     {

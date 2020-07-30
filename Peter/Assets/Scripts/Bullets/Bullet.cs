@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
         this.RemainingHits = remainingHits;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         CheckCollision();
 
@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     protected virtual void CheckCollision()
     {
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.fixedDeltaTime, layerMask);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, moveDirection, speed * Time.deltaTime, layerMask);
 
         hits = hits.OrderBy(h => (h.point - transform.position).magnitude).ToArray();
 
@@ -90,7 +90,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     protected virtual void UpdatePosition()
     {
-        transform.position += moveDirection.normalized * speed * Time.fixedDeltaTime;
+        transform.position += moveDirection.normalized * speed * Time.deltaTime;
     }
 
     /// <summary>

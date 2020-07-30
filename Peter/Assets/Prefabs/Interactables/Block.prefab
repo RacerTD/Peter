@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972108776763371928}
   - component: {fileID: 5195713051923943287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df43f07a032dac54cb776630db85cd3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToOpen: 2
-  doorState: 1
+  timeItStaysUp: 0
   door: {fileID: 3204459429102545548}
   height: 5
+  blockState: 1
+  timeToGoBack: 0
 --- !u!1 &3204459429102545548
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ GameObject:
   - component: {fileID: 3602955803631764588}
   - component: {fileID: 4041614363974156250}
   - component: {fileID: 4041614363974156249}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +183,7 @@ GameObject:
   - component: {fileID: 2814832793783525488}
   - component: {fileID: 4371273835438221201}
   - component: {fileID: 8784159098443956289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door2x2frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

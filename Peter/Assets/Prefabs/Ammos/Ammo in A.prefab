@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Amount: 10
   Type: 1
-  rotationVector: {x: 0, y: 0, z: 0}
+  rotationVector: {x: 0, y: 30, z: 0}
 --- !u!1001 &4237400593147807648
 PrefabInstance:
   m_ObjectHideFlags: 0

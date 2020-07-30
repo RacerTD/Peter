@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - Ammo
-  - 
-  - 
-  - 
-  - 
+  - Envoirment
+  - Enemy
+  - Player
+  - Interactable
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Weapon
+    uniqueID: 3485565591
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

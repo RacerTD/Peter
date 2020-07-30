@@ -7,19 +7,39 @@ public class TurretShoot : EnemyAbility
 {
     [Header("Custem Ability Features")]
     public Bullet Projectile;
+    private List<Bullet> bulletPool = new List<Bullet>();
+    private int bulletPoolIndex = 0;
+    public int BulletPoolIndex
+    {
+        get => bulletPoolIndex;
+        set
+        {
+            if (value >= bulletPool.Count)
+                bulletPoolIndex = 0;
+            else
+                bulletPoolIndex = value;
+        }
+    }
     public float BulletSpeed = 10f;
     public float BulletDamage = 10f;
+    public float BulletLifeTime = 10f;
 
     private TurretView turretView;
 
     private void Start()
     {
         turretView = GetComponent<TurretView>();
+
+        for (int i = 0; i < 100; i++)
+        {
+            bulletPool.Add(Instantiate(Projectile, Vector3.down * 100, Quaternion.identity, GameManager.Instance.BulletHolder));
+        }
     }
 
     public override void AbilityEnd()
     {
-        Instantiate(Projectile, turretView.RotatingThing.position, Quaternion.identity, GameManager.Instance.BulletHolder)
-            .SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, 10f, 1);
+        bulletPool[bulletPoolIndex].SetupBullet(BulletSpeed, BulletDamage, turretView.RotatingThing.forward, BulletLifeTime, 1);
+        bulletPool[bulletPoolIndex].transform.position = transform.position;
+        BulletPoolIndex++;
     }
 }

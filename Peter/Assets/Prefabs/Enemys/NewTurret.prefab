@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2412678262093917482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LookPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2478811909122273077}
   - component: {fileID: 2478811909122273083}
   - component: {fileID: 2478811909122273082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NewTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,10 +158,11 @@ MonoBehaviour:
   AbilityDuration: 0.1
   AbilityCoolDown: 0
   TimeSinceLastUse: 0
-  Projectile: {fileID: -1169702572949296983, guid: 2766eb3deecf7894aa05541ad4e12955,
+  Projectile: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
     type: 3}
   BulletSpeed: 10
   BulletDamage: 10
+  BulletLifeTime: 10
 --- !u!114 &2478811909122273077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d70acd40a54d48ae029eabb7b3bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ViewPoint: {fileID: 0}
+  RaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  SightDistance: 20
+  SightMaxAngle: 20
+  DistanceToPlayer: 0
+  ViewAngleToPlayer: 0
+  InViewAngle: 0
+  TimeSinceLastSighting: 0
+  LastSeenPlayerPosition: {x: 0, y: 0, z: 0}
+  HasDirectSightLine: 0
 --- !u!65 &2478811909122273083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -209,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2478811909708851668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +254,7 @@ GameObject:
   - component: {fileID: 5051127380067328708}
   - component: {fileID: 4498630465837302464}
   - component: {fileID: 7224239607563880043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +457,7 @@ GameObject:
   - component: {fileID: 4240013928347498930}
   - component: {fileID: 3285437031461529269}
   - component: {fileID: 218408171455985698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +542,7 @@ GameObject:
   - component: {fileID: 2324194265973120637}
   - component: {fileID: 195181881287486378}
   - component: {fileID: 300970233209594006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
