@@ -16,7 +16,7 @@ public class PlayerSwitchDimension : Ability
     [SerializeField] private List<GameObject> dimBActive = new List<GameObject>();
     private PlayerShoot playerShoot;
 
-    protected override void Start()
+    protected void Start()
     {
         if (DimA)
         {
@@ -33,9 +33,8 @@ public class PlayerSwitchDimension : Ability
                 obj.SetActive(true);
         }
 
-        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
+        UIManager.Instance.UpdateSwitchDimensionSlider(TimeSinceLastUse / CoolDownDuration);
         playerShoot = GetComponent<PlayerShoot>();
-        base.Start();
     }
 
     public override void AbilityStart()
@@ -77,12 +76,12 @@ public class PlayerSwitchDimension : Ability
 
     public void DecreaseSwitchTimer(float damage)
     {
-        CoolDownDurationTime -= damage * damageDecreaseFactor;
+        TimeSinceLastUse += damage * damageDecreaseFactor;
     }
 
     public override void UpdateCoolDownDurationTime()
     {
-        UIManager.Instance.UpdateSwitchDimensionSlider(CoolDownDurationTime / CoolDownDuration);
+        UIManager.Instance.UpdateSwitchDimensionSlider(TimeSinceLastUse / CoolDownDuration);
         base.UpdateCoolDownDurationTime();
     }
 }

@@ -8,20 +8,11 @@ public class Ability : MonoBehaviour
 {
     [Header("Basic Ability Features")]
     public float AbilityDuration = 0f;
-    protected float abilityDurationTime = 0f;
     protected bool abilityHasDuration = false;
-    [HideInInspector] public bool AbilityActive = false;
     public float CoolDownDuration = 0f;
-    private float coolDownDurationTime = 0f;
-    public float CoolDownDurationTime
-    {
-        get => coolDownDurationTime;
-        set
-        {
-            coolDownDurationTime = value;
-            UpdateCoolDownDurationTime();
-        }
-    }
+    public float TimeSinceLastUse = 0f;
+    public float TimeBlocked = 0f;
+
     [HideInInspector] public AbilityController controller;
 
     #region Input
@@ -32,14 +23,25 @@ public class Ability : MonoBehaviour
 
     #endregion
 
-    protected virtual void Start()
+    public virtual void PermanentUpdate()
     {
-        abilityHasDuration = abilityDurationTime <= 0f;
-    }
+        if (!(AbilityDuration <= 0f) && !(CoolDownDuration <= 0f))
+        {
+            TimeSinceLastUse += Time.deltaTime;
+        }
 
-    protected virtual void Update()
-    {
+        TimeBlocked -= Time.deltaTime;
 
+        if (TimeSinceLastUse <= AbilityDuration && TimeSinceLastUse + Time.deltaTime > AbilityDuration)
+        {
+            AbilityEnd();
+            AbilityCoolDownStart();
+        }
+
+        if (TimeSinceLastUse <= AbilityDuration + CoolDownDuration && TimeSinceLastUse + Time.deltaTime > AbilityDuration + CoolDownDuration)
+        {
+            AbilityEnd();
+        }
     }
 
     /// <summary>
@@ -51,7 +53,7 @@ public class Ability : MonoBehaviour
         InputPerformed = context.performed;
         InputCanceled = context.canceled;
 
-        if (context.started && CoolDownDurationTime <= 0)
+        if (context.started && TimeSinceLastUse >= AbilityDuration + CoolDownDuration && TimeBlocked <= 0f)
         {
             AbilityStart();
         }
@@ -66,8 +68,7 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityStart()
     {
-        AbilityActive = true;
-        AbilityCoolDownStart();
+        TimeSinceLastUse = 0f;
     }
 
     /// <summary>
@@ -75,15 +76,7 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityUpdate()
     {
-        if (abilityHasDuration)
-        {
-            abilityDurationTime += Time.deltaTime;
 
-            if (abilityDurationTime >= AbilityDuration && AbilityDuration > 0f)
-            {
-                AbilityEnd();
-            }
-        }
     }
 
     /// <summary>
@@ -91,8 +84,7 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityEnd()
     {
-        AbilityActive = false;
-        abilityDurationTime = 0f;
+
     }
 
     #endregion
@@ -104,7 +96,7 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityCoolDownStart()
     {
-        CoolDownDurationTime = CoolDownDuration;
+
     }
 
     /// <summary>
@@ -112,9 +104,9 @@ public class Ability : MonoBehaviour
     /// </summary>
     public virtual void AbilityCoolDownUpdate()
     {
-        CoolDownDurationTime -= Time.deltaTime;
+        UpdateCoolDownDurationTime();
 
-        if (CoolDownDurationTime <= 0)
+        if (TimeSinceLastUse > CoolDownDuration + AbilityDuration)
         {
             AbilityCoolDownEnd();
         }
@@ -144,5 +136,31 @@ public class Ability : MonoBehaviour
     public virtual void UpdateCoolDownDurationTime()
     {
 
+    }
+
+    /// <summary>
+    /// Returns if the Ablity is currently active
+    /// </summary>
+    public bool AbilityOnCoolDown()
+    {
+        if (TimeSinceLastUse > AbilityDuration && TimeSinceLastUse < AbilityDuration + CoolDownDuration)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Returns if the ability is currently on cooldown
+    /// </summary>
+    public bool AbilityActive()
+    {
+        if (TimeSinceLastUse <= AbilityDuration)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

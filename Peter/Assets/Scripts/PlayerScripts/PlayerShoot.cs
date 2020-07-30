@@ -44,18 +44,17 @@ public class PlayerShoot : Ability
     }
     #endregion
 
-    protected override void Start()
+    protected void Start()
     {
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
         playerLook = GetComponent<PlayerLook>();
         UpdateAmmoDisplay();
-        base.Start();
     }
 
-    protected override void Update()
+    public override void PermanentUpdate()
     {
         UpdateGunPosition();
-        base.Update();
+        base.PermanentUpdate();
     }
 
     /// <summary>
@@ -162,6 +161,9 @@ public class PlayerShoot : Ability
         {
             return;
         }
+
+        Gun.WeaponAnimator.SetTrigger("Idle");
+        Gun.WeaponAnimator.SetTrigger("Recoil");
 
         Vector3 shootDir = GenerateShootDirectiorn();
 

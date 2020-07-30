@@ -7,6 +7,7 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
     public PlayerBullet BulletBullet;
+    public Animator WeaponAnimator;
     public float BulletSpeed = 5f;
     public float BulletLifeTime = 10f;
     public int BulletHitAmount = 1;

@@ -19,13 +19,11 @@ public class PlayerLook : Ability
     private PlayerShoot playerShoot;
     [HideInInspector] public Vector2 InputValue;
 
-    protected override void Start()
+    protected void Start()
     {
         lookSensitivity = mouseLookSensitivity;
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
         playerShoot = GetComponent<PlayerShoot>();
-        AbilityActive = true;
-        base.Start();
     }
 
     public override void GetInput(InputAction.CallbackContext context)

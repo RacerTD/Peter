@@ -19,14 +19,19 @@ public class AbilityController : MonoBehaviour
 
     protected virtual void Update()
     {
-        foreach (Ability ability in abilities.Where(a => a.AbilityActive && a.CoolDownDurationTime <= 0))
+        foreach (Ability ability in abilities.Where(a => a.TimeSinceLastUse <= a.AbilityDuration && a.TimeBlocked <= 0f))
         {
             ability.AbilityUpdate();
         }
 
-        foreach (Ability ability in abilities.Where(a => a.CoolDownDurationTime > 0))
+        foreach (Ability ability in abilities.Where(a => a.TimeSinceLastUse < a.AbilityDuration + a.CoolDownDuration && a.TimeSinceLastUse > a.AbilityDuration))
         {
             ability.AbilityCoolDownUpdate();
+        }
+
+        foreach (Ability ability in abilities)
+        {
+            ability.PermanentUpdate();
         }
     }
 

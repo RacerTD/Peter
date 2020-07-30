@@ -36,7 +36,7 @@ public class PlayerMove : Ability
     private Camera cam;
     private Vector2 inputValue = Vector2.zero;
 
-    protected override void Start()
+    protected void Start()
     {
         physicsbody = GetComponent<Rigidbody>();
         capCol = GetComponent<CapsuleCollider>();
@@ -44,7 +44,6 @@ public class PlayerMove : Ability
         cam = GetComponentInChildren<Camera>();
         normalLocalCameraHeight = cam.transform.localPosition.y;
         crouchLocalCameraHeight = capCol.center.y + crouchHeight / 2;
-        base.Start();
     }
 
     /// <summary>

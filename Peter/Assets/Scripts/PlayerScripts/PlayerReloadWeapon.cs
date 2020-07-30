@@ -11,16 +11,24 @@ public class PlayerReloadWeapon : Ability
     private PlayerShoot playerShoot;
     private PlayerSwitchDimension playerSwitchDimension;
 
-    protected override void Start()
+    protected void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
-        base.Start();
+    }
+
+    public override void AbilityStart()
+    {
+        playerShoot.TimeBlocked = AbilityDuration;
+        playerShoot.Gun.WeaponAnimator.SetTrigger("Reload");
+        base.AbilityStart();
     }
 
     public override void AbilityEnd()
     {
+        playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
         Reload();
+        base.AbilityEnd();
     }
 
     /// <summary>
@@ -30,7 +38,6 @@ public class PlayerReloadWeapon : Ability
     {
         if (playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoA < playerShoot.Gun.MaxGunAmmo && playerShoot.DimAAmmo > 0)
         {
-            playerShoot.CoolDownDurationTime += AbilityDuration;
             for (int i = playerShoot.Gun.CurrentGunAmmoA; i < playerShoot.Gun.MaxGunAmmo; i++)
             {
                 if (playerShoot.DimAAmmo <= 0)
@@ -45,7 +52,6 @@ public class PlayerReloadWeapon : Ability
         }
         else if (!playerSwitchDimension.DimA && playerShoot.Gun.CurrentGunAmmoB < playerShoot.Gun.MaxGunAmmo && playerShoot.DimBAmmo > 0)
         {
-            playerShoot.CoolDownDurationTime += AbilityDuration;
             for (int i = playerShoot.Gun.CurrentGunAmmoB; i < playerShoot.Gun.MaxGunAmmo; i++)
             {
                 if (playerShoot.DimBAmmo <= 0)
@@ -57,14 +63,6 @@ public class PlayerReloadWeapon : Ability
                 playerShoot.Gun.CurrentGunAmmoB++;
                 playerShoot.UpdateAmmoDisplay();
             }
-        }
-    }
-    //Added to temporarily fix reload
-    public void ReloadCall(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Reload();
         }
     }
 }

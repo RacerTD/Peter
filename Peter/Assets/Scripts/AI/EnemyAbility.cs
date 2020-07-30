@@ -8,7 +8,7 @@ public abstract class EnemyAbility : MonoBehaviour
     [Header("Standard Ability Features")]
     public float AbilityDuration = 0f;
     public float AbilityCoolDown = 0f;
-    public float TimeSinceLastUse = 0f;
+    public float TimeSinceLastUse = 100f;
 
     /// <summary>
     /// Happens all the time

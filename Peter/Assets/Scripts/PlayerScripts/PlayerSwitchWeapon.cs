@@ -12,19 +12,18 @@ public class PlayerSwitchWeapon : Ability
     public bool UseWeaponOne = false;
     private WeaponData[] weaponData = new WeaponData[2];
 
-    protected override void Start()
+    protected void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         GenerateWeapon();
         playerShoot.Gun.CurrentGunAmmoA = playerShoot.Gun.MaxGunAmmo;
         playerShoot.Gun.CurrentGunAmmoB = playerShoot.Gun.MaxGunAmmo;
-
-        base.Start();
     }
 
     public override void AbilityStart()
     {
         GenerateWeapon();
+        base.AbilityStart();
     }
 
     /// <summary>
