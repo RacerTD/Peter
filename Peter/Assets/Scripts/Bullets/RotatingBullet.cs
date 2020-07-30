@@ -23,5 +23,6 @@ public class RotatingBullet : EnemyBullet
     {
         transform.Rotate(rotationRate * Time.deltaTime, Space.Self);
         transform.localScale += sizeChangePerSecond * Time.deltaTime;
+        base.Update();
     }
 }
