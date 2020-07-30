@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2478811909122273080}
   - component: {fileID: 2478811909122273077}
   - component: {fileID: 2478811909122273083}
-  - component: {fileID: 2478811909122273082}
+  - component: {fileID: 5382428437799629785}
   m_Layer: 10
   m_Name: NewTurret
   m_TagString: Untagged
@@ -133,6 +133,7 @@ MonoBehaviour:
   AbilityCoolDown: 0
   TimeSinceLastUse: 0
   RotatingThing: {fileID: 4240013928347498930}
+  ViewTransform: {fileID: 2412678262093917482}
   ShouldVector: {x: 0, y: 0, z: 0}
   TimeSinceLastShouldVectorUpdate: 0
   RotationSpeed: 30
@@ -160,6 +161,7 @@ MonoBehaviour:
   TimeSinceLastUse: 0
   Projectile: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
     type: 3}
+  shootPoint: {fileID: 2478811909708851668}
   BulletSpeed: 10
   BulletDamage: 10
   BulletLifeTime: 10
@@ -175,18 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9d70acd40a54d48ae029eabb7b3bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewPoint: {fileID: 0}
-  RaycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  SightDistance: 20
-  SightMaxAngle: 20
-  DistanceToPlayer: 0
-  ViewAngleToPlayer: 0
-  InViewAngle: 0
-  TimeSinceLastSighting: 0
-  LastSeenPlayerPosition: {x: 0, y: 0, z: 0}
-  HasDirectSightLine: 0
 --- !u!65 &2478811909122273083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,9 +188,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.83077854, z: 1}
-  m_Center: {x: 0, y: 0.2617353, z: 0}
---- !u!114 &2478811909122273082
+  m_Size: {x: 1, y: 0.41, z: 1}
+  m_Center: {x: 0, y: -0.02, z: 0}
+--- !u!114 &5382428437799629785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,10 +199,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 2478811909122273076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26b89947459757489bb2cba1ba3a483, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
+    type: 3}
+  slider: {fileID: 0}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  fill: {fileID: 0}
 --- !u!1 &2478811909708851675
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +480,8 @@ GameObject:
   - component: {fileID: 4240013928347498930}
   - component: {fileID: 3285437031461529269}
   - component: {fileID: 218408171455985698}
+  - component: {fileID: 7340508234789387561}
+  - component: {fileID: 2052175654775866358}
   m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
@@ -531,6 +556,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7340508234789387561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297406648354586256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6610fbe590fa00f4e8305dce8b2e7f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  DamageMult: 2
+--- !u!65 &2052175654775866358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297406648354586256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.37, y: 0.29142442, z: 1.22}
+  m_Center: {x: 0.000000037252903, y: 0.13289021, z: 0.26}
 --- !u!1 &7779277435656167539
 GameObject:
   m_ObjectHideFlags: 0
