@@ -21,12 +21,7 @@ public class Bullet : MonoBehaviour
         }
     }
     protected float lifeTime = 20f;
-    private LayerMask layerMask;
-
-    private void Start()
-    {
-        layerMask = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Water", "UI");
-    }
+    public LayerMask layerMask = new LayerMask();
 
     public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float lifeTime, int remainingHits)
     {
