@@ -14,12 +14,12 @@ TagManager:
   - 
   - 
   - Ammo
-  - Envoirment
+  - Environment
   - Enemy
   - Player
   - Interactable
   - Weapon
-  - 
+  - WeaponText
   - 
   - 
   - 
