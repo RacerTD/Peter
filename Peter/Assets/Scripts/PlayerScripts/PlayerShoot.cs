@@ -13,6 +13,7 @@ public class PlayerShoot : Ability
     [Tooltip("Default gun position")] public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")] public Transform AimPoint;
     [Tooltip("Position the gun spawn at")] public Transform SpawnPoint;
+    [SerializeField] private float AimTime = 0.5f;
     [HideInInspector] public bool isAiming = false;
     public float TimeSinceLastShot = 0f;
     private PlayerSwitchDimension playerSwitchDimension;
@@ -96,13 +97,13 @@ public class PlayerShoot : Ability
     {
         if (isAiming)
         {
-            Gun.transform.localPosition = AimPoint.localPosition;
-            Gun.transform.localRotation = AimPoint.localRotation;
+            Gun.transform.localPosition = Vector3.Lerp(Gun.transform.localPosition, AimPoint.localPosition, Time.deltaTime / AimTime);
+            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, AimPoint.localRotation, Time.deltaTime / AimTime);
         }
         else
         {
-            Gun.transform.localPosition = GunPoint.localPosition;
-            Gun.transform.localRotation = GunPoint.localRotation;
+            Gun.transform.localPosition = Vector3.Lerp(Gun.transform.localPosition, GunPoint.localPosition, Time.deltaTime / AimTime);
+            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, GunPoint.localRotation, Time.deltaTime / AimTime);
         }
     }
 

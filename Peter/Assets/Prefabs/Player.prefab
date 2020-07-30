@@ -8309,6 +8309,7 @@ MonoBehaviour:
   GunPoint: {fileID: 7371765959588580310}
   AimPoint: {fileID: 2023361867019292489}
   SpawnPoint: {fileID: 6821388866025225720}
+  AimTime: 0.05
   isAiming: 0
   TimeSinceLastShot: 0
   dimAAmmo: 20
