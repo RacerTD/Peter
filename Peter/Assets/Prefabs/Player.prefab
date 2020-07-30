@@ -7478,7 +7478,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 2000
   field of view: 46.69212
   orthographic: 0
   orthographic size: 5
@@ -8112,7 +8112,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1559257440}
-        m_MethodName: ReloadCall
+        m_MethodName: GetInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8214,8 +8214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 0
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
@@ -8245,8 +8246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 0
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
@@ -8269,13 +8271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 10
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
-  DimensionOffset: {x: 100, y: 0, z: 0}
+  DimensionOffset: {x: 200, y: 0, z: 0}
   DimA: 1
   damageDecreaseFactor: 1
   dimAActive:
@@ -8295,8 +8298,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 0
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
@@ -8322,8 +8326,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 0.1
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
@@ -8345,8 +8350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 2
-  AbilityActive: 0
   CoolDownDuration: 2
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0
@@ -8377,8 +8383,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityDuration: 0
-  AbilityActive: 0
   CoolDownDuration: 0
+  TimeSinceLastUse: 0
+  TimeBlocked: 0
   controller: {fileID: 0}
   InputStarted: 0
   InputPerformed: 0

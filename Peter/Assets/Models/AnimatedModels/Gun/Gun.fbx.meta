@@ -6,7 +6,48 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black_Granny
+    second: {fileID: 2100000, guid: 7a705fea90e87064686568083efd7311, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: c4c59f81a0caae841b323496e4e8ad5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glassedgeblack
+    second: {fileID: 2100000, guid: 645406aa2d90d7949a269861f440e8ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hard_Black
+    second: {fileID: 2100000, guid: 905c9f65ce815fe4bb189261a32e8b8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InsideCoverwhithe
+    second: {fileID: 2100000, guid: 0cff4db5f08ae9647847f552cbc388a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Whitecover
+    second: {fileID: 2100000, guid: f653c0704ba8e5e4bb8df2d63fc1641a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 4362962105363994262, guid: 3f2575f462c701649b4cbe93a882c2c3,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leuchtileuchti
+    second: {fileID: 2100000, guid: 0621f3152dd70014db751df1db95e9d3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
