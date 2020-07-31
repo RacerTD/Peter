@@ -54,9 +54,9 @@ public class EnemyLook : EnemyAbility
 
     public void HandlePacing()
     {
-        RotatingThing.rotation = Quaternion.RotateTowards(RotatingThing.rotation, Quaternion.Euler(WaitingPoints[waitingPointsIndex].Direction), RotationSpeed * Time.deltaTime);
+        RotatingThing.localRotation = Quaternion.RotateTowards(RotatingThing.localRotation, Quaternion.Euler(WaitingPoints[waitingPointsIndex].Direction), RotationSpeed * Time.deltaTime);
 
-        if (RotatingThing.rotation == Quaternion.Euler(WaitingPoints[waitingPointsIndex].Direction))
+        if (RotatingThing.localRotation == Quaternion.Euler(WaitingPoints[waitingPointsIndex].Direction))
         {
             waitTimeAtPos += Time.deltaTime;
             if (waitTimeAtPos >= WaitingPoints[waitingPointsIndex].TimeToWait)
