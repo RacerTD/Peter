@@ -5,8 +5,6 @@ using UnityEngine.VFX;
 
 public class WallBouncingBullet : PlayerBullet
 {
-    [SerializeField] protected VisualEffect onDeathEffect;
-
     public override void OnWallHit(RaycastHit hit)
     {
         moveDirection = Vector3.Reflect(moveDirection, hit.normal);
@@ -18,11 +16,5 @@ public class WallBouncingBullet : PlayerBullet
     {
         thing.DoDamage(damage);
         base.OnEnemyHit(thing);
-    }
-
-    protected override void OnDeath(Vector3 pos)
-    {
-        Instantiate(onDeathEffect, transform.position, Quaternion.identity);
-        base.OnDeath(pos);
     }
 }

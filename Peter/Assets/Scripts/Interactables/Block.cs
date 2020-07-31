@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 public class Block : MonoBehaviour
 {
     [SerializeField] private float timeItStaysUp = 0f;
-    [SerializeField] private GameObject door;
+    [SerializeField] protected GameObject door;
     [SerializeField] public float height = 0f;
-    
+
     [SerializeField] private BlockState blockState = BlockState.Close;
     private bool openClose = false;
     private Vector3 originalPosition = Vector3.zero;
@@ -34,7 +34,7 @@ public class Block : MonoBehaviour
         switch (blockState)
         {
             case BlockState.Open:
-                if(openClose == false)
+                if (openClose == false)
                 {
                     t = 0;
                     door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y + height, door.transform.position.z);

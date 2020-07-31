@@ -5,22 +5,9 @@ using UnityEngine.VFX;
 
 public class StandardBullet : PlayerBullet
 {
-    [SerializeField] protected VisualEffect onDeathEffect;
-
-    public override void OnWallHit(RaycastHit hit)
-    {
-        base.OnWallHit(hit);
-    }
-
     public override void OnEnemyHit(Damagable thing)
     {
         thing.DoDamage(damage);
         base.OnEnemyHit(thing);
-    }
-
-    protected override void OnDeath(Vector3 pos)
-    {
-        Instantiate(onDeathEffect, pos, Quaternion.identity, GameManager.Instance.ParticleHolder);
-        base.OnDeath(pos);
     }
 }

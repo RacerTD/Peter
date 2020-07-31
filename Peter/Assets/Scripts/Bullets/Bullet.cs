@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Bullet : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Bullet : MonoBehaviour
     protected float lifeTime = 20f;
     public LayerMask layerMask = new LayerMask();
 
+    [SerializeField] protected VisualEffect onDeathEffect;
+    [SerializeField] protected VisualEffect onSpawnEffect;
+
     public virtual void SetupBullet(float speed, float damage, Vector3 moveDirection, float lifeTime, int remainingHits)
     {
         this.speed = speed;
@@ -30,6 +34,11 @@ public class Bullet : MonoBehaviour
         this.moveDirection = moveDirection;
         this.lifeTime = lifeTime;
         this.RemainingHits = remainingHits;
+
+        if (onSpawnEffect != null)
+        {
+            Instantiate(onSpawnEffect, transform.position, transform.rotation, GameManager.Instance.ParticleHolder);
+        }
     }
 
     protected virtual void Update()
@@ -114,6 +123,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     protected virtual void OnDeath(Vector3 pos)
     {
+        if (onDeathEffect != null)
+        {
+            Instantiate(onSpawnEffect, pos, transform.rotation, GameManager.Instance.ParticleHolder);
+        }
+
         Destroy(gameObject);
     }
 }
