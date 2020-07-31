@@ -46,7 +46,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 5632
-  onDeathEffect: {fileID: 1404160115263400500, guid: 41f0869650a07f64e8e66f36245af306,
-    type: 3}
-  onSpawnEffect: {fileID: 1404160115263400500, guid: 41f0869650a07f64e8e66f36245af306,
+  onDeathEffect: {fileID: 3820851241674038064, guid: 4390d008282edcb4cac740dfad7d7d48,
     type: 3}
