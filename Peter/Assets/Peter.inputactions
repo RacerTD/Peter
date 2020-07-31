@@ -78,14 +78,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "SwitchDimension",
-                    "type": "Button",
-                    "id": "c2d8bba2-9f5f-4b60-bd98-2dc5e6a78d83",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "2d0af60c-b1da-4790-8124-c416799d29d0",
@@ -336,50 +328,6 @@
                     "action": "Sneak",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e3380b77-9a66-4ffc-a1e4-0f74fd5f0928",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SwitchDimension",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Button With One Modifier",
-                    "id": "5e8a26c2-6ed0-4ed9-abcf-25cc29c98a46",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SwitchDimension",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "button",
-                    "id": "7c58f4f3-54b1-4479-913e-cdfaf9d29ae1",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "SwitchDimension",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "modifier",
-                    "id": "f1110323-a4b1-423b-ad32-d7e46108c091",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "SwitchDimension",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

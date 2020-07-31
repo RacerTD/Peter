@@ -16,16 +16,8 @@ public class PlayerAmmoPickup : MonoBehaviour
     {
         if (other.GetComponent<Ammo>() != null)
         {
-            switch (other.GetComponent<Ammo>().Type)
-            {
-                case AmmoType.DimA:
-                    playerShoot.DimAAmmo += other.GetComponent<Ammo>().Amount;
-                    break;
-                case AmmoType.DimB:
-                    playerShoot.DimBAmmo += other.GetComponent<Ammo>().Amount;
-                    break;
-            }
-            Destroy(other.gameObject);
+            playerShoot.Ammo += other.GetComponent<Ammo>().Amount;
+            other.GetComponent<Ammo>().OnDeath();
             playerShoot.UpdateAmmoDisplay();
         }
     }

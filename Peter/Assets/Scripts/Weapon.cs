@@ -21,28 +21,16 @@ public class Weapon : MonoBehaviour
     public int MaxGunAmmo = 20;
 
     #region AmmoA
-    private int currentGunAmmoA = 0;
-    public int CurrentGunAmmoA
+    private int currentGunAmmo = 0;
+    public int CurrentGunAmmo
     {
-        get => currentGunAmmoA;
+        get => currentGunAmmo;
         set
         {
-            currentGunAmmoA = value;
+            currentGunAmmo = value;
         }
     }
 
-    #endregion
-
-    #region AmmoB
-    private int currentGunAmmoB = 0;
-    public int CurrentGunAmmoB
-    {
-        get => currentGunAmmoB;
-        set
-        {
-            currentGunAmmoB = value;
-        }
-    }
     #endregion
 
     [Header("Scope Properties")]

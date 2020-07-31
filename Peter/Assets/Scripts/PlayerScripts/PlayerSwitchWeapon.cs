@@ -10,14 +10,13 @@ public class PlayerSwitchWeapon : Ability
     private PlayerShoot playerShoot;
     public Weapon[] PlayerWeapons = new Weapon[2];
     public bool UseWeaponOne = false;
-    private WeaponData[] weaponData = new WeaponData[2];
+    private int[] currentGunAmmo = new int[2];
 
     protected void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         GenerateWeapon();
-        playerShoot.Gun.CurrentGunAmmoA = playerShoot.Gun.MaxGunAmmo;
-        playerShoot.Gun.CurrentGunAmmoB = playerShoot.Gun.MaxGunAmmo;
+        playerShoot.Gun.CurrentGunAmmo = playerShoot.Gun.MaxGunAmmo;
     }
 
     public override void AbilityStart()
@@ -33,23 +32,15 @@ public class PlayerSwitchWeapon : Ability
     {
         if (playerShoot.Gun != null)
         {
-            weaponData[UseWeaponOne ? 0 : 1].currentAAmmo = playerShoot.Gun.CurrentGunAmmoA;
-            weaponData[UseWeaponOne ? 0 : 1].currentBAmmo = playerShoot.Gun.CurrentGunAmmoB;
+            currentGunAmmo[UseWeaponOne ? 0 : 1] = playerShoot.Gun.CurrentGunAmmo;
             Destroy(playerShoot.Gun.gameObject);
         }
 
         GameObject temp = Instantiate(PlayerWeapons[UseWeaponOne ? 1 : 0], playerShoot.SpawnPoint.position, playerShoot.SpawnPoint.rotation, Camera.main.transform).gameObject;
         playerShoot.Gun = temp.GetComponent<Weapon>();
-        playerShoot.Gun.CurrentGunAmmoA = weaponData[UseWeaponOne ? 1 : 0].currentAAmmo;
-        playerShoot.Gun.CurrentGunAmmoB = weaponData[UseWeaponOne ? 1 : 0].currentBAmmo;
+        playerShoot.Gun.CurrentGunAmmo = currentGunAmmo[UseWeaponOne ? 1 : 0];
         playerShoot.TimeSinceLastShot = 0;
         UseWeaponOne = !UseWeaponOne;
         playerShoot.UpdateAmmoDisplay();
-    }
-
-    private struct WeaponData
-    {
-        public int currentAAmmo;
-        public int currentBAmmo;
     }
 }

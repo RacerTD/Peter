@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-[RequireComponent(typeof(PlayerSwitchDimension))]
 [RequireComponent(typeof(PlayerLook))]
 public class PlayerShoot : Ability
 {
@@ -16,39 +15,27 @@ public class PlayerShoot : Ability
     [SerializeField] private float AimTime = 0.5f;
     [HideInInspector] public bool isAiming = false;
     public float TimeSinceLastShot = 0f;
-    private PlayerSwitchDimension playerSwitchDimension;
     private PlayerLook playerLook;
+    private PlayerMove playerMove;
 
     #region DimAAmmo
-    [SerializeField] private int dimAAmmo = 20;
-    public int DimAAmmo
+    [SerializeField] private int ammo = 20;
+    public int Ammo
     {
-        get => dimAAmmo;
+        get => ammo;
         set
         {
-            dimAAmmo = value;
-            UpdateAmmoDisplay(dimAAmmo, Gun.CurrentGunAmmoA);
+            ammo = value;
+            UpdateAmmoDisplay(Ammo, Gun.CurrentGunAmmo);
         }
     }
     #endregion
 
-    #region DimBAmmo
-    [SerializeField] private int dimBAmmo = 20;
-    public int DimBAmmo
-    {
-        get => dimBAmmo;
-        set
-        {
-            dimBAmmo = value;
-            UpdateAmmoDisplay(dimBAmmo, Gun.CurrentGunAmmoB);
-        }
-    }
-    #endregion
 
     protected void Start()
     {
-        playerSwitchDimension = GetComponent<PlayerSwitchDimension>();
         playerLook = GetComponent<PlayerLook>();
+        playerMove = GetComponent<PlayerMove>();
         UpdateAmmoDisplay();
     }
 
@@ -148,28 +135,33 @@ public class PlayerShoot : Ability
             return;
         }
 
-        if (playerSwitchDimension.DimA && Gun.CurrentGunAmmoA > 0)
-        {
-            Gun.CurrentGunAmmoA--;
-            UpdateAmmoDisplay(Gun.CurrentGunAmmoA, DimAAmmo);
-        }
-        else if (!playerSwitchDimension.DimA && Gun.CurrentGunAmmoB > 0)
-        {
-            Gun.CurrentGunAmmoB--;
-            UpdateAmmoDisplay(Gun.CurrentGunAmmoB, DimBAmmo);
-        }
-        else
+        if (Gun.CurrentGunAmmo <= 0)
         {
             return;
         }
 
+        Gun.CurrentGunAmmo--;
+        UpdateAmmoDisplay(Gun.CurrentGunAmmo, Ammo);
+
+        switch (playerMove.WalkingType)
+        {
+            case WalkingType.Crouch:
+                break;
+            case WalkingType.Normal:
+                break;
+            case WalkingType.Sprint:
+                playerMove.WalkingType = WalkingType.Normal;
+                break;
+            default:
+                break;
+        }
         Gun.WeaponAnimator.SetTrigger("Idle");
         Gun.WeaponAnimator.SetTrigger("Recoil");
 
         Vector3 shootDir = GenerateShootDirectiorn();
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
-            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount, playerSwitchDimension);
+            .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
 
         if (Gun.BulletFollowingParticles != null)
         {
@@ -221,17 +213,7 @@ public class PlayerShoot : Ability
             return;
         }
 
-        if (playerSwitchDimension != null)
-        {
-            if (playerSwitchDimension.DimA)
-            {
-                UpdateAmmoDisplay(Gun.CurrentGunAmmoA, DimAAmmo);
-            }
-            else if (!playerSwitchDimension.DimA)
-            {
-                UpdateAmmoDisplay(Gun.CurrentGunAmmoB, DimBAmmo);
-            }
-        }
+        UpdateAmmoDisplay(Gun.CurrentGunAmmo, Ammo);
     }
 
     /// <summary>

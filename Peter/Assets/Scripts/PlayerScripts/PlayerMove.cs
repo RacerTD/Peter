@@ -29,21 +29,56 @@ public class PlayerMove : Ability
 
     [Header("Jump")]
     [SerializeField] private Vector3 jumpForce = Vector3.zero;
-    public WalkingType WalkingType = WalkingType.Normal;
+    private WalkingType walkingType = WalkingType.Normal;
+    public WalkingType WalkingType
+    {
+        get => walkingType;
+        set
+        {
+            walkingType = value;
+            UpdateAnimation();
+        }
+    }
 
     private Rigidbody physicsbody;
     private CapsuleCollider capCol;
+    private PlayerShoot playerShoot;
     private Camera cam;
     private Vector2 inputValue = Vector2.zero;
 
     protected void Start()
     {
         physicsbody = GetComponent<Rigidbody>();
+        playerShoot = GetComponent<PlayerShoot>();
         capCol = GetComponent<CapsuleCollider>();
         normalColHeight = capCol.height;
         cam = GetComponentInChildren<Camera>();
         normalLocalCameraHeight = cam.transform.localPosition.y;
         crouchLocalCameraHeight = capCol.center.y + crouchHeight / 2;
+    }
+
+    /// <summary>
+    /// Updates the animation the gun is using
+    /// </summary>
+    private void UpdateAnimation()
+    {
+        switch (WalkingType)
+        {
+            case WalkingType.Crouch:
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Walking");
+                break;
+            case WalkingType.Normal:
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Walking");
+                break;
+            case WalkingType.Sprint:
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
+                playerShoot.Gun.WeaponAnimator.SetTrigger("Running");
+                break;
+            default:
+                break;
+        }
     }
 
     /// <summary>

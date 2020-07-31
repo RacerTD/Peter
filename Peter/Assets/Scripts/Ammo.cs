@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Ammo : MonoBehaviour
 {
-    [Range(1, 200)]
-    public int Amount = 10;
-    public AmmoType Type = AmmoType.DimA;
-    [SerializeField]
-    private Vector3 rotationVector = Vector3.zero;
+    [Range(1, 200)] public int Amount = 10;
+    [SerializeField] private Vector3 rotationVector = Vector3.zero;
+    [SerializeField] protected VisualEffect onPickUpEffect;
 
     public void Start()
     {
@@ -23,10 +22,13 @@ public class Ammo : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(rotationVector * Time.deltaTime + transform.rotation.eulerAngles);
     }
-}
 
-public enum AmmoType
-{
-    DimA,
-    DimB
+    public void OnDeath()
+    {
+        if (onPickUpEffect != null)
+        {
+            Instantiate(onPickUpEffect, transform.position, transform.rotation, GameManager.Instance.ParticleHolder);
+        }
+        Destroy(gameObject);
+    }
 }
