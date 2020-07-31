@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ using TMPro;
 public class PlayerShoot : Ability
 {
     [Header("Custom Ability Features")]
+    [SerializeField] private LayerMask raycastLayerMask = new LayerMask();
     public Weapon Gun;
     [Tooltip("Default gun position")] public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")] public Transform AimPoint;
@@ -204,8 +206,11 @@ public class PlayerShoot : Ability
     {
         if (Gun.BulletFollowingParticles != null)
         {
-            LineRenderer temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
-            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 25 });
+            VisualEffect temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
+            temp.SetVector3("StartPos", Gun.ShootPoint.position);
+            RaycastHit[] hits = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 1000f, raycastLayerMask);
+            hits = hits.OrderBy(h => (h.point - transform.position).magnitude).ToArray();
+            temp.SetVector3("EndPos", hits.Count() <= 0 ? Camera.main.transform.position + Camera.main.transform.forward * 1000f : hits[0].point);
         }
         else
         {
