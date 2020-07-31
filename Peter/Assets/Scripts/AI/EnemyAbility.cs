@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyController))]
 public abstract class EnemyAbility : MonoBehaviour
 {
+    [HideInInspector] public EnemyController Controller;
     [Header("Standard Ability Features")]
     public float AbilityDuration = 0f;
     public float AbilityCoolDown = 0f;
@@ -30,18 +31,24 @@ public abstract class EnemyAbility : MonoBehaviour
     }
 
     /// <summary>
+    /// Starts the ability, if it can be started
+    /// </summary>
+    [ContextMenu("Try Start Ability")]
+    public virtual void TryAbltiyStart()
+    {
+        if (TimeSinceLastUse >= AbilityDuration + AbilityCoolDown)
+        {
+            TimeSinceLastUse = 0;
+            AbilityStart();
+        }
+    }
+
+    /// <summary>
     /// Happens at the start of the ability
     /// </summary>
     public virtual void AbilityStart()
     {
-        if (TimeSinceLastUse > AbilityDuration + AbilityCoolDown)
-        {
-            TimeSinceLastUse = 0f;
-        }
-        else
-        {
-            //Debug.LogWarning("I have the high ground!");
-        }
+
     }
 
     /// <summary>
