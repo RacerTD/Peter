@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
     [Tooltip("Max Offset of the shot after 100 Meters, in Meters")] public float WeaponSpray = 0f;
 
     [Header("Particles")]
-    public LineRenderer BulletFollowingParticles;
+    public VisualEffect BulletFollowingParticles;
     public VisualEffect MuzzleFlash;
 
     private void OnDrawGizmos()
