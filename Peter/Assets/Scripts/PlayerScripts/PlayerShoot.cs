@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -163,13 +164,7 @@ public class PlayerShoot : Ability
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
             .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
 
-        if (Gun.BulletFollowingParticles != null)
-        {
-            LineRenderer temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
-            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 25 });
-        }
-        else
-            Debug.LogError($"You Got no BulletFollowingParticles on {Gun.name}");
+        GenerateParticles(shootDir);
 
         if (isAiming)
         {
@@ -200,6 +195,31 @@ public class PlayerShoot : Ability
         else
             spray = Gun.WeaponSpray;
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
+    }
+
+    /// <summary>
+    /// Handles all the particles for the shot
+    /// </summary>
+    private void GenerateParticles(Vector3 shootDir)
+    {
+        if (Gun.BulletFollowingParticles != null)
+        {
+            LineRenderer temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
+            temp.SetPositions(new Vector3[2] { Gun.ShootPoint.position, Gun.ShootPoint.position + shootDir.normalized * 25 });
+        }
+        else
+        {
+            Debug.LogError($"You Got no BulletFollowingParticles on {Gun.name}");
+        }
+
+        if (Gun.MuzzleFlash != null)
+        {
+            Instantiate(Gun.MuzzleFlash, Gun.ShootPoint.position, Gun.ShootPoint.rotation, Gun.ShootPoint);
+        }
+        else
+        {
+            Debug.LogError($"You Got no MuzzleFlash on {Gun.name}");
+        }
     }
 
     /// <summary>

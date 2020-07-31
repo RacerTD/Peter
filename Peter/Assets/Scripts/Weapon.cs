@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 using TMPro;
 
 public class Weapon : MonoBehaviour
@@ -50,6 +51,7 @@ public class Weapon : MonoBehaviour
 
     [Header("Particles")]
     public LineRenderer BulletFollowingParticles;
+    public VisualEffect MuzzleFlash;
 
     private void OnDrawGizmos()
     {
