@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 35328
+  onDeathEffect: {fileID: 0}
+  onSpawnEffect: {fileID: 0}
   rotationRate: {x: 50, y: 40, z: 30}
   sizeChangePerSecond: {x: 0.1, y: 0.1, z: 0.1}

@@ -94,4 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 35328
+  onDeathEffect: {fileID: 0}
+  onSpawnEffect: {fileID: 0}

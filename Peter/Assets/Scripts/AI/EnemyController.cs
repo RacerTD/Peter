@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     protected Node AI;
     private List<EnemyAbility> enemyAbilities = new List<EnemyAbility>();
+    private EnemyLook enemyLook;
 
     [Header("Important Declarations")]
     public Transform ViewPoint;
@@ -22,9 +23,13 @@ public class EnemyController : MonoBehaviour
     public bool HasDirectSightLine = false;
     public float TimeSinceLastSighting = 0f;
     public Vector3 LastSeenPlayerPosition = Vector3.zero;
+    public float TimeSinceShotAt = 0f;
+    public bool PlayerBehindCover = false;
+    public Transform CurrentCover;
 
     protected virtual void Start()
     {
+        enemyLook = GetComponent<EnemyLook>();
         enemyAbilities = GetComponents<EnemyAbility>().ToList();
         foreach (EnemyAbility enemyAbility in enemyAbilities)
         {
@@ -42,6 +47,7 @@ public class EnemyController : MonoBehaviour
         DistanceToPlayer = Vector3.Distance(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position);
         ViewAngleToPlayer = Vector3.Angle((GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset) - ViewPoint.position, ViewPoint.forward);
         HasDirectSightLine = HasDirectSight();
+        TimeSinceShotAt += Time.deltaTime;
 
         if (CheckIfPlayerVisibleAndInRadius())
         {
@@ -83,8 +89,23 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private bool HasDirectSight()
     {
-        RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position, RaycastLayerMask);
         Debug.DrawRay(ViewPoint.position, (GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position).normalized * DistanceToPlayer, Color.green);
+
+        RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position, RaycastLayerMask);
+        hits = hits.OrderBy(h => (h.point + ViewPoint.position).magnitude).ToArray();
+
+        for (int i = 0; i <= hits.Count() - 1; i++)
+        {
+            if (hits[i].collider.gameObject.layer == 15 && hits[i + 1].collider.GetComponent<Player>() != null)
+            {
+                CurrentCover = hits[i].transform;
+                PlayerBehindCover = true;
+                return false;
+            }
+        }
+
+        PlayerBehindCover = false;
+        CurrentCover = null;
         return hits.OrderBy(h => (h.point - ViewPoint.position).magnitude).ToArray().Select(hit => hit.collider.GetComponent<Player>() != null).FirstOrDefault();
     }
 
@@ -94,5 +115,25 @@ public class EnemyController : MonoBehaviour
     public bool CheckIfPlayerVisibleAndInRadius()
     {
         return PlayerInDetectionCollider && HasDirectSightLine;
+    }
+
+    /// <summary>
+    /// Gets Calles when the enemy gets shot
+    /// </summary>
+    public void GotShotAt()
+    {
+        TimeSinceLastSighting = 0f;
+        LastSeenPlayerPosition = GameManager.Instance.CurrentPlayer.transform.position;
+        TimeSinceShotAt = 0f;
+
+        if (enemyLook != null)
+        {
+            enemyLook.LookState = EnemyLookState.Waiting;
+        }
+
+        if (AI != null)
+        {
+            AI.Evaluate();
+        }
     }
 }

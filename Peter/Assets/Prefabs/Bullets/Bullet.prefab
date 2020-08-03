@@ -96,4 +96,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   onDeathEffect: {fileID: 0}
-  onSpawnEffect: {fileID: 0}

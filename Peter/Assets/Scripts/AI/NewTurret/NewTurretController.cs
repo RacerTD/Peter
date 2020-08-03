@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewTurretController : EnemyController
 {
     public Node ShootAI;
-    public float TimeBetweenAIChecks = 2f;
+    public float TimeBetweenAIChecks = 0.5f;
     private float timeBetweenAIChecks = 0f;
 
     protected override void Start()

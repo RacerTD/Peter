@@ -11,9 +11,11 @@ public class BetterDamagable : Damagable
     [SerializeField] protected Gradient gradient;
     [SerializeField] protected Image fill;
     private Transform cam;
+    private EnemyController enemyController;
 
     protected override void Start()
     {
+        enemyController = GetComponent<EnemyController>();
         UpdateMaxHealth();
         cam = Camera.main.transform;
         base.Start();
@@ -38,6 +40,12 @@ public class BetterDamagable : Damagable
         }
 
         base.UpdateHealth();
+    }
+
+    public override void DoDamage(float damage)
+    {
+        enemyController.GotShotAt();
+        base.DoDamage(damage);
     }
 
     protected override void OnDeath()
