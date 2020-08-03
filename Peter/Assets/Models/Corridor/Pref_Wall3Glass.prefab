@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 172984320397027779}
   - component: {fileID: 6051545665377789415}
   - component: {fileID: 7545511149211128461}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6299234369104775467
 Transform:
@@ -61,9 +61,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e10754ddba7d674191bee2f63caef2b, type: 2}
+  - {fileID: -2813467912831258332, guid: 05bf9506ba7673240a48305c494fba0a, type: 3}
+  - {fileID: -1580535799172915004, guid: b721ef655436b8a4fb1ca230f4d7f9fb, type: 3}
   - {fileID: 2100000, guid: e91c13f8bee2a1c4fb3b0e43a44eb8d4, type: 2}
-  - {fileID: 2100000, guid: 30d79a6bc6a8a5748bb38d522e05e73d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4476849518525463404}
   - component: {fileID: 3219718116022354161}
   - component: {fileID: 2021270479485416628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2729109940673100600}
   - component: {fileID: 4308057782200320823}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pref_Wall3Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

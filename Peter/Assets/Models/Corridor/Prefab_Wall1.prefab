@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 783433879861498138}
   - component: {fileID: 3259383195861673424}
   - component: {fileID: 767645180764799546}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefab_Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4427191694314282687
 Transform:
@@ -161,6 +161,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall1UV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3c575e0fe8aae847bdef02a71fb14c0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3c575e0fe8aae847bdef02a71fb14c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3c575e0fe8aae847bdef02a71fb14c0, type: 3}
