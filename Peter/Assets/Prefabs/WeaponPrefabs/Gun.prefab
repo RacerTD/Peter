@@ -664,7 +664,7 @@ MonoBehaviour:
   ShotType: 1
   CurrentAmmoText: {fileID: 306250518432209680}
   LeftOverAmmoText: {fileID: 543021421068636437}
-  MaxGunAmmo: 99
+  MaxGunAmmo: 34
   RecoilScopeUpperMargin: {x: 1.1, y: 0.2, z: 0.2}
   RecoilScopeLowerMargin: {x: 0, y: -0.2, z: -0.2}
   RecoilScopeTime: 0.075
