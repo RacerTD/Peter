@@ -60,7 +60,12 @@ public class Bullet : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.GetComponent<Damagable>() != null)
+            if (hit.collider.GetComponent<Player>() != null)
+            {
+                if (hit.collider.GetComponent<PlayerDamagable>() != null)
+                    hit.collider.GetComponent<PlayerDamagable>().DoDamage(damage);
+            }
+            else if (hit.collider.GetComponent<Damagable>() != null)
                 OnEnemyHit(hit.collider.GetComponent<Damagable>());
             else if (hit.collider.GetComponent<ShootButton>() != null)
                 hit.collider.GetComponent<ShootButton>().OnHit();
