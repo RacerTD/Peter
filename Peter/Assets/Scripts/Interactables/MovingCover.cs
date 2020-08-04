@@ -8,6 +8,8 @@ public class MovingCover : MonoBehaviour
     [SerializeField] private float timeToDeploy = 0f;
     [SerializeField] [Tooltip("If 0 this is deactivated")] private float timeDeployed = 0f;
     private float timeDeplayedTimer = 0f;
+    [SerializeField] private float timeTillDeploy = 0f;
+    private float timeTillDeploedTimer = 0f;
     private float metersPerSecond = 0f;
     [SerializeField] private CoverState coverState = CoverState.InActive;
     private Vector3 inActivePosition = Vector3.zero;
@@ -41,6 +43,13 @@ public class MovingCover : MonoBehaviour
                     break;
                 case CoverState.Locked:
                     break;
+                case CoverState.WaitingToDeploy:
+                    timeTillDeploedTimer -= Time.deltaTime;
+                    if (timeTillDeploedTimer <= 0f)
+                    {
+                        coverState = CoverState.Active;
+                    }
+                    break;
                 default:
                     Debug.LogError("And on that terrible disappointment, it's time to end.");
                     break;
@@ -64,6 +73,8 @@ public class MovingCover : MonoBehaviour
                 break;
             case CoverState.Locked:
                 break;
+            case CoverState.WaitingToDeploy:
+                break;
             default:
                 Debug.LogError("A wizard is never late, nor is he early, he arrives precisely when he means to.");
                 break;
@@ -75,8 +86,9 @@ public class MovingCover : MonoBehaviour
     /// </summary>
     public void ActivateCover()
     {
-        coverState = CoverState.Active;
+        coverState = CoverState.WaitingToDeploy;
         timeDeplayedTimer = timeDeployed;
+        timeTillDeploedTimer = timeTillDeploy;
     }
 
     /// <summary>
@@ -91,6 +103,7 @@ public class MovingCover : MonoBehaviour
     {
         Active,
         InActive,
-        Locked
+        Locked,
+        WaitingToDeploy
     }
 }
