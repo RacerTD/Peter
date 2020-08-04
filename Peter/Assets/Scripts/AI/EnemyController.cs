@@ -25,12 +25,15 @@ public class EnemyController : MonoBehaviour
     public Vector3 LastSeenPlayerPosition = Vector3.zero;
     public float TimeSinceShotAt = 0f;
     public bool PlayerBehindCover = false;
+    public float TimeBehindCover = 0f;
     public Transform CurrentCover;
+    public Vector3 CurrentDirectionToPlayer = Vector3.zero;
 
     protected virtual void Start()
     {
         enemyLook = GetComponent<EnemyLook>();
         enemyAbilities = GetComponents<EnemyAbility>().ToList();
+
         foreach (EnemyAbility enemyAbility in enemyAbilities)
         {
             enemyAbility.Controller = this;
@@ -44,20 +47,7 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void Update()
     {
-        DistanceToPlayer = Vector3.Distance(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position);
-        ViewAngleToPlayer = Vector3.Angle((GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset) - ViewPoint.position, ViewPoint.forward);
-        HasDirectSightLine = HasDirectSight();
-        TimeSinceShotAt += Time.deltaTime;
-
-        if (CheckIfPlayerVisibleAndInRadius())
-        {
-            TimeSinceLastSighting = 0f;
-            LastSeenPlayerPosition = GameManager.Instance.CurrentPlayer.transform.position;
-        }
-        else
-        {
-            TimeSinceLastSighting += Time.deltaTime;
-        }
+        UpdateData();
 
         if (AI != null)
         {
@@ -69,18 +59,43 @@ public class EnemyController : MonoBehaviour
         }
 
         foreach (EnemyAbility enemyAbility in enemyAbilities.Where(e => e.TimeSinceLastUse <= e.AbilityDuration))
-        {
             enemyAbility.AbilityUpdate();
-        }
 
         foreach (EnemyAbility enemyAbility in enemyAbilities.Where(e => e.TimeSinceLastUse <= e.AbilityDuration + e.AbilityCoolDown && e.TimeSinceLastUse > e.AbilityDuration))
-        {
             enemyAbility.CoolDownUpdate();
-        }
 
         foreach (EnemyAbility enemyAbility in enemyAbilities)
-        {
             enemyAbility.PermanentUpdate();
+    }
+
+    /// <summary>
+    /// Updates all the important data for the enemy
+    /// </summary>
+    private void UpdateData()
+    {
+        DistanceToPlayer = Vector3.Distance(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position);
+        ViewAngleToPlayer = Vector3.Angle((GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset) - ViewPoint.position, ViewPoint.forward);
+        HasDirectSightLine = HasDirectSight();
+        TimeSinceShotAt += Time.deltaTime;
+        CurrentDirectionToPlayer = (GameManager.Instance.CurrentPlayer.transform.position - transform.position).normalized;
+
+        if (CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        {
+            TimeSinceLastSighting = 0f;
+            LastSeenPlayerPosition = GameManager.Instance.CurrentPlayer.transform.position;
+        }
+        else
+        {
+            TimeSinceLastSighting += Time.deltaTime;
+        }
+
+        if (PlayerBehindCover)
+        {
+            TimeBehindCover += Time.deltaTime;
+        }
+        else
+        {
+            TimeBehindCover = 0f;
         }
     }
 
@@ -89,7 +104,7 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private bool HasDirectSight()
     {
-        Debug.DrawRay(ViewPoint.position, (GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position).normalized * DistanceToPlayer, Color.green);
+        //Debug.DrawRay(ViewPoint.position, (GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position).normalized * DistanceToPlayer, Color.green);
 
         RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position, RaycastLayerMask);
         hits = hits.OrderBy(h => (h.point + ViewPoint.position).magnitude).ToArray();
@@ -112,9 +127,9 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// Checks if the player is currently visible and in view of the enemy
     /// </summary>
-    public bool CheckIfPlayerVisibleAndInRadius()
+    public bool CheckIfPlayerVisibleAndInRadiusAndNotBehindCover()
     {
-        return PlayerInDetectionCollider && HasDirectSightLine;
+        return PlayerInDetectionCollider && HasDirectSightLine && !PlayerBehindCover;
     }
 
     /// <summary>

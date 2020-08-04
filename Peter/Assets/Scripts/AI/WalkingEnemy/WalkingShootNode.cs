@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretShootNode : ActionNode
+public class WalkingShootNode : ActionNode
 {
     private EnemyShoot enemyShoot;
-    private NewTurretController enemyController;
+    private WalkingEnemyController walkingEnemyController;
 
-    public TurretShootNode(EnemyShoot enemyShoot, NewTurretController enemyController)
+    public WalkingShootNode(EnemyShoot enemyShoot, WalkingEnemyController walkingEnemyController)
     {
         this.enemyShoot = enemyShoot;
-        this.enemyController = enemyController;
+        this.walkingEnemyController = walkingEnemyController;
     }
 
     public override NodeState CheckNodeState()
     {
-        if (enemyController.ViewAngleToPlayer <= 10f && enemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        if (walkingEnemyController.ViewAngleToPlayer <= 10f && walkingEnemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             return NodeState.Running;
         }

@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretViewNode : ActionNode
+public class WalkingViewNode : ActionNode
 {
     private EnemyLook enemyLook;
-    private NewTurretController newTurretController;
+    private WalkingEnemyController walkingEnemyController;
     private bool failed = true;
-    public TurretViewNode(EnemyLook enemyLook, NewTurretController newTurretController)
+    public WalkingViewNode(EnemyLook enemyLook, WalkingEnemyController walkingEnemyController)
     {
         this.enemyLook = enemyLook;
-        this.newTurretController = newTurretController;
+        this.walkingEnemyController = walkingEnemyController;
     }
 
     public override NodeState CheckNodeState()
     {
-        if (newTurretController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        if (walkingEnemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             return NodeState.Running;
         }
@@ -24,7 +24,7 @@ public class TurretViewNode : ActionNode
 
     public override void NodeStateRunning()
     {
-        if (newTurretController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        if (walkingEnemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             enemyLook.LookState = EnemyLookState.FollowPlayer;
             failed = false;
