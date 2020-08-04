@@ -201,6 +201,9 @@ MonoBehaviour:
   HasDirectSightLine: 0
   TimeSinceLastSighting: 0
   LastSeenPlayerPosition: {x: 0, y: 0, z: 0}
+  TimeSinceShotAt: 0
+  PlayerBehindCover: 0
+  CurrentCover: {fileID: 0}
   TimeBetweenAIChecks: 2
 --- !u!114 &5712642964643826945
 MonoBehaviour:
@@ -338,9 +341,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.495283, g: 0.9256773, b: 1, a: 1}
   m_Intensity: 1000
-  m_Range: 20.114809
-  m_SpotAngle: 11.684688
-  m_InnerSpotAngle: 2.2683737
+  m_Range: 12.876222
+  m_SpotAngle: 8.088084
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -716,13 +719,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8397168015009214039}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.76}
-  m_LocalScale: {x: 2, y: 2, z: 3}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
+  m_LocalPosition: {x: -0, y: 0.263, z: 11.92}
+  m_LocalScale: {x: 739.79, y: 739.79, z: 1109.6849}
   m_Children: []
   m_Father: {fileID: 4240013928347498930}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!64 &7346113907825831570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -736,7 +739,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 0
-  m_Mesh: {fileID: 4300000, guid: 500594a39d643774c8e028335ee33da7, type: 3}
+  m_Mesh: {fileID: 2534964839176971238, guid: bfb298b47ad9d0f49bfa989e666b634c, type: 3}
 --- !u!114 &5168273601596500731
 MonoBehaviour:
   m_ObjectHideFlags: 0
