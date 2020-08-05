@@ -8,8 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Dark Wood
-    second: {fileID: -1580535799172915004, guid: b721ef655436b8a4fb1ca230f4d7f9fb,
-      type: 3}
+    second: {fileID: 2100000, guid: 0e10754ddba7d674191bee2f63caef2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 30d79a6bc6a8a5748bb38d522e05e73d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

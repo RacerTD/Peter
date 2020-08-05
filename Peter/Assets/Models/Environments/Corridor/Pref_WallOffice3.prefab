@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2856504275721065397}
   - component: {fileID: 3071040226962486563}
   - component: {fileID: 4473734264311015760}
-  m_Layer: 0
-  m_Name: WallOffice3
+  m_Layer: 9
+  m_Name: Pref_WallOffice3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

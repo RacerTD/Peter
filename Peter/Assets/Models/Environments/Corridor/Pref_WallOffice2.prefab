@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6827751685799031153}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pref_WallOffice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8895826806286368301}
   - component: {fileID: 4273837223128854248}
   - component: {fileID: 782869190519011446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallOffice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6527006553732400307}
   - component: {fileID: 2908663372963576691}
   - component: {fileID: 2969022686359003070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallOffice2Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

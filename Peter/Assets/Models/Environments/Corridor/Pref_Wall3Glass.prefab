@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 938952495336065545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall3GlassUV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 9201710632915417114}
   - component: {fileID: 5351807699959489177}
   - component: {fileID: 8965479503046539904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
