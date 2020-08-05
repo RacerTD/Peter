@@ -192,7 +192,7 @@ MonoBehaviour:
   RaycastLayerMask:
     serializedVersion: 2
     m_Bits: 35328
-  SightDistance: 20
+  SightDistance: 100
   SightMaxAngle: 20
   VerticalAimOffset: 0.2
   DistanceToPlayer: 0
@@ -203,7 +203,9 @@ MonoBehaviour:
   LastSeenPlayerPosition: {x: 0, y: 0, z: 0}
   TimeSinceShotAt: 0
   PlayerBehindCover: 0
+  TimeBehindCover: 0
   CurrentCover: {fileID: 0}
+  CurrentDirectionToPlayer: {x: 0, y: 0, z: 0}
   TimeBetweenAIChecks: 2
 --- !u!114 &5712642964643826945
 MonoBehaviour:
@@ -222,13 +224,14 @@ MonoBehaviour:
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
   WaitingPoints:
-  - Direction: {x: 0, y: 45, z: 0}
+  - Direction: {fileID: 0}
     TimeToWait: 2
-  - Direction: {x: 0, y: -45, z: 0}
+  - Direction: {fileID: 0}
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 4240013928347498930}
   RotationSpeed: 30
+  RotationSpeedPlayerInSight: 60
   WaitTimeAfterLastSighting: 10
   ShouldVector: {x: 0, y: 0, z: 0}
 --- !u!114 &938833299001008562
@@ -256,7 +259,7 @@ MonoBehaviour:
     BulletAmount: 100
     Bullet: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
       type: 3}
-    BulletSpeed: 10
+    BulletSpeed: 50
     BulletDamage: 1
   - StepType: 1
     ShootPointMode: 1
@@ -264,7 +267,7 @@ MonoBehaviour:
     BulletAmount: 8
     Bullet: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
       type: 3}
-    BulletSpeed: 10
+    BulletSpeed: 50
     BulletDamage: 1
 --- !u!1 &2478811909708851675
 GameObject:
