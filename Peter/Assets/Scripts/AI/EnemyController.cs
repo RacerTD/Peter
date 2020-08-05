@@ -109,13 +109,16 @@ public class EnemyController : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position, RaycastLayerMask);
         hits = hits.OrderBy(h => (h.point + ViewPoint.position).magnitude).ToArray();
 
-        for (int i = 0; i <= hits.Count() - 1; i++)
+        if (hits.Count() >= 2)
         {
-            if (hits[i].collider.gameObject.layer == 15 && hits[i + 1].collider.GetComponent<Player>() != null)
+            for (int i = 0; i <= hits.Count() - 1; i++)
             {
-                CurrentCover = hits[i].transform;
-                PlayerBehindCover = true;
-                return false;
+                if (hits[i].collider.gameObject.layer == 15 && hits[i + 1].collider.GetComponent<Player>() != null)
+                {
+                    CurrentCover = hits[i].transform;
+                    PlayerBehindCover = true;
+                    return false;
+                }
             }
         }
 
