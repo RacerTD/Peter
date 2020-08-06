@@ -31,6 +31,24 @@ public class EnemyLook : EnemyAbility
     public Vector3 ShouldVector = Vector3.zero;
 
 
+    private void Start()
+    {
+        if (WaitingPoints.Count <= 0)
+        {
+            Debug.LogError($"Enemy has no default viewing direction");
+            Debug.Break();
+        }
+
+        foreach (WaitingPoint point in WaitingPoints)
+        {
+            if (point.Direction == null)
+            {
+                Debug.LogError($"Positions to look at not set");
+                Debug.Break();
+            }
+        }
+    }
+
     public override void PermanentUpdate()
     {
         switch (LookState)

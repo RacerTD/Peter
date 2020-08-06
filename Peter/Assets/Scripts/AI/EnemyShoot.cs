@@ -102,7 +102,7 @@ public class EnemyShoot : EnemyAbility
 
     private void HandleShootPointModeRotate(ShootStep step)
     {
-        ShootOneBullet(step.Bullet, ShootPoints[shootPointsIndex], step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(ShootPoints[shootPointsIndex]));
+        ShootOneBullet(step.Bullet, ShootPoints[shootPointsIndex], step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(ShootPoints[shootPointsIndex], step.BulletSpray));
         shootPointsIndex++;
     }
 
@@ -110,13 +110,13 @@ public class EnemyShoot : EnemyAbility
     {
         foreach (Transform shootPoint in ShootPoints)
         {
-            ShootOneBullet(step.Bullet, shootPoint, step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(shootPoint));
+            ShootOneBullet(step.Bullet, shootPoint, step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(shootPoint, step.BulletSpray));
         }
     }
 
-    private Vector3 GenerateShootDirectiorn(Transform shootPoint)
+    private Vector3 GenerateShootDirectiorn(Transform shootPoint, float spray)
     {
-        return shootPoint.forward;
+        return shootPoint.forward + new Vector3(Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100);
     }
 
     private void ShootOneBullet(Bullet projectile, Transform shootPoint, float bulletVelocity, float bulletDamage, Vector3 bulletDirection)
@@ -144,6 +144,7 @@ public struct ShootStep
     public EnemyBullet Bullet;
     public float BulletSpeed;
     public float BulletDamage;
+    public float BulletSpray;
 }
 
 public enum ShootPointMode
