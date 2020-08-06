@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340871483852851058}
   m_LocalRotation: {x: 0.21443301, y: 0.9255011, z: -0.10445114, w: 0.29420435}
-  m_LocalPosition: {x: 7.309761, y: 3.782278, z: 1.741972}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3340871482690725940}
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_LightDimmer: 1
-  m_VolumetricDimmer: 11.89
+  m_VolumetricDimmer: 0.05
   m_LightUnit: 2
   m_FadeDistance: 10000
   m_AffectDiffuse: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_ShadowVariant: 0
   m_ShadowPrecision: 0
   useOldInspector: 0
-  useVolumetric: 0
+  useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 13
   m_AreaLightEmissiveMeshShadowCastingMode: 0
