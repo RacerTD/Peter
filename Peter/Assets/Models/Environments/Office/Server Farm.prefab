@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5349507277375531188}
   - component: {fileID: 8560775130163614750}
   - component: {fileID: 7977584252843806315}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5349507277375531188
 Transform:
@@ -92,12 +92,12 @@ GameObject:
   - component: {fileID: 2720319825724995599}
   - component: {fileID: 961331451904374591}
   - component: {fileID: 5664131148898140268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2720319825724995599
 Transform:
@@ -173,12 +173,12 @@ GameObject:
   - component: {fileID: 1852269007284747590}
   - component: {fileID: 9139201766348638390}
   - component: {fileID: 6631533364818434930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1852269007284747590
 Transform:
@@ -254,12 +254,12 @@ GameObject:
   - component: {fileID: 3830798263990002963}
   - component: {fileID: 2716655300552369616}
   - component: {fileID: 6985284603461440699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3830798263990002963
 Transform:
@@ -336,12 +336,12 @@ GameObject:
   - component: {fileID: 7986390826039760645}
   - component: {fileID: 2223475659900862874}
   - component: {fileID: 4491653360888044880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7779931853184827158
 Transform:
@@ -428,12 +428,12 @@ GameObject:
   - component: {fileID: 325557993373022928}
   - component: {fileID: 8719427627552408857}
   - component: {fileID: 4141123709167269343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &325557993373022928
 Transform:
@@ -509,12 +509,12 @@ GameObject:
   - component: {fileID: 2489825032720476917}
   - component: {fileID: 2244121892020359009}
   - component: {fileID: 565451718391185632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2489825032720476917
 Transform:
@@ -588,12 +588,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5531560250978953279}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5531560250978953279
 Transform:
@@ -634,12 +634,12 @@ GameObject:
   - component: {fileID: 1481776851305456090}
   - component: {fileID: 4124674922778886801}
   - component: {fileID: 5813180691347781247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1481776851305456090
 Transform:
@@ -715,12 +715,12 @@ GameObject:
   - component: {fileID: 5204009526874071336}
   - component: {fileID: 7367480951834331610}
   - component: {fileID: 719547792451919223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5204009526874071336
 Transform:
@@ -796,12 +796,12 @@ GameObject:
   - component: {fileID: 7997428719439962833}
   - component: {fileID: 2189428539778711126}
   - component: {fileID: 5261962432522085282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7997428719439962833
 Transform:
@@ -877,12 +877,12 @@ GameObject:
   - component: {fileID: 2517907694626879773}
   - component: {fileID: 1065191048957251763}
   - component: {fileID: 6333001394242603494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2517907694626879773
 Transform:
@@ -957,12 +957,12 @@ GameObject:
   - component: {fileID: 917563499551269998}
   - component: {fileID: 1284794035050667530}
   - component: {fileID: 3589270259152961845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &917563499551269998
 Transform:
@@ -1038,12 +1038,12 @@ GameObject:
   - component: {fileID: 4116838514663951355}
   - component: {fileID: 9029557861715133437}
   - component: {fileID: 8286675658320549329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4116838514663951355
 Transform:
@@ -1119,12 +1119,12 @@ GameObject:
   - component: {fileID: 2513638034584407737}
   - component: {fileID: 6054344008362885293}
   - component: {fileID: 4464344063150035149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Server Farm unit 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2513638034584407737
 Transform:

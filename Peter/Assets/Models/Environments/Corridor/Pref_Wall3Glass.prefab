@@ -374,9 +374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26293bff4fde98a48b3a217ea986c102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDeploy: 0
+  timeToDeploy: 1
   timeDeployed: 0
   timeTillDeploy: 0
   coverState: 1
-  activePosition: {x: 0, y: 0, z: 0}
+  activePosition: {x: 2, y: 0, z: 0}
   cover: {fileID: 3548241081694884171}

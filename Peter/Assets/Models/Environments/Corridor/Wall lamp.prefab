@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6070634124368082168}
   - component: {fileID: 1799356845566711415}
   - component: {fileID: 3023495114871228475}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6070634124368082168
 Transform:
@@ -214,12 +214,12 @@ GameObject:
   - component: {fileID: 8762176335077549770}
   - component: {fileID: 5635792480058124655}
   - component: {fileID: 7625346438225878437}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8762176335077549770
 Transform:

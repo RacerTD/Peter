@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 3040505594363337911}
   - component: {fileID: 997262490189277309}
   - component: {fileID: 2026450945600043002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallOffice7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2134090702342214418
 Transform:
@@ -59,10 +59,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 56307c0fe5511714db8b60ee2c431524, type: 3}
-  - {fileID: 2100000, guid: 18ed6e4d76218d9408e546bce4903cdc, type: 2}
-  - {fileID: 2100000, guid: 18ed6e4d76218d9408e546bce4903cdc, type: 2}
-  - {fileID: -3846018093981099296, guid: 56307c0fe5511714db8b60ee2c431524, type: 3}
+  - {fileID: 2100000, guid: 2ca8e9db8869bc84983bfd8b296abc66, type: 2}
+  - {fileID: 2100000, guid: 24c6c2947ee17aa4a8c38ebd6506459d, type: 2}
+  - {fileID: 2100000, guid: 24c6c2947ee17aa4a8c38ebd6506459d, type: 2}
+  - {fileID: 2100000, guid: 2ca8e9db8869bc84983bfd8b296abc66, type: 2}
   - {fileID: 8534408245897619167, guid: 56307c0fe5511714db8b60ee2c431524, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0

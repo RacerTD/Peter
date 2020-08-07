@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 769858820874027315}
   - component: {fileID: 2443844828184017086}
   - component: {fileID: 5104667266236020084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 3103329936324618546}
   - component: {fileID: 6779944704292861421}
   - component: {fileID: 3371163614473581337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,8 +225,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7394287303324501193}
   - component: {fileID: 8392646046330247431}
-  m_Layer: 0
-  m_Name: WallOffice4Door
+  m_Layer: 9
+  m_Name: Office Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

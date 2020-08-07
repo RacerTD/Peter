@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 4622218973233836850}
   - component: {fileID: 3829016539146760173}
   - component: {fileID: 6126309728633609395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4168145476198139308
 Transform:
@@ -108,12 +108,12 @@ GameObject:
   - component: {fileID: 2419462150626058607}
   - component: {fileID: 123331336381739054}
   - component: {fileID: 4261469804842180256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rail End B.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &154244202337492017
 Transform:
@@ -201,12 +201,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984490239446490825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stairs Office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &984490239446490825
 Transform:
@@ -237,12 +237,12 @@ GameObject:
   - component: {fileID: 7553180250496207587}
   - component: {fileID: 8165993306110608928}
   - component: {fileID: 6322777907833552621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7553180250496207587
 Transform:
@@ -316,12 +316,12 @@ GameObject:
   - component: {fileID: 2684164091214908245}
   - component: {fileID: 6206886015723246566}
   - component: {fileID: 6044780964734276013}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rail.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2684164091214908245
 Transform:

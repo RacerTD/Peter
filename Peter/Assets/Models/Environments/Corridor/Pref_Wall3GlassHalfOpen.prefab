@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2284942259934722469}
   - component: {fileID: 9164558246415595517}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pref_Wall3GlassHalfOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 309331120744823281}
   - component: {fileID: 1640644488823456364}
   - component: {fileID: 1407430229725710140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,12 +158,12 @@ GameObject:
   - component: {fileID: 2093343899512071409}
   - component: {fileID: 1956721661025907141}
   - component: {fileID: 3935899036387700465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7854666572148591542
 Transform:

@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 8852138474260295551}
   - component: {fileID: 3887347634179540433}
   - component: {fileID: 8591004558697126190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pref_ElevatorCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2604288732293567472
 Transform:

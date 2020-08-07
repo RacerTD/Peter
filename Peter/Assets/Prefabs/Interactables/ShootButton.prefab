@@ -123,12 +123,12 @@ GameObject:
   - component: {fileID: 3862225126291118879}
   - component: {fileID: 1402039977600115666}
   - component: {fileID: 669879711131376819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3177368172668508124
 Transform:
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDeploy: 1
   timeDeployed: 5
+  timeTillDeploy: 0
   coverState: 1
   activePosition: {x: 0, y: -0.5, z: 0}
   cover: {fileID: 2051758320195600368}

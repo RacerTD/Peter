@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDeploy: 1
   timeDeployed: 5
+  timeTillDeploy: 0
   coverState: 1
   activePosition: {x: 0, y: 1, z: 0}
   cover: {fileID: 6034483394538641873}
@@ -133,6 +134,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barricade Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502877291743220047, guid: 57ce028892e301e42b0dca66c151de5a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502877291743220047, guid: 57ce028892e301e42b0dca66c151de5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485173162082002552, guid: 57ce028892e301e42b0dca66c151de5a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57ce028892e301e42b0dca66c151de5a, type: 3}
