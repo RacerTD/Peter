@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8028481664044451411}
   - component: {fileID: 3885066951539623951}
   m_Layer: 15
-  m_Name: Rock2
+  m_Name: Rock2 Mossy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9160824487363788092
 Transform:
