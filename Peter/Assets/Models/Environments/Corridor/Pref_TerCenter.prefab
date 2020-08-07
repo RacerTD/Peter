@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5648078379529066242}
   - component: {fileID: 188576641731064663}
   m_Layer: 9
-  m_Name: TerrariumCenter (1)
+  m_Name: Pref_TerCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6152758409411917527}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -229.26183, y: 7.0001035, z: -28.612522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -60,8 +60,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -3846018093981099296, guid: 513969e068c9e204399d432ae34dc192, type: 3}
-  - {fileID: 8534408245897619167, guid: 513969e068c9e204399d432ae34dc192, type: 3}
-  - {fileID: -5229504397240221563, guid: 513969e068c9e204399d432ae34dc192, type: 3}
+  - {fileID: 2100000, guid: 18ed6e4d76218d9408e546bce4903cdc, type: 2}
+  - {fileID: 2100000, guid: e91c13f8bee2a1c4fb3b0e43a44eb8d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
