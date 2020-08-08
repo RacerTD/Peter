@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2150386368157448606}
   - component: {fileID: 3060317543594128955}
   - component: {fileID: 980828000302007025}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P_Sand Flat No Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

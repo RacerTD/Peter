@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3809345408935607737}
   - component: {fileID: 248358657955213852}
   - component: {fileID: 2636487784507950806}
-  m_Layer: 0
-  m_Name: Pile Sand
+  m_Layer: 9
+  m_Name: P_Sand No Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3809345408935607737
 Transform:
