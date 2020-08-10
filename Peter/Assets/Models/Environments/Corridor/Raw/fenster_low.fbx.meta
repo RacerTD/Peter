@@ -3,7 +3,22 @@ guid: 5d4353c2095177c40afef9ff050fc9ca
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glas
+    second: {fileID: 2100000, guid: 5f0d3666d02e8724d9073c48c0b31dc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Horizentaler_Rahmen
+    second: {fileID: 2100000, guid: 911313e908cde694fb5fc5841694d4cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Seitenrahmen
+    second: {fileID: 2100000, guid: a4480353335191a4f9f99fc8523996fe, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
