@@ -55,7 +55,7 @@ public class Player : AbilityController
 
         if (currentAnimationState != animState[0].State)
         {
-            Debug.Log(animState[0].State);
+            //Debug.Log(animState[0].State);
 
             switch (animState[0].State)
             {
