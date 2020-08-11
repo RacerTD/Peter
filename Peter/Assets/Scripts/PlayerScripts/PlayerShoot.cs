@@ -160,7 +160,7 @@ public class PlayerShoot : PlayerAbility
                 break;
         }
 
-        player.AddAnimState(isAiming ? WeaponAnimationState.RecoilScope : WeaponAnimationState.Recoil, Gun.TimeBetweenShots);
+        player.AddAnimState(isAiming ? WeaponAnimationState.RecoilScope : WeaponAnimationState.Recoil, Gun.TimeBetweenShots * 0.8f);
 
         Vector3 shootDir = GenerateShootDirectiorn();
 

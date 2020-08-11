@@ -66,7 +66,7 @@ public class Player : AbilityController
                     playerShoot.Gun.WeaponAnimator.SetTrigger("Idle2");
                     break;
                 case WeaponAnimationState.Walking:
-                    playerShoot.Gun.WeaponAnimator.SetTrigger("Walking");
+                    playerShoot.Gun.WeaponAnimator.SetTrigger(playerShoot.isAiming ? "Idle" : "Walking");
                     break;
                 case WeaponAnimationState.Running:
                     playerShoot.Gun.WeaponAnimator.SetTrigger("Running");
@@ -75,9 +75,11 @@ public class Player : AbilityController
                     playerShoot.Gun.WeaponAnimator.SetTrigger("Reload");
                     break;
                 case WeaponAnimationState.Recoil:
+                    playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
                     playerShoot.Gun.WeaponAnimator.SetTrigger("Recoil");
                     break;
                 case WeaponAnimationState.RecoilScope:
+                    playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
                     playerShoot.Gun.WeaponAnimator.SetTrigger("RecoilScope");
                     break;
                 default:

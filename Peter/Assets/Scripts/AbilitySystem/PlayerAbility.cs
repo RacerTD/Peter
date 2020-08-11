@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAbility : Ability
 {
-    public Player player;
+    [HideInInspector] public Player player;
 
     protected override void Start()
     {
