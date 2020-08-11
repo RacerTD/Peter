@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerShoot))]
-public class PlayerSwitchWeapon : Ability
+public class PlayerSwitchWeapon : PlayerAbility
 {
     [Header("Custom Ability Features")]
     private PlayerShoot playerShoot;
@@ -12,11 +12,12 @@ public class PlayerSwitchWeapon : Ability
     public bool UseWeaponOne = false;
     private int[] currentGunAmmo = new int[2];
 
-    protected void Start()
+    protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
         GenerateWeapon();
         playerShoot.Gun.CurrentGunAmmo = playerShoot.Gun.MaxGunAmmo;
+        base.Start();
     }
 
     public override void AbilityStart()

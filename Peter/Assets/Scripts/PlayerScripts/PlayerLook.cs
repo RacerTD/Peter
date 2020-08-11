@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerShoot))]
-public class PlayerLook : Ability
+public class PlayerLook : PlayerAbility
 {
     [Header("Custom Ability Features")]
     [SerializeField] private float mouseLookSensitivity = 0.3f;
@@ -19,11 +19,12 @@ public class PlayerLook : Ability
     private PlayerShoot playerShoot;
     [HideInInspector] public Vector2 InputValue;
 
-    protected void Start()
+    protected override void Start()
     {
         lookSensitivity = mouseLookSensitivity;
         shouldDirection = controlledCamera.transform.localRotation.eulerAngles;
         playerShoot = GetComponent<PlayerShoot>();
+        base.Start();
     }
 
     public override void GetInput(InputAction.CallbackContext context)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMove : Ability
+public class PlayerMove : PlayerAbility
 {
     [Header("Custom Ability Features")]
     [SerializeField] private Vector3 moveVector = Vector3.zero;
@@ -36,7 +36,6 @@ public class PlayerMove : Ability
         set
         {
             walkingType = value;
-            UpdateAnimation();
         }
     }
 
@@ -46,7 +45,7 @@ public class PlayerMove : Ability
     private Camera cam;
     private Vector2 inputValue = Vector2.zero;
 
-    protected void Start()
+    protected override void Start()
     {
         physicsbody = GetComponent<Rigidbody>();
         playerShoot = GetComponent<PlayerShoot>();
@@ -55,30 +54,7 @@ public class PlayerMove : Ability
         cam = GetComponentInChildren<Camera>();
         normalLocalCameraHeight = cam.transform.localPosition.y;
         crouchLocalCameraHeight = capCol.center.y + crouchHeight / 2;
-    }
-
-    /// <summary>
-    /// Updates the animation the gun is using
-    /// </summary>
-    private void UpdateAnimation()
-    {
-        switch (WalkingType)
-        {
-            case WalkingType.Crouch:
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Walking");
-                break;
-            case WalkingType.Normal:
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Walking");
-                break;
-            case WalkingType.Sprint:
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
-                playerShoot.Gun.WeaponAnimator.SetTrigger("Running");
-                break;
-            default:
-                break;
-        }
+        base.Start();
     }
 
     /// <summary>
@@ -160,11 +136,38 @@ public class PlayerMove : Ability
         base.GetInput(context);
     }
 
+    public override void PermanentUpdate()
+    {
+        UpdateAnimation();
+    }
+
     public override void AbilityUpdate()
     {
         UpdateVelocity();
 
         base.AbilityUpdate();
+    }
+
+    /// <summary>
+    /// Updates the animation the gun is using
+    /// </summary>
+    private void UpdateAnimation()
+    {
+        if (shouldVector.magnitude != 0f)
+        {
+            switch (WalkingType)
+            {
+                case WalkingType.Crouch:
+                case WalkingType.Normal:
+                    player.AddAnimState(WeaponAnimationState.Walking, 0.1f);
+                    break;
+                case WalkingType.Sprint:
+                    player.AddAnimState(WeaponAnimationState.Running, 0.1f);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void FixedUpdate()

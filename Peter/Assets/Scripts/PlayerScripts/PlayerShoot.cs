@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 [RequireComponent(typeof(PlayerLook))]
-public class PlayerShoot : Ability
+public class PlayerShoot : PlayerAbility
 {
     [Header("Custom Ability Features")]
     [SerializeField] private LayerMask raycastLayerMask = new LayerMask();
@@ -35,11 +35,12 @@ public class PlayerShoot : Ability
     #endregion
 
 
-    protected void Start()
+    protected override void Start()
     {
         playerLook = GetComponent<PlayerLook>();
         playerMove = GetComponent<PlayerMove>();
         UpdateAmmoDisplay();
+        base.Start();
     }
 
     public override void PermanentUpdate()
@@ -158,8 +159,8 @@ public class PlayerShoot : Ability
             default:
                 break;
         }
-        Gun.WeaponAnimator.SetTrigger("Idle");
-        Gun.WeaponAnimator.SetTrigger("Recoil");
+
+        player.AddAnimState(isAiming ? WeaponAnimationState.RecoilScope : WeaponAnimationState.Recoil, Gun.TimeBetweenShots);
 
         Vector3 shootDir = GenerateShootDirectiorn();
 

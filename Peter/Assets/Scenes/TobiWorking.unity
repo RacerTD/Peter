@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1073546838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,6 +781,7 @@ MonoBehaviour:
     Bullet: {fileID: 0}
     BulletSpeed: 0
     BulletDamage: 0
+    BulletSpray: 0
   - StepType: 1
     ShootPointMode: 1
     Duration: 5
@@ -789,6 +790,7 @@ MonoBehaviour:
       type: 3}
     BulletSpeed: 100
     BulletDamage: 1
+    BulletSpray: 0
 --- !u!114 &1073546845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,9 +808,9 @@ MonoBehaviour:
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
   WaitingPoints:
-  - Direction: {x: 0, y: 0, z: 0}
+  - Direction: {fileID: 0}
     TimeToWait: 2
-  - Direction: {x: 0, y: 0, z: 0}
+  - Direction: {fileID: 0}
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 909238634}
@@ -1105,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.98328316
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
@@ -1115,7 +1117,7 @@ PrefabInstance:
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.1820831
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
@@ -1538,6 +1540,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heavy Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 2478811909122273076, guid: e712bb4bb15a8ee469b8ef489bd4596a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6685171832116788551, guid: e712bb4bb15a8ee469b8ef489bd4596a,
         type: 3}
       propertyPath: TimeBetweenAIChecks
@@ -1671,6 +1678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NewTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2478811909122273076, guid: daa0feea667ec2a48802acbb5362e102,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4240013928347498930, guid: daa0feea667ec2a48802acbb5362e102,
         type: 3}

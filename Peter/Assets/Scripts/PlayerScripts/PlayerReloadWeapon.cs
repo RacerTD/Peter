@@ -4,23 +4,23 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerShoot))]
-public class PlayerReloadWeapon : Ability
+public class PlayerReloadWeapon : PlayerAbility
 {
     [Header("Custom Ability Features")]
     private PlayerShoot playerShoot;
     private float timeBetweenBullets = 0f;
     private float timeSinceLastBullet = 0f;
 
-    protected void Start()
+    protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
+        base.Start();
     }
 
     public override void AbilityStart()
     {
         playerShoot.TimeBlocked = AbilityDuration;
-        playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
-        playerShoot.Gun.WeaponAnimator.SetTrigger("Reload");
+        player.AddAnimState(WeaponAnimationState.Reload, AbilityDuration - 0.6f);
         timeBetweenBullets = (AbilityDuration - 0.7f) / (playerShoot.Gun.MaxGunAmmo - playerShoot.Gun.CurrentGunAmmo);
         base.AbilityStart();
     }
@@ -39,7 +39,6 @@ public class PlayerReloadWeapon : Ability
 
     public override void AbilityEnd()
     {
-        playerShoot.Gun.WeaponAnimator.SetTrigger("Idle");
         //Reload();
         base.AbilityEnd();
     }

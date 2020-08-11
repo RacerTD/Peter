@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerInteract : Ability
+public class PlayerInteract : PlayerAbility
 {
     [Header("Custom Ability Features")]
     [SerializeField] private float interactionDistance = 4f;

@@ -7,7 +7,7 @@ public class PlayerAmmoPickup : MonoBehaviour
 {
     private PlayerShoot playerShoot;
 
-    private void Start()
+    protected void Start()
     {
         playerShoot = GetComponentInParent<PlayerShoot>();
     }

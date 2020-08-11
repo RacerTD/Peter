@@ -23,6 +23,11 @@ public class Ability : MonoBehaviour
 
     #endregion
 
+    protected virtual void Start()
+    {
+
+    }
+
     public virtual void PermanentUpdate()
     {
         if (!(AbilityDuration <= 0f) && !(CoolDownDuration <= 0f))
