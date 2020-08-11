@@ -56,6 +56,7 @@ MonoBehaviour:
   hitMarkerActiveColor: {r: 1, g: 1, b: 1, a: 1}
   hitMarkerEndColor: {r: 1, g: 1, b: 1, a: 0}
   hitMarkerEndSize: 0.25
+  hitMarkerMaxSize: 0.6
   hitMarkerDamageSizeMultiplicator: 1
   hitMarkerGetBiggerTimePercent: 0.8
   hitMarkerTotalTime: 0.2

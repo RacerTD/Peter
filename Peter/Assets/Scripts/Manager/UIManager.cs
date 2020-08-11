@@ -23,13 +23,16 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] private Color hitMarkerEndColor = new Color(0, 0, 0, 0);
     private float hitMarkerStartSize = 1f;
     [SerializeField] private float hitMarkerEndSize = 2f;
+    [SerializeField] private float hitMarkerMaxSize = 10f;
     [SerializeField] private float hitMarkerDamageSizeMultiplicator = 1f;
     [SerializeField] [Tooltip("Percent of the hit Marker active time the marker is in the stage of getting bigger and mor non transparent")] private float hitMarkerGetBiggerTimePercent = 0.7f;
     private float hitMarkerDamage = 0f;
     private bool hitMarkerIsActive = false;
+    private int shotsShortTimeTogether = 0;
     [SerializeField] private float hitMarkerTotalTime = 0f;
     private float hitMarkerTotalTimer = 0f;
     #endregion
+
     private void Start()
     {
         if (hitMarkers.Count > 0)
@@ -76,6 +79,7 @@ public class UIManager : ManagerModule<UIManager>
         {
             hitMarkerIsActive = true;
             hitMarkerTotalTimer = 0f;
+            shotsShortTimeTogether++;
             /*
             foreach (Image rend in hitMarkers)
             {
@@ -99,7 +103,7 @@ public class UIManager : ManagerModule<UIManager>
                     rend.color = Color.Lerp(hitMarkerStartColor, hitMarkerActiveColor, hitMarkerTotalTimer / (hitMarkerTotalTime * hitMarkerGetBiggerTimePercent));
                 }
 
-                hitMarkerParent.localScale = Vector3.Lerp(hitMarkerParent.localScale, Vector3.one * hitMarkerEndSize, hitMarkerTotalTimer / (hitMarkerTotalTime * hitMarkerGetBiggerTimePercent));
+                hitMarkerParent.localScale = Vector3.Lerp(hitMarkerParent.localScale, Vector3.one * Mathf.Clamp(hitMarkerEndSize * shotsShortTimeTogether, 0f, hitMarkerMaxSize), hitMarkerTotalTimer / (hitMarkerTotalTime * hitMarkerGetBiggerTimePercent));
             }
             else
             {
@@ -115,6 +119,7 @@ public class UIManager : ManagerModule<UIManager>
             {
                 hitMarkerIsActive = false;
                 hitMarkerParent.localScale = Vector3.one * hitMarkerStartSize;
+                shotsShortTimeTogether = 0;
 
                 foreach (Image rend in hitMarkers)
                 {
