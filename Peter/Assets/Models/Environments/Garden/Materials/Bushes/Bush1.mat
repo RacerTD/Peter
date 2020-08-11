@@ -125,6 +125,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1812BC6: 0.5
     - Vector1_462C3152: -0.4
     - Vector1_ABA82338: 0
     - Vector1_B0909309: 0.1
@@ -251,7 +252,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_C121F36F: {r: 0.42435032, g: 0.6037736, b: 0.42739174, a: 0}
+    - Color_C121F36F: {r: 0.64457995, g: 0.6603774, b: 0.43921328, a: 1}
     - Vector2_44B99322: {r: 6, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

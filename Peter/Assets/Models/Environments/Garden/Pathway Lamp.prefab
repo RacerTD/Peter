@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &3959561840682203604
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270715720633242866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: 3af86d25456763c4f8f3737bd308be4c, type: 3}
 --- !u!1 &3963117710913618152
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +57,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8201577, b: 0.36320752, a: 1}
+  m_Color: {r: 1, g: 0.8841566, b: 0.4669811, a: 1}
   m_Intensity: 7.957747
   m_Range: 3.845871
   m_SpotAngle: 30
@@ -330,6 +344,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af86d25456763c4f8f3737bd308be4c, type: 3}
+--- !u!1 &3270715720633242866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3af86d25456763c4f8f3737bd308be4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2423643927315507619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2749511562876227144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3af86d25456763c4f8f3737bd308be4c,
