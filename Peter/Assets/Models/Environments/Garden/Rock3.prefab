@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5409029798900905203}
   - component: {fileID: 6028905235989530318}
   - component: {fileID: 5883928690123773203}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock3UVLOD(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5409029798900905203
 Transform:
@@ -90,12 +90,12 @@ GameObject:
   - component: {fileID: 942420384811468072}
   - component: {fileID: 7096011150322138409}
   - component: {fileID: 3288663136528712235}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock3UV(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &942420384811468072
 Transform:
