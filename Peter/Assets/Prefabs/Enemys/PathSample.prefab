@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathPoint: {fileID: 6367494820303401223, guid: 49e4dc2a87e52b84d958137e58939ca2,
     type: 3}
-  defaultWaitTime: 5
+  defaultWaitTime: 0
   Positions:
   - Position: {fileID: 7524444056859093521}
     WaitTimeAtPostion: 5
