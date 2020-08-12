@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3652135992647182128}
   - component: {fileID: 2286202436775019255}
   m_Layer: 9
-  m_Name: GarTwoSeat
+  m_Name: P_GarTwoSeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,8 +59,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8067726398312463513, guid: 2d6815120dc77a54481a28dd1a021407, type: 3}
-  - {fileID: -3159386391466907222, guid: 2d6815120dc77a54481a28dd1a021407, type: 3}
+  - {fileID: 2100000, guid: ba41dbf67ceeb664592e86b299945e17, type: 2}
+  - {fileID: 2100000, guid: 1de577156e9486e4381dc7bcaa873965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

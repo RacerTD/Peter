@@ -59,7 +59,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 7211448773848044386, guid: 9035a32c3f4a98c4f8325b64eabc2cf0, type: 3}
-  - {fileID: 8534408245897619167, guid: 9035a32c3f4a98c4f8325b64eabc2cf0, type: 3}
+  - {fileID: 2100000, guid: e91c13f8bee2a1c4fb3b0e43a44eb8d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575230216912549563}
-  - component: {fileID: 1489155801160536522}
   m_Layer: 9
   m_Name: Pref_Fireblob
   m_TagString: Untagged
@@ -114,19 +113,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1489155801160536522
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204379139165187073}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8561732336753979653
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +204,7 @@ GameObject:
   - component: {fileID: 6859317762271656425}
   - component: {fileID: 1910723267323714003}
   - component: {fileID: 5790470060669013894}
+  - component: {fileID: 8832999785673364838}
   m_Layer: 9
   m_Name: Box
   m_TagString: Untagged
@@ -286,3 +273,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8832999785673364838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172710979465128714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42172313, y: 0.86236024, z: 0.32543737}
+  m_Center: {x: 0.0000030472875, y: 0.43118012, z: -0.000000014901161}

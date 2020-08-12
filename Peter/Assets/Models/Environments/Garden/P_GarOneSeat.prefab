@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5214866854716181753}
   - component: {fileID: 8050776488317941811}
   m_Layer: 9
-  m_Name: GarOneSeat
+  m_Name: P_GarOneSeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8411289239222639078}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -130.9869, y: 4, z: 234.0636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -58,8 +58,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8067726398312463513, guid: e63676070e5b860498451005f0798228, type: 3}
-  - {fileID: -3159386391466907222, guid: e63676070e5b860498451005f0798228, type: 3}
+  - {fileID: 2100000, guid: ba41dbf67ceeb664592e86b299945e17, type: 2}
+  - {fileID: 2100000, guid: 1de577156e9486e4381dc7bcaa873965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

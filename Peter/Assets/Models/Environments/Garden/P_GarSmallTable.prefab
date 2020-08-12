@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4640773284570583522}
   - component: {fileID: -1246915240758701840}
   m_Layer: 9
-  m_Name: GarSmallTable
+  m_Name: P_GarSmallTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8067726398312463513, guid: caa7bc3f4bf03b841933bd718c2492d7, type: 3}
+  - {fileID: 2100000, guid: ba41dbf67ceeb664592e86b299945e17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

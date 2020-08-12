@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7552578491778196558}
   - component: {fileID: -2872976746805381585}
   m_Layer: 9
-  m_Name: GarTable
+  m_Name: P_GarTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8067726398312463513, guid: f64f0c912ddf39e4d91e8ffb87dc98f0, type: 3}
+  - {fileID: 2100000, guid: ba41dbf67ceeb664592e86b299945e17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
