@@ -43,17 +43,17 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4522280786538633809}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.057874322, y: 0.058086038, z: 0.41695428}
+  m_LocalReferencePoint: {x: -0.057874322, y: 0.058086038, z: 0.06195414}
   m_Size: 1.10145
-  m_FadeMode: 1
+  m_FadeMode: 0
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.25
+  - screenRelativeHeight: 0.59787375
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6266756874510849343}
-  - screenRelativeHeight: 0.125
+  - screenRelativeHeight: 0.2515189
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6194990070515242465}
@@ -140,7 +140,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.59787375
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -219,7 +219,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.2515189
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
