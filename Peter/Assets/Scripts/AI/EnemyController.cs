@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
     public LayerMask RaycastLayerMask = new LayerMask();
     public float SightDistance = 20f;
     public float SightMaxAngle = 20f;
-    public float VerticalAimOffset = 0f;
 
     [Header("Relevant Data")]
     public float DistanceToPlayer = 0f;
@@ -73,16 +72,16 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private void UpdateData()
     {
-        DistanceToPlayer = Vector3.Distance(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position);
-        ViewAngleToPlayer = Vector3.Angle((GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset) - ViewPoint.position, ViewPoint.forward);
+        DistanceToPlayer = Vector3.Distance(ViewPoint.position, GameManager.Instance.CurrentPlayer.PlayerCamera.transform.position);
+        ViewAngleToPlayer = Vector3.Angle((GameManager.Instance.CurrentPlayer.PlayerCamera.transform.position) - ViewPoint.position, ViewPoint.forward);
         HasDirectSightLine = HasDirectSight();
         TimeSinceShotAt += Time.deltaTime;
-        CurrentDirectionToPlayer = (GameManager.Instance.CurrentPlayer.transform.position - transform.position).normalized;
+        CurrentDirectionToPlayer = (GameManager.Instance.CurrentPlayer.PlayerCamera.transform.position - transform.position).normalized;
 
         if (CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             TimeSinceLastSighting = 0f;
-            LastSeenPlayerPosition = GameManager.Instance.CurrentPlayer.transform.position;
+            LastSeenPlayerPosition = GameManager.Instance.CurrentPlayer.PlayerCamera.transform.position;
         }
         else
         {
@@ -106,7 +105,7 @@ public class EnemyController : MonoBehaviour
     {
         //Debug.DrawRay(ViewPoint.position, (GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position).normalized * DistanceToPlayer, Color.green);
 
-        RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.transform.position + Vector3.up * VerticalAimOffset - ViewPoint.position, RaycastLayerMask);
+        RaycastHit[] hits = Physics.RaycastAll(ViewPoint.position, GameManager.Instance.CurrentPlayer.PlayerCamera.transform.position - ViewPoint.position, RaycastLayerMask);
         hits = hits.OrderBy(h => (h.point + ViewPoint.position).magnitude).ToArray();
 
         if (hits.Count() >= 2)

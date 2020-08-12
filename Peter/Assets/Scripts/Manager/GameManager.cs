@@ -8,6 +8,7 @@ public class GameManager : ManagerModule<GameManager>
 {
     public Transform BulletHolder;
     public Transform ParticleHolder;
+    public Transform GunHolder;
     public Player CurrentPlayer;
 
     #region GameState

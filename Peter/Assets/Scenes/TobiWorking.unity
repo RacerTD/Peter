@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewTurret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5382428437799629785, guid: daa0feea667ec2a48802acbb5362e102,
+        type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5712642964643826945, guid: daa0feea667ec2a48802acbb5362e102,
         type: 3}
       propertyPath: WaitingPoints.Array.size
@@ -293,6 +298,15 @@ PrefabInstance:
     - target: {fileID: 698770824, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416799092, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
+      propertyPath: AimTime
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+        type: 3}
+      propertyPath: useFixedUpdate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
@@ -1192,7 +1206,7 @@ PrefabInstance:
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.24013092
+      value: 0.92577684
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
@@ -1202,7 +1216,7 @@ PrefabInstance:
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.97074056
+      value: -0.37807053
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}

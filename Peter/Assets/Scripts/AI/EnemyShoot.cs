@@ -116,7 +116,8 @@ public class EnemyShoot : EnemyAbility
 
     private Vector3 GenerateShootDirectiorn(Transform shootPoint, float spray)
     {
-        return shootPoint.forward + new Vector3(Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100);
+        Debug.DrawRay(shootPoint.position, (Controller.LastSeenPlayerPosition - Vector3.up * 0.5f) - transform.position, Color.red, 0.5f);
+        return (Controller.LastSeenPlayerPosition - Vector3.up * 0.5f) - transform.position + new Vector3(Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100, Random.Range(-spray, spray) / 100);
     }
 
     private void ShootOneBullet(Bullet projectile, Transform shootPoint, float bulletVelocity, float bulletDamage, Vector3 bulletDirection)

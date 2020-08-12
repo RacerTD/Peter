@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WalkingWalkNode : ActionNode
 {
-    private WalkingEnemyController walkingEnemyController;
-    private EnemyWalk enemyWalk;
-    private bool walkedTowards = false;
+    protected WalkingEnemyController walkingEnemyController;
+    protected EnemyWalk enemyWalk;
+    protected bool walkedTowards = false;
     private float timeSinceFailure = 0f;
 
     public override NodeState CheckNodeState()
@@ -33,6 +33,7 @@ public class WalkingWalkNode : ActionNode
             if (walkingEnemyController.DistanceToPlayer >= 5f)
             {
                 WalkTowardsPlayer();
+                walkedTowards = true;
             }
         }
     }
@@ -53,3 +54,4 @@ public class WalkingWalkNode : ActionNode
         enemyWalk.SetNewDestination(walkingEnemyController.transform.position + walkingEnemyController.CurrentDirectionToPlayer * 2);
     }
 }
+

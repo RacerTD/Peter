@@ -24,9 +24,8 @@ public class UIManager : ManagerModule<UIManager>
     private float hitMarkerStartSize = 1f;
     [SerializeField] private float hitMarkerEndSize = 2f;
     [SerializeField] private float hitMarkerMaxSize = 10f;
-    [SerializeField] private float hitMarkerDamageSizeMultiplicator = 1f;
+    //[SerializeField] private float hitMarkerDamageSizeMultiplicator = 1f;
     [SerializeField] [Tooltip("Percent of the hit Marker active time the marker is in the stage of getting bigger and mor non transparent")] private float hitMarkerGetBiggerTimePercent = 0.7f;
-    private float hitMarkerDamage = 0f;
     private bool hitMarkerIsActive = false;
     private int shotsShortTimeTogether = 0;
     [SerializeField] private float hitMarkerTotalTime = 0f;
@@ -73,7 +72,7 @@ public class UIManager : ManagerModule<UIManager>
     /// <summary>
     /// Starts the hit marker
     /// </summary>
-    public void ActivateHitMarker(float damage)
+    public void ActivateHitMarker()
     {
         if (hitMarkers.Count > 0)
         {

@@ -57,10 +57,10 @@ public class EnemyLook : EnemyAbility
                 HandlePacing();
                 break;
             case EnemyLookState.FollowPlayer:
-                RotatingThing.rotation = Quaternion.RotateTowards(RotatingThing.rotation, Quaternion.LookRotation(Controller.LastSeenPlayerPosition - transform.position + Vector3.up * Controller.VerticalAimOffset, Vector3.up), RotationSpeedPlayerInSight * Time.deltaTime);
+                RotatingThing.rotation = Quaternion.RotateTowards(RotatingThing.rotation, Quaternion.LookRotation(Controller.LastSeenPlayerPosition - transform.position, Vector3.up), RotationSpeedPlayerInSight * Time.deltaTime);
                 break;
             case EnemyLookState.Waiting:
-                RotatingThing.rotation = Quaternion.RotateTowards(RotatingThing.rotation, Quaternion.LookRotation(Controller.LastSeenPlayerPosition - transform.position + Vector3.up * Controller.VerticalAimOffset, Vector3.up), RotationSpeedPlayerInSight * Time.deltaTime);
+                RotatingThing.rotation = Quaternion.RotateTowards(RotatingThing.rotation, Quaternion.LookRotation(Controller.LastSeenPlayerPosition - transform.position, Vector3.up), RotationSpeedPlayerInSight * Time.deltaTime);
                 if (WaitTimeAfterLastSighting <= Controller.TimeSinceLastSighting)
                 {
                     LookState = EnemyLookState.Pacing;

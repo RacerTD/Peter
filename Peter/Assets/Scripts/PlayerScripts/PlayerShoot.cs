@@ -45,8 +45,13 @@ public class PlayerShoot : PlayerAbility
 
     public override void PermanentUpdate()
     {
-        UpdateGunPosition();
+        UpdateGunRotation();
         base.PermanentUpdate();
+    }
+
+    public void FixedUpdate()
+    {
+        UpdateGunPosition();
     }
 
     /// <summary>
@@ -88,13 +93,23 @@ public class PlayerShoot : PlayerAbility
     {
         if (isAiming)
         {
-            Gun.transform.localPosition = Vector3.Lerp(Gun.transform.localPosition, AimPoint.localPosition, Time.deltaTime / AimTime);
-            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, AimPoint.localRotation, Time.deltaTime / AimTime);
+            Gun.transform.position = Vector3.Lerp(Gun.transform.position, AimPoint.position, Time.fixedDeltaTime / AimTime);
         }
         else
         {
-            Gun.transform.localPosition = Vector3.Lerp(Gun.transform.localPosition, GunPoint.localPosition, Time.deltaTime / AimTime);
-            Gun.transform.localRotation = Quaternion.Lerp(Gun.transform.localRotation, GunPoint.localRotation, Time.deltaTime / AimTime);
+            Gun.transform.position = Vector3.Lerp(Gun.transform.position, GunPoint.position, Time.fixedDeltaTime / AimTime);
+        }
+    }
+
+    private void UpdateGunRotation()
+    {
+        if (isAiming)
+        {
+            Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, AimPoint.rotation, Time.deltaTime / AimTime);
+        }
+        else
+        {
+            Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, GunPoint.rotation, Time.deltaTime / AimTime);
         }
     }
 

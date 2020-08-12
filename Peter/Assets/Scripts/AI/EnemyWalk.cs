@@ -26,6 +26,7 @@ public class EnemyWalk : EnemyAbility
         }
     }
     private float timeToWait = 0f;
+    private float timeToFollowPlayer = 0f;
     [SerializeField] private EnemyWalkState walkState = EnemyWalkState.Waiting;
     public EnemyWalkState WalkState
     {
@@ -112,6 +113,12 @@ public class EnemyWalk : EnemyAbility
     private void HandleFollowingPlayer()
     {
         navMeshAgent.SetDestination(GameManager.Instance.CurrentPlayer.transform.position);
+
+        timeToFollowPlayer -= Time.deltaTime;
+        if (timeToFollowPlayer <= 0f)
+        {
+            WalkState = EnemyWalkState.Waiting;
+        }
     }
 
     private void HandleStopped()
@@ -122,6 +129,12 @@ public class EnemyWalk : EnemyAbility
     public void SetNewDestination(Vector3 pos)
     {
         navMeshAgent.SetDestination(pos);
+    }
+
+    public void StartFollowingPlayer(float time)
+    {
+        WalkState = EnemyWalkState.FollowingPlayer;
+        timeToFollowPlayer = time;
     }
 
     public bool IsAtDestination()

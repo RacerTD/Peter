@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedDespawn : MonoBehaviour
-{
+public class TimedDespawn : MonoBehaviour {
     [SerializeField] protected float timeTillDespawn = 10f;
 
     /// <summary>
     /// Sets the time till despawn
     /// </summary>
-    public void SetUpTimedDespawn(float time)
-    {
+    public void SetUpTimedDespawn (float time) {
         timeTillDespawn = time;
     }
 
-    public void Update()
-    {
+    public void Start () {
+
+    }
+
+    public void Update () {
         timeTillDespawn -= Time.deltaTime;
-        if (timeTillDespawn <= 0)
-        {
-            Destroy(gameObject);
+        if (timeTillDespawn <= 0) {
+            Destroy (gameObject);
         }
     }
 }

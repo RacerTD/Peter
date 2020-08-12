@@ -44,7 +44,7 @@ public class BetterDamagable : Damagable
 
     public override void DoDamage(float damage)
     {
-        UIManager.Instance.ActivateHitMarker(damage);
+        UIManager.Instance.ActivateHitMarker();
 
         enemyController.GotShotAt();
         base.DoDamage(damage);

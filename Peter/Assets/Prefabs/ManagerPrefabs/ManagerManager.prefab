@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2039382454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039382455}
+  m_Layer: 0
+  m_Name: GunHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039382455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039382454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7524577327090751618}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7524577326438917129
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6817171581539772056, guid: 2d9da494d42e4a449bf94b1cead967ad,
+        type: 3}
+      propertyPath: hitMarkerGetBiggerTimePercent
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d9da494d42e4a449bf94b1cead967ad, type: 3}
 --- !u!4 &1097812936079426245 stripped
@@ -194,6 +229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6668811267227021519, guid: 6dbc1639943a96145a3a4ab7f388b4ee,
+        type: 3}
+      propertyPath: GunHolder
+      value: 
+      objectReference: {fileID: 2039382455}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dbc1639943a96145a3a4ab7f388b4ee, type: 3}
 --- !u!4 &7524577327090751618 stripped

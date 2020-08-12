@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : AbilityController
 {
+    [HideInInspector] public Camera PlayerCamera;
     [SerializeField] private List<AnimStateTime> animState = new List<AnimStateTime>();
     private PlayerShoot playerShoot;
     private bool playedAnimation = false;
@@ -19,6 +20,7 @@ public class Player : AbilityController
     protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
+        PlayerCamera = GetComponentInChildren<Camera>();
         base.Start();
     }
 
