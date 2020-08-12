@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EnemyPath : MonoBehaviour
 {
+    [SerializeField] protected Transform pathPoint;
+    [SerializeField] private float defaultWaitTime = 5f;
     public List<WaitingPosition> Positions = new List<WaitingPosition>();
 
     [System.Serializable]
@@ -11,6 +14,11 @@ public class EnemyPath : MonoBehaviour
     {
         public Transform Position;
         public float WaitTimeAtPostion;
+        public WaitingPosition(Transform position, float waitTime)
+        {
+            Position = position;
+            WaitTimeAtPostion = waitTime;
+        }
     }
 
     private void OnDrawGizmos()
@@ -26,5 +34,10 @@ public class EnemyPath : MonoBehaviour
                 Debug.DrawLine(Positions[i].Position.position, Positions[i + 1].Position.position, Color.green);
             }
         }
+    }
+
+    public void AddWayPoint()
+    {
+        Positions.Add(new WaitingPosition(Instantiate(pathPoint, Positions[Positions.Count - 1].Position.position, Quaternion.identity, transform), defaultWaitTime));
     }
 }
