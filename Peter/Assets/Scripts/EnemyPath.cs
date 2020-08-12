@@ -39,5 +39,10 @@ public class EnemyPath : MonoBehaviour
     public void AddWayPoint()
     {
         Positions.Add(new WaitingPosition(Instantiate(pathPoint, Positions[Positions.Count - 1].Position.position, Quaternion.identity, transform), defaultWaitTime));
+
+#if UNITY_EDITOR
+        PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+#endif
+
     }
 }
