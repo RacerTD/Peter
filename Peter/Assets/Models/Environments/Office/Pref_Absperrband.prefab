@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8761480626583762309}
   - component: {fileID: 3908210835148364588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8761480626583762309
 Transform:
@@ -55,12 +55,12 @@ GameObject:
   - component: {fileID: 3931425404747446942}
   - component: {fileID: 2363794462206302442}
   - component: {fileID: 668244289046468208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3931425404747446942
 Transform:
@@ -132,12 +132,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7872070476847155012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pref_Absperrband
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7872070476847155012
 Transform:
@@ -169,12 +169,12 @@ GameObject:
   - component: {fileID: 5552617698748428151}
   - component: {fileID: 3028923760823025281}
   - component: {fileID: 2514043378865151903}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BezierCurve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5552617698748428151
 Transform:
@@ -247,12 +247,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1383879849884424883}
   - component: {fileID: 5003446819947087687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1383879849884424883
 Transform:
@@ -291,12 +291,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4891297795422061727}
   - component: {fileID: 8059190113966697058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4891297795422061727
 Transform:
