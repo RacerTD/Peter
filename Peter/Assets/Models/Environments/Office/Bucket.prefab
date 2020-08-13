@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2324583739218315597}
   - component: {fileID: 3891194196425222969}
   - component: {fileID: 2273115670405670307}
+  - component: {fileID: 6968851496500636130}
   m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6968851496500636130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674828598717832572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20148355, y: 0.21243751, z: 0.20148355}
+  m_Center: {x: 0, y: 0.106218755, z: -0.000000018626451}
 --- !u!1 &8122603408882134573
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +181,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931368614871413911}
-  - component: {fileID: -4500039139651800689}
   m_Layer: 9
   m_Name: Bucket
   m_TagString: Untagged
@@ -184,23 +197,10 @@ Transform:
   m_GameObject: {fileID: 8122603408882134573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -189.91089, y: 7.0048943, z: -0.6732756}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3922, y: 2.3922, z: 2.3922}
   m_Children:
   - {fileID: 2324583739218315597}
   - {fileID: 2448806347511857581}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &-4500039139651800689
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8122603408882134573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
