@@ -22,6 +22,12 @@ public class PlayerReloadWeapon : PlayerAbility
         playerShoot.TimeBlocked = AbilityDuration;
         player.AddAnimState(WeaponAnimationState.Reload, AbilityDuration * 0.8f);
         timeBetweenBullets = (AbilityDuration - 0.7f) / (playerShoot.Gun.MaxGunAmmo - playerShoot.Gun.CurrentGunAmmo);
+
+        if (playerShoot.Gun.ReloadSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, playerShoot.Gun.ShootSound, playerShoot.Gun.ShootPoint.gameObject);
+        }
+
         base.AbilityStart();
     }
 

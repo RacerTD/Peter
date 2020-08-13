@@ -43,6 +43,8 @@ public class Damagable : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] protected AudioClip onHitSound;
+
     protected virtual void Start()
     {
         Health = maxHealth;
@@ -83,6 +85,10 @@ public class Damagable : MonoBehaviour
     public virtual void DoDamage(float damage)
     {
         Health -= damage;
+        if (onHitSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, onHitSound, gameObject);
+        }
     }
 
     /// <summary>

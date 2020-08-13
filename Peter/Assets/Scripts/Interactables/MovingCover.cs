@@ -88,7 +88,10 @@ public class MovingCover : MonoBehaviour
     {
         coverState = CoverState.WaitingToDeploy;
         timeDeplayedTimer = timeDeployed;
-        timeTillDeploedTimer = timeTillDeploy;
+        if (timeTillDeploedTimer > 0 && timeTillDeploedTimer < timeTillDeploy)
+        {
+            timeTillDeploedTimer = timeTillDeploy;
+        }
     }
 
     /// <summary>

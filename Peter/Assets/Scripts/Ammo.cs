@@ -8,6 +8,7 @@ public class Ammo : MonoBehaviour
     [Range(1, 200)] public int Amount = 10;
     [SerializeField] private Vector3 rotationVector = Vector3.zero;
     [SerializeField] protected VisualEffect onPickUpEffect;
+    [SerializeField] protected AudioClip onPickUpSound;
     [SerializeField] protected bool repositionsAtStart = true;
 
     public void Start()
@@ -29,6 +30,10 @@ public class Ammo : MonoBehaviour
         if (onPickUpEffect != null)
         {
             Instantiate(onPickUpEffect, transform.position, transform.rotation, GameManager.Instance.ParticleHolder);
+            if (onPickUpSound != null)
+            {
+                AudioManager.Instance.PlayNewSound(AudioType.Sfx, onPickUpSound, transform.position);
+            }
         }
         Destroy(gameObject);
     }

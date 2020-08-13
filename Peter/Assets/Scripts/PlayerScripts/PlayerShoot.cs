@@ -189,6 +189,11 @@ public class PlayerShoot : PlayerAbility
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
             .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
 
+        if (Gun.ShootSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, Gun.ShootSound, Gun.ShootPoint.gameObject);
+        }
+
         GenerateParticles(shootDir);
 
         if (isAiming)

@@ -46,7 +46,7 @@ public class AudioManager : ManagerModule<AudioManager>
     /// <summary>
     /// Adds a new sound to the game, that is not connected to an already existing object
     /// </summary>
-    public void PlayNewSound(AudioType type, Vector3 position, AudioClip audioFile)
+    public void PlayNewSound(AudioType type, AudioClip audioFile, Vector3 position)
     {
         GameObject soundGameObject = Instantiate(new GameObject(), position, Quaternion.identity);
         objects.Add(soundGameObject);
