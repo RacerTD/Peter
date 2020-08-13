@@ -28,7 +28,15 @@ public class Damagable : MonoBehaviour
         get => health;
         set
         {
-            health = value;
+            if (value > maxHealth)
+            {
+                health = maxHealth;
+            }
+            else
+            {
+                health = value;
+            }
+
             UpdateHealth();
             CheckIfDead();
         }
