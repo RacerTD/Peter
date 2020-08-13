@@ -76455,22 +76455,22 @@ PrefabInstance:
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.11370234
+      value: -0.10758782
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91087776
+      value: 0.9545832
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.039431565
+      value: 0.053925246
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.39473858
+      value: 0.27255785
       objectReference: {fileID: 0}
     - target: {fileID: 855982935613836127, guid: b4c70f85d5fb3eb4a8da6ac2cc6ff871,
         type: 3}
@@ -78420,75 +78420,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -715388015434957767, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
-      propertyPath: maxHealth
-      value: 20
+      propertyPath: timeTillHeal
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -715388015434957767, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+        type: 3}
+      propertyPath: healPerSecond
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 698770824, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416799092, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
-      propertyPath: ammo
-      value: 999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416799092, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
-      propertyPath: HorizontalShotOffset
-      value: -0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.488
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.703
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.012950128
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.033407297
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.00036944752
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9993578
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.8290002
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.485
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371765959588580310, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.007
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: mouseLookSensitivity
-      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
