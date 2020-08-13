@@ -8,6 +8,9 @@ using UnityEngine.InputSystem;
 
 public class UIManager : ManagerModule<UIManager>
 {
+    #region NormalUI
+    [Header("Normal UI")]
+    [SerializeField] protected GameObject uI;
     [Header("Health Bar")]
     [SerializeField] protected Slider healthBar;
 
@@ -31,6 +34,17 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] private float hitMarkerTotalTime = 0f;
     private float hitMarkerTotalTimer = 0f;
     #endregion
+    #endregion
+
+    #region DeathScreen
+
+    [Header("DeathScreen")]
+    [SerializeField] protected GameObject deathScreen;
+    [SerializeField] private List<FadingImage> deathScreenObjects = new List<FadingImage>();
+    [SerializeField] protected AudioClip deathScreenSound;
+    private float timeTillDead = 0f;
+
+    #endregion
 
     private void Start()
     {
@@ -38,11 +52,20 @@ public class UIManager : ManagerModule<UIManager>
         {
             hitMarkerStartSize = hitMarkerParent.localScale.x;
         }
+
+        if (deathScreen != null)
+        {
+            deathScreen.SetActive(false);
+        }
     }
 
     private void Update()
     {
         HandleHitMarker();
+        if (GameManager.Instance.CurrentGameState == GameState.Dead)
+        {
+            HandleDeathScreen();
+        }
     }
 
     /// <summary>
@@ -89,6 +112,32 @@ public class UIManager : ManagerModule<UIManager>
     }
 
     /// <summary>
+    /// Activated the deathscreen
+    /// </summary>
+    public void ActivateDeathScreen()
+    {
+        deathScreen.SetActive(true);
+        uI.SetActive(false);
+        if (deathScreenSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Music, deathScreenSound);
+        }
+    }
+
+    /// <summary>
+    /// Handles all the things needed for the deathscreen
+    /// </summary>
+    public void HandleDeathScreen()
+    {
+        foreach (FadingImage fadingImage in deathScreenObjects)
+        {
+            fadingImage.Picture.color = Color.Lerp(fadingImage.StartColor, fadingImage.EndColor, (timeTillDead - fadingImage.TimeTillStart) / fadingImage.TimeToFade);
+        }
+
+        timeTillDead += Time.deltaTime;
+    }
+
+    /// <summary>
     /// Handles all the things needed for a smooth hit marker
     /// </summary>
     private void HandleHitMarker()
@@ -127,6 +176,25 @@ public class UIManager : ManagerModule<UIManager>
             }
 
             hitMarkerTotalTimer += Time.deltaTime;
+        }
+    }
+
+    [System.Serializable]
+    public struct FadingImage
+    {
+        public Image Picture;
+        public float TimeTillStart;
+        public float TimeToFade;
+        public Color StartColor;
+        public Color EndColor;
+
+        public FadingImage(Image picture, float timeTillStart, float timeToFade, Color startColor, Color endColor)
+        {
+            Picture = picture;
+            TimeTillStart = timeTillStart;
+            TimeToFade = timeToFade;
+            StartColor = startColor;
+            EndColor = endColor;
         }
     }
 }

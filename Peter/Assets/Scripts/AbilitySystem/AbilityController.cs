@@ -45,4 +45,15 @@ public class AbilityController : MonoBehaviour
             ability.OnDeviceChanged(input);
         }
     }
+
+    /// <summary>
+    /// Disables all abilitys for the defined amount of time
+    /// </summary>
+    public void DisableAllAbilitys(float time)
+    {
+        foreach (Ability ab in abilities)
+        {
+            ab.TimeBlocked = time;
+        }
+    }
 }

@@ -62,26 +62,29 @@ public class PlayerMove : PlayerAbility
     /// </summary>
     public void ToggleSprint(InputAction.CallbackContext context)
     {
-        if (sprintIsToggle && context.started)
+        if (!AbilityBlocked())
         {
-            if (WalkingType == WalkingType.Sprint)
+            if (sprintIsToggle && context.started)
             {
-                WalkingType = WalkingType.Normal;
+                if (WalkingType == WalkingType.Sprint)
+                {
+                    WalkingType = WalkingType.Normal;
+                }
+                else
+                {
+                    WalkingType = WalkingType.Sprint;
+                }
             }
             else
             {
-                WalkingType = WalkingType.Sprint;
-            }
-        }
-        else
-        {
-            if (context.started)
-            {
-                WalkingType = WalkingType.Sprint;
-            }
-            else if (context.canceled)
-            {
-                WalkingType = WalkingType.Normal;
+                if (context.started)
+                {
+                    WalkingType = WalkingType.Sprint;
+                }
+                else if (context.canceled)
+                {
+                    WalkingType = WalkingType.Normal;
+                }
             }
         }
     }
@@ -91,26 +94,29 @@ public class PlayerMove : PlayerAbility
     /// </summary>
     public void ToggleCrouch(InputAction.CallbackContext context)
     {
-        if (sneakIsToggle)
+        if (!AbilityBlocked())
         {
-            if (WalkingType == WalkingType.Crouch)
+            if (sneakIsToggle)
             {
-                WalkingType = WalkingType.Normal;
+                if (WalkingType == WalkingType.Crouch)
+                {
+                    WalkingType = WalkingType.Normal;
+                }
+                else
+                {
+                    WalkingType = WalkingType.Crouch;
+                }
             }
             else
             {
-                WalkingType = WalkingType.Crouch;
-            }
-        }
-        else
-        {
-            if (context.started)
-            {
-                WalkingType = WalkingType.Crouch;
-            }
-            else if (context.canceled)
-            {
-                WalkingType = WalkingType.Normal;
+                if (context.started)
+                {
+                    WalkingType = WalkingType.Crouch;
+                }
+                else if (context.canceled)
+                {
+                    WalkingType = WalkingType.Normal;
+                }
             }
         }
     }
@@ -120,12 +126,15 @@ public class PlayerMove : PlayerAbility
     /// </summary>
     public void DoJump(InputAction.CallbackContext context)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.05f, 0), Vector3.down, out hit, 2f))
+        if (!AbilityBlocked())
         {
-            if (context.started && Vector3.Distance(transform.position + new Vector3(0, 0.05f, 0), hit.point) <= 0.1f)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + new Vector3(0, 0.05f, 0), Vector3.down, out hit, 2f))
             {
-                physicsbody.AddForce(jumpForce);
+                if (context.started && Vector3.Distance(transform.position + new Vector3(0, 0.05f, 0), hit.point) <= 0.1f)
+                {
+                    physicsbody.AddForce(jumpForce);
+                }
             }
         }
     }

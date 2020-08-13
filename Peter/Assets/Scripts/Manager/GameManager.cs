@@ -43,6 +43,14 @@ public class GameManager : ManagerModule<GameManager>
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 break;
+            case GameState.Dead:
+                CurrentPlayer.DisableAllAbilitys(10000f);
+                UIManager.Instance.ActivateDeathScreen();
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun.transform.SetParent(transform, true);
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun.gameObject.AddComponent<Rigidbody>();
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun = null;
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -73,6 +81,8 @@ public class GameManager : ManagerModule<GameManager>
                 break;
             case GameState.CutScene:
                 break;
+            case GameState.Dead:
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -83,5 +93,6 @@ public enum GameState
 {
     Playing,
     Paused,
-    CutScene
+    CutScene,
+    Dead
 }

@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour
 
         if (hits.Count() >= 2)
         {
-            for (int i = 0; i <= hits.Count() - 1; i++)
+            for (int i = 0; i < hits.Count() - 1; i++)
             {
                 if (hits[i].collider.gameObject.layer == 15 && hits[i + 1].collider.GetComponent<Player>() != null)
                 {

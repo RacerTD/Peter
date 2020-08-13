@@ -168,4 +168,12 @@ public class Ability : MonoBehaviour
 
         return false;
     }
+
+    /// <summary>
+    /// Returns if the ability is currently blocked
+    /// </summary>
+    public bool AbilityBlocked()
+    {
+        return TimeBlocked > 0;
+    }
 }

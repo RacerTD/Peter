@@ -92,25 +92,31 @@ public class PlayerShoot : PlayerAbility
 
     private void UpdateGunPosition()
     {
-        if (isAiming)
+        if (Gun != null)
         {
-            Gun.transform.position = Vector3.Lerp(Gun.transform.position, AimPoint.position, Time.fixedDeltaTime / AimTime);
-        }
-        else
-        {
-            Gun.transform.position = Vector3.Lerp(Gun.transform.position, GunPoint.position, Time.fixedDeltaTime / AimTime);
+            if (isAiming)
+            {
+                Gun.transform.position = Vector3.Lerp(Gun.transform.position, AimPoint.position, Time.fixedDeltaTime / AimTime);
+            }
+            else
+            {
+                Gun.transform.position = Vector3.Lerp(Gun.transform.position, GunPoint.position, Time.fixedDeltaTime / AimTime);
+            }
         }
     }
 
     private void UpdateGunRotation()
     {
-        if (isAiming)
+        if (Gun != null)
         {
-            Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, AimPoint.rotation, Time.deltaTime / AimTime);
-        }
-        else
-        {
-            Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, GunPoint.rotation, Time.deltaTime / AimTime);
+            if (isAiming)
+            {
+                Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, AimPoint.rotation, Time.deltaTime / AimTime);
+            }
+            else
+            {
+                Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, GunPoint.rotation, Time.deltaTime / AimTime);
+            }
         }
     }
 

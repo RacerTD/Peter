@@ -36,4 +36,12 @@ public class PlayerDamagable : Damagable
         timeSinceLastHit = 0f;
         base.DoDamage(damage);
     }
+
+    protected override void OnDeath()
+    {
+        if (GameManager.Instance.CurrentGameState != GameState.Dead)
+        {
+            GameManager.Instance.CurrentGameState = GameState.Dead;
+        }
+    }
 }
