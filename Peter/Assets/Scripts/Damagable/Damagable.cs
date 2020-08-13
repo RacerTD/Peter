@@ -80,7 +80,7 @@ public class Damagable : MonoBehaviour
     /// <summary>
     /// What happens when the thing gets healed
     /// </summary>
-    public virtual void Heal()
+    public virtual void Heal(float amount)
     {
 
     }

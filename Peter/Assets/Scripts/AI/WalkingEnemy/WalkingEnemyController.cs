@@ -7,11 +7,14 @@ public class WalkingEnemyController : EnemyController
     public Node ShootAI;
     public float TimeBetweenAIChecks = 0.5f;
     private float timeBetweenAIChecks = 0f;
+    protected EnemyWalk enemyWalk;
+    private Vector3 shouldRotationPosition = Vector3.zero;
 
     protected override void Start()
     {
         AI = new WalkingViewNode(GetComponent<EnemyLook>(), this);
         ShootAI = new WalkingShootNode(GetComponent<EnemyShoot>(), this);
+        enemyWalk = GetComponent<EnemyWalk>();
         base.Start();
     }
 
@@ -25,5 +28,10 @@ public class WalkingEnemyController : EnemyController
         }
 
         base.Update();
+    }
+
+    private void PlayerFirstSpotted()
+    {
+
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DamagablePart : Damagable
 {
-    private BetterDamagable betterDamagable;
+    private Damagable betterDamagable;
     public float DamageMult = 1f;
 
     protected override void Start()
     {
-        betterDamagable = GetComponentInParent<BetterDamagable>();
+        betterDamagable = GetComponentInParent<Damagable>();
         base.Start();
     }
 
