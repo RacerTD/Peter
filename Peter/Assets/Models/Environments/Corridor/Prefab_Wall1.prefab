@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 783433879861498138}
   - component: {fileID: 3259383195861673424}
   - component: {fileID: 767645180764799546}
+  - component: {fileID: 7190909983319872718}
   m_Layer: 9
   m_Name: Prefab_Wall1
   m_TagString: Untagged
@@ -93,8 +94,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 7.0128083, z: 0.39799565}
-  m_Center: {x: 0.0000076293945, y: 3.4935958, z: 0.38698956}
+  m_Size: {x: 6, y: 7.0128083, z: 0.1}
+  m_Center: {x: 0.0000076293945, y: 3.4935958, z: 0.21}
+--- !u!65 &7190909983319872718
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907818047877530629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.94, y: 7.0128083, z: 0.14}
+  m_Center: {x: -1.834177e-23, y: 3.4935958, z: 0.38698956}
 --- !u!1001 &2561810386348739677
 PrefabInstance:
   m_ObjectHideFlags: 0
