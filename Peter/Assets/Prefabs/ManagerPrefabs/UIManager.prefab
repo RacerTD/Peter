@@ -312,45 +312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3341311883129831816}
     m_Modifications:
-    - target: {fileID: 1447134435656252113, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447134435656252113, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174233205519425555, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174233205519425555, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174233205519425555, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3174233205519425555, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4448954683137798624, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
         type: 3}
       propertyPath: m_Name
       value: Deathscreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 4448954683137798624, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4448954683137798626, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
         type: 3}
@@ -456,36 +421,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6101294147481784005, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6101294147481784005, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6101294147481784005, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130380879044324623, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130380879044324623, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183539280305828151, guid: 4d6580d20ad52274f9be3fe8bd5cd343,
-        type: 3}
-      propertyPath: m_Name
-      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d6580d20ad52274f9be3fe8bd5cd343, type: 3}
