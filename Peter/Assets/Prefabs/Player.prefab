@@ -187,13 +187,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671708578204498814}
-  m_LocalRotation: {x: -0.029763268, y: -0.01420268, z: 0.00041966225, w: 0.99945605}
-  m_LocalPosition: {x: 0.415, y: -0.546, z: 0.646}
+  m_LocalRotation: {x: 0.012950128, y: -0.033407297, z: 0.00036944752, w: 0.9993578}
+  m_LocalPosition: {x: 0.488, y: -0.61, z: 0.703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8798636231768784202}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -3.41, y: -1.631, z: 0.097}
+  m_LocalEulerAnglesHint: {x: 1.485, y: -3.8290002, z: -0.007}
 --- !u!1 &1794225040768214635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf0f9b81b9d192408cdee16f6403897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 0}
+  animState: []
 --- !u!114 &8798636231972256813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1044,7 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
+  player: {fileID: 0}
   moveVector: {x: 0, y: 0, z: 0}
   shouldVector: {x: 0, y: 0, z: 0}
   accelerationSpeed: 10
@@ -1073,7 +1076,8 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
-  mouseLookSensitivity: 0.1
+  player: {fileID: 0}
+  mouseLookSensitivity: 0.04
   controllerLookSensitivity: 0.04
   controlledCamera: {fileID: 8798636231768784205}
   recoverySpeed: 2
@@ -1098,6 +1102,7 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
+  player: {fileID: 0}
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1105,10 +1110,11 @@ MonoBehaviour:
   GunPoint: {fileID: 7371765959588580310}
   AimPoint: {fileID: 2023361867019292489}
   SpawnPoint: {fileID: 6821388866025225720}
+  HorizontalShotOffset: -0.085
   AimTime: 0.05
   isAiming: 0
   TimeSinceLastShot: 0
-  ammo: 20
+  ammo: 999
 --- !u!114 &1674577478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,6 +1135,7 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
+  player: {fileID: 0}
   PlayerWeapons:
   - {fileID: 4314862812853532107, guid: a69b42dce94b94e4281b171c09ff48dc, type: 3}
   - {fileID: 4314862812853532107, guid: d980fcac2924f5c499434258e473a7e0, type: 3}
@@ -1153,6 +1160,7 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
+  player: {fileID: 0}
 --- !u!114 &-715388015434957767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0875e3fdbc2344883f416dff0ce291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 20
 --- !u!114 &233095714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,4 +1194,5 @@ MonoBehaviour:
   InputStarted: 0
   InputPerformed: 0
   InputCanceled: 0
+  player: {fileID: 0}
   interactionDistance: 4
