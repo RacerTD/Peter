@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class DamagablePart : Damagable
 {
-    private Damagable betterDamagable;
+    public Damagable ParentDamagable;
     public float DamageMult = 1f;
 
     protected override void Start()
     {
-        betterDamagable = GetComponentInParent<Damagable>();
+        if (ParentDamagable == null)
+        {
+            Debug.LogError($"Enemy DamagablePart has no ParentDamagable, {gameObject.name}");
+        }
+
         base.Start();
     }
 
     public override void DoDamage(float damage)
     {
-        betterDamagable.DoDamage(damage * DamageMult);
+        if (ParentDamagable != null)
+        {
+            ParentDamagable.DoDamage(damage * DamageMult);
+        }
     }
 }

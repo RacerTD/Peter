@@ -194,7 +194,6 @@ MonoBehaviour:
     m_Bits: 35328
   SightDistance: 100
   SightMaxAngle: 20
-  VerticalAimOffset: 0.2
   DistanceToPlayer: 0
   ViewAngleToPlayer: 0
   PlayerInDetectionCollider: 0
@@ -261,6 +260,7 @@ MonoBehaviour:
       type: 3}
     BulletSpeed: 50
     BulletDamage: 1
+    BulletSpray: 0
   - StepType: 1
     ShootPointMode: 1
     Duration: 2
@@ -269,6 +269,7 @@ MonoBehaviour:
       type: 3}
     BulletSpeed: 50
     BulletDamage: 1
+    BulletSpray: 0
 --- !u!1 &2478811909708851675
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  ParentDamagable: {fileID: 5382428437799629785}
   DamageMult: 2
 --- !u!65 &2052175654775866358
 BoxCollider:
