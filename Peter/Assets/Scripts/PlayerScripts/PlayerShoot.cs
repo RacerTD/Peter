@@ -15,9 +15,10 @@ public class PlayerShoot : PlayerAbility
     [Tooltip("Default gun position")] public Transform GunPoint;
     [Tooltip("Point where the gun goes to while aiming")] public Transform AimPoint;
     [Tooltip("Position the gun spawn at")] public Transform SpawnPoint;
+    [SerializeField] private float HorizontalShotOffset = -0.1f;
     [SerializeField] private float AimTime = 0.5f;
     [HideInInspector] public bool isAiming = false;
-    public float TimeSinceLastShot = 0f;
+    [HideInInspector] public float TimeSinceLastShot = 0f;
     private PlayerLook playerLook;
     private PlayerMove playerMove;
 
@@ -177,7 +178,7 @@ public class PlayerShoot : PlayerAbility
 
         player.AddAnimState(isAiming ? WeaponAnimationState.RecoilScope : WeaponAnimationState.Recoil, Gun.TimeBetweenShots * 0.8f);
 
-        Vector3 shootDir = GenerateShootDirectiorn();
+        Vector3 shootDir = GenerateShootDirectionNew();
 
         Instantiate(Gun.BulletBullet, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.BulletHolder)
             .SetupBullet(Gun.BulletSpeed, Gun.BulletDamage, shootDir, Gun.BulletLifeTime, Gun.BulletHitAmount);
@@ -205,7 +206,7 @@ public class PlayerShoot : PlayerAbility
     /// <summary>
     /// Calculates the shot direction
     /// </summary>
-    private Vector3 GenerateShootDirectiorn()
+    private Vector3 GenerateShootDirection()
     {
         float spray = 0f;
         if (isAiming)
@@ -213,6 +214,30 @@ public class PlayerShoot : PlayerAbility
         else
             spray = Gun.WeaponSpray;
         return ((Camera.main.transform.position + Camera.main.transform.forward * 1000 - Gun.ShootPoint.position).normalized) + new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
+    }
+
+    /// <summary>
+    /// Calculates the shot direction
+    /// </summary>
+    private Vector3 GenerateShootDirectionNew()
+    {
+        Vector3 dir = Vector3.zero;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward + Vector3.up * HorizontalShotOffset, out RaycastHit hit, 1000f))
+        {
+            //Debug.DrawLine(Gun.ShootPoint.position, hit.point, Color.green, 10f);
+            dir = (hit.point - Gun.ShootPoint.position).normalized;
+        }
+        else
+        {
+            dir = (Gun.ShootPoint.position - Camera.main.transform.position + (Camera.main.transform.forward + Vector3.up * HorizontalShotOffset) * 1000f).normalized;
+        }
+
+        float spray = isAiming ? Gun.WeaponScopeSpray : Gun.WeaponSpray;
+
+        dir += new Vector3(Random.Range(0, -spray * 2) / 100, Random.Range(spray, -spray) / 100, Random.Range(spray, -spray) / 100);
+
+        return dir;
     }
 
     /// <summary>
@@ -224,9 +249,9 @@ public class PlayerShoot : PlayerAbility
         {
             VisualEffect temp = Instantiate(Gun.BulletFollowingParticles, Gun.ShootPoint.position, Gun.ShootPoint.transform.rotation, GameManager.Instance.ParticleHolder);
             temp.SetVector3("StartPos", Gun.ShootPoint.position);
-            RaycastHit[] hits = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 1000f, raycastLayerMask);
+            RaycastHit[] hits = Physics.RaycastAll(Camera.main.transform.position, shootDir, 1000f, raycastLayerMask);
             hits = hits.OrderBy(h => (h.point - transform.position).magnitude).ToArray();
-            temp.SetVector3("EndPos", hits.Count() <= 0 ? Camera.main.transform.position + Camera.main.transform.forward * 1000f : hits[0].point);
+            temp.SetVector3("EndPos", hits.Count() <= 0 ? Camera.main.transform.position + shootDir * 1000f : hits[0].point);
         }
         else
         {
@@ -271,4 +296,5 @@ public class PlayerShoot : PlayerAbility
         Gun.CurrentAmmoText.text = current.ToString();
         Gun.LeftOverAmmoText.text = left.ToString();
     }
+
 }
