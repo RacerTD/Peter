@@ -15,10 +15,15 @@ public class WalkingEnemySpawnTrigger : MonoBehaviour
     {
         if (!gotTriggered && other.GetComponent<Player>() != null)
         {
-            gotTriggered = true;
-            WalkingEnemyController temp = Instantiate(enemyToSpawn, enemySpawnPoint.position, enemySpawnPoint.rotation);
-            temp.GetComponent<EnemyWalk>().CurrentPath = enemyPath;
-            temp.GetComponent<NavMeshAgent>().SetDestination(firstEnemyDestination.position);
+            SpawnEnemy();
         }
+    }
+
+    public void SpawnEnemy()
+    {
+        gotTriggered = true;
+        WalkingEnemyController temp = Instantiate(enemyToSpawn, enemySpawnPoint.position, enemySpawnPoint.rotation);
+        temp.GetComponent<EnemyWalk>().CurrentPath = enemyPath;
+        temp.GetComponent<NavMeshAgent>().SetDestination(firstEnemyDestination.position);
     }
 }
