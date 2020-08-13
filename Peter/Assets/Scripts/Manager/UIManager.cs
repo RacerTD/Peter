@@ -41,6 +41,13 @@ public class UIManager : ManagerModule<UIManager>
     [Header("DeathScreen")]
     [SerializeField] protected GameObject deathScreen;
     [SerializeField] private List<FadingImage> deathScreenObjects = new List<FadingImage>();
+    [SerializeField] protected Image thingOverLogo;
+    [SerializeField] private float startLength = 0f;
+    [SerializeField] private Vector2 startPositon = Vector2.zero;
+    [SerializeField] private float endLength = 0f;
+    [SerializeField] private Vector2 endPositon = Vector2.zero;
+    [SerializeField] private float thingOverLogoTimeTillStart = 2f;
+    [SerializeField] private float thingOverLogoTimeToDo = 3f;
     [SerializeField] protected AudioClip deathScreenSound;
     private float timeTillDead = 0f;
 
@@ -133,6 +140,10 @@ public class UIManager : ManagerModule<UIManager>
         {
             fadingImage.Picture.color = Color.Lerp(fadingImage.StartColor, fadingImage.EndColor, (timeTillDead - fadingImage.TimeTillStart) / fadingImage.TimeToFade);
         }
+
+        thingOverLogo.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(startLength, endLength, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), thingOverLogo.rectTransform.rect.height);
+
+        thingOverLogo.rectTransform.localPosition = new Vector3(Mathf.Lerp(startPositon.x, endPositon.x, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), Mathf.Lerp(startPositon.y, endPositon.y, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), 0);
 
         timeTillDead += Time.deltaTime;
     }
