@@ -103,6 +103,10 @@ public class EnemyShoot : EnemyAbility
     private void HandleShootPointModeRotate(ShootStep step)
     {
         ShootOneBullet(step.Bullet, ShootPoints[shootPointsIndex], step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(ShootPoints[shootPointsIndex], step.BulletSpray));
+        if (step.MuzzleFire != null)
+        {
+            Instantiate(step.MuzzleFire, ShootPoints[shootPointsIndex].position, ShootPoints[shootPointsIndex].rotation, GameManager.Instance.ParticleHolder);
+        }
         shootPointsIndex++;
     }
 
@@ -111,6 +115,10 @@ public class EnemyShoot : EnemyAbility
         foreach (Transform shootPoint in ShootPoints)
         {
             ShootOneBullet(step.Bullet, shootPoint, step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(shootPoint, step.BulletSpray));
+            if (step.MuzzleFire != null)
+            {
+                Instantiate(step.MuzzleFire, shootPoint.position, shootPoint.rotation, GameManager.Instance.ParticleHolder);
+            }
         }
     }
 
@@ -143,6 +151,7 @@ public struct ShootStep
     public float Duration;
     public int BulletAmount;
     public EnemyBullet Bullet;
+    public GameObject MuzzleFire;
     public float BulletSpeed;
     public float BulletDamage;
     public float BulletSpray;
