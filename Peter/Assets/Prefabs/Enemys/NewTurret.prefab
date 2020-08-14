@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1297287270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297287271}
+  m_Layer: 10
+  m_Name: Look1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297287271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297287270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.62, y: 10.08, z: 2.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2478811909122273072}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2105053389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105053390}
+  m_Layer: 10
+  m_Name: Look1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105053390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105053389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 21.4, z: 2.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2478811909122273072}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2412678262093917483
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +126,8 @@ Transform:
   m_Children:
   - {fileID: 4240013928347498930}
   - {fileID: 2324194265973120637}
+  - {fileID: 2105053390}
+  - {fileID: 1297287271}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
     type: 3}
   slider: {fileID: 0}
@@ -176,6 +239,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 0}
+  damageNumber: {fileID: 1330913187237571187, guid: ea04f5f0dd487504bb5134f360e19a7f,
+    type: 3}
 --- !u!114 &7619004523240550213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,15 +288,15 @@ MonoBehaviour:
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
   WaitingPoints:
-  - Direction: {fileID: 0}
+  - Direction: {fileID: 1297287271}
     TimeToWait: 2
-  - Direction: {fileID: 0}
+  - Direction: {fileID: 2105053390}
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 4240013928347498930}
   RotationSpeed: 30
-  RotationSpeedPlayerInSight: 60
-  WaitTimeAfterLastSighting: 10
+  RotationSpeedPlayerInSight: 100
+  WaitTimeAfterLastSighting: 7
   ShouldVector: {x: 0, y: 0, z: 0}
 --- !u!114 &938833299001008562
 MonoBehaviour:
@@ -254,22 +319,16 @@ MonoBehaviour:
   ShootSteps:
   - StepType: 1
     ShootPointMode: 0
-    Duration: 5
-    BulletAmount: 100
+    Duration: 4
+    BulletAmount: 20
     Bullet: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
       type: 3}
-    BulletSpeed: 50
-    BulletDamage: 1
-    BulletSpray: 0
-  - StepType: 1
-    ShootPointMode: 1
-    Duration: 2
-    BulletAmount: 8
-    Bullet: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
+    MuzzleFire: {fileID: 1142396676773494040, guid: 9e5b38ab8c04b3a41aea5e12d6bea3b5,
       type: 3}
-    BulletSpeed: 50
+    ShootSound: {fileID: 0}
+    BulletSpeed: 75
     BulletDamage: 1
-    BulletSpray: 0
+    BulletSpray: 40
 --- !u!1 &2478811909708851675
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  onHitSound: {fileID: 0}
   ParentDamagable: {fileID: 5382428437799629785}
   DamageMult: 2
 --- !u!65 &2052175654775866358
