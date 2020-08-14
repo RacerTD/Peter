@@ -107,11 +107,22 @@ public class EnemyShoot : EnemyAbility
         {
             Instantiate(step.MuzzleFire, ShootPoints[shootPointsIndex].position, ShootPoints[shootPointsIndex].rotation, GameManager.Instance.ParticleHolder);
         }
+
+        if (step.ShootSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, step.ShootSound, ShootPoints[shootPointsIndex].gameObject);
+        }
+
         shootPointsIndex++;
     }
 
     private void HandleShootPointModeAllAtOnce(ShootStep step)
     {
+        if (step.ShootSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, step.ShootSound, ShootPoints[0].gameObject);
+        }
+
         foreach (Transform shootPoint in ShootPoints)
         {
             ShootOneBullet(step.Bullet, shootPoint, step.BulletSpeed, step.BulletDamage, GenerateShootDirectiorn(shootPoint, step.BulletSpray));
@@ -152,6 +163,7 @@ public struct ShootStep
     public int BulletAmount;
     public EnemyBullet Bullet;
     public GameObject MuzzleFire;
+    public AudioClip ShootSound;
     public float BulletSpeed;
     public float BulletDamage;
     public float BulletSpray;
