@@ -50,11 +50,6 @@ public class PlayerShoot : PlayerAbility
         base.PermanentUpdate();
     }
 
-    public void FixedUpdate()
-    {
-        UpdateGunPosition();
-    }
-
     /// <summary>
     /// Handels the aiming
     /// </summary>
@@ -90,31 +85,18 @@ public class PlayerShoot : PlayerAbility
         base.AbilityUpdate();
     }
 
-    private void UpdateGunPosition()
-    {
-        if (Gun != null)
-        {
-            if (isAiming)
-            {
-                Gun.transform.position = Vector3.Lerp(Gun.transform.position, AimPoint.position, Time.fixedDeltaTime / AimTime);
-            }
-            else
-            {
-                Gun.transform.position = Vector3.Lerp(Gun.transform.position, GunPoint.position, Time.fixedDeltaTime / AimTime);
-            }
-        }
-    }
-
     private void UpdateGunRotation()
     {
         if (Gun != null)
         {
             if (isAiming)
             {
+                Gun.transform.position = AimPoint.position;
                 Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, AimPoint.rotation, Time.deltaTime / AimTime);
             }
             else
             {
+                Gun.transform.position = GunPoint.position;
                 Gun.transform.rotation = Quaternion.Lerp(Gun.transform.rotation, GunPoint.rotation, Time.deltaTime / AimTime);
             }
         }

@@ -46,6 +46,8 @@ public class GameManager : ManagerModule<GameManager>
             case GameState.Dead:
                 CurrentPlayer.DisableAllAbilitys(10000f);
                 UIManager.Instance.ActivateDeathScreen();
+                CurrentPlayer.GetComponent<PlayerMove>().ShouldVector = Vector3.zero;
+                CurrentPlayer.GetComponent<PlayerMove>().MoveVector = Vector3.zero;
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.transform.SetParent(transform, true);
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.gameObject.AddComponent<Rigidbody>();

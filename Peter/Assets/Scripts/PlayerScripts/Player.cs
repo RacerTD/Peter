@@ -26,10 +26,12 @@ public class Player : AbilityController
 
     protected override void Update()
     {
-        HandleAnimation();
+        if (GameManager.Instance.CurrentGameState != GameState.Dead)
+        {
+            HandleAnimation();
 
-        HandleAnimationTime();
-
+            HandleAnimationTime();
+        }
         base.Update();
     }
 

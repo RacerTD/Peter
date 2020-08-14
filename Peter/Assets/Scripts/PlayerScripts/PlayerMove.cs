@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerMove : PlayerAbility
 {
     [Header("Custom Ability Features")]
-    [SerializeField] private Vector3 moveVector = Vector3.zero;
-    [SerializeField] private Vector3 shouldVector = Vector3.zero;
+    public Vector3 MoveVector = Vector3.zero;
+    public Vector3 ShouldVector = Vector3.zero;
     [SerializeField] protected float accelerationSpeed = 0.1f;
     public float MoveSpeed = 2f;
 
@@ -162,7 +162,7 @@ public class PlayerMove : PlayerAbility
     /// </summary>
     private void UpdateAnimation()
     {
-        if (shouldVector.magnitude != 0f)
+        if (ShouldVector.magnitude != 0f)
         {
             switch (WalkingType)
             {
@@ -182,7 +182,7 @@ public class PlayerMove : PlayerAbility
     private void FixedUpdate()
     {
         UpdateCrouch();
-        transform.Translate(Vector3.RotateTowards(transform.position, moveVector * Time.fixedDeltaTime, float.MaxValue, float.MaxValue));
+        transform.Translate(Vector3.RotateTowards(transform.position, MoveVector * Time.fixedDeltaTime, float.MaxValue, float.MaxValue));
     }
 
     /// <summary>
@@ -190,18 +190,18 @@ public class PlayerMove : PlayerAbility
     /// </summary>
     private void UpdateVelocity()
     {
-        if (InputStarted || InputPerformed)
+        if (InputStarted || InputPerformed && GameManager.Instance.CurrentGameState != GameState.Dead)
         {
             switch (WalkingType)
             {
                 case WalkingType.Normal:
-                    shouldVector = new Vector3(inputValue.x * MoveSpeed, 0, inputValue.y * MoveSpeed);
+                    ShouldVector = new Vector3(inputValue.x * MoveSpeed, 0, inputValue.y * MoveSpeed);
                     break;
                 case WalkingType.Sprint:
-                    shouldVector = new Vector3(inputValue.x * MoveSpeed, 0, Mathf.Clamp(inputValue.y * SprintSpeed, -MoveSpeed, SprintSpeed));
+                    ShouldVector = new Vector3(inputValue.x * MoveSpeed, 0, Mathf.Clamp(inputValue.y * SprintSpeed, -MoveSpeed, SprintSpeed));
                     break;
                 case WalkingType.Crouch:
-                    shouldVector = new Vector3(inputValue.x * CrouchSpeed, 0, inputValue.y * CrouchSpeed);
+                    ShouldVector = new Vector3(inputValue.x * CrouchSpeed, 0, inputValue.y * CrouchSpeed);
                     break;
                 default:
                     Debug.LogWarning($"You shall not pass!");
@@ -211,10 +211,10 @@ public class PlayerMove : PlayerAbility
 
         if (InputCanceled)
         {
-            shouldVector = Vector3.zero;
+            ShouldVector = Vector3.zero;
         }
 
-        moveVector = Vector3.Lerp(moveVector, shouldVector, accelerationSpeed * Time.deltaTime);
+        MoveVector = Vector3.Lerp(MoveVector, ShouldVector, accelerationSpeed * Time.deltaTime);
     }
 
     private void UpdateCrouch()
