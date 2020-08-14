@@ -35,7 +35,7 @@ public class JenniBetterDamagable : Damagable
     {
         if (slider != null)
         {
-            
+
             slider.value = Health / MaxHealth;
             fill.color = gradient.Evaluate(slider.normalizedValue);
         }

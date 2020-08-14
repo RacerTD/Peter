@@ -29,9 +29,4 @@ public class WalkingEnemyController : EnemyController
 
         base.Update();
     }
-
-    private void PlayerFirstSpotted()
-    {
-
-    }
 }

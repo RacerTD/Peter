@@ -50,6 +50,8 @@ public class EnemyWalk : EnemyAbility
         {
             case EnemyWalkState.Waiting:
                 break;
+            case EnemyWalkState.GettingNewPosition:
+                break;
             case EnemyWalkState.WalkingToPosition:
                 if (CurrentPath != null)
                 {
@@ -75,6 +77,8 @@ public class EnemyWalk : EnemyAbility
         {
             case EnemyWalkState.Waiting:
                 HanldeWaiting();
+                break;
+            case EnemyWalkState.GettingNewPosition:
                 break;
             case EnemyWalkState.WalkingToPosition:
                 HandleWalkToPosition();
@@ -153,6 +157,7 @@ public class EnemyWalk : EnemyAbility
 public enum EnemyWalkState
 {
     Waiting,
+    GettingNewPosition,
     WalkingToPosition,
     FollowingPlayer,
     Stopped

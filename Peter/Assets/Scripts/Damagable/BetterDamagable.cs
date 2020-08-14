@@ -7,9 +7,14 @@ public class BetterDamagable : Damagable
 {
     [Header("Custom Damagable")]
     public GameObject thingToSpawnAtDeath;
+
+    [Header("Healthbar")]
     [SerializeField] protected Slider slider;
     [SerializeField] protected Gradient gradient;
     [SerializeField] protected Image fill;
+
+    [Header("Damage Numbers")]
+    [SerializeField] protected DamageNumber damageNumber;
     private Transform cam;
     private EnemyController enemyController;
 
@@ -45,6 +50,7 @@ public class BetterDamagable : Damagable
     public override void DoDamage(float damage)
     {
         UIManager.Instance.ActivateHitMarker();
+        SpawnDamageNumber(damage);
 
         enemyController.GotShotAt();
         base.DoDamage(damage);
@@ -57,5 +63,10 @@ public class BetterDamagable : Damagable
             Instantiate(thingToSpawnAtDeath, transform.position, transform.rotation);
         }
         base.OnDeath();
+    }
+
+    private void SpawnDamageNumber(float amount)
+    {
+        Instantiate(damageNumber, transform.position, Quaternion.identity, GameManager.Instance.ParticleHolder).Setup(amount);
     }
 }
