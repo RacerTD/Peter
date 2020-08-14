@@ -67,6 +67,9 @@ public class BetterDamagable : Damagable
 
     private void SpawnDamageNumber(float amount)
     {
-        Instantiate(damageNumber, transform.position, Quaternion.identity, GameManager.Instance.ParticleHolder).Setup(amount);
+        if (damageNumber != null)
+        {
+            Instantiate(damageNumber, transform.position, Quaternion.identity, GameManager.Instance.ParticleHolder).Setup(amount);
+        }
     }
 }
