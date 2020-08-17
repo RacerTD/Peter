@@ -59,7 +59,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_230A0393: {r: 5.239216, g: 4.8, b: 8, a: 0}
+    - Color_230A0393: {r: 1.4978846, g: 1.3671169, b: 2.270603, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3133383750447420336
