@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     public float ViewAngleToPlayer = 0f;
     public bool PlayerInDetectionCollider = false;
     public bool HasDirectSightLine = false;
-    public float TimeSinceLastSighting = 0f;
+    public float TimeSinceLastSighting = 20;
     public Vector3 LastSeenPlayerPosition = Vector3.zero;
     public float TimeSinceShotAt = 0f;
     public bool PlayerBehindCover = false;
