@@ -125,8 +125,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 2
+  m_Speed: 4
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0
@@ -238,8 +238,8 @@ MonoBehaviour:
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 6722286686804034047}
-  RotationSpeed: 30
-  RotationSpeedPlayerInSight: 75
+  RotationSpeed: 200
+  RotationSpeedPlayerInSight: 250
   WaitTimeAfterLastSighting: 10
   ShouldVector: {x: 0, y: 0, z: 0}
 --- !u!114 &6722286686656931529
@@ -265,7 +265,7 @@ MonoBehaviour:
   - StepType: 1
     ShootPointMode: 0
     Duration: 4
-    BulletAmount: 12
+    BulletAmount: 15
     Bullet: {fileID: 5470473190758188193, guid: 65a35c7e1a76a0f4b81202c8f82023ea,
       type: 3}
     MuzzleFire: {fileID: 1142396676773494040, guid: 9e5b38ab8c04b3a41aea5e12d6bea3b5,
@@ -291,6 +291,7 @@ MonoBehaviour:
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
   CurrentPath: {fileID: 0}
+  currentDestination: {x: 0, y: 0, z: 0}
   walkState: 0
 --- !u!1 &6722286686804034044
 GameObject:

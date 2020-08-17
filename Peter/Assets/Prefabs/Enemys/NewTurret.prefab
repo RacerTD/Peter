@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
     type: 3}
@@ -258,7 +258,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 35328
   SightDistance: 100
-  SightMaxAngle: 20
+  SightMaxAngle: 30
   DistanceToPlayer: 0
   ViewAngleToPlayer: 0
   PlayerInDetectionCollider: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 4240013928347498930}
-  RotationSpeed: 30
-  RotationSpeedPlayerInSight: 100
+  RotationSpeed: 100
+  RotationSpeedPlayerInSight: 150
   WaitTimeAfterLastSighting: 7
   ShouldVector: {x: 0, y: 0, z: 0}
 --- !u!114 &938833299001008562
@@ -320,7 +320,7 @@ MonoBehaviour:
   - StepType: 1
     ShootPointMode: 0
     Duration: 4
-    BulletAmount: 20
+    BulletAmount: 30
     Bullet: {fileID: 5470473190758188193, guid: 2766eb3deecf7894aa05541ad4e12955,
       type: 3}
     MuzzleFire: {fileID: 1142396676773494040, guid: 9e5b38ab8c04b3a41aea5e12d6bea3b5,
