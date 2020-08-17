@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dark Wood
-    second: {fileID: 2100000, guid: 87d14eb75d97252499f0ea31ae7ac141, type: 2}
+      name: Dark Wood.002
+    second: {fileID: 2100000, guid: 564cf9a46304ed249bcdc379d7167d35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Wood.003
+    second: {fileID: 2100000, guid: 564cf9a46304ed249bcdc379d7167d35, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,8 +22,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Glass.001
+    second: {fileID: 2100000, guid: e91c13f8bee2a1c4fb3b0e43a44eb8d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 8060f882ce2767141b2da1443299797b, type: 2}
+    second: {fileID: 2100000, guid: baedb0e6aa8a87245b8d018c59dad6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: baedb0e6aa8a87245b8d018c59dad6bd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
