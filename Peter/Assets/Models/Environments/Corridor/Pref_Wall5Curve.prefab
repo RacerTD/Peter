@@ -162,16 +162,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b9cfed3d63475d458e529a219c2fb14, type: 2}
+      objectReference: {fileID: 2100000, guid: baedb0e6aa8a87245b8d018c59dad6bd, type: 2}
     - target: {fileID: -7511558181221131132, guid: 71bc2a25ad24d4d4d8174d3943dcd8c8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: aedf433d816405242b47472e019de12a, type: 2}
+      objectReference: {fileID: 2100000, guid: 564cf9a46304ed249bcdc379d7167d35, type: 2}
     - target: {fileID: 919132149155446097, guid: 71bc2a25ad24d4d4d8174d3943dcd8c8,
         type: 3}
       propertyPath: m_Name
       value: Wall5CurveUV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71bc2a25ad24d4d4d8174d3943dcd8c8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 71bc2a25ad24d4d4d8174d3943dcd8c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71bc2a25ad24d4d4d8174d3943dcd8c8, type: 3}

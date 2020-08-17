@@ -74,8 +74,8 @@ MonoBehaviour:
     StartColor: {r: 1, g: 1, b: 1, a: 0}
     EndColor: {r: 1, g: 1, b: 1, a: 1}
   - Picture: {fileID: 3841719362084376878}
-    TimeTillStart: 2
-    TimeToFade: 0.3
+    TimeTillStart: 1.8
+    TimeToFade: 0.1
     StartColor: {r: 1, g: 1, b: 1, a: 0}
     EndColor: {r: 1, g: 1, b: 1, a: 1}
   - Picture: {fileID: 5037002838990386839}
@@ -88,8 +88,8 @@ MonoBehaviour:
   startPositon: {x: -200, y: 200}
   endLength: 550
   endPositon: {x: -12, y: 12}
-  thingOverLogoTimeTillStart: 2
-  thingOverLogoTimeToDo: 0.5
+  thingOverLogoTimeTillStart: 1.8
+  thingOverLogoTimeToDo: 0.3
   deathScreenSound: {fileID: 8300000, guid: 873a44d3a277de64c80fd5a89b965af1, type: 3}
 --- !u!1001 &5264186033855848633
 PrefabInstance:
