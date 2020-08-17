@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5162001287568656949}
   - component: {fileID: 8074047340088690064}
   - component: {fileID: 6334365716874817882}
+  - component: {fileID: 2691619033744397462}
   m_Layer: 9
   m_Name: P_Server Farm Closed
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2691619033744397462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541904186390859919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9740626, y: 2.0656395, z: 0.628496}
+  m_Center: {x: 0.007913619, y: 1.0337434, z: 0.022105366}
