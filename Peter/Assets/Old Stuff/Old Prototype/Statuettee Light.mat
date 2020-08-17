@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ceiling Lamp Light
+  m_Name: Statuettee Light
   m_Shader: {fileID: -6465566751694194690, guid: ecdfae5da9edc1f4b942f2484ff40471,
     type: 3}
   m_ShaderKeywords: 

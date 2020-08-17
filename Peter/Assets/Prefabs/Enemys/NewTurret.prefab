@@ -294,7 +294,7 @@ MonoBehaviour:
     TimeToWait: 2
   LookState: 0
   RotatingThing: {fileID: 4240013928347498930}
-  RotationSpeed: 100
+  RotationSpeed: 40
   RotationSpeedPlayerInSight: 150
   WaitTimeAfterLastSighting: 7
   ShouldVector: {x: 0, y: 0, z: 0}

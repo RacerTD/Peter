@@ -80,7 +80,7 @@ MonoBehaviour:
     EndColor: {r: 1, g: 1, b: 1, a: 1}
   - Picture: {fileID: 5037002838990386839}
     TimeTillStart: 4
-    TimeToFade: 0.9
+    TimeToFade: 0.5
     StartColor: {r: 0, g: 0, b: 0, a: 0}
     EndColor: {r: 0, g: 0, b: 0, a: 1}
   thingOverLogo: {fileID: 3841719362084376878}
