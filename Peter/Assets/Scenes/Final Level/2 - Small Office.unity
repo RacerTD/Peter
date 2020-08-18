@@ -47924,7 +47924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f064a826aedafd748ab609001643a1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 3 + 4 Viewing Gallery
+  sceneToLoad: 3 - Server
 --- !u!1001 &1408792264
 PrefabInstance:
   m_ObjectHideFlags: 0
