@@ -96,6 +96,10 @@ public class GameManager : ManagerModule<GameManager>
             case GameState.CutScene:
                 break;
             case GameState.Dead:
+                if (timeInCurrentState >= 4)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
                 break;
             case GameState.LoadingScene:
                 if (timeInCurrentState >= timeTillSceneLoad)
