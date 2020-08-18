@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class EnemyController : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class EnemyController : MonoBehaviour
     public float TimeBehindCover = 0f;
     public Transform CurrentCover;
     public Vector3 CurrentDirectionToPlayer = Vector3.zero;
+
+    [Header("Color Stuff")]
+    [SerializeField] private List<ColorChangingGameObject> colorChangingMaterials = new List<ColorChangingGameObject>();
+    [SerializeField] protected Light colorChangingLight;
+    [SerializeField] protected Color NeutralColor = Color.black;
+    [SerializeField] protected Color AggressiveColor = Color.red;
 
     protected virtual void Start()
     {
@@ -65,6 +72,25 @@ public class EnemyController : MonoBehaviour
 
         foreach (EnemyAbility enemyAbility in enemyAbilities)
             enemyAbility.PermanentUpdate();
+
+        if (CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        {
+            foreach (ColorChangingGameObject obj in colorChangingMaterials)
+            {
+                obj.Renderer.materials[obj.materialThatChangesIndex].color = AggressiveColor;
+            }
+
+            colorChangingLight.color = AggressiveColor;
+        }
+        else
+        {
+            foreach (ColorChangingGameObject obj in colorChangingMaterials)
+            {
+                obj.Renderer.materials[obj.materialThatChangesIndex].color = NeutralColor;
+            }
+
+            colorChangingLight.color = NeutralColor;
+        }
     }
 
     /// <summary>
@@ -152,5 +178,12 @@ public class EnemyController : MonoBehaviour
         {
             AI.Evaluate();
         }
+    }
+
+    [System.Serializable]
+    public struct ColorChangingGameObject
+    {
+        public MeshRenderer Renderer;
+        public int materialThatChangesIndex;
     }
 }

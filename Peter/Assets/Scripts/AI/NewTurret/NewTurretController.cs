@@ -7,6 +7,8 @@ public class NewTurretController : EnemyController
     public Node ShootAI;
     public float TimeBetweenAIChecks = 0.5f;
     private float timeBetweenAIChecks = 0f;
+    [Header("Color Stuff")]
+    [SerializeField] protected LineRenderer colorChangingLine;
 
     protected override void Start()
     {
@@ -22,6 +24,20 @@ public class NewTurretController : EnemyController
         {
             timeBetweenAIChecks = TimeBetweenAIChecks;
             ShootAI.Evaluate();
+        }
+
+        colorChangingLine.startColor = CheckIfPlayerVisibleAndInRadiusAndNotBehindCover() ? AggressiveColor : NeutralColor;
+        colorChangingLine.endColor = CheckIfPlayerVisibleAndInRadiusAndNotBehindCover() ? AggressiveColor : NeutralColor;
+
+        if (Physics.Raycast(ViewPoint.position, ViewPoint.forward, out RaycastHit hit, 1000f))
+        {
+            colorChangingLine.SetPosition(1, hit.point);
+            colorChangingLine.SetPosition(0, ViewPoint.position);
+        }
+        else
+        {
+            colorChangingLine.SetPosition(1, ViewPoint.position + ViewPoint.forward * 1000f);
+            colorChangingLine.SetPosition(0, ViewPoint.position);
         }
 
         base.Update();
