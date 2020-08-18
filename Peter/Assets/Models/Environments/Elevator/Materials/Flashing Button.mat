@@ -28,7 +28,9 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - Vector1_14989793: 2
-    - Vector1_368C4BD7: 5
+    - Vector1_368C4BD7: 1
+    - Vector1_635B2776: 0
+    - Vector1_AB94D8FB: 1
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
