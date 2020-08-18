@@ -48,8 +48,10 @@ MonoBehaviour:
   timeDeployed: 0
   timeTillDeploy: 0
   coverState: 1
-  activePosition: {x: 2, y: 0, z: 0}
-  cover: {fileID: 2347842224376036100}
+  movingObjects:
+  - Object: {fileID: 2347842224376036100}
+    PositionToMoveTo: {x: -2, y: 0, z: 0}
+    InActivePosition: {x: 0, y: 0, z: 0}
 --- !u!65 &3056420764379852393
 BoxCollider:
   m_ObjectHideFlags: 0
