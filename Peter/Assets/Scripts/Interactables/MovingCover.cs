@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class MovingCover : MonoBehaviour
 {
     [SerializeField] private float timeToDeploy = 0f;
@@ -10,25 +9,21 @@ public class MovingCover : MonoBehaviour
     private float timeDeplayedTimer = 0f;
     [SerializeField] private float timeTillDeploy = 0f;
     private float timeTillDeploedTimer = 0f;
-    private float metersPerSecond = 0f;
     [SerializeField] private CoverState coverState = CoverState.InActive;
     private Vector3 inActivePosition = Vector3.zero;
-    [SerializeField] private Vector3 activePosition = Vector3.zero;
-    [SerializeField] protected Transform cover;
-
-    private void Start()
-    {
-        metersPerSecond = activePosition.magnitude / timeToDeploy;
-    }
+    [SerializeField] private List<MovingObject> movingObjects = new List<MovingObject>();
 
     private void Update()
     {
-        if (cover != null)
+        if (movingObjects.Count > 0)
         {
             switch (coverState)
             {
                 case CoverState.Active:
-                    cover.localPosition = Vector3.MoveTowards(cover.localPosition, activePosition, metersPerSecond * Time.deltaTime);
+                    for (int i = 0; i <= movingObjects.Count; i++)
+                    {
+                        movingObjects[i].Object.localPosition = Vector3.MoveTowards(movingObjects[i].Object.localPosition, movingObjects[i].PositionToMoveTo, movingObjects[i].PositionToMoveTo.magnitude / timeToDeploy * Time.deltaTime);
+                    }
                     if (timeDeployed > 0f)
                     {
                         timeDeplayedTimer -= Time.deltaTime;
@@ -39,7 +34,10 @@ public class MovingCover : MonoBehaviour
                     }
                     break;
                 case CoverState.InActive:
-                    cover.localPosition = Vector3.MoveTowards(cover.localPosition, inActivePosition, metersPerSecond * Time.deltaTime);
+                    for (int i = 0; i <= movingObjects.Count; i++)
+                    {
+                        movingObjects[i].Object.localPosition = Vector3.MoveTowards(movingObjects[i].Object.localPosition, movingObjects[i].InActivePosition, movingObjects[i].PositionToMoveTo.magnitude / timeToDeploy * Time.deltaTime);
+                    }
                     break;
                 case CoverState.Locked:
                     break;
@@ -102,11 +100,30 @@ public class MovingCover : MonoBehaviour
         coverState = CoverState.InActive;
     }
 
+    [System.Serializable]
+    public struct MovingObject
+    {
+        public Transform Object;
+        public Vector3 PositionToMoveTo;
+        public Vector3 InActivePosition;
+    }
+
     private enum CoverState
     {
         Active,
         InActive,
         Locked,
         WaitingToDeploy
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (movingObjects.Count > 0)
+        {
+            foreach (MovingObject obj in movingObjects)
+            {
+                Debug.DrawLine(obj.Object.position + obj.InActivePosition, obj.Object.position + obj.PositionToMoveTo, Color.blue);
+            }
+        }
     }
 }
