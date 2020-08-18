@@ -28,6 +28,11 @@ public class PlayerReloadWeapon : PlayerAbility
             AudioManager.Instance.PlayNewSound(AudioType.Sfx, playerShoot.Gun.ShootSound, playerShoot.Gun.ShootPoint.gameObject);
         }
 
+        if (playerShoot.Gun.ReloadEffect != null)
+        {
+            Instantiate(playerShoot.Gun.ReloadEffect, playerShoot.Gun.ReloadEffectPosition.position, playerShoot.Gun.ReloadEffectPosition.rotation, playerShoot.Gun.ReloadEffectPosition);
+        }
+
         base.AbilityStart();
     }
 

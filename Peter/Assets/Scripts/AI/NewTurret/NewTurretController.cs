@@ -9,6 +9,8 @@ public class NewTurretController : EnemyController
     private float timeBetweenAIChecks = 0f;
     [Header("Color Stuff")]
     [SerializeField] protected LineRenderer colorChangingLine;
+    [SerializeField] protected Gradient aggressiveGradient;
+    [SerializeField] protected Gradient neutralGradient;
 
     protected override void Start()
     {
@@ -26,8 +28,7 @@ public class NewTurretController : EnemyController
             ShootAI.Evaluate();
         }
 
-        colorChangingLine.startColor = CheckIfPlayerVisibleAndInRadiusAndNotBehindCover() ? AggressiveColor : NeutralColor;
-        colorChangingLine.endColor = CheckIfPlayerVisibleAndInRadiusAndNotBehindCover() ? AggressiveColor : NeutralColor;
+        colorChangingLine.material.SetColor("Color", CheckIfPlayerVisibleAndInRadiusAndNotBehindCover() ? AggressiveColor : NeutralColor);
 
         if (Physics.Raycast(ViewPoint.position, ViewPoint.forward, out RaycastHit hit, 1000f))
         {

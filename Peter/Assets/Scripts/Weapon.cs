@@ -55,6 +55,8 @@ public class Weapon : MonoBehaviour
     [Header("Particles")]
     public VisualEffect BulletFollowingParticles;
     public VisualEffect MuzzleFlash;
+    public VisualEffect ReloadEffect;
+    public Transform ReloadEffectPosition;
 
     private void OnDrawGizmos()
     {
