@@ -661,9 +661,9 @@ MonoBehaviour:
   BulletSpeed: 1700
   BulletLifeTime: 10
   BulletHitAmount: 1
-  BulletDamageLowerLimit: 7
-  BulletDamageUpperLimit: 13
-  TimeBetweenShots: 0.1
+  BulletDamageLowerLimit: 9
+  BulletDamageUpperLimit: 16
+  TimeBetweenShots: 0.15
   ShootPoint: {fileID: 4314862810926117597}
   WeaponType: 0
   ShotType: 1
@@ -671,7 +671,7 @@ MonoBehaviour:
   LeftOverAmmoText: {fileID: 543021421068636437}
   ShootSound: {fileID: 0}
   ReloadSound: {fileID: 0}
-  MaxGunAmmo: 34
+  MaxGunAmmo: 24
   RecoilScopeUpperMargin: {x: 1.1, y: 0.2, z: 0.2}
   RecoilScopeLowerMargin: {x: 0, y: -0.2, z: -0.2}
   RecoilScopeTime: 0.075

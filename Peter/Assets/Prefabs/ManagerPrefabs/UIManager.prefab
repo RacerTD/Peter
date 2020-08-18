@@ -61,7 +61,7 @@ MonoBehaviour:
   hitMarkerEndSize: 0.15
   hitMarkerMaxSize: 0.25
   hitMarkerGetBiggerTimePercent: 0.425
-  hitMarkerTotalTime: 0.2
+  hitMarkerTotalTime: 0.3
   deathScreen: {fileID: 6647732388110069259}
   deathScreenObjects:
   - Picture: {fileID: 3086768983072334690}
