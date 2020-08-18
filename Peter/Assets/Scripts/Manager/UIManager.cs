@@ -53,6 +53,19 @@ public class UIManager : ManagerModule<UIManager>
 
     #endregion
 
+    #region BlackScreen
+
+    [Header("Black Screen")]
+    [SerializeField] protected Image blackScreen;
+    [SerializeField] protected Color blackScreenStartColor;
+    [SerializeField] protected Color blackScreenEndColor;
+    private float timeToBlack = 1f;
+    private bool blackScreenIsActive = false;
+    private float blackScreenTimer = 0f;
+    private float timeInThisScene = 0f;
+
+    #endregion
+
     private void Start()
     {
         if (hitMarkers.Count > 0)
@@ -68,10 +81,18 @@ public class UIManager : ManagerModule<UIManager>
 
     private void Update()
     {
+        timeInThisScene += Time.deltaTime;
+
         HandleHitMarker();
         if (GameManager.Instance.CurrentGameState == GameState.Dead)
         {
             HandleDeathScreen();
+        }
+
+        HandleFadeToBlack();
+        if (timeInThisScene <= timeToBlack * 1.1f)
+        {
+            HandleGameStart();
         }
     }
 
@@ -97,6 +118,13 @@ public class UIManager : ManagerModule<UIManager>
         {
             switchDimensionBar.value = value;
         }
+    }
+
+    public void StartFadeToBlack(float time)
+    {
+        blackScreenIsActive = true;
+        blackScreenTimer = 0f;
+        timeToBlack = time;
     }
 
     /// <summary>
@@ -146,6 +174,26 @@ public class UIManager : ManagerModule<UIManager>
         thingOverLogo.rectTransform.localPosition = new Vector3(Mathf.Lerp(startPositon.x, endPositon.x, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), Mathf.Lerp(startPositon.y, endPositon.y, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), 0);
 
         timeTillDead += Time.deltaTime;
+    }
+
+    public void HandleFadeToBlack()
+    {
+        blackScreenTimer += Time.deltaTime;
+
+        if (blackScreenIsActive && blackScreen != null)
+        {
+            blackScreen.color = Color.Lerp(blackScreenStartColor, blackScreenEndColor, blackScreenTimer / timeToBlack);
+        }
+    }
+
+    public void HandleGameStart()
+    {
+        blackScreenTimer += Time.deltaTime;
+
+        if (blackScreen != null)
+        {
+            blackScreen.color = Color.Lerp(blackScreenEndColor, blackScreenStartColor, blackScreenTimer / timeToBlack);
+        }
     }
 
     /// <summary>

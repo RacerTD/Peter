@@ -12,6 +12,7 @@ public class GameManager : ManagerModule<GameManager>
     public Transform GunHolder;
     public Player CurrentPlayer;
     private string nextSceneName = "";
+    [SerializeField] private float timeTillSceneLoad = 1f;
 
     #region GameState
 
@@ -58,6 +59,7 @@ public class GameManager : ManagerModule<GameManager>
                 break;
             case GameState.LoadingScene:
                 CurrentPlayer.DisableAllAbilitys(10000f);
+                UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -96,7 +98,7 @@ public class GameManager : ManagerModule<GameManager>
             case GameState.Dead:
                 break;
             case GameState.LoadingScene:
-                if (timeInCurrentState >= 3f)
+                if (timeInCurrentState >= timeTillSceneLoad)
                 {
                     SceneManager.LoadScene(nextSceneName);
                 }
