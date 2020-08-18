@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362317511409418469}
-  m_LocalRotation: {x: -0, y: 0.707118, z: -0, w: -0.7070957}
+  m_LocalRotation: {x: 0, y: -0.70711905, z: 0, w: 0.7070945}
   m_LocalPosition: {x: -209.52, y: 7, z: -25.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 183957806506146581}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.002, z: 0}
 --- !u!65 &4866597996050811281
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59,11 +59,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDeploy: 2
-  timeDeployed: 4
+  timeDeployed: 0
   timeTillDeploy: 0
   coverState: 1
-  activePosition: {x: -0.7, y: 0, z: 0}
-  cover: {fileID: 4436718048261063628}
+  movingObjects:
+  - Object: {fileID: 4436718048261063628}
+    PositionToMoveTo: {x: -0.8, y: 0, z: 0}
+    InActivePosition: {x: 0, y: 0, z: 0}
 --- !u!65 &7992881694183685115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,11 +92,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDeploy: 2
-  timeDeployed: 4
+  timeDeployed: 0
   timeTillDeploy: 0
   coverState: 1
-  activePosition: {x: 0.7, y: 0, z: 0}
-  cover: {fileID: 6673693045177914792}
+  movingObjects:
+  - Object: {fileID: 6673693045177914792}
+    PositionToMoveTo: {x: 0.8, y: 0, z: 0}
+    InActivePosition: {x: 0, y: 0, z: 0}
 --- !u!65 &7488288792428469434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -391,10 +395,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2191572019570953758, guid: 2e148b3e0fa77bb43b784641bcefe0b1,
+        type: 3}
+      propertyPath: m_Name
+      value: Elevator Door right Foyer
+      objectReference: {fileID: 0}
     - target: {fileID: 3560776408061052367, guid: 2e148b3e0fa77bb43b784641bcefe0b1,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560776408061052367, guid: 2e148b3e0fa77bb43b784641bcefe0b1,
+        type: 3}
+      propertyPath: m_Name
+      value: Elevator Door left Foyer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e148b3e0fa77bb43b784641bcefe0b1, type: 3}
