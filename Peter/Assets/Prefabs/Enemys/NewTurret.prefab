@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 300
   onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
     type: 3}

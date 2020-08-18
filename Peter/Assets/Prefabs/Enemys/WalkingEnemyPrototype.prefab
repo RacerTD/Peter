@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 0}
   slider: {fileID: 2104116593872472041}
