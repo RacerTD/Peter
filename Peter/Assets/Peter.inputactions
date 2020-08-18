@@ -420,7 +420,7 @@
                 {
                     "name": "",
                     "id": "87d4bd5e-2fa7-45cf-98d6-2d5f161d1605",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
