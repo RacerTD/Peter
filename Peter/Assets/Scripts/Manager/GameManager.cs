@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : ManagerModule<GameManager>
 {
@@ -10,6 +11,7 @@ public class GameManager : ManagerModule<GameManager>
     public Transform ParticleHolder;
     public Transform GunHolder;
     public Player CurrentPlayer;
+    private string nextSceneName = "";
 
     #region GameState
 
@@ -29,6 +31,7 @@ public class GameManager : ManagerModule<GameManager>
     /// </summary>
     private void UpdateGameState(GameState value)
     {
+        timeInCurrentState = 0f;
         switch (value)
         {
             case GameState.Playing:
@@ -53,10 +56,15 @@ public class GameManager : ManagerModule<GameManager>
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.gameObject.AddComponent<Rigidbody>();
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun = null;
                 break;
+            case GameState.LoadingScene:
+                CurrentPlayer.DisableAllAbilitys(10000f);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
+
+    private float timeInCurrentState = 0f;
 
     #endregion
 
@@ -75,6 +83,8 @@ public class GameManager : ManagerModule<GameManager>
     /// </summary>
     private void DoGameLoop()
     {
+        timeInCurrentState += Time.deltaTime;
+
         switch (CurrentGameState)
         {
             case GameState.Playing:
@@ -85,9 +95,21 @@ public class GameManager : ManagerModule<GameManager>
                 break;
             case GameState.Dead:
                 break;
+            case GameState.LoadingScene:
+                if (timeInCurrentState >= 3f)
+                {
+                    SceneManager.LoadScene(nextSceneName);
+                }
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    public void SwitchToOtherScene(string sceneName)
+    {
+        nextSceneName = sceneName;
+        CurrentGameState = GameState.LoadingScene;
     }
 }
 
@@ -96,5 +118,6 @@ public enum GameState
     Playing,
     Paused,
     CutScene,
-    Dead
+    Dead,
+    LoadingScene
 }

@@ -21,6 +21,7 @@ public class Player : AbilityController
     {
         playerShoot = GetComponent<PlayerShoot>();
         PlayerCamera = GetComponentInChildren<Camera>();
+        DisableAllAbilitys(3f);
         base.Start();
     }
 
