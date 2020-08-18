@@ -274,7 +274,7 @@ MonoBehaviour:
   CurrentDirectionToPlayer: {x: 0, y: 0, z: 0}
   colorChangingMaterials: []
   colorChangingLight: {fileID: 4498630465837302464}
-  NeutralColor: {r: 0, g: 0, b: 0, a: 1}
+  NeutralColor: {r: 0, g: 0.7539928, b: 1, a: 1}
   AggressiveColor: {r: 1, g: 0, b: 0, a: 1}
   TimeBetweenAIChecks: 2
   colorChangingLine: {fileID: 4654646522583747563}
@@ -709,7 +709,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0621f3152dd70014db751df1db95e9d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -740,8 +740,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.014793396
+        value: 0.020137787
         inSlope: 0
         outSlope: 0
         tangentMode: 0
