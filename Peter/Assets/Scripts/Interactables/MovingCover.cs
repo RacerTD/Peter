@@ -20,7 +20,7 @@ public class MovingCover : MonoBehaviour
             switch (coverState)
             {
                 case CoverState.Active:
-                    for (int i = 0; i <= movingObjects.Count; i++)
+                    for (int i = 0; i <= movingObjects.Count - 1; i++)
                     {
                         movingObjects[i].Object.localPosition = Vector3.MoveTowards(movingObjects[i].Object.localPosition, movingObjects[i].PositionToMoveTo, movingObjects[i].PositionToMoveTo.magnitude / timeToDeploy * Time.deltaTime);
                     }
@@ -34,7 +34,7 @@ public class MovingCover : MonoBehaviour
                     }
                     break;
                 case CoverState.InActive:
-                    for (int i = 0; i <= movingObjects.Count; i++)
+                    for (int i = 0; i <= movingObjects.Count - 1; i++)
                     {
                         movingObjects[i].Object.localPosition = Vector3.MoveTowards(movingObjects[i].Object.localPosition, movingObjects[i].InActivePosition, movingObjects[i].PositionToMoveTo.magnitude / timeToDeploy * Time.deltaTime);
                     }
