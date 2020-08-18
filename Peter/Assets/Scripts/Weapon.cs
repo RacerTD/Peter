@@ -12,7 +12,8 @@ public class Weapon : MonoBehaviour
     public float BulletSpeed = 5f;
     public float BulletLifeTime = 10f;
     public int BulletHitAmount = 1;
-    public float BulletDamage = 1f;
+    public float BulletDamageLowerLimit = 1f;
+    public float BulletDamageUpperLimit = 10f;
     public float TimeBetweenShots = 1f;
     public Transform ShootPoint;
     public GunType WeaponType = GunType.Primary;
