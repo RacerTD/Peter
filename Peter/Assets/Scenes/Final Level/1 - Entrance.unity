@@ -33149,6 +33149,11 @@ PrefabInstance:
       propertyPath: DimensionOffset.x
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
+        type: 3}
+      propertyPath: mouseLookSensitivity
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
       propertyPath: m_LocalPosition.x
