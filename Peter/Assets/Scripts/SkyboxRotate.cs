@@ -16,6 +16,9 @@ public class SkyboxRotate : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables the Rotation of the given object
+    /// </summary>
     public void EnableRotation()
     {
         IsRotating = true;

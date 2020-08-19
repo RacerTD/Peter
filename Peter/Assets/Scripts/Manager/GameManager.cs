@@ -112,6 +112,10 @@ public class GameManager : ManagerModule<GameManager>
         }
     }
 
+    /// <summary>
+    /// Switches to another scene
+    /// </summary>
+    /// <param name="sceneName">the name of the scene to switch to</param>
     public void SwitchToOtherScene(string sceneName)
     {
         nextSceneName = sceneName;

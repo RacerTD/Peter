@@ -13,7 +13,10 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] protected GameObject uI;
     [Header("Health Bar")]
     [SerializeField] protected Slider healthBar;
-
+    [SerializeField] protected List<Image> allHealthBarParts = new List<Image>();
+    [SerializeField] private float healthBarDisappearsAfter = 2f;
+    [SerializeField] private float timeHealthBarNeedsToDisappear = 2f;
+    private float timeSinceHealthBarChange = 0f;
     [Header("Switch Dimension Timer")]
     [SerializeField] protected Slider switchDimensionBar;
 
@@ -59,7 +62,7 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] protected Image blackScreen;
     [SerializeField] protected Color blackScreenStartColor;
     [SerializeField] protected Color blackScreenEndColor;
-    private float timeToBlack = 1f;
+    private float timeToBlack = 2f;
     private bool blackScreenIsActive = false;
     private float blackScreenTimer = 0f;
     private float timeInThisScene = 0f;
@@ -84,18 +87,23 @@ public class UIManager : ManagerModule<UIManager>
         timeInThisScene += Time.deltaTime;
 
         HandleHitMarker();
+
         if (GameManager.Instance.CurrentGameState == GameState.Dead)
         {
             HandleDeathScreen();
         }
 
         HandleFadeToBlack();
-        if (timeInThisScene <= timeToBlack * 1.1f)
+
+        if (timeInThisScene <= timeToBlack * 3)
         {
             HandleGameStart();
         }
+
+        HandleHealthBar();
     }
 
+    #region healthBar
     /// <summary>
     /// Updates the health bar
     /// </summary>
@@ -104,10 +112,39 @@ public class UIManager : ManagerModule<UIManager>
     {
         if (healthBar != null)
         {
+            if (Mathf.Abs(healthBar.value) - Mathf.Abs(value) < 0.05)
+            {
+                return;
+            }
+
+            Debug.Log("HealthBar got changed");
+
             healthBar.value = value;
+            timeSinceHealthBarChange = 0f;
+
+            foreach (Image img in allHealthBarParts)
+            {
+                img.color = Color.white;
+            }
         }
     }
 
+    private void HandleHealthBar()
+    {
+        timeSinceHealthBarChange += Time.deltaTime;
+
+        if (timeSinceHealthBarChange >= healthBarDisappearsAfter)
+        {
+            foreach (Image img in allHealthBarParts)
+            {
+                Debug.Log("Did stuff");
+                img.color = Color.Lerp(new Color(1, 1, 1, 0), Color.white, timeSinceHealthBarChange - healthBarDisappearsAfter / timeHealthBarNeedsToDisappear);
+            }
+        }
+    }
+    #endregion
+
+    #region SwitchDimensionSlider
     /// <summary>
     /// Updates the switch dimension bar bar
     /// </summary>
@@ -119,7 +156,13 @@ public class UIManager : ManagerModule<UIManager>
             switchDimensionBar.value = value;
         }
     }
+    #endregion
 
+    #region FadeToBlack
+    /// <summary>
+    /// Starts the fade to black
+    /// </summary>
+    /// <param name="time">How long the fade should take</param>
     public void StartFadeToBlack(float time)
     {
         blackScreenIsActive = true;
@@ -127,6 +170,21 @@ public class UIManager : ManagerModule<UIManager>
         timeToBlack = time;
     }
 
+    /// <summary>
+    /// Handles everything for the fade to black
+    /// </summary>
+    public void HandleFadeToBlack()
+    {
+        blackScreenTimer += Time.deltaTime;
+
+        if (blackScreenIsActive && blackScreen != null)
+        {
+            blackScreen.color = Color.Lerp(blackScreenStartColor, blackScreenEndColor, blackScreenTimer / timeToBlack);
+        }
+    }
+    #endregion
+
+    #region HitMarker
     /// <summary>
     /// Starts the hit marker
     /// </summary>
@@ -143,56 +201,6 @@ public class UIManager : ManagerModule<UIManager>
                 rend.rectTransform.localScale = Vector3.one * hitMarkerStartSize;
             }
             */
-        }
-    }
-
-    /// <summary>
-    /// Activated the deathscreen
-    /// </summary>
-    public void ActivateDeathScreen()
-    {
-        deathScreen.SetActive(true);
-        uI.SetActive(false);
-        if (deathScreenSound != null)
-        {
-            AudioManager.Instance.PlayNewSound(AudioType.Music, deathScreenSound);
-        }
-    }
-
-    /// <summary>
-    /// Handles all the things needed for the deathscreen
-    /// </summary>
-    public void HandleDeathScreen()
-    {
-        foreach (FadingImage fadingImage in deathScreenObjects)
-        {
-            fadingImage.Picture.color = Color.Lerp(fadingImage.StartColor, fadingImage.EndColor, (timeTillDead - fadingImage.TimeTillStart) / fadingImage.TimeToFade);
-        }
-
-        thingOverLogo.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(startLength, endLength, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), thingOverLogo.rectTransform.rect.height);
-
-        thingOverLogo.rectTransform.localPosition = new Vector3(Mathf.Lerp(startPositon.x, endPositon.x, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), Mathf.Lerp(startPositon.y, endPositon.y, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), 0);
-
-        timeTillDead += Time.deltaTime;
-    }
-
-    public void HandleFadeToBlack()
-    {
-        blackScreenTimer += Time.deltaTime;
-
-        if (blackScreenIsActive && blackScreen != null)
-        {
-            blackScreen.color = Color.Lerp(blackScreenStartColor, blackScreenEndColor, blackScreenTimer / timeToBlack);
-        }
-    }
-
-    public void HandleGameStart()
-    {
-        blackScreenTimer += Time.deltaTime;
-
-        if (blackScreen != null)
-        {
-            blackScreen.color = Color.Lerp(blackScreenEndColor, blackScreenStartColor, blackScreenTimer / timeToBlack);
         }
     }
 
@@ -237,6 +245,54 @@ public class UIManager : ManagerModule<UIManager>
             hitMarkerTotalTimer += Time.deltaTime;
         }
     }
+    #endregion
+
+    #region DeathScreen
+    /// <summary>
+    /// Activated the deathscreen
+    /// </summary>
+    public void ActivateDeathScreen()
+    {
+        deathScreen.SetActive(true);
+        uI.SetActive(false);
+        if (deathScreenSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Music, deathScreenSound);
+        }
+    }
+
+    /// <summary>
+    /// Handles all the things needed for the deathscreen
+    /// </summary>
+    public void HandleDeathScreen()
+    {
+        foreach (FadingImage fadingImage in deathScreenObjects)
+        {
+            fadingImage.Picture.color = Color.Lerp(fadingImage.StartColor, fadingImage.EndColor, (timeTillDead - fadingImage.TimeTillStart) / fadingImage.TimeToFade);
+        }
+
+        thingOverLogo.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(startLength, endLength, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), thingOverLogo.rectTransform.rect.height);
+
+        thingOverLogo.rectTransform.localPosition = new Vector3(Mathf.Lerp(startPositon.x, endPositon.x, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), Mathf.Lerp(startPositon.y, endPositon.y, (timeTillDead - thingOverLogoTimeTillStart) / thingOverLogoTimeToDo), 0);
+
+        timeTillDead += Time.deltaTime;
+    }
+    #endregion
+
+    #region GameStart
+    /// <summary>
+    /// Does all the stuff needed for the gameto start
+    /// </summary>
+    public void HandleGameStart()
+    {
+        blackScreenTimer += Time.deltaTime;
+
+        if (blackScreen != null)
+        {
+            blackScreen.color = Color.Lerp(blackScreenEndColor, blackScreenStartColor, blackScreenTimer / timeToBlack);
+        }
+    }
+    #endregion
 
     [System.Serializable]
     public struct FadingImage

@@ -25,6 +25,9 @@ public class Ammo : MonoBehaviour
         transform.rotation = Quaternion.Euler(rotationVector * Time.deltaTime + transform.rotation.eulerAngles);
     }
 
+    /// <summary>
+    /// What happens when the ammo dies
+    /// </summary>
     public void OnDeath()
     {
         if (onPickUpEffect != null)

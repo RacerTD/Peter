@@ -9,7 +9,7 @@ public class MovingCover : MonoBehaviour
     private float timeDeplayedTimer = 0f;
     [SerializeField] private float timeTillDeploy = 0f;
     private float timeTillDeploedTimer = 0f;
-    [SerializeField] private CoverState coverState = CoverState.InActive;
+    [SerializeField] private CoverState coverState = CoverState.Inactive;
     private Vector3 inActivePosition = Vector3.zero;
     [SerializeField] private List<MovingObject> movingObjects = new List<MovingObject>();
 
@@ -33,13 +33,11 @@ public class MovingCover : MonoBehaviour
                         }
                     }
                     break;
-                case CoverState.InActive:
+                case CoverState.Inactive:
                     for (int i = 0; i <= movingObjects.Count - 1; i++)
                     {
                         movingObjects[i].Object.localPosition = Vector3.MoveTowards(movingObjects[i].Object.localPosition, movingObjects[i].InActivePosition, movingObjects[i].PositionToMoveTo.magnitude / timeToDeploy * Time.deltaTime);
                     }
-                    break;
-                case CoverState.Locked:
                     break;
                 case CoverState.WaitingToDeploy:
                     timeTillDeploedTimer -= Time.deltaTime;
@@ -66,10 +64,8 @@ public class MovingCover : MonoBehaviour
             case CoverState.Active:
                 DeactivateCover();
                 break;
-            case CoverState.InActive:
+            case CoverState.Inactive:
                 ActivateCover();
-                break;
-            case CoverState.Locked:
                 break;
             case CoverState.WaitingToDeploy:
                 break;
@@ -97,9 +93,12 @@ public class MovingCover : MonoBehaviour
     /// </summary>
     public void DeactivateCover()
     {
-        coverState = CoverState.InActive;
+        coverState = CoverState.Inactive;
     }
 
+    /// <summary>
+    /// Struct for one single Object that moves around
+    /// </summary>
     [System.Serializable]
     public struct MovingObject
     {
@@ -108,11 +107,13 @@ public class MovingCover : MonoBehaviour
         public Vector3 InActivePosition;
     }
 
+    /// <summary>
+    /// What state the cover is in
+    /// </summary>
     private enum CoverState
     {
         Active,
-        InActive,
-        Locked,
+        Inactive,
         WaitingToDeploy
     }
 

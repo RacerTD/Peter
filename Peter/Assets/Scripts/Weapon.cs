@@ -58,10 +58,12 @@ public class Weapon : MonoBehaviour
     public VisualEffect ReloadEffect;
     public Transform ReloadEffectPosition;
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (ShootPoint != null)
+        {
             Debug.DrawRay(ShootPoint.position, ShootPoint.forward, Color.red);
+        }
     }
 }
 

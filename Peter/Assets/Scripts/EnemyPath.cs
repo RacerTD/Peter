@@ -9,18 +9,6 @@ public class EnemyPath : MonoBehaviour
     [SerializeField] private float defaultWaitTime = 5f;
     public List<WaitingPosition> Positions = new List<WaitingPosition>();
 
-    [System.Serializable]
-    public struct WaitingPosition
-    {
-        public Transform Position;
-        public float WaitTimeAtPostion;
-        public WaitingPosition(Transform position, float waitTime)
-        {
-            Position = position;
-            WaitTimeAtPostion = waitTime;
-        }
-    }
-
     private void OnDrawGizmos()
     {
         for (int i = 0; i < Positions.Count; i++)
@@ -36,6 +24,9 @@ public class EnemyPath : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds one waypoint to the Path
+    /// </summary>
     public void AddWayPoint()
     {
         Positions.Add(new WaitingPosition(Instantiate(pathPoint, Positions[Positions.Count - 1].Position.position, Quaternion.identity, transform), defaultWaitTime));
@@ -43,6 +34,17 @@ public class EnemyPath : MonoBehaviour
 #if UNITY_EDITOR
         PrefabUtility.RecordPrefabInstancePropertyModifications(this);
 #endif
+    }
 
+    [System.Serializable]
+    public struct WaitingPosition
+    {
+        public Transform Position;
+        public float WaitTimeAtPostion;
+        public WaitingPosition(Transform position, float waitTime)
+        {
+            Position = position;
+            WaitTimeAtPostion = waitTime;
+        }
     }
 }

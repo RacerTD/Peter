@@ -74,6 +74,9 @@ public class LightChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts the lightPattern
+    /// </summary>
     [ContextMenu("Test Light Stuff")]
     public void StartLightChanging()
     {
@@ -86,6 +89,9 @@ public class LightChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Struct to save a light state 
+    /// </summary>
     [System.Serializable]
     public struct LightSetting
     {

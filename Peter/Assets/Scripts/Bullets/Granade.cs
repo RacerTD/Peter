@@ -39,6 +39,9 @@ public class Granade : EnemyBullet
         Explode();
     }
 
+    /// <summary>
+    /// What happens when the granade explodes
+    /// </summary>
     private void Explode()
     {
         //Debug.Log($"Exploded {Vector3.Distance(GameManager.Instance.CurrentPlayer.transform.position, transform.position)}");

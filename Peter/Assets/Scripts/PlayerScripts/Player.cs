@@ -37,6 +37,9 @@ public class Player : AbilityController
         base.Update();
     }
 
+    /// <summary>
+    /// Handles all the animations of the gun
+    /// </summary>
     private void HandleAnimation()
     {
         if (playedAnimation)
@@ -96,6 +99,9 @@ public class Player : AbilityController
         }
     }
 
+    /// <summary>
+    /// Calculates all the timings for the animations
+    /// </summary>
     private void HandleAnimationTime()
     {
         for (int i = 0; i < animState.Count(); i++)
@@ -119,6 +125,11 @@ public class Player : AbilityController
         }
     }
 
+    /// <summary>
+    /// Adds a new animation state to the animation que
+    /// </summary>
+    /// <param name="state">the state the gun should take</param>
+    /// <param name="time">the time the state should be held for</param>
     public void AddAnimState(WeaponAnimationState state, float time)
     {
         int prio = 100;
@@ -153,6 +164,11 @@ public class Player : AbilityController
         animState.Add(new AnimStateTime(state, time, prio));
     }
 
+    /// <summary>
+    /// Plays an animation right now
+    /// </summary>
+    /// <param name="animationState">The animation to play</param>
+    /// <param name="time">How long the animationstate should last</param>
     public void PlayAnimationNow(WeaponAnimationState animationState, float time)
     {
         playedAnimation = true;
