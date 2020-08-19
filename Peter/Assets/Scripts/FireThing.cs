@@ -23,7 +23,7 @@ public class FireThing : MonoBehaviour
             timeSinceActive += Time.deltaTime;
             if (timeSinceActive <= timeActive)
             {
-                body.AddForce(force * Time.deltaTime, ForceMode.Impulse);
+                body.AddRelativeForce(force * Time.deltaTime, ForceMode.Impulse);
             }
         }
     }

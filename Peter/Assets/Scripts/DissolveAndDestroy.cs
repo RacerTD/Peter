@@ -23,7 +23,7 @@ public class DissolveAndDestroy : MonoBehaviour
         {
             foreach (Material mat in rend.materials)
             {
-                mat.SetFloat("DissolveFactor", Mathf.Lerp(0, 1, (timeSinceStart - timeTillDissolve) / timeForDissolve));
+                mat.SetFloat("Vector1_5B43FC3", Mathf.Lerp(0, 1, (timeSinceStart - timeTillDissolve) / timeForDissolve));
             }
         }
     }

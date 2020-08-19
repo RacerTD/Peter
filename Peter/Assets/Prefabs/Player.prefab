@@ -933,6 +933,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 0}
   animState: []
+  currentRumble:
+    AmountL: 0
+    AmountR: 0
+    Time: 0
 --- !u!114 &8798636231972256813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,6 +1027,10 @@ MonoBehaviour:
   AimTime: 0.05
   isAiming: 0
   TimeSinceLastShot: 0
+  shootRumble:
+    AmountL: 0.5
+    AmountR: 0.25
+    Time: 0.2
   ammo: 999
 --- !u!114 &1674577478
 MonoBehaviour:
@@ -1070,6 +1078,10 @@ MonoBehaviour:
   InputPerformed: 0
   InputCanceled: 0
   player: {fileID: 0}
+  onReloadRumble:
+    AmountL: 0.5
+    AmountR: 0.7
+    Time: 2
 --- !u!114 &-715388015434957767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1098,10 @@ MonoBehaviour:
   onHitSound: {fileID: 0}
   timeTillHeal: 5
   healPerSecond: 2
+  onHitRumble:
+    AmountL: 2.5
+    AmountR: 2.5
+    Time: 0.2
 --- !u!114 &233095714
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -58,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,6 +86,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &303950083192178322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +115,7 @@ MonoBehaviour:
   m_OnHit:
     m_PersistentCalls:
       m_Calls: []
+  onHitSound: {fileID: 0}
 --- !u!1001 &4545035646572290362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +187,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elevator Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a389c2ed2846bdc4581743e3b82a4783,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a389c2ed2846bdc4581743e3b82a4783,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a389c2ed2846bdc4581743e3b82a4783, type: 3}

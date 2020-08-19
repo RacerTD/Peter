@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7811377312894832571}
   - component: {fileID: 1228093261837925813}
   m_Layer: 0
-  m_Name: GunReload2
+  m_Name: Shoot Button Impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,38 @@ VisualEffect:
     m_AnimationCurve:
       m_Array: []
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 3.5648699, g: 0, b: 0.250779, a: 1}
+          key1: {r: 0, g: 0.64200515, b: 2.1681068, a: 1}
+          key2: {r: 0, g: 2.1450932, b: 2.941785, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 28142
+          ctime2: 65535
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 5397
+          atime1: 58596
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 2
+        m_Name: Trail Color
+        m_Overridden: 1
     m_NamedObject:
       m_Array: []
     m_Bool:

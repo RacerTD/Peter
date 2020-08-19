@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2478811909122273076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.48, y: -0.93, z: 7.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4240013928347498930}
@@ -159,8 +159,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6091578229790709645, guid: edeb59a9501a421449cddf8e7abfb461, type: 3}
-  - {fileID: 2100000, guid: baedb0e6aa8a87245b8d018c59dad6bd, type: 2}
+  - {fileID: 2100000, guid: 2b1b3a0992d6dd34eb4f3292267c9a26, type: 2}
+  - {fileID: 2100000, guid: 2c27f5fd1afaf6746b7017d5ab8b7789, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,9 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 450
+  maxHealth: 300
   onHitSound: {fileID: 0}
-  thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
+  thingToSpawnAtDeath: {fileID: 3649623076159389074, guid: 87d324ae9c1b0964689d54f730d7e1cf,
+    type: 3}
+  deathEffect: {fileID: 7811377312894832571, guid: 0bc82784cb67a8148a60fe4fee299e64,
     type: 3}
   slider: {fileID: 0}
   gradient:
@@ -246,6 +248,7 @@ MonoBehaviour:
     type: 3}
   radiusWhereTheNumbersSpawn: 1
   damageNumberSpawnOffset: {x: 0, y: 1, z: 0}
+  onHitEffect: {fileID: 0}
 --- !u!114 &7619004523240550213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,8 +700,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6091578229790709645, guid: edeb59a9501a421449cddf8e7abfb461, type: 3}
-  - {fileID: 2100000, guid: baedb0e6aa8a87245b8d018c59dad6bd, type: 2}
+  - {fileID: 2100000, guid: 2b1b3a0992d6dd34eb4f3292267c9a26, type: 2}
+  - {fileID: 2100000, guid: 2c27f5fd1afaf6746b7017d5ab8b7789, type: 2}
   - {fileID: 2100000, guid: 36c23416d9623f84ab8926faaabfa475, type: 2}
   - {fileID: 2100000, guid: 36c23416d9623f84ab8926faaabfa475, type: 2}
   m_StaticBatchInfo:
@@ -908,8 +911,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6091578229790709645, guid: edeb59a9501a421449cddf8e7abfb461, type: 3}
-  - {fileID: -1580535799172915004, guid: edeb59a9501a421449cddf8e7abfb461, type: 3}
+  - {fileID: 2100000, guid: 2c27f5fd1afaf6746b7017d5ab8b7789, type: 2}
+  - {fileID: 2100000, guid: 2b1b3a0992d6dd34eb4f3292267c9a26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
