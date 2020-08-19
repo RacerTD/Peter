@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class BetterDamagable : Damagable
 {
     [Header("Custom Damagable")]
     public GameObject thingToSpawnAtDeath;
+    public VisualEffect deathEffect;
 
     [Header("Healthbar")]
     [SerializeField] protected Slider slider;
@@ -63,6 +65,10 @@ public class BetterDamagable : Damagable
         if (thingToSpawnAtDeath != null)
         {
             Instantiate(thingToSpawnAtDeath, transform.position, transform.rotation);
+        }
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
         base.OnDeath();
     }
