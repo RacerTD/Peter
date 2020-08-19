@@ -33,6 +33,7 @@ public class Player : AbilityController
 
             HandleAnimationTime();
         }
+
         base.Update();
     }
 
@@ -121,7 +122,7 @@ public class Player : AbilityController
 
     public void AddAnimState(WeaponAnimationState state, float time)
     {
-        int prio = 0;
+        int prio = 100;
         switch (state)
         {
             case WeaponAnimationState.Idle:
