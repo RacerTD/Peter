@@ -16,6 +16,7 @@ public class BetterDamagable : Damagable
     [Header("Damage Numbers")]
     [SerializeField] protected DamageNumber damageNumber;
     [SerializeField] protected float radiusWhereTheNumbersSpawn = 1f;
+    [SerializeField] protected Vector3 damageNumberSpawnOffset = Vector3.up;
     private Transform cam;
     private EnemyController enemyController;
 
@@ -70,7 +71,7 @@ public class BetterDamagable : Damagable
     {
         if (damageNumber != null)
         {
-            Instantiate(damageNumber, transform.position + Vector3.one * Random.Range(-radiusWhereTheNumbersSpawn, radiusWhereTheNumbersSpawn), Quaternion.identity, GameManager.Instance.ParticleHolder).Setup(amount);
+            Instantiate(damageNumber, transform.position + damageNumberSpawnOffset + Vector3.one * Random.Range(-radiusWhereTheNumbersSpawn, radiusWhereTheNumbersSpawn), Quaternion.identity, GameManager.Instance.ParticleHolder).Setup(amount);
         }
     }
 }
