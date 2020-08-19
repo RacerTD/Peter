@@ -7,6 +7,7 @@ public class LightChanger : MonoBehaviour
     [SerializeField] private List<LightSetting> lightSettings = new List<LightSetting>();
     private LightSetting lastLightSetting = new LightSetting();
     [SerializeField] protected Light lightToChange;
+    [SerializeField] private bool loop = false;
     private int currentIndex = 0;
     private int CurrentIndex
     {
@@ -15,7 +16,16 @@ public class LightChanger : MonoBehaviour
         {
             if (value >= lightSettings.Count)
             {
-                isActive = false;
+                if (loop)
+                {
+                    currentIndex = 0;
+                    timeSinceActive = 0f;
+                    timeInCurrentState = 0f;
+                }
+                else
+                {
+                    isActive = false;
+                }
             }
             else
             {
