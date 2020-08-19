@@ -7,6 +7,7 @@ public class AudioManager : ManagerModule<AudioManager>
 {
     public AudioMixerGroup Music;
     public AudioMixerGroup Sfx;
+    public AudioListener listener;
 
     public float MusicVolume { get; protected set; } = 1;
     public float SfxVolume { get; protected set; } = 1;
@@ -39,6 +40,7 @@ public class AudioManager : ManagerModule<AudioManager>
                 return;
         }
         source.Play();
+        source.spatialBlend = 1f;
 
         sounds.Add(source);
     }
