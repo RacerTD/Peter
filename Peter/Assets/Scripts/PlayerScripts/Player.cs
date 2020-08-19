@@ -43,16 +43,19 @@ public class Player : AbilityController
 
     private void HandleRumble()
     {
-        if (currentRumble.Time >= 0)
+        if (Gamepad.current != null)
         {
-            Gamepad.current.SetMotorSpeeds(currentRumble.AmountL, currentRumble.AmountR);
-        }
-        else
-        {
-            Gamepad.current.SetMotorSpeeds(0, 0);
-        }
+            if (currentRumble.Time >= 0)
+            {
+                Gamepad.current.SetMotorSpeeds(currentRumble.AmountL, currentRumble.AmountR);
+            }
+            else
+            {
+                Gamepad.current.SetMotorSpeeds(0, 0);
+            }
 
-        currentRumble.Time -= Time.deltaTime;
+            currentRumble.Time -= Time.deltaTime;
+        }
     }
 
     /// <summary>
