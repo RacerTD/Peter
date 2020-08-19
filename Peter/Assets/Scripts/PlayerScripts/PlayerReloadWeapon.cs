@@ -20,6 +20,7 @@ public class PlayerReloadWeapon : PlayerAbility
     public override void AbilityStart()
     {
         playerShoot.TimeBlocked = AbilityDuration;
+        //player.PlayAnimationNow(WeaponAnimationState.Reload, AbilityDuration * 0.8f);
         player.AddAnimState(WeaponAnimationState.Reload, AbilityDuration * 0.8f);
         timeBetweenBullets = (AbilityDuration - 0.7f) / (playerShoot.Gun.MaxGunAmmo - playerShoot.Gun.CurrentGunAmmo);
 

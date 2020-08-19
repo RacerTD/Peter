@@ -168,10 +168,10 @@ public class PlayerMove : PlayerAbility
             {
                 case WalkingType.Crouch:
                 case WalkingType.Normal:
-                    player.AddAnimState(WeaponAnimationState.Walking, 0.1f);
+                    player.AddAnimState(WeaponAnimationState.Walking, Time.deltaTime * 2);
                     break;
                 case WalkingType.Sprint:
-                    player.AddAnimState(WeaponAnimationState.Running, 0.1f);
+                    player.AddAnimState(WeaponAnimationState.Running, Time.deltaTime * 2);
                     break;
                 default:
                     break;

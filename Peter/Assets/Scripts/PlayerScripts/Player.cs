@@ -39,7 +39,6 @@ public class Player : AbilityController
 
     private void HandleAnimation()
     {
-
         if (playedAnimation)
         {
             forcedAnimationTime -= Time.deltaTime;
