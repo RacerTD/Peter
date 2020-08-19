@@ -49,7 +49,7 @@ LightingSettings:
   m_PVRRussianRouletteStartBounce: -1
   m_PVREnvironmentMIS: 0
   m_PVRFilteringMode: 2
-  m_PVRDenoiserTypeDirect: 2
+  m_PVRDenoiserTypeDirect: 1
   m_PVRDenoiserTypeIndirect: 2
   m_PVRDenoiserTypeAO: 2
   m_PVRFilterTypeDirect: 0
