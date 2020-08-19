@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 3412360135940507561}
   - component: {fileID: 8463336432328641673}
   - component: {fileID: 658863231904629596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scanner Broke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3053836869727854261
 Transform:

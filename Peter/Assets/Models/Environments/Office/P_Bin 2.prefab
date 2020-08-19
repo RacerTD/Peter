@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 397242314492913849}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P_Bin 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &397242314492913849
 Transform:
@@ -43,12 +43,12 @@ GameObject:
   - component: {fileID: 7858154333960044919}
   - component: {fileID: 6535226845946374587}
   - component: {fileID: 1287367849381765354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bin Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7858154333960044919
 Transform:
@@ -125,12 +125,12 @@ GameObject:
   - component: {fileID: 2183712764212856190}
   - component: {fileID: 8812484774883123623}
   - component: {fileID: 2030691879262949965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8919515018748462518
 Transform:
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1580535799172915004, guid: 086502aae9c135a4d8fdd9f075f51a8f, type: 3}
-  - {fileID: 186084077072955817, guid: 086502aae9c135a4d8fdd9f075f51a8f, type: 3}
+  - {fileID: 2100000, guid: 2ca8e9db8869bc84983bfd8b296abc66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

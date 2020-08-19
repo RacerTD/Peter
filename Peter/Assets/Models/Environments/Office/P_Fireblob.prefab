@@ -188,12 +188,12 @@ GameObject:
   - component: {fileID: 1636645719676293538}
   - component: {fileID: 156797264778069868}
   - component: {fileID: 693284444977280465}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1636645719676293538
 Transform:
@@ -268,12 +268,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8489755274663448806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P_Fireblob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8489755274663448806
 Transform:
