@@ -45,7 +45,7 @@ public class Player : AbilityController
     {
         if (currentRumble.Time >= 0)
         {
-            Gamepad.current.SetMotorSpeeds(currentRumble.Amount, currentRumble.Amount);
+            Gamepad.current.SetMotorSpeeds(currentRumble.AmountL, currentRumble.AmountR);
         }
         else
         {
@@ -237,30 +237,19 @@ public class Player : AbilityController
             Priority = priority;
         }
     }
-
-    [System.Serializable]
-    public struct Rumble
-    {
-        public float Amount;
-        public float Time;
-
-        public Rumble(float amount, float time)
-        {
-            Amount = amount;
-            Time = time;
-        }
-    }
 }
 
 [System.Serializable]
 public struct Rumble
 {
-    public float Amount;
+    public float AmountL;
+    public float AmountR;
     public float Time;
 
-    public Rumble(float amount, float time)
+    public Rumble(float amountL, float amountR, float time)
     {
-        Amount = amount;
+        AmountL = amountL;
+        AmountR = amountR;
         Time = time;
     }
 }

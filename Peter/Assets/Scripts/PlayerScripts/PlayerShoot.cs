@@ -19,7 +19,7 @@ public class PlayerShoot : PlayerAbility
     [SerializeField] private float AimTime = 0.5f;
     [HideInInspector] public bool isAiming = false;
     [HideInInspector] public float TimeSinceLastShot = 0f;
-    [SerializeField] private Rumble shootRumble = new Rumble(0.2f, 0.05f);
+    [SerializeField] private Rumble shootRumble = new Rumble(0.2f, 0.2f, 0.05f);
     private PlayerLook playerLook;
     private PlayerMove playerMove;
 
@@ -165,7 +165,7 @@ public class PlayerShoot : PlayerAbility
                 break;
         }
 
-        GetComponent<Player>().currentRumble = new Player.Rumble(shootRumble.Amount, shootRumble.Time);
+        GetComponent<Player>().currentRumble = shootRumble;
 
         player.AddAnimState(isAiming ? WeaponAnimationState.RecoilScope : WeaponAnimationState.Recoil, Gun.TimeBetweenShots * 0.8f);
 

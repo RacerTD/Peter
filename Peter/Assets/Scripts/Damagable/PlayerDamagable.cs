@@ -7,7 +7,7 @@ public class PlayerDamagable : Damagable
     private float timeSinceLastHit = 0f;
     [SerializeField] private float timeTillHeal = 10f;
     [SerializeField] private float healPerSecond = 1f;
-    [SerializeField] private Rumble onHitRumble = new Rumble(1, 0.5f);
+    [SerializeField] private Rumble onHitRumble = new Rumble(1, 1, 0.5f);
 
     protected override void Update()
     {
@@ -34,7 +34,7 @@ public class PlayerDamagable : Damagable
 
     public override void DoDamage(float damage)
     {
-        GetComponent<Player>().currentRumble = new Player.Rumble(onHitRumble.Amount, onHitRumble.Time);
+        GetComponent<Player>().currentRumble = onHitRumble;
         timeSinceLastHit = 0f;
         base.DoDamage(damage);
     }
