@@ -13,10 +13,6 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] protected GameObject uI;
     [Header("Health Bar")]
     [SerializeField] protected Slider healthBar;
-    [SerializeField] protected List<Image> allHealthBarParts = new List<Image>();
-    [SerializeField] private float healthBarDisappearsAfter = 2f;
-    [SerializeField] private float timeHealthBarNeedsToDisappear = 2f;
-    private float timeSinceHealthBarChange = 0f;
     [Header("Switch Dimension Timer")]
     [SerializeField] protected Slider switchDimensionBar;
 
@@ -99,8 +95,6 @@ public class UIManager : ManagerModule<UIManager>
         {
             HandleGameStart();
         }
-
-        HandleHealthBar();
     }
 
     #region healthBar
@@ -115,30 +109,6 @@ public class UIManager : ManagerModule<UIManager>
             if (Mathf.Abs(healthBar.value) - Mathf.Abs(value) < 0.05)
             {
                 return;
-            }
-
-            Debug.Log("HealthBar got changed");
-
-            healthBar.value = value;
-            timeSinceHealthBarChange = 0f;
-
-            foreach (Image img in allHealthBarParts)
-            {
-                img.color = Color.white;
-            }
-        }
-    }
-
-    private void HandleHealthBar()
-    {
-        timeSinceHealthBarChange += Time.deltaTime;
-
-        if (timeSinceHealthBarChange >= healthBarDisappearsAfter)
-        {
-            foreach (Image img in allHealthBarParts)
-            {
-                Debug.Log("Did stuff");
-                img.color = Color.Lerp(new Color(1, 1, 1, 0), Color.white, timeSinceHealthBarChange - healthBarDisappearsAfter / timeHealthBarNeedsToDisappear);
             }
         }
     }
