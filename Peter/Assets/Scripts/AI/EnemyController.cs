@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     public float ViewAngleToPlayer = 0f;
     public bool PlayerInDetectionCollider = false;
     public bool HasDirectSightLine = false;
-    public float TimeSinceLastSighting = 20;
+    public float TimeSinceLastSighting = 200;
     public Vector3 LastSeenPlayerPosition = Vector3.zero;
     public float TimeSinceShotAt = 0f;
     public bool PlayerBehindCover = false;
@@ -49,6 +49,8 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Break();
         }
+
+        TimeSinceLastSighting = 200f;
     }
 
     protected virtual void Update()
