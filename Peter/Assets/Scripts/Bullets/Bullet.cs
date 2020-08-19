@@ -69,6 +69,8 @@ public class Bullet : MonoBehaviour
                 OnEnemyHit(hit.collider.GetComponent<Damagable>());
             else if (hit.collider.GetComponent<ShootButton>() != null)
                 hit.collider.GetComponent<ShootButton>().OnHit();
+            else if (hit.collider.GetComponent<FireThing>() != null)
+                hit.collider.GetComponent<FireThing>().HitThing();
             else if (hit.collider.GetComponent<Rigidbody>() != null && hit.collider.GetComponent<Player>() == null)
                 hit.collider.GetComponent<Rigidbody>().AddForceAtPosition(moveDirection * 10f, hit.point, ForceMode.Impulse);
             else if (hit.collider)
