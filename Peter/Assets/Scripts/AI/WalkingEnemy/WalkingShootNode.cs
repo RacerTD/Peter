@@ -15,7 +15,7 @@ public class WalkingShootNode : ActionNode
 
     public override NodeState CheckNodeState()
     {
-        if (walkingEnemyController.ViewAngleToPlayer <= 10f && walkingEnemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        if (walkingEnemyController.ViewAngleToPlayer <= 15f && walkingEnemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             return NodeState.Running;
         }
