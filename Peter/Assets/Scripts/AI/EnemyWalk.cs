@@ -26,7 +26,7 @@ public class EnemyWalk : EnemyAbility
         }
     }
     private float timeToWait = 0f;
-    [SerializeField] private Vector3 currentDestination = Vector3.zero;
+    public Vector3 currentDestination = Vector3.zero;
     public Vector3 CurrentDestination
     {
         get => currentDestination;
@@ -60,7 +60,6 @@ public class EnemyWalk : EnemyAbility
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        WalkState = EnemyWalkState.WalkingToPosition;
     }
 
     private void UpdateWalkState()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : AbilityController
 {
@@ -11,6 +12,7 @@ public class Player : AbilityController
     private bool playedAnimation = false;
     private float forcedAnimationTime = 0f;
     private WeaponAnimationState currentAnimationState = WeaponAnimationState.Idle;
+    public Rumble currentRumble = new Rumble();
 
     private void Awake()
     {
@@ -34,7 +36,23 @@ public class Player : AbilityController
             HandleAnimationTime();
         }
 
+        HandleRumble();
+
         base.Update();
+    }
+
+    private void HandleRumble()
+    {
+        if (currentRumble.Time >= 0)
+        {
+            Gamepad.current.SetMotorSpeeds(currentRumble.Amount, currentRumble.Amount);
+        }
+        else
+        {
+            Gamepad.current.SetMotorSpeeds(0, 0);
+        }
+
+        currentRumble.Time -= Time.deltaTime;
     }
 
     /// <summary>
@@ -218,6 +236,32 @@ public class Player : AbilityController
             RemainingTime = time;
             Priority = priority;
         }
+    }
+
+    [System.Serializable]
+    public struct Rumble
+    {
+        public float Amount;
+        public float Time;
+
+        public Rumble(float amount, float time)
+        {
+            Amount = amount;
+            Time = time;
+        }
+    }
+}
+
+[System.Serializable]
+public struct Rumble
+{
+    public float Amount;
+    public float Time;
+
+    public Rumble(float amount, float time)
+    {
+        Amount = amount;
+        Time = time;
     }
 }
 

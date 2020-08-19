@@ -21,6 +21,7 @@ public class BetterDamagable : Damagable
     [SerializeField] protected Vector3 damageNumberSpawnOffset = Vector3.up;
     private Transform cam;
     private EnemyController enemyController;
+    [SerializeField] protected VisualEffect onHitEffect;
 
     protected override void Start()
     {
@@ -53,6 +54,11 @@ public class BetterDamagable : Damagable
 
     public override void DoDamage(float damage)
     {
+        if (onHitEffect != null)
+        {
+            Instantiate(onHitEffect, transform.position, transform.rotation, GameManager.Instance.ParticleHolder);
+        }
+
         UIManager.Instance.ActivateHitMarker();
         SpawnDamageNumber(damage);
 
