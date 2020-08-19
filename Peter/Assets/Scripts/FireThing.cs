@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireThing : MonoBehaviour
 {
-    public float force = 10f;
+    public Vector3 force = Vector3.up;
     public bool isActive = false;
     public float timeSinceActive = 0f;
     public float timeActive = 10f;
@@ -14,7 +14,6 @@ public class FireThing : MonoBehaviour
     private void Start()
     {
         body = GetComponent<Rigidbody>();
-        forceDirection = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100)).normalized;
     }
 
     private void Update()
@@ -24,7 +23,7 @@ public class FireThing : MonoBehaviour
             timeSinceActive += Time.deltaTime;
             if (timeSinceActive <= timeActive)
             {
-                body.AddForce(forceDirection * force * Time.deltaTime, ForceMode.Impulse);
+                body.AddForce(force * Time.deltaTime, ForceMode.Impulse);
             }
         }
     }
