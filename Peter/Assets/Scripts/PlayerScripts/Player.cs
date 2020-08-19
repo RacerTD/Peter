@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class Player : AbilityController
 {
@@ -56,6 +57,13 @@ public class Player : AbilityController
 
             currentRumble.Time -= Time.deltaTime;
         }
+
+#if UNITY_EDITOR
+        if (!EditorApplication.isPlaying)
+        {
+            Gamepad.current.SetMotorSpeeds(0, 0);
+        }
+#endif
     }
 
     /// <summary>
