@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 450
   onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 919132149155446097, guid: 08cb3b9a3339f684f83012e4bb00e996,
     type: 3}
@@ -245,6 +245,7 @@ MonoBehaviour:
   damageNumber: {fileID: 1330913187237571187, guid: ea04f5f0dd487504bb5134f360e19a7f,
     type: 3}
   radiusWhereTheNumbersSpawn: 1
+  damageNumberSpawnOffset: {x: 0, y: 1, z: 0}
 --- !u!114 &7619004523240550213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,7 +737,7 @@ MonoBehaviour:
   maxHealth: 10
   onHitSound: {fileID: 0}
   ParentDamagable: {fileID: 5382428437799629785}
-  DamageMult: 2
+  DamageMult: 1.5
 --- !u!65 &2052175654775866358
 BoxCollider:
   m_ObjectHideFlags: 0
