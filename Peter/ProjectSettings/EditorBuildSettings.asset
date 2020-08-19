@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Level/4 - Viewing Gallery.unity
     guid: a0c4872f7b15b844a9a4306200b0903f
   - enabled: 1
+    path: Assets/Scenes/Final Level/5 - Living Quarters.unity
+    guid: d5247e4c2b2fda34288cdcbcbe87a6ad
+  - enabled: 1
     path: Assets/Scenes/Final Level/6 - Conservatory.unity
     guid: 15ab16f805550184387c8c8931b6848c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ni 2.unity
     guid: 8324f0cc9f97f044f8a9cd3c93febb7c
   m_configObjects:

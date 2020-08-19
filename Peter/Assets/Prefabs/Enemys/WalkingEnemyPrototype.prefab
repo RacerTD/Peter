@@ -1526,9 +1526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1500
+  maxHealth: 1000
   onHitSound: {fileID: 0}
-  thingToSpawnAtDeath: {fileID: 0}
+  thingToSpawnAtDeath: {fileID: 2330903936186548547, guid: 2028b663cb17f1b47af4910dbb0d1df2,
+    type: 3}
+  deathEffect: {fileID: 7811377312894832571, guid: 0bc82784cb67a8148a60fe4fee299e64,
+    type: 3}
   slider: {fileID: 2104116593872472041}
   gradient:
     serializedVersion: 2
