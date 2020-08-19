@@ -9514,6 +9514,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 285846331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &289197955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7942496140455227119, guid: f075480d486c04e4ea3fe656c1a5cff8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1800057701}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857669ca37b87d141b944d6d3a23c7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &290996029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64220,6 +64232,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268611855}
     m_Modifications:
+    - target: {fileID: 2191686703243339334, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191686703243339334, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3624281311056978070, guid: f075480d486c04e4ea3fe656c1a5cff8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -64318,7 +64340,7 @@ PrefabInstance:
     - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
         type: 3}
       propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
         type: 3}
@@ -64368,6 +64390,56 @@ PrefabInstance:
     - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
         type: 3}
       propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1985253660}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.VFX.VisualEffect, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: LightChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 289197955}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: StartLightChanging
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514640879554042686, guid: f075480d486c04e4ea3fe656c1a5cff8,
+        type: 3}
+      propertyPath: m_OnHit.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -71910,6 +71982,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 802716432712116393, guid: dedb21adc56743245b6a540fa9e4e3ef,
     type: 3}
   m_PrefabInstance: {fileID: 1983028427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &1985253660 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 7135647287241741384, guid: f075480d486c04e4ea3fe656c1a5cff8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1800057701}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1990699634
 PrefabInstance:
