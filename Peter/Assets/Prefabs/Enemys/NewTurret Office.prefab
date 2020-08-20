@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7619004523240550213}
   - component: {fileID: 5712642964643826945}
   - component: {fileID: 938833299001008562}
+  - component: {fileID: 2953018410809883558}
   m_Layer: 10
   m_Name: NewTurret Office
   m_TagString: Untagged
@@ -209,11 +210,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 450
   onHitSound: {fileID: 0}
-  onDeathSound: {fileID: 0}
+  onDeathSound: {fileID: 8300000, guid: c4ac8ff19119f49488412d2559f18ce3, type: 3}
   thingToSpawnAtDeath: {fileID: 3649623076159389074, guid: b4b3e3639cf711a44bf2aac26e2641a4,
     type: 3}
   deathEffect: {fileID: 5771490361722258990, guid: 877e14dc530b6b24883a716f081755fb,
     type: 3}
+  m_OnHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2953018410809883558}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   slider: {fileID: 0}
   gradient:
     serializedVersion: 2
@@ -403,6 +419,23 @@ MonoBehaviour:
     BulletSpeed: 75
     BulletDamage: 1
     BulletSpray: 40
+--- !u!114 &2953018410809883558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2478811909122273076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c777a5aa8879ff4d9eda6249ec7e2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 421cedce6f3c69b408a79b12f018f925, type: 3}
+  soundPosition: {x: 0, y: 0, z: 0}
+  soundObject: {fileID: 0}
+  whereToPlay: 2
+  audioType: 1
 --- !u!1 &2478811909708851675
 GameObject:
   m_ObjectHideFlags: 0

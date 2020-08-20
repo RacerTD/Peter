@@ -1454,6 +1454,7 @@ GameObject:
   - component: {fileID: 6722286686656931529}
   - component: {fileID: 6722286686656931523}
   - component: {fileID: 1476435410375315525}
+  - component: {fileID: 994490489418093109}
   m_Layer: 2
   m_Name: WalkingEnemyPrototype
   m_TagString: Untagged
@@ -1532,11 +1533,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   onHitSound: {fileID: 0}
-  onDeathSound: {fileID: 8300000, guid: cce69e143a3d88349ae08a4697dc3693, type: 3}
+  onDeathSound: {fileID: 8300000, guid: 2def8a32b1abb674e8beb9079dde588a, type: 3}
   thingToSpawnAtDeath: {fileID: 2330903936186548547, guid: 2028b663cb17f1b47af4910dbb0d1df2,
     type: 3}
   deathEffect: {fileID: 7811377312894832571, guid: 0bc82784cb67a8148a60fe4fee299e64,
     type: 3}
+  m_OnHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 994490489418093109}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   slider: {fileID: 2104116593872472041}
   gradient:
     serializedVersion: 2
@@ -1923,6 +1939,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &994490489418093109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722286686656931520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c777a5aa8879ff4d9eda6249ec7e2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 421cedce6f3c69b408a79b12f018f925, type: 3}
+  soundPosition: {x: 0, y: 0, z: 0}
+  soundObject: {fileID: 0}
+  whereToPlay: 2
+  audioType: 1
 --- !u!1 &6722286686804034044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,6 +2934,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe2732c64cc424f40b8f8beee0be52ef, type: 3}
+--- !u!224 &7366644678535726512 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8536494091472826734, guid: fe2732c64cc424f40b8f8beee0be52ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174362444396606686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2104116593872472041 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 972635197450728247, guid: fe2732c64cc424f40b8f8beee0be52ef,
@@ -2925,9 +2964,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7366644678535726512 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8536494091472826734, guid: fe2732c64cc424f40b8f8beee0be52ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 1174362444396606686}
-  m_PrefabAsset: {fileID: 0}

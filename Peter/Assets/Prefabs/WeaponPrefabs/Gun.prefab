@@ -650,7 +650,7 @@ MonoBehaviour:
   CurrentAmmoText: {fileID: 306250518432209680}
   LeftOverAmmoText: {fileID: 543021421068636437}
   ShootSound: {fileID: 8300000, guid: c84007e2c39912344a487b695c58d785, type: 3}
-  ReloadSound: {fileID: 8300000, guid: 303d16a95f430064c97dfe20c5511122, type: 3}
+  ReloadSound: {fileID: 8300000, guid: 899a435cc138ceb49b242502b7850c38, type: 3}
   MaxGunAmmo: 24
   RecoilScopeUpperMargin: {x: 1.1, y: 0.2, z: 0.2}
   RecoilScopeLowerMargin: {x: 0, y: -0.2, z: -0.2}
