@@ -211,7 +211,7 @@ MonoBehaviour:
   onHitSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 3649623076159389074, guid: b4b3e3639cf711a44bf2aac26e2641a4,
     type: 3}
-  deathEffect: {fileID: 7811377312894832571, guid: 0bc82784cb67a8148a60fe4fee299e64,
+  deathEffect: {fileID: 5771490361722258990, guid: 877e14dc530b6b24883a716f081755fb,
     type: 3}
   slider: {fileID: 0}
   gradient:
@@ -248,7 +248,8 @@ MonoBehaviour:
     type: 3}
   radiusWhereTheNumbersSpawn: 1
   damageNumberSpawnOffset: {x: 0, y: 1, z: 0}
-  onHitEffect: {fileID: 0}
+  onHitEffect: {fileID: 5771490361722258990, guid: 2eacdea7e3c94ae4b810afd8297e6adc,
+    type: 3}
 --- !u!114 &7619004523240550213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +369,7 @@ MonoBehaviour:
   RotationSpeed: 40
   RotationSpeedPlayerInSight: 150
   WaitTimeAfterLastSighting: 7
-  ShouldVector: {x: 0, y: 0, z: 0}
+  LookClamp: 40
 --- !u!114 &938833299001008562
 MonoBehaviour:
   m_ObjectHideFlags: 0

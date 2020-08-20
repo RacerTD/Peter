@@ -5708,7 +5708,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614912}
   m_ExposedName: Dust Count
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -8872,7 +8872,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615071}
   m_ExposedName: Trail Color
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -9328,7 +9328,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615095}
   m_ExposedName: Min Velocity Trail
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -9507,7 +9507,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615100}
   m_ExposedName: Max Velocity Trail
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -9749,7 +9749,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615107}
   m_ExposedName: Dust Gradient
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:

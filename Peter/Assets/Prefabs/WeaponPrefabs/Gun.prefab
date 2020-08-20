@@ -374,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1361228349964014367
 Transform:
   m_ObjectHideFlags: 0
@@ -669,6 +669,7 @@ MonoBehaviour:
     type: 3}
   ReloadEffect: {fileID: 7811377312894832571, guid: 70411f625da28514b87e3ccd57402549,
     type: 3}
+  ReloadLight: {fileID: 1102473792052501931}
   ReloadEffectPosition: {fileID: 530591322462407248}
 --- !u!1 &4363385127798144897
 GameObject:

@@ -1566,7 +1566,7 @@ MonoBehaviour:
     type: 3}
   radiusWhereTheNumbersSpawn: 1
   damageNumberSpawnOffset: {x: 0, y: 1, z: 0}
-  onHitEffect: {fileID: 7811377312894832571, guid: 70411f625da28514b87e3ccd57402549,
+  onHitEffect: {fileID: 5771490361722258990, guid: 2eacdea7e3c94ae4b810afd8297e6adc,
     type: 3}
 --- !u!114 &6722286686656931531
 MonoBehaviour:
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   RotationSpeed: 100
   RotationSpeedPlayerInSight: 250
   WaitTimeAfterLastSighting: 10
-  ShouldVector: {x: 0, y: 0, z: 0}
+  LookClamp: 40
 --- !u!114 &6722286686656931529
 MonoBehaviour:
   m_ObjectHideFlags: 0
