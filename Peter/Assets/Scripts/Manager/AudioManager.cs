@@ -59,19 +59,27 @@ public class AudioManager : ManagerModule<AudioManager>
     {
         for (int i = sounds.Count - 1; i >= 0; i--)
         {
-            if (sounds[i].isPlaying) continue;
-            int objectIndex = -1;
-            if (objects.Contains(sounds[i].gameObject))
+            if (sounds[i] == null)
             {
-                objectIndex = objects.IndexOf(sounds[i].gameObject);
+                sounds.RemoveAt(i);
+                continue;
             }
-            Destroy(sounds[i]);
-            if (objectIndex != -1)
+
+            if (sounds[i] == null || !sounds[i].isPlaying)
             {
-                Destroy(objects[objectIndex]);
-                objects.RemoveAt(objectIndex);
+                int objectIndex = -1;
+                if (objects.Contains(sounds[i].gameObject))
+                {
+                    objectIndex = objects.IndexOf(sounds[i].gameObject);
+                }
+                Destroy(sounds[i]);
+                if (objectIndex != -1)
+                {
+                    Destroy(objects[objectIndex]);
+                    objects.RemoveAt(objectIndex);
+                }
+                sounds.RemoveAt(i);
             }
-            sounds.RemoveAt(i);
         }
     }
 }
