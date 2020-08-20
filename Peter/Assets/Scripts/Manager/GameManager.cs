@@ -64,6 +64,13 @@ public class GameManager : ManagerModule<GameManager>
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
                 UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
                 break;
+            case GameState.Quit:
+                CurrentPlayer.DisableAllAbilitys(10000f);
+                CurrentPlayer.GetComponent<PlayerMove>().ShouldVector = Vector3.zero;
+                CurrentPlayer.GetComponent<PlayerMove>().MoveVector = Vector3.zero;
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
+                UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -110,6 +117,13 @@ public class GameManager : ManagerModule<GameManager>
                     SceneManager.LoadScene(nextSceneName);
                 }
                 break;
+            case GameState.Quit:
+                if (timeInCurrentState >= timeTillSceneLoad)
+                {
+                    Application.Quit();
+                    Debug.Log("Application Closed");
+                }
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -132,5 +146,6 @@ public enum GameState
     Paused,
     CutScene,
     Dead,
-    LoadingScene
+    LoadingScene,
+    Quit
 }

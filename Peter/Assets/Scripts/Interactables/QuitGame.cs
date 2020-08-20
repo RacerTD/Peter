@@ -6,6 +6,6 @@ public class QuitGame : MonoBehaviour
 {
     public void Quit()
     {
-        Application.Quit();
+        GameManager.Instance.CurrentGameState = GameState.Quit;
     }
 }
