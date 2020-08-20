@@ -15,7 +15,7 @@ public class TurretShootNode : ActionNode
 
     public override NodeState CheckNodeState()
     {
-        if (enemyController.ViewAngleToPlayer <= 10f && enemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
+        if (enemyController.ViewAngleToPlayer <= 15f && enemyController.CheckIfPlayerVisibleAndInRadiusAndNotBehindCover())
         {
             return NodeState.Running;
         }
