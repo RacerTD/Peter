@@ -1026,7 +1026,7 @@ MonoBehaviour:
   GunPoint: {fileID: 7371765959588580310}
   AimPoint: {fileID: 2023361867019292489}
   SpawnPoint: {fileID: 6821388866025225720}
-  HorizontalShotOffset: -0.085
+  HorizontalShotOffset: -0.07
   AimTime: 0.05
   isAiming: 0
   TimeSinceLastShot: 0
@@ -1099,6 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   timeTillHeal: 5
   healPerSecond: 2
   onHitRumble:

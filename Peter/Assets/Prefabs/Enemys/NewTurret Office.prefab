@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a655a42dc2d84b4a8c02efb7f9a8a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 450
+  maxHealth: 200
   onHitSound: {fileID: 0}
   onDeathSound: {fileID: 8300000, guid: c4ac8ff19119f49488412d2559f18ce3, type: 3}
   thingToSpawnAtDeath: {fileID: 3649623076159389074, guid: b4b3e3639cf711a44bf2aac26e2641a4,

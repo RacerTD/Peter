@@ -91,7 +91,7 @@ MonoBehaviour:
   endPositon: {x: -12, y: 12}
   thingOverLogoTimeTillStart: 1.8
   thingOverLogoTimeToDo: 0.3
-  deathScreenSound: {fileID: 8300000, guid: 873a44d3a277de64c80fd5a89b965af1, type: 3}
+  deathScreenSound: {fileID: 8300000, guid: 0629f80348c36c7479282d0ba759c070, type: 3}
   blackScreen: {fileID: 4914468579764432149}
   blackScreenStartColor: {r: 0, g: 0, b: 0, a: 0}
   blackScreenEndColor: {r: 0, g: 0, b: 0, a: 1}
