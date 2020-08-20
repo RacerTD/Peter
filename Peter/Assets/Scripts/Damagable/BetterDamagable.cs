@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
+using UnityEngine.Events;
 
 public class BetterDamagable : Damagable
 {
     [Header("Custom Damagable")]
     public GameObject thingToSpawnAtDeath;
     public VisualEffect deathEffect;
+    public UnityEvent m_OnHitEvent = new UnityEvent();
 
     [Header("Healthbar")]
     [SerializeField] protected Slider slider;
@@ -58,6 +60,8 @@ public class BetterDamagable : Damagable
         {
             Instantiate(onHitEffect, transform.position, transform.rotation, GameManager.Instance.ParticleHolder);
         }
+
+        m_OnHitEvent.Invoke();
 
         UIManager.Instance.ActivateHitMarker();
         SpawnDamageNumber(damage);
