@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_760205A9: 0
+    - Vector1_760205A9: -0.75
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
@@ -89,8 +89,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_E7599302: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
-    - Color_F1DFD1CB: {r: 0.115521535, g: 0.34852263, b: 0.41509432, a: 0}
+    - Color_E7599302: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F1DFD1CB: {r: 0.027901392, g: 0.14583175, b: 0.1792453, a: 0}
     - Vector2_C4CB2454: {r: 1.5, g: 2, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
