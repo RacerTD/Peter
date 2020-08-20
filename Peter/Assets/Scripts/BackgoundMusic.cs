@@ -23,12 +23,16 @@ public class BackgoundMusic : MonoBehaviour
         }
     }
     private AudioSource source;
+    [SerializeField] protected AudioMixerGroup mix;
+    [SerializeField] [Range(0, 1)] protected float volume = 1f;
 
     private void Start()
     {
         if (source == null)
         {
             source = gameObject.AddComponent<AudioSource>();
+            source.outputAudioMixerGroup = mix;
+            source.volume = volume;
         }
     }
 
