@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     public ShotType ShotType = ShotType.Auto;
     public TextMeshProUGUI CurrentAmmoText;
     public TextMeshProUGUI LeftOverAmmoText;
+    [Header("Sounds")]
     public AudioClip ShootSound;
     public AudioClip ReloadSound;
     public int MaxGunAmmo = 20;

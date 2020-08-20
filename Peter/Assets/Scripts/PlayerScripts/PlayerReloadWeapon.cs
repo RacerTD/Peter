@@ -31,7 +31,7 @@ public class PlayerReloadWeapon : PlayerAbility
 
         if (playerShoot.Gun.ReloadSound != null)
         {
-            AudioManager.Instance.PlayNewSound(AudioType.Sfx, playerShoot.Gun.ShootSound, playerShoot.Gun.ShootPoint.gameObject);
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, playerShoot.Gun.ReloadSound, playerShoot.Gun.ShootPoint.gameObject);
         }
 
         if (playerShoot.Gun.ReloadEffect != null)
