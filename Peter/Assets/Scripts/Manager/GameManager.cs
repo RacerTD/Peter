@@ -59,6 +59,9 @@ public class GameManager : ManagerModule<GameManager>
                 break;
             case GameState.LoadingScene:
                 CurrentPlayer.DisableAllAbilitys(10000f);
+                CurrentPlayer.GetComponent<PlayerMove>().ShouldVector = Vector3.zero;
+                CurrentPlayer.GetComponent<PlayerMove>().MoveVector = Vector3.zero;
+                CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
                 UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
                 break;
             default:
