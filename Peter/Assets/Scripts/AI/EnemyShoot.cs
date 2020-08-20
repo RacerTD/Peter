@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyShoot : EnemyAbility
 {
+    public AudioClip ShootSound;
     public List<Transform> ShootPoints = new List<Transform>();
     private int _shootPointsIndex = 0;
     private int shootPointsIndex
@@ -85,6 +86,11 @@ public class EnemyShoot : EnemyAbility
         if (timeSinceLastShot > step.Duration / step.BulletAmount)
         {
             timeSinceLastShot = 0;
+
+            if (ShootSound != null)
+            {
+                AudioManager.Instance.PlayNewSound(AudioType.Sfx, ShootSound, gameObject);
+            }
 
             switch (step.ShootPointMode)
             {
