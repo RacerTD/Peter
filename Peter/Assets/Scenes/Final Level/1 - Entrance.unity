@@ -21554,51 +21554,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502537122}
     m_Modifications:
-    - target: {fileID: -715388015434957767, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: maxHealth
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 698770824, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 869128413, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175512763, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416799092, guid: 19f8b9a6de495ab4f84f44ac522369b1, type: 3}
-      propertyPath: ammo
-      value: 999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231768784205, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231768784205, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: field of view
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231768784205, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: m_FOVAxisMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231972256806, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: DimensionOffset.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231972256809, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: mouseLookSensitivity
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
@@ -21638,7 +21596,7 @@ PrefabInstance:
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
@@ -21653,11 +21611,6 @@ PrefabInstance:
     - target: {fileID: 8798636231972256812, guid: 19f8b9a6de495ab4f84f44ac522369b1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798636231972256813, guid: 19f8b9a6de495ab4f84f44ac522369b1,
-        type: 3}
-      propertyPath: sneakIsToggle
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8798636231972256816, guid: 19f8b9a6de495ab4f84f44ac522369b1,

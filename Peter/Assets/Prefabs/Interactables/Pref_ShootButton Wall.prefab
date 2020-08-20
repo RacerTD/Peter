@@ -531,7 +531,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHitSound: {fileID: 8300000, guid: 7d84be224339d0d40a79413d56638b82, type: 3}
+  onHitSound: {fileID: 8300000, guid: c3e9d8094ab23bf4dbc848f5e4a015a2, type: 3}
 --- !u!1 &7128909447109119919
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class UIManager : ManagerModule<UIManager>
     [SerializeField] protected Image blackScreen;
     [SerializeField] protected Color blackScreenStartColor;
     [SerializeField] protected Color blackScreenEndColor;
-    private float timeToBlack = 2f;
+    [SerializeField] private float timeToBlack = 2f;
     private bool blackScreenIsActive = false;
     private float blackScreenTimer = 0f;
     private float timeInThisScene = 0f;

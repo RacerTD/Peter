@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d5d143033bd204b9a75ac65f5a4d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityLowerBounds: {x: -0.4, y: 0, z: -0.4}
-  velocityUpperBounds: {x: 0.4, y: 0.4, z: 0.4}
+  velocityLowerBounds: {x: -0.6, y: 0, z: -0.6}
+  velocityUpperBounds: {x: 0.6, y: 0.6, z: 0.6}
   lifeTime: 1
   textColor:
     serializedVersion: 2

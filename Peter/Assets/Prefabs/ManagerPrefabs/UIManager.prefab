@@ -95,6 +95,7 @@ MonoBehaviour:
   blackScreen: {fileID: 4914468579764432149}
   blackScreenStartColor: {r: 0, g: 0, b: 0, a: 0}
   blackScreenEndColor: {r: 0, g: 0, b: 0, a: 1}
+  timeToBlack: 4
 --- !u!1001 &1088036021460849052
 PrefabInstance:
   m_ObjectHideFlags: 0
