@@ -44,6 +44,7 @@ public class Damagable : MonoBehaviour
     #endregion
 
     [SerializeField] protected AudioClip onHitSound;
+    [SerializeField] protected AudioClip onDeathSound;
 
     protected virtual void Start()
     {
@@ -104,6 +105,10 @@ public class Damagable : MonoBehaviour
     /// </summary>
     protected virtual void OnDeath()
     {
+        if (onDeathSound != null)
+        {
+            AudioManager.Instance.PlayNewSound(AudioType.Sfx, onDeathSound, transform.position);
+        }
         Destroy(gameObject);
     }
 }
