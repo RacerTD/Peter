@@ -40,5 +40,10 @@ public class BackgoundMusic : MonoBehaviour
             source.Play();
             TrackListIndex++;
         }
+
+        if (GameManager.Instance.CurrentGameState == GameState.Dead || GameManager.Instance.CurrentGameState == GameState.LoadingScene)
+        {
+            source.volume -= 1 * Time.deltaTime;
+        }
     }
 }
