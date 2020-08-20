@@ -937,6 +937,9 @@ MonoBehaviour:
     AmountL: 0
     AmountR: 0
     Time: 0
+  StandardFoV: 55
+  AimedFoV: 45
+  FoVSpeed: 10
 --- !u!114 &8798636231972256813
 MonoBehaviour:
   m_ObjectHideFlags: 0

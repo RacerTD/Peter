@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Level/6 - Conservatory.unity
     guid: 15ab16f805550184387c8c8931b6848c
   - enabled: 0
-    path: Assets/Scenes/Ni 2.unity
+    path: Assets/Scenes/Old Scene/Ni 2.unity
     guid: 8324f0cc9f97f044f8a9cd3c93febb7c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1eed0f338693f4a4690686f3822f928d,
