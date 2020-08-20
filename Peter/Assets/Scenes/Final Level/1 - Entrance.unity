@@ -12051,7 +12051,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHitSound: {fileID: 0}
+  onHitSound: {fileID: 8300000, guid: 01f8770a5e7a30543a070824c3522ca1, type: 3}
 --- !u!4 &976593303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2175991345852463110, guid: ade26ad82ce6f114b83c1cfe276383f8,
