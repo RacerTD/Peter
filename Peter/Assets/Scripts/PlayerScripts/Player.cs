@@ -14,6 +14,9 @@ public class Player : AbilityController
     private float forcedAnimationTime = 0f;
     private WeaponAnimationState currentAnimationState = WeaponAnimationState.Idle;
     public Rumble currentRumble = new Rumble();
+    public float StandardFoV = 55f;
+    public float AimedFoV = 40f;
+    public float FoVSpeed = 1f;
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class Player : AbilityController
         }
 
         HandleRumble();
+        HandleFoV();
 
         base.Update();
     }
@@ -64,6 +68,11 @@ public class Player : AbilityController
             Gamepad.current.SetMotorSpeeds(0, 0);
         }
 #endif
+    }
+
+    private void HandleFoV()
+    {
+        PlayerCamera.fieldOfView = Mathf.Lerp(PlayerCamera.fieldOfView, playerShoot.isAiming ? AimedFoV : StandardFoV, FoVSpeed * Time.deltaTime);
     }
 
     /// <summary>

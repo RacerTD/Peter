@@ -106,10 +106,7 @@ public class UIManager : ManagerModule<UIManager>
     {
         if (healthBar != null)
         {
-            if (Mathf.Abs(healthBar.value) - Mathf.Abs(value) < 0.05)
-            {
-                return;
-            }
+            healthBar.value = value;
         }
     }
     #endregion
