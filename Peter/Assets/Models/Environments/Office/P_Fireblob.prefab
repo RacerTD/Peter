@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8703170696945650296}
   - component: {fileID: 2881353966161185325}
   - component: {fileID: 156119655}
+  - component: {fileID: 156119651}
+  - component: {fileID: 156119656}
   m_Layer: 9
   m_Name: Feuer dubs
   m_TagString: Untagged
@@ -117,7 +119,7 @@ MonoBehaviour:
   force: {x: 5, y: 20, z: 2}
   isActive: 0
   timeSinceActive: 0
-  timeActive: 5
+  timeActive: 4
 --- !u!136 &156119655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -132,6 +134,98 @@ CapsuleCollider:
   m_Height: 0.81488013
   m_Direction: 1
   m_Center: {x: -0.00033479184, y: 0.42375278, z: -0.013546344}
+--- !u!114 &156119651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647366156763977560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8eb4a811ff499c45b5f6296476b4469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8834806412973649874}
+        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 156119656}
+        m_TargetAssemblyTypeName: WaitForSeconds, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2881353966161185325}
+        m_TargetAssemblyTypeName: FireThing, Assembly-CSharp
+        m_MethodName: HitThing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHitSound: {fileID: 0}
+--- !u!114 &156119656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647366156763977560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd046ff89d4ce50439ed023d5805ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8834806412973649874}
+        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 643854879}
+        m_TargetAssemblyTypeName: WaitForSeconds, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  timeToWait: 4
 --- !u!1 &2252355003580730711
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,13 +374,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085116399709840864}
-  m_LocalRotation: {x: -0, y: 0.96717995, z: -0, w: 0.25409266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.20495552, y: 0.42774254, z: 0.15075913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489755274663448806}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 150.56, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &156797264778069868
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -337,6 +431,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &643854879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834806412973649876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd046ff89d4ce50439ed023d5805ab9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8834806412973649876}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  timeToWait: 1
 --- !u!1 &9122740186640288348
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,9 +581,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fa174f014f81f14e83980d2a3a79581, type: 3}
+--- !u!1 &8834806412973649876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3316178972479617661, guid: 5fa174f014f81f14e83980d2a3a79581,
+    type: 3}
+  m_PrefabInstance: {fileID: 6097564567937177001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8834806412973649875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3316178972479617658, guid: 5fa174f014f81f14e83980d2a3a79581,
+    type: 3}
+  m_PrefabInstance: {fileID: 6097564567937177001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &8834806412973649874 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 3316178972479617659, guid: 5fa174f014f81f14e83980d2a3a79581,
     type: 3}
   m_PrefabInstance: {fileID: 6097564567937177001}
   m_PrefabAsset: {fileID: 0}

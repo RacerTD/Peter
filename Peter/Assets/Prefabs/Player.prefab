@@ -1028,8 +1028,8 @@ MonoBehaviour:
   isAiming: 0
   TimeSinceLastShot: 0
   shootRumble:
-    AmountL: 0.5
-    AmountR: 0.25
+    AmountL: 0
+    AmountR: 0
     Time: 0.2
   ammo: 999
 --- !u!114 &1674577478
@@ -1079,8 +1079,8 @@ MonoBehaviour:
   InputCanceled: 0
   player: {fileID: 0}
   onReloadRumble:
-    AmountL: 0.5
-    AmountR: 0.7
+    AmountL: 0
+    AmountR: 0
     Time: 2
 --- !u!114 &-715388015434957767
 MonoBehaviour:
@@ -1099,8 +1099,8 @@ MonoBehaviour:
   timeTillHeal: 5
   healPerSecond: 2
   onHitRumble:
-    AmountL: 2.5
-    AmountR: 2.5
+    AmountL: 0
+    AmountR: 0
     Time: 0.2
 --- !u!114 &233095714
 MonoBehaviour:
