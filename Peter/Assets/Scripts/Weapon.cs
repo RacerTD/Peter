@@ -56,6 +56,7 @@ public class Weapon : MonoBehaviour
     public VisualEffect BulletFollowingParticles;
     public VisualEffect MuzzleFlash;
     public VisualEffect ReloadEffect;
+    public Light ReloadLight;
     public Transform ReloadEffectPosition;
 
     private void OnDrawGizmosSelected()
