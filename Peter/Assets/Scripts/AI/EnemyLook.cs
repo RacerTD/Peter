@@ -28,7 +28,16 @@ public class EnemyLook : EnemyAbility
     public float RotationSpeed = 30f;
     public float RotationSpeedPlayerInSight = 60f;
     public float WaitTimeAfterLastSighting = 10f;
-    public Vector3 ShouldVector = Vector3.zero;
+    private Vector3 shouldVector = Vector3.zero;
+    public Vector3 ShouldVector
+    {
+        get => shouldVector;
+        set
+        {
+            shouldVector = new Vector3(Mathf.Clamp(value.x, -LookClamp, LookClamp), value.y, value.z);
+        }
+    }
+    public float LookClamp = 40f;
 
 
     private void Start()
