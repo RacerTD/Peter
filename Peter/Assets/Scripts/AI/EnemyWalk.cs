@@ -73,7 +73,10 @@ public class EnemyWalk : EnemyAbility
                 {
                     waitingPointsIndex++;
 
-                    navMeshAgent.SetDestination(CurrentPath.Positions[waitingPointsIndex].Position.position);
+                    if (navMeshAgent != null && CurrentPath != null)
+                    {
+                        navMeshAgent.SetDestination(CurrentPath.Positions[waitingPointsIndex].Position.position);
+                    }
                     timeToWait = CurrentPath.Positions[waitingPointsIndex].WaitTimeAtPostion;
                 }
                 break;
