@@ -15,7 +15,37 @@ PrefabInstance:
     - target: {fileID: 1645503277785287080, guid: 416fd8564eddda3428dec5056761d12a,
         type: 3}
       propertyPath: m_Name
-      value: WallOffice7 (12)
+      value: WallOffice7 (12) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.030000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.040102813
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.002000609
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 5.426305e-22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.019948596
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026450945600043002, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000000023865148
       objectReference: {fileID: 0}
     - target: {fileID: 2134090702342214418, guid: 416fd8564eddda3428dec5056761d12a,
         type: 3}
@@ -72,5 +102,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2134090702342214418, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134090702342214418, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134090702342214418, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040505594363337911, guid: 416fd8564eddda3428dec5056761d12a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4596423485573477391, guid: 1ed38f5743877f9408affa842117139b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416fd8564eddda3428dec5056761d12a, type: 3}
