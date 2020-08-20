@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2412678262093917483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.20852026, z: 0.69962317}
+  m_LocalPosition: {x: 0, y: 0.20852026, z: 0.942}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 4240013928347498930}
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 450
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   thingToSpawnAtDeath: {fileID: 3649623076159389074, guid: b4b3e3639cf711a44bf2aac26e2641a4,
     type: 3}
   deathEffect: {fileID: 5771490361722258990, guid: 877e14dc530b6b24883a716f081755fb,
@@ -386,6 +387,7 @@ MonoBehaviour:
   AbilityDuration: 0
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
+  ShootSound: {fileID: 0}
   ShootPoints:
   - {fileID: 2478811909708851668}
   ShootSteps:
@@ -740,6 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 5382428437799629785}
   DamageMult: 1.5
 --- !u!65 &2052175654775866358

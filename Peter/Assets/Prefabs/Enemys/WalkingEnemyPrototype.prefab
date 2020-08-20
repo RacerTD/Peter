@@ -350,6 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 6722286686656931530}
   DamageMult: 1.5
 --- !u!1 &1899293646911526439
@@ -412,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 6722286686656931530}
   DamageMult: 2
 --- !u!1 &2031544125998852375
@@ -643,6 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 6722286686656931530}
   DamageMult: 1
 --- !u!1 &3279872200379964056
@@ -819,6 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 6722286686656931530}
   DamageMult: 0.5
 --- !u!1 &3961807287013387039
@@ -1449,6 +1453,7 @@ GameObject:
   - component: {fileID: 6722286686656931528}
   - component: {fileID: 6722286686656931529}
   - component: {fileID: 6722286686656931523}
+  - component: {fileID: 1476435410375315525}
   m_Layer: 2
   m_Name: WalkingEnemyPrototype
   m_TagString: Untagged
@@ -1527,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 8300000, guid: cce69e143a3d88349ae08a4697dc3693, type: 3}
   thingToSpawnAtDeath: {fileID: 2330903936186548547, guid: 2028b663cb17f1b47af4910dbb0d1df2,
     type: 3}
   deathEffect: {fileID: 7811377312894832571, guid: 0bc82784cb67a8148a60fe4fee299e64,
@@ -1712,6 +1718,7 @@ MonoBehaviour:
   AbilityDuration: 0
   AbilityCoolDown: 0
   TimeSinceLastUse: 100
+  ShootSound: {fileID: 8300000, guid: 3611344f87a99f84a9f12292e3ef0e17, type: 3}
   ShootPoints:
   - {fileID: 6722286687733128461}
   - {fileID: 6722286687959374674}
@@ -1747,6 +1754,175 @@ MonoBehaviour:
   CurrentPath: {fileID: 0}
   currentDestination: {x: 0, y: 0, z: 0}
   walkState: 0
+--- !u!82 &1476435410375315525
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722286686656931520}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4530406547040756478, guid: f8f3405decdedb64bb8291003c04903e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: a80343c147fdc3748bf0584bfcabb82f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.02602496
+      value: 0.9911804
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.028024964
+      value: 0.49118042
+      inSlope: -125.05016
+      outSlope: -125.05016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.032024965
+      value: 0.24118042
+      inSlope: -31.26254
+      outSlope: -31.26254
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.040024966
+      value: 0.11618042
+      inSlope: -7.815635
+      outSlope: -7.815635
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.05602497
+      value: 0.05368042
+      inSlope: -1.9539088
+      outSlope: -1.9539088
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.088024974
+      value: 0.02243042
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.15202497
+      value: 0.00680542
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.28002498
+      value: 0.004425049
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6050939
+      value: 0
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.024024963
+      value: 0.9911804
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.024024963
+      value: 0.004425049
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.024024963
+      value: 0.9911804
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6722286686804034044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   onHitSound: {fileID: 0}
+  onDeathSound: {fileID: 0}
   ParentDamagable: {fileID: 6722286686656931530}
   DamageMult: 0.5
 --- !u!1 &7038784023639428581

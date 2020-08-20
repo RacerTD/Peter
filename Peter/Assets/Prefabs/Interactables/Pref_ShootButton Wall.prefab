@@ -334,6 +334,7 @@ MonoBehaviour:
     Color: {r: 0, g: 0.55484986, b: 1, a: 0}
     Time: 2
   lightToChange: {fileID: 6962315362247209401}
+  loop: 0
 --- !u!1 &4548258740169821999
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHitSound: {fileID: 0}
+  onHitSound: {fileID: 8300000, guid: 7d84be224339d0d40a79413d56638b82, type: 3}
 --- !u!1 &7128909447109119919
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +558,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7128909447109119919}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.000000029802322}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000017881392}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
