@@ -11,16 +11,20 @@ public class PlayerReloadWeapon : PlayerAbility
     private float timeBetweenBullets = 0f;
     private float timeSinceLastBullet = 0f;
     [SerializeField] private Rumble onReloadRumble = new Rumble(0.1f, 0.1f, 4);
+    [SerializeField] protected Light onOffLight;
 
     protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
+        onOffLight.gameObject.SetActive(false);
         base.Start();
     }
 
     public override void AbilityStart()
     {
         GetComponent<Player>().currentRumble = onReloadRumble;
+
+        onOffLight.gameObject.SetActive(true);
 
         playerShoot.TimeBlocked = AbilityDuration;
         //player.PlayAnimationNow(WeaponAnimationState.Reload, AbilityDuration * 0.8f);
@@ -54,6 +58,7 @@ public class PlayerReloadWeapon : PlayerAbility
 
     public override void AbilityEnd()
     {
+        onOffLight.gameObject.SetActive(false);
         //Reload();
         base.AbilityEnd();
     }
