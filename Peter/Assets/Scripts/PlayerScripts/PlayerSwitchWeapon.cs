@@ -15,7 +15,10 @@ public class PlayerSwitchWeapon : PlayerAbility
     protected override void Start()
     {
         playerShoot = GetComponent<PlayerShoot>();
-        GenerateWeapon();
+        if (playerShoot.Gun == null)
+        {
+            GenerateWeapon();
+        }
         playerShoot.Gun.CurrentGunAmmo = playerShoot.Gun.MaxGunAmmo;
         base.Start();
     }
