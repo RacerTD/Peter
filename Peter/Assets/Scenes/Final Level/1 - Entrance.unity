@@ -18051,6 +18051,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Living Wall 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b64f9824610db2741b4865c898a9bb24,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b64f9824610db2741b4865c898a9bb24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b64f9824610db2741b4865c898a9bb24, type: 3}
 --- !u!1001 &1206278095
@@ -24971,6 +24981,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 1632222405210745256, guid: 366bea0bfe936894d9b57cb6ef1bc392,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1632222405210745257, guid: 366bea0bfe936894d9b57cb6ef1bc392,
         type: 3}
       propertyPath: m_Version
@@ -25025,6 +25040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AreaSize.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632222405265137866, guid: 366bea0bfe936894d9b57cb6ef1bc392,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1632222405265137867, guid: 366bea0bfe936894d9b57cb6ef1bc392,
         type: 3}
@@ -25502,6 +25522,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 1632222405210745256, guid: 366bea0bfe936894d9b57cb6ef1bc392,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1632222405210745257, guid: 366bea0bfe936894d9b57cb6ef1bc392,
         type: 3}
       propertyPath: m_Version
@@ -25556,6 +25581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AreaSize.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632222405265137866, guid: 366bea0bfe936894d9b57cb6ef1bc392,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1632222405265137867, guid: 366bea0bfe936894d9b57cb6ef1bc392,
         type: 3}
