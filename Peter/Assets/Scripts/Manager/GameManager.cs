@@ -38,10 +38,16 @@ public class GameManager : ManagerModule<GameManager>
             case GameState.Playing:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                if (UIManager2.Instance != null)
+                {
+                    UIManager2.Instance.ClosePauseMenu();
+                }
                 break;
             case GameState.Paused:
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                if (UIManager2.Instance != null)
+                {
+                    UIManager2.Instance.OpenPauseMenu();
+                }
                 break;
             case GameState.CutScene:
                 Cursor.lockState = CursorLockMode.Locked;
@@ -62,14 +68,20 @@ public class GameManager : ManagerModule<GameManager>
                 CurrentPlayer.GetComponent<PlayerMove>().ShouldVector = Vector3.zero;
                 CurrentPlayer.GetComponent<PlayerMove>().MoveVector = Vector3.zero;
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
-                UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
+                }
                 break;
             case GameState.Quit:
                 CurrentPlayer.DisableAllAbilitys(10000f);
                 CurrentPlayer.GetComponent<PlayerMove>().ShouldVector = Vector3.zero;
                 CurrentPlayer.GetComponent<PlayerMove>().MoveVector = Vector3.zero;
                 CurrentPlayer.GetComponent<PlayerShoot>().Gun.WeaponAnimator.enabled = false;
-                UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.StartFadeToBlack(timeTillSceneLoad);
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
